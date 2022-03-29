@@ -44,6 +44,7 @@
                                                                 <div class="row">
                                                                     <div class="col-lg-12 col-md-12 col-sm-12 text-center">
                                                                         <img src="{{ asset('/storage/'.$value->img) }}" alt="" class="img-fluid">
+                                                                        <img src="{{ Storage::url($value->img) }}" alt="" class="img-fluid">
                                                                     </div><!--end col-->
                                                                 </div><!--end row-->
 
