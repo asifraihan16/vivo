@@ -8,7 +8,7 @@ use App\MobileSeries;
 use App\MobileSeriesVersion;
 use App\Blog;
 use App\Campaign;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
@@ -127,10 +127,8 @@ class FrontendController extends Controller
 
             $version_count = sizeof($versions);
             $desired_image_limit = 9;
-            $per_version_limit = round($desired_image_limit / $version_count);
+            $per_version_limit = $version_count > 0 ? round($desired_image_limit / $version_count) : 0;
 
-            // echo $per_version_limit."<br/>";
-            // continue;
             foreach ($versions as $version) {
 
                 $final_data[$series->name][$version->name] =  DB::table('photo_galleries')
@@ -148,18 +146,12 @@ class FrontendController extends Controller
             }
         }
 
-        // echo "<pre/>";
-        // print_r($final_data);
-        // die;
-        // return dd($final_data);
-
         $exhibitions = DB::table('exibitions')
-            ->select(
-                'exibitions.*'
-            )
+            ->select('exibitions.*')
             ->get();
 
-        return view('frontend.exibition', compact('exhibitions', 'mobile_series', 'final_data'));
+
+        return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'final_data'));
     }
 
     public function blogs()

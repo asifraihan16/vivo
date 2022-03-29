@@ -25,9 +25,7 @@
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
-                <!-- import content layouts and modules -->
-                <!-- start adding page content -->
-                <!-- works section -->
+
                 <section class="section hero works-list padding-bottom-none padding-top-none is-clearfix">
                     <div>
                         <div class="works isotope masonry image-hover effect-10 mfp-lightbox-gallery margin-bottom-none">
@@ -37,10 +35,10 @@
                                         <div class="work-item">
                                             <figure>
                                                 <?php $var = 'img' . $i; ?>
-                                                <a href="{{ asset('/storage/' . $exhibitions[0]->$var) }}"
+                                                <a href="{{ Storage::url($exhibitions[0]->$var) }}"
                                                     class="mfp-lightbox mfp-image" title="">
                                                     <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                        src="{{ asset('/storage/' . $exhibitions[0]->$var) }}">
+                                                        src="{{ Storage::url($exhibitions[0]->$var) }}">
                                                     <figcaption>
                                                         <ul class="social">
                                                             <li>
@@ -68,21 +66,24 @@
                         @foreach ($final_data as $key => $series)
                             <h1 class="heading-title style-1">{{ $key }}</h1>
 
-                            <div class="works isotope masonry image-hover effect-8">
-                                <ul class="isotope-filter">
-                                    <li data-filter="*" class="active">show all</li>
+                            <div class="works isotope masonry image-hover effect-8 grid-container">
+                                <div class="masonry-filters">
+                                    <ul>
+                                        <li data-filter="*" class="active">show all</li>
+                                        @foreach ($series as $key => $versions)
+                                            <li data-filter="{{ '.'.Str::slug($key) }}">{{ $key }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                                <div class="_grid columns is-variable is-3 is-multiline">
                                     @foreach ($series as $key => $versions)
-                                        <li data-filter=".branding1">{{ $key }}</li>
-                                    @endforeach
-                                </ul>
-                                <div class="columns is-variable is-3 is-multiline">
-                                    @foreach ($series as $versions)
                                         @foreach ($versions as $exhibitions)
-                                            <div class="column is-4 branding " data-aos="fade-up">
+                                            <div class="_grid-item column is-4 {{ Str::slug($key) }}">
                                                 <div class="work-item">
                                                     <figure>
                                                         <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                            src="{{ asset('/storage/' . $exhibitions->img) }}">
+                                                            src="{{ Storage::url($exhibitions->img) }}">
                                                     </figure>
                                                 </div>
                                                 <!-- .work-item -->
@@ -106,3 +107,74 @@
 @endsection
 
 
+
+@section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('.grid-container').each(function(i, gridContainer) {
+                var $gridContainer = $(gridContainer);
+                // init isotope for container
+                var $grid = $gridContainer.find('._grid').imagesLoaded(function() {
+                    $grid.isotope({
+                        itemSelector: '._grid-item',
+                        layoutMode: 'fitRows'
+                    })
+                });
+                // initi filters for container
+                $gridContainer.find('.masonry-filters').on('click', 'li', function() {
+                    var filterValue = $(this).attr('data-filter');
+                    $grid.isotope({
+                        filter: filterValue
+                    });
+                });
+            });
+
+            $('.masonry-filters').each(function(i, buttonGroup) {
+                var $buttonGroup = $(buttonGroup);
+                $buttonGroup.on('click', 'li', function() {
+                    $buttonGroup.find('.active').removeClass('active');
+                    $(this).addClass('active');
+                });
+            });
+
+        });
+    </script>
+@endsection
+
+
+@section('styles')
+    <style>
+        .work-item figure img {
+            width: 600px;
+            height: 400px;
+        }
+
+        .masonry-filters ul {
+            text-align: center;
+            font-family: Poppins, sans-serif;
+            text-transform: capitalize;
+            margin-bottom: 3.5rem;
+            list-style: none;
+        }
+
+        .masonry-filters ul li {
+            display: inline-block;
+            letter-spacing: .5px;
+            cursor: pointer;
+            color: #232323;
+            font-size: 15px;
+            font-size: .9375rem;
+            padding: 0 18px;
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+            font-weight: 500;
+        }
+
+        .masonry-filters ul li:hover,
+        .masonry-filters ul li.active {
+            color: #f30337;
+        }
+
+    </style>
+@endsection
