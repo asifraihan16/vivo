@@ -1,0 +1,58 @@
+/*
+ * ::::::::::: Custom Styles :::::::::::
+ * Note: use this file to add or override any other styles.
+ * DON'T EDIT TEMPLATE CSS/SCSS FILES DIRECTLY, JUST USE THIS FILE.
+ */
+
+.works-latest .works-latest-item .works-latest-item-meta h5 a, .works-latest .works-latest-item .works-latest-item-meta h3 a, .works-latest .works-latest-item .works-latest-item-meta h5, .works-latest-item .works-latest-item-meta h3 {
+ opacity: 1;
+}
+
+body .image-hover figure img {
+    min-height: auto!important;
+}
+
+/*header, .site-header-top{position: absolute !important;}*/
+body.header-transparent header {
+    background-color: #006eb69e;
+    /* color: #fff; */
+}
+
+/*#nav-wrap #site-navigation ul li a {color:#fff !important;}*/
+
+/*body.header-transparent header{background-color: #fff0;}*/
+
+#header #header-logo .logo-text{color: #000;}
+
+.mobile-series-title{
+    background-color: #000;
+    font-size: 25px;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.pageloader{background: #fff;}
+.footer-bottom-content .footer-copyright{text-transform: none !important}
+
+@media screen and (max-width:768px) {
+    body .works-latest .works-latest-item .works-latest-item-meta h3 {
+        font-size: 18px;
+    }
+
+    body .image-hover figure img {
+        min-height: auto!important;
+    }
+
+    body .section.hero.padding-bottom-none.padding-top-none .columns .column:last-child>div {
+        padding: 33px 20px 85px 20px!important;
+    }
+
+    body .section.hero.padding-bottom-none.padding-top-none.has-background-primary .columns .column:last-child>div {
+        padding: 0 20px 85px 20px!important;
+    }
+}
+
+/*# sourceMappingURL=_maps/custom.css.map */

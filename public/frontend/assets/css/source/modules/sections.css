@@ -1,0 +1,420 @@
+section {
+  position: relative;
+  background-color: white;
+}
+
+.section {
+  padding: 6.9rem 1.5rem;
+}
+
+.section.hero {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*
+ * ::::::::::: Introduction Section Styles :::::::::::
+ */
+.introduction {
+  background-color: white;
+  padding: 6rem 1.5rem;
+}
+
+/*
+ * ::::::::::: Services Section Styles :::::::::::
+ */
+.services {
+  background-color: #fafafa;
+  padding-bottom: 6.5rem;
+}
+
+/*
+ * ::::::::::: Services Section Styles :::::::::::
+ */
+.stories {
+  background: white;
+}
+
+.stories.style-2 {
+  background: white;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(68%, white), color-stop(32%, #fafafa));
+  background: linear-gradient(to bottom, white 68%, #fafafa 32%);
+}
+
+.stories .button.is-dark {
+  border-color: #EAEAEA;
+}
+
+.stories .button.is-dark:hover {
+  background-color: #f80036;
+  color: white;
+  border-color: #f80036;
+}
+
+.welcome-section {
+  background: white;
+}
+
+.welcome-section .heading-title {
+  line-height: 1.7;
+  font-size: 38px;
+}
+
+.welcome-section p {
+  padding-top: 12px;
+  font-size: 16.5px;
+  padding-bottom: 5px;
+}
+
+.welcome-section .button.is-text {
+  margin-left: 0;
+}
+
+body.welcome-section-fullwidth .welcome-section:not(.bottom) {
+  padding: 0;
+}
+
+body.welcome-section-fullwidth .welcome-section:not(.bottom) .section-body {
+  max-width: 100%;
+  border-radius: 0;
+}
+
+body.welcome-section-fullheight .welcome-section.bottom {
+  padding-bottom: 7rem;
+}
+
+body.welcome-section-primary-light .welcome-section.bottom {
+  background: #fafafa;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(65%, #101010), color-stop(35%, #fafafa));
+  background: linear-gradient(to top, #101010 65%, #fafafa 35%);
+}
+
+body.welcome-section-primary-light .clients-section {
+  background: #fafafa;
+}
+
+/*
+ * ::::::::::: Works Section Styles :::::::::::
+ */
+.works-list {
+  background-color: white;
+  padding-bottom: 6rem;
+}
+
+/*
+ * ::::::::::: Testimonials Section Styles :::::::::::
+ */
+.testimonials-list {
+  background-color: #fafafa;
+}
+
+.testimonials-section {
+  background: #f80036;
+  background: -webkit-gradient(linear, right top, left top, color-stop(50%, #101010), color-stop(50%, #f80036));
+  background: linear-gradient(to left, #101010 50%, #f80036 50%);
+}
+
+.testimonials-section .heading-title {
+  color: white;
+}
+
+.testimonials-section .owl-carousel.navs .owl-nav .owl-prev:before,
+.testimonials-section .owl-carousel.navs .owl-nav .owl-next:before {
+  color: white;
+}
+
+.testimonials-section .testimonials.columns-style-1 .testimonials-item h3 span {
+  color: #A6A6A6;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/*
+ * ::::::::::: Pricing Table Section Styles :::::::::::
+ */
+.pricingtable {
+  background-color: white;
+}
+
+/*
+ * ::::::::::: Subscribe Section Styles :::::::::::
+ */
+.subscribe-section {
+  padding: 7.3rem 1.5rem;
+  background-color: white;
+}
+
+.subscribe-section .heading-title {
+  padding-bottom: 27px;
+  margin-bottom: 0 !important;
+}
+
+.subscribe-section .heading-title:after {
+  display: none;
+}
+
+.subscribe-section p {
+  text-align: center;
+  color: #5c5c5c;
+  font-size: 18px;
+  font-size: 1.125rem;
+  margin-bottom: 40px;
+}
+
+.page-elements .subscribe-section {
+  background: inherit;
+}
+
+/*
+ * ::::::::::: Latest News Section Styles :::::::::::
+ */
+.latest-news,
+.slider {
+  background-color: white;
+}
+
+/*
+ * ::::::::::: Get In Touch Section Styles :::::::::::
+ */
+.get-in-touch {
+  background-color: #fafafa;
+  padding-bottom: 6.5rem;
+}
+
+.get-in-touch .box-item p {
+  margin-bottom: 15px;
+}
+
+/*
+ * ::::::::::: Instagram Feed Section Styles :::::::::::
+ */
+.instagram-feed {
+  background: white;
+}
+
+.site-footer-bottom .section {
+  padding: 3.4rem 1.5rem 3rem;
+  background: white;
+}
+
+/*
+ * ::::::::::: Intro About Section Styles :::::::::::
+ */
+.intro-about {
+  background-color: white;
+}
+
+/*
+ * ::::::::::: Team Section Styles :::::::::::
+ */
+.our-team {
+  background-color: white;
+  padding-bottom: 4rem;
+}
+
+/*
+ * ::::::::::: Counters Section Styles :::::::::::
+ */
+.counters {
+  background-color: #fafafa;
+}
+
+/*
+ * ::::::::::: Contact form Section Styles :::::::::::
+ */
+.contact-form {
+  background-color: white;
+}
+
+/*
+ * ::::::::::: Hero Custom Sections Styles :::::::::::
+ */
+.hero.carousel {
+  padding: 5rem 0 4rem;
+}
+
+.hero.instagram-feed {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.hero.instagram-feed .heading-title {
+  display: none;
+}
+
+/*
+ * ::::::::::: Blog Section Styles :::::::::::
+ */
+.content-with-sidebar {
+  background-color: white;
+  padding: 6rem 1.5rem;
+}
+
+/*
+ * ::::::::::: Portfolio Single Work Section Styles :::::::::::
+ */
+.portfolio-single {
+  background-color: white;
+  padding: 7.5rem 1.5rem;
+}
+
+/*
+ * ::::::::::: Portfolio Related Works Section Styles :::::::::::
+ */
+.related-works {
+  background-color: white;
+}
+
+/*
+ * ::::::::::: Portfolio WorksNavigation Section Styles :::::::::::
+ */
+.works-navigation {
+  background-color: #fafafa;
+  padding: 4rem 1.5rem;
+}
+
+.fun-facts {
+  background-color: #101010;
+}
+
+.fun-facts .hero-body {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.fun-facts .hero-body .heading-title {
+  color: white;
+}
+
+.fun-facts .hero-body .heading-title-bottom {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+}
+
+.fun-facts .hero-body .counterup .level-item {
+  padding-bottom: 5rem;
+  padding-top: 6rem;
+  border-right: 1px solid rgba(35, 35, 35, 0.5);
+}
+
+.fun-facts .hero-body .counterup .level-item:last-child {
+  border-right: 0;
+}
+
+.fun-facts .hero-body .counterup .title {
+  color: white;
+}
+
+.fun-facts .hero-body .counterup .heading {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.fun-facts .ken-burns-background {
+  -webkit-animation: kenburns-2 40s infinite;
+          animation: kenburns-2 40s infinite;
+}
+
+.clients-section .hero-body {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.clients-section .clients-list {
+  margin: 0;
+}
+
+.clients-section .clients-list .owl-item {
+  border-right: 1px solid rgba(240, 240, 240, 0.7);
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.have-questions input[type="text"],
+.have-questions input[type="number"],
+.have-questions input[type="tel"],
+.have-questions input[type="email"],
+.have-questions textarea,
+.have-questions select,
+.have-questions .input.is-medium,
+.have-questions .textarea.is-medium,
+.have-questions .select.is-medium,
+.have-questions .input,
+.have-questions .textarea {
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  border-bottom: 1px solid #EAEAEA;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.have-questions input::-webkit-input-placeholder,
+.have-questions .textarea::-webkit-input-placeholder {
+  color: rgba(92, 92, 92, 0.8);
+}
+
+.have-questions input:-ms-input-placeholder,
+.have-questions .textarea:-ms-input-placeholder {
+  color: rgba(92, 92, 92, 0.8);
+}
+
+.have-questions input::-ms-input-placeholder,
+.have-questions .textarea::-ms-input-placeholder {
+  color: rgba(92, 92, 92, 0.8);
+}
+
+.have-questions input::placeholder,
+.have-questions .textarea::placeholder {
+  color: rgba(92, 92, 92, 0.8);
+}
+
+.watch-video .works-latest .works-latest-item .works-latest-item-icon {
+  top: 57%;
+  left: 57%;
+}
+
+.watch-video .works-latest .works-latest-item .works-latest-item-icon .icon {
+  height: 65px;
+  width: 65px;
+  background-color: white;
+  opacity: 1;
+  color: #f80036;
+}
+
+.watch-video .works-latest .works-latest-item .works-latest-item-icon .icon:hover {
+  color: #f30337;
+}
+
+.watch-video .works-latest .works-latest-item .works-latest-item-icon .ripple-effect:before,
+.watch-video .works-latest .works-latest-item .works-latest-item-icon .ripple-effect:after {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.watch-video p:not(.heading-title-top) {
+  font-size: 17.5px;
+  padding-bottom: 15px;
+}
+
+.minimal-template p:not(.heading-title-top) {
+  font-size: 17px;
+  padding-bottom: 18px;
+}
+
+.minimal-template .boxes-style-3 .box-item .media-left,
+.minimal-template .boxes-style-6 .box-item .media-left {
+  min-width: 42px;
+}
+
+.minimal-template .boxes-style-1 .box-item p,
+.minimal-template .boxes-style-3 .box-item p,
+.minimal-template .boxes-style-5 .box-item p {
+  margin-bottom: 0;
+  padding-bottom: 6px;
+  font-size: 16px;
+}
+
+.minimal-template .works-latest .works-latest-item img {
+  max-width: 530px;
+}
+
+/*# sourceMappingURL=../_maps/modules/sections.css.map */

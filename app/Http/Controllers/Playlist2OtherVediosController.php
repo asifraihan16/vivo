@@ -1,0 +1,109 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\playlist2_other_vedios;
+use Illuminate\Http\Request;
+
+class Playlist2OtherVediosController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $data = playlist2_other_vedios::all();
+
+        return view('admin.playlist2_other_vedios.index', compact('data'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.playlist2_other_vedios.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $rules = [
+           'link' => 'required',
+           // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
+        ];
+
+        $customMessages = [
+           // 'product_image.required' => 'Please Provide Product Image',
+           // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
+           // 'product_image.max' => 'Product Image Max Size 100KB',
+           // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
+        ];
+
+        $this->validate($request, $rules, $customMessages);
+
+        playlist2_other_vedios::create([
+                        'link' => $request->link,
+                    ]);
+
+        return redirect()->route('playlist2_other_vedios.index')->with('success', $request->name.'Tags Created Successfully');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\playlist2_other_vedios  $playlist2_other_vedios
+     * @return \Illuminate\Http\Response
+     */
+    public function show(playlist2_other_vedios $playlist2_other_vedios)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\playlist2_other_vedios  $playlist2_other_vedios
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(playlist2_other_vedios $playlist2_other_vedios)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\playlist2_other_vedios  $playlist2_other_vedios
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, playlist2_other_vedios $playlist2_other_vedios)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\playlist2_other_vedios  $playlist2_other_vedios
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(playlist2_other_vedios $playlist2_other_vedios)
+    {
+        //
+    }
+}
