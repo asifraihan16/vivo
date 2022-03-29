@@ -27,14 +27,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($photo_galleries as $key=>$value) 
+                                    @foreach($photo_galleries as $key=>$value)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
                                             <td>{{ $value->mobile_series_versions_name }}</td>
                                             <td>{{ $value->title }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalLarge{{$value->id}}">
-                                                    <img width="100px" src="{{ asset('/storage/'.$value->img) }}">
+                                                    {{-- <img width="100px" src="{{ asset('/storage/'.$value->img) }}"> --}}
+                                                    <img width="100px" src="{{ Storage::url($value->img) }}">
                                                 </button>
                                                 <div class="modal fade bd-example-modal-lg" id="exampleModalLarge{{$value->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg" role="document">
@@ -43,9 +44,9 @@
                                                                 <div class="row">
                                                                     <div class="col-lg-12 col-md-12 col-sm-12 text-center">
                                                                         <img src="{{ asset('/storage/'.$value->img) }}" alt="" class="img-fluid">
-                                                                    </div><!--end col-->                                                          
+                                                                    </div><!--end col-->
                                                                 </div><!--end row-->
-                                                                
+
                                                             </div><!--end modal-body-->
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-soft-secondary btn-sm" data-bs-dismiss="modal">Close</button>
@@ -82,6 +83,6 @@
         </div>
     </div><!-- container -->
 </div>
-<!-- end page content -->       
+<!-- end page content -->
 
 @endsection

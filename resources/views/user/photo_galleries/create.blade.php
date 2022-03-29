@@ -16,19 +16,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card"><!--end card-header-->
-                    <div class="card-body">  
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Photo Upload</h4>                                                   
+                                        <h4 class="card-title">Photo Upload</h4>
                                     </div><!--end card-header-->
-                                    <div class="card-body">                                    
+                                    <div class="card-body">
                                         <div class="general-label">
                                             <form class="form-horizontal auth-form" method="POST" action="{{url('user/photo_upload')}}" enctype="multipart/form-data">
 
                                                 {{ csrf_field() }}
-                                                
+
                                                 <input type="hidden" class="form-control" id="horizontalInput1" placeholder="" name="users_id" required="" value="{{ old('title') }}">
 
                                                 <div class="mb-3 row">
@@ -71,20 +71,20 @@
                                                     <div class="col-sm-10 ms-auto">
                                                         <button type="submit" class="btn btn-primary">Save</button>
                                                     </div>
-                                                </div> 
-                                            </form>           
+                                                </div>
+                                            </form>
                                         </div>
                                     </div><!--end card-body-->
                                 </div><!--end card-->
                             </div>
-                        </div>                                                                      
+                        </div>
                     </div><!--end card-body-->
                 </div><!--end card-->
             </div><!--end col-->
         </div>
     </div><!-- container -->
 </div>
-<!-- end page content -->       
+<!-- end page content -->
 
 @endsection
 

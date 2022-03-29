@@ -62,6 +62,12 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+
+            /* 'cache' => [
+                'store' => 'memcached',
+                'expire' => 1200,
+                'prefix' => 'vivo-s3-files-cache',
+            ], */
         ],
 
     ],

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\PhotoGallery;
 use App\Photogallariestags;
 use App\MobileSeriesVersion;
+use App\Services\FileUploadService;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,14 @@ use Auth;
 
 class PhotoGalleryController extends Controller
 {
+    protected $fileUploadService;
+
+    public function __construct(FileUploadService $fileUploadService)
+    {
+        $this->fileUploadService = $fileUploadService;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -63,8 +72,13 @@ class PhotoGalleryController extends Controller
 
         $this->validate($request, $rules, $customMessages);
 
+        $image_url = '';
+
         if($request->hasFile('img'))
         {
+            $image_url = $this->fileUploadService->upload('img', 'photo_galleries');
+
+            /*
             //get filename with extension
             $filenamewithextension = $request->file('img')->getClientOriginalName();
 
@@ -77,9 +91,8 @@ class PhotoGalleryController extends Controller
             //filename to store
             $filenametostore = $request->name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
 
-            // TODO:
             //Upload File
-            $request->file('img')->storeAs('public/photo_galleries', $filenametostore);
+            $request->file('img')->storeAs('photo_galleries', $filenametostore);
 
             //Compress Image Code Here
             // $filepath = public_path('storage/profile_images/'.$filenametostore);
@@ -111,11 +124,7 @@ class PhotoGalleryController extends Controller
 
             $image_url = 'app/public/photo_galleries/'.$filenametostore;
 
-            // return redirect('ROUTE_HERE')->with('success', "Image uploaded successfully.");
-        }
-        else
-        {
-            $image_url = '';
+            // return redirect('ROUTE_HERE')->with('success', "Image uploaded successfully.");*/
         }
 
         $photo_galleries = new PhotoGallery;
