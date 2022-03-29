@@ -15,59 +15,59 @@ class FrontendController extends Controller
     public function index()
     {
         $home_sliders = DB::table('home_sliders')
-                        ->select(
-                            'home_sliders.*'
-                            )
-                        ->get();
+            ->select(
+                'home_sliders.*'
+            )
+            ->get();
 
         $moments = DB::table('moment_of_the_months')
-                        ->select(
-                            'moment_of_the_months.*'
-                            )
-                        ->get();
+            ->select(
+                'moment_of_the_months.*'
+            )
+            ->get();
 
         $playlist1_main = DB::table('playlist1_main_vedios')
-                        ->select(
-                            'playlist1_main_vedios.*'
-                            )
-                        ->get();
+            ->select(
+                'playlist1_main_vedios.*'
+            )
+            ->get();
 
         $playlist1_other = DB::table('playlist1_other_vedios')
-                        ->select(
-                            'playlist1_other_vedios.*'
-                            )
-                        ->get();
+            ->select(
+                'playlist1_other_vedios.*'
+            )
+            ->get();
 
         $playlist2_main = DB::table('playlist2_main_vedios')
-                        ->select(
-                            'playlist2_main_vedios.*'
-                            )
-                        ->get();
+            ->select(
+                'playlist2_main_vedios.*'
+            )
+            ->get();
 
         $playlist2_other = DB::table('playlist2_other_vedios')
-                        ->select(
-                            'playlist2_other_vedios.*'
-                            )
-                        ->get();
+            ->select(
+                'playlist2_other_vedios.*'
+            )
+            ->get();
 
         $blogs = DB::table('blogs')
-                        ->select(
-                            'blogs.*'
-                            )
-                        ->get();
+            ->select(
+                'blogs.*'
+            )
+            ->get();
 
         $mobile_series = DB::table('mobile_series')
-                        ->select(
-                            'mobile_series.*'
-                            )
-                        ->get();
+            ->select(
+                'mobile_series.*'
+            )
+            ->get();
 
-    	return view('frontend.home', compact('home_sliders','moments','playlist1_main', 'playlist1_other', 'playlist2_main', 'playlist2_other', 'blogs', 'mobile_series'));
+        return view('frontend.home', compact('home_sliders', 'moments', 'playlist1_main', 'playlist1_other', 'playlist2_main', 'playlist2_other', 'blogs', 'mobile_series'));
     }
 
     public function galleries()
     {
-    	return view('frontend.galleries');
+        return view('frontend.galleries-1');
     }
 
     public function _exibition()
@@ -78,41 +78,38 @@ class FrontendController extends Controller
 
         $mobile_series_versions_wise_image = array();
 
-        foreach($mobile_series as $value)
-        {
+        foreach ($mobile_series as $value) {
             $mobile_series_versions[$value->id] = DB::table('mobile_series_versions')
-                                                ->select(
-                                                    'mobile_series_versions.*'
-                                                    )
-                                                ->where('mobile_series_versions.mobile_series_id', '=', $value->id)
-                                                ->get();
+                ->select(
+                    'mobile_series_versions.*'
+                )
+                ->where('mobile_series_versions.mobile_series_id', '=', $value->id)
+                ->get();
         }
         // return $mobile_series_versions;
-        foreach($mobile_series_versions as $key=>$value)
-        {
-            foreach($value as $data)
-            {
+        foreach ($mobile_series_versions as $key => $value) {
+            foreach ($value as $data) {
                 $mobile_series_versions_wise_image[$data->id] = DB::table('photo_galleries')
-                                                    ->join('mobile_series_versions','mobile_series_versions.id','=','photo_galleries.mobile_series_versions_id')
-                                                    ->join('mobile_series','mobile_series.id','=','mobile_series_versions.mobile_series_id')
-                                                    ->select(
-                                                        'photo_galleries.*',
-                                                        'mobile_series_versions.name as mobile_series_versions_name'
-                                                        )
-                                                    ->where('photo_galleries.status', '=', 1)
-                                                    ->where('photo_galleries.mobile_series_versions_id','=', $data->id)
-                                                    ->get();
+                    ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
+                    ->join('mobile_series', 'mobile_series.id', '=', 'mobile_series_versions.mobile_series_id')
+                    ->select(
+                        'photo_galleries.*',
+                        'mobile_series_versions.name as mobile_series_versions_name'
+                    )
+                    ->where('photo_galleries.status', '=', 1)
+                    ->where('photo_galleries.mobile_series_versions_id', '=', $data->id)
+                    ->get();
             }
         }
         // return $mobile_series_versions_wise_image;
 
         $exhibitions = DB::table('exibitions')
-                ->select(
-                    'exibitions.*'
-                    )
-                ->get();
+            ->select(
+                'exibitions.*'
+            )
+            ->get();
 
-    	return view('frontend.exibition', compact('exhibitions','mobile_series', 'mobile_series_versions', 'mobile_series_versions_wise_image'));
+        return view('frontend.exibition', compact('exhibitions', 'mobile_series', 'mobile_series_versions', 'mobile_series_versions_wise_image'));
     }
 
     public function exibition()
@@ -120,13 +117,13 @@ class FrontendController extends Controller
         $mobile_series = MobileSeries::all();
         $final_data = array();
 
-        foreach($mobile_series as $series){
+        foreach ($mobile_series as $series) {
             $versions = DB::table('mobile_series_versions')
-                                                ->select(
-                                                    'mobile_series_versions.*'
-                                                    )
-                                                ->where('mobile_series_versions.mobile_series_id', '=', $series->id)
-                                                ->get();
+                ->select(
+                    'mobile_series_versions.*'
+                )
+                ->where('mobile_series_versions.mobile_series_id', '=', $series->id)
+                ->get();
 
             $version_count = sizeof($versions);
             $desired_image_limit = 9;
@@ -134,21 +131,20 @@ class FrontendController extends Controller
 
             // echo $per_version_limit."<br/>";
             // continue;
-            foreach($versions as $version){
+            foreach ($versions as $version) {
 
                 $final_data[$series->name][$version->name] =  DB::table('photo_galleries')
-                                                    ->join('mobile_series_versions','mobile_series_versions.id','=','photo_galleries.mobile_series_versions_id')
-                                                    ->join('mobile_series','mobile_series.id','=','mobile_series_versions.mobile_series_id')
-                                                    ->select(
-                                                        'photo_galleries.*',
-                                                        'mobile_series_versions.name as mobile_series_versions_name',
-                                                        'mobile_series.name as mobile_series_name, mobile_series.id as mobile_series_id'
-                                                        )
-                                                    ->where('photo_galleries.status', '=', 1)
-                                                    ->where('photo_galleries.mobile_series_versions_id','=', $version->id)
-                                                    ->limit($per_version_limit)
-                                                    ->get()->toArray();;
-
+                    ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
+                    ->join('mobile_series', 'mobile_series.id', '=', 'mobile_series_versions.mobile_series_id')
+                    ->select(
+                        'photo_galleries.*',
+                        'mobile_series_versions.name as mobile_series_versions_name',
+                        'mobile_series.name as mobile_series_name, mobile_series.id as mobile_series_id'
+                    )
+                    ->where('photo_galleries.status', '=', 1)
+                    ->where('photo_galleries.mobile_series_versions_id', '=', $version->id)
+                    ->limit($per_version_limit)
+                    ->get()->toArray();;
             }
         }
 
@@ -158,12 +154,12 @@ class FrontendController extends Controller
         // return dd($final_data);
 
         $exhibitions = DB::table('exibitions')
-                ->select(
-                    'exibitions.*'
-                    )
-                ->get();
+            ->select(
+                'exibitions.*'
+            )
+            ->get();
 
-    	return view('frontend.exibition', compact('exhibitions','mobile_series', 'final_data'));
+        return view('frontend.exibition', compact('exhibitions', 'mobile_series', 'final_data'));
     }
 
     public function blogs()
@@ -171,7 +167,7 @@ class FrontendController extends Controller
         $mobile_series_version = MobileSeriesVersion::all();
         $blogs = Blog::all();
 
-    	return view('frontend.blogs', compact('mobile_series_version', 'blogs'));
+        return view('frontend.blogs', compact('mobile_series_version', 'blogs'));
     }
 
     public function blog_details($id)
@@ -185,7 +181,7 @@ class FrontendController extends Controller
     {
         $campaigns = Campaign::all();
 
-    	return view('frontend.campaign', compact('campaigns'));
+        return view('frontend.campaign', compact('campaigns'));
     }
 
     public function campaign_detail($id)
@@ -197,13 +193,13 @@ class FrontendController extends Controller
 
     public function photographer()
     {
-    	return view('frontend.photographer');
+        return view('frontend.photographer');
     }
 
     public function contact()
     {
         // return 'Page is Under Construction';
-    	return view('frontend.contact');
+        return view('frontend.contact');
     }
 
     public function image_description()
