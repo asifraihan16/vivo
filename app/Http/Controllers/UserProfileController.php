@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\FileUploadService;
 use App\UserProfile;
 use App\User;
 use Illuminate\Http\Request;
@@ -13,9 +14,12 @@ use File;
 
 class UserProfileController extends Controller
 {
-    public function __construct()
+    protected $fileUploadService;
+
+    public function __construct(FileUploadService $fileUploadService)
     {
         $this->middleware('auth');
+        $this->fileUploadService = $fileUploadService;
     }
     /**
      * Display a listing of the resource.
@@ -114,67 +118,55 @@ class UserProfileController extends Controller
         ];
 
         $customMessages = [
-        // 'name.required' => 'Please Provide Name',
-        // 'name.unique' => 'Already There Is a Mobile Series With This Name',
-        'img.dimensions' => 'User Image Size = Width : 150px, Height : 150px',
+            // 'name.required' => 'Please Provide Name',
+            // 'name.unique' => 'Already There Is a Mobile Series With This Name',
+            'img.dimensions' => 'User Image Size = Width : 150px, Height : 150px',
         ];
 
         $this->validate($request, $rules, $customMessages);
 
-        if ($request->file('img') != '')
-        {
+        if ($request->file('img') != '') {
             $user_info = User::find(Session::get('id'));
 
-            if($user_info->img != '' && $user_info->img != null){
-                // TODO:
-               $image_old = storage_path('').'/'.$user_info->img;
-
-               unlink($image_old);
+            if ($user_info->img != '' && $user_info->img != null) {
+                // $image_old = storage_path('') . '/' . $user_info->img;
+                // unlink($image_old);
             }
+            $image_url = $this->fileUploadService->upload('img', 'profile_image');
 
-            $image_name = $request->name;
-            // TODO:
-            $upload_path = storage_path().'/app/public/profile_image/';
-
+            /* $image_name = $request->name;
+            $upload_path = storage_path() . '/app/public/profile_image/';
             $image_path = 'app/public/profile_image/';
-
             $image = $request->img;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
+            $imageName = $image_name . '_' . date('YmdHis') . '.' . $image->getClientOriginalExtension();
 
             // $image->move($upload_path, $imageName);
-
             $img = Image::make($image->getRealPath());
-
             // code for resize and compress iamge in laravel
             $img->resize(150, 150, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($upload_path.'/'.$imageName);
+            })->save($upload_path . '/' . $imageName);
 
-            $image_url = $image_path.$imageName;
-        }
-        else
-        {
+            $image_url = $image_path . $imageName; */
+        } else {
             $image_url = Session::get('img');
         }
 
-        if($request->email != '')
-        {
+        if ($request->email != '') {
             $email = $request->email;
         }
 
-        if($request->contact != '')
-        {
+        if ($request->contact != '') {
             $contact = $request->contact;
         }
 
         // return $id;
         User::where('id', $id)->update([
-                'name' => $request->name,
-                'img' => $image_url,
-                'email' => $email,
-                'contact' => $contact,
-              ]);
+            'name' => $request->name,
+            'img' => $image_url,
+            'email' => $email,
+            'contact' => $contact,
+        ]);
 
         // $user = Auth::user();
         $user = User::find(Session::get('id'));;
@@ -184,8 +176,6 @@ class UserProfileController extends Controller
         Session::put('email', $user->email);
         Session::put('img', $user->img);
         Session::put('contact', $user->contact);
-
-        // return $user;
 
         return Redirect::to("admin/user_profile");
     }
@@ -202,67 +192,60 @@ class UserProfileController extends Controller
         ];
 
         $customMessages = [
-        // 'name.required' => 'Please Provide Name',
-        // 'name.unique' => 'Already There Is a Mobile Series With This Name',
-        // 'img.dimensions' => 'User Image Size = Width : 150px, Height : 150px',
+            // 'name.required' => 'Please Provide Name',
+            // 'name.unique' => 'Already There Is a Mobile Series With This Name',
+            // 'img.dimensions' => 'User Image Size = Width : 150px, Height : 150px',
         ];
 
         $this->validate($request, $rules, $customMessages);
 
-         if ($request->file('img') != '')
-        {
+        if ($request->file('img') != '') {
             $user_info = User::find(Session::get('id'));
 
-            if($user_info->img != '' && $user_info->img != null){
-                // TODO:
-               $image_old = storage_path('').'/'.$user_info->img;
-
-               unlink($image_old);
+            if ($user_info->img != '' && $user_info->img != null) {
+                // $image_old = storage_path('') . '/' . $user_info->img;
+                // unlink($image_old);
             }
+            $image_url = $this->fileUploadService->upload('img', 'photo_galleries');
 
-            $image_name = $request->name;
-            // TODO:
-            $upload_path = storage_path().'/app/public/profile_image/';
+            /* $image_name = $request->name;
+            $upload_path = storage_path() . '/app/public/profile_image/';
 
             $image_path = 'app/public/profile_image/';
 
             $image = $request->img;
 
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
+            $imageName = $image_name . '_' . date('YmdHis') . '.' . $image->getClientOriginalExtension();
 
             // $image->move($upload_path, $imageName);
 
             $img = Image::make($image->getRealPath());
 
-                        // code for resize and compress iamge in laravel
+            // code for resize and compress iamge in laravel
             $img->resize(150, 150, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($upload_path.'/'.$imageName);
+            })->save($upload_path . '/' . $imageName);
 
-            $image_url = $image_path.$imageName;
-        }
-        else
-        {
+            $image_url = $image_path . $imageName; */
+        } else {
             $image_url = Session::get('img');
         }
 
-        if($request->email != '')
-        {
+        if ($request->email != '') {
             $email = $request->email;
         }
 
-        if($request->contact != '')
-        {
+        if ($request->contact != '') {
             $contact = $request->contact;
         }
 
         // return $id;
         User::where('id', $id)->update([
-                'name' => $request->name,
-                'img' => $image_url,
-                'email' => $email,
-                'contact' => $contact,
-              ]);
+            'name' => $request->name,
+            'img' => $image_url,
+            'email' => $email,
+            'contact' => $contact,
+        ]);
 
         // $user = Auth::user();
         $user = User::find(Session::get('id'));;
@@ -273,9 +256,6 @@ class UserProfileController extends Controller
         Session::put('img', $user->img);
         Session::put('contact', $user->contact);
 
-        // return $user;
         return Redirect::to("user/user_profile");
     }
-
-
 }

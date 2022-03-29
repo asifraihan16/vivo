@@ -17,7 +17,7 @@
                         <div class="table-responsive">
                             <table class="table mb-0 table-centered">
                                 <thead>
-                                <tr>
+                                <th>
                                     <th>SL</th>
                                     <th>Mobile Model</th>
                                     <th>Title</th>

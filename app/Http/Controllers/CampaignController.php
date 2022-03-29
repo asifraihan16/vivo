@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Campaign;
+use App\Services\FileUploadService;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
 {
-    public function __construct()
+    protected $fileUploadService;
+
+    public function __construct(FileUploadService $fileUploadService)
     {
         $this->middleware('auth');
+        $this->fileUploadService = $fileUploadService;
     }
     /**
      * Display a listing of the resource.
@@ -43,107 +47,51 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
-
         $rules = [
-           'title' => 'required',
-           'title_detail' => 'required',
-           // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-           'img1' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-           'img2' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-           'img3' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-           'desc' => 'required',
+            'title' => 'required',
+            'title_detail' => 'required',
+            // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
+            'img1' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
+            'img2' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
+            'img3' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
+            'desc' => 'required',
         ];
 
         $customMessages = [
-           // 'product_image.required' => 'Please Provide Product Image',
-           // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
-           // 'product_image.max' => 'Product Image Max Size 100KB',
-           'img1.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
-           'img2.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
-           'img3.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
+            // 'product_image.required' => 'Please Provide Product Image',
+            // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
+            // 'product_image.max' => 'Product Image Max Size 100KB',
+            'img1.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
+            'img2.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
+            'img3.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
         ];
 
         $this->validate($request, $rules, $customMessages);
 
-        if ($request->file('img1'))
-        {
-            $image_name = $request->title.'img1';
+        $image_url1 = '';
+        $image_url2 = '';
+        $image_url3 = '';
 
-            // TODO:
-            $upload_path = storage_path().'/app/public/campaign/';
-
-            $image_path = 'app/public/campaign/';
-
-            $image = $request->img1;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            $image->move($upload_path, $imageName);
-
-            $image_url1 = $image_path.$imageName;
-
-        }
-        else
-        {
-            $image_url1 = '';
+        if ($request->file('img1')) {
+            $image_url1 = $this->fileUploadService->upload('img1', 'campaign');
         }
 
-        if ($request->file('img2'))
-        {
-            $image_name = $request->title.'img2';
-
-            // TODO:
-            $upload_path = storage_path().'/app/public/campaign/';
-
-            $image_path = 'app/public/campaign/';
-
-            $image = $request->img2;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            $image->move($upload_path, $imageName);
-
-            $image_url2 = $image_path.$imageName;
-
-        }
-        else
-        {
-            $image_url2 = '';
+        if ($request->file('img2')) {
+            $image_url2 = $this->fileUploadService->upload('img2', 'campaign');
         }
 
-        if ($request->file('img3'))
-        {
-            $image_name = $request->title.'img3';
-
-            // TODO:
-            $upload_path = storage_path().'/app/public/campaign/';
-
-            $image_path = 'app/public/campaign/';
-
-            $image = $request->img3;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            $image->move($upload_path, $imageName);
-
-            $image_url3 = $image_path.$imageName;
-
+        if ($request->file('img3')) {
+            $image_url3 = $this->fileUploadService->upload('img3', 'campaign');
         }
-        else
-        {
-            $image_url3 = '';
-        }
-
 
         Campaign::create([
-                          'title' => $request->title,
-                          'title_detail' => $request->title_detail,
-                          'img1' => $image_url1,
-                          'img2' => $image_url2,
-                          'img3' => $image_url3,
-                          'desc' => $request->desc,
-                        ]);
+            'title' => $request->title,
+            'title_detail' => $request->title_detail,
+            'img1' => $image_url1,
+            'img2' => $image_url2,
+            'img3' => $image_url3,
+            'desc' => $request->desc,
+        ]);
 
         return redirect()->route('campaigns.index');
         // return Redirect::to("admin/mobile_series");
@@ -184,13 +132,13 @@ class CampaignController extends Controller
     public function update(Request $request, Campaign $campaign)
     {
         $rules = [
-           'title' => 'required',
-           'title_detail' => 'required',
-           // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-           'img1' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-           'img2' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-           'img3' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-           'desc' => 'required',
+            'title' => 'required',
+            'title_detail' => 'required',
+            // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
+            'img1' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
+            'img2' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
+            'img3' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
+            'desc' => 'required',
         ];
 
         $customMessages = [
@@ -202,112 +150,45 @@ class CampaignController extends Controller
 
         $this->validate($request, $rules, $customMessages);
 
-        if ($request->file('img1') != '')
-        {
-            // $blog = Campaign::find($blog->id);
+        $image_url1 = $campaign->img1;
+        $image_url2 = $campaign->img2;
+        $image_url3 = $campaign->img3;
 
-            if($campaign->img1 != '' && $campaign->img1 != null){
-                // TODO:
-               $image_old = storage_path('').'/'.$campaign->img1;
 
-               unlink($image_old);
+        if ($request->file('img1') != '') {
+            if ($campaign->img1 != '' && $campaign->img1 != null) { // delete existing image
+                // $image_old = storage_path('') . '/' . $campaign->img1;
+                // unlink($image_old);
             }
-
-            $image_name = $request->title.'img1';
-
-            // TODO:
-            $upload_path = storage_path().'/app/public/campaign/';
-
-            $image_path = 'app/public/campaign/';
-
-            $image = $request->img1;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            $image->move($upload_path, $imageName);
-
-            $image_url1 = $image_path.$imageName;
-
-        }
-        else
-        {
-            $image_url1 = $campaign->img1;
+            $image_url1 = $this->fileUploadService->upload('img1', 'campaign');
         }
 
-        if ($request->file('img') != '')
-        {
-            // $blog = Campaign::find($blog->id);
-
-            if($campaign->img != '' && $campaign->img != null){
-                // TODO:
-               $image_old = storage_path('').'/'.$campaign->img;
-
-               unlink($image_old);
+        if ($request->file('img') != '') {
+            if ($campaign->img != '' && $campaign->img != null) {
+                // $image_old = storage_path('') . '/' . $campaign->img;
+                // unlink($image_old);
             }
-
-            $image_name = $request->title.'img2';
-
-            // TODO:
-            $upload_path = storage_path().'/app/public/campaign/';
-
-            $image_path = 'app/public/campaign/';
-
-            $image = $request->img2;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            $image->move($upload_path, $imageName);
-
-            $image_url2 = $image_path.$imageName;
-
-        }
-        else
-        {
-            $image_url2 = $campaign->img2;
+            $image_url2 = $this->fileUploadService->upload('img2', 'campaign');
         }
 
-        if ($request->file('img3') != '')
-        {
-            // $blog = Campaign::find($blog->id);
-
-            if($campaign->img3 != '' && $campaign->img3 != null){
-                // TODO:
-               $image_old = storage_path('').'/'.$campaign->img3;
-
-               unlink($image_old);
+        if ($request->file('img3') != '') {
+            if ($campaign->img3 != '' && $campaign->img3 != null) {
+                // $image_old = storage_path('') . '/' . $campaign->img3;
+                // unlink($image_old);
             }
-
-            $image_name = $request->title.'img3';
-
-            // TODO:
-            $upload_path = storage_path().'/app/public/campaign/';
-
-            $image_path = 'app/public/campaign/';
-
-            $image = $request->img3;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            $image->move($upload_path, $imageName);
-
-            $image_url3 = $image_path.$imageName;
-
-        }
-        else
-        {
-            $image_url3 = $campaign->img3;
+            $image_url3 = $this->fileUploadService->upload('img3', 'campaign');
         }
 
         Campaign::where('id', $campaign->id)->update([
-                'title' => $request->title,
-                'title_detail' => $request->title_detail,
-                'img1' => $image_url1,
-                'img2' => $image_url2,
-                'img3' => $image_url3,
-                'desc' => $request->desc,
-              ]);
+            'title' => $request->title,
+            'title_detail' => $request->title_detail,
+            'img1' => $image_url1,
+            'img2' => $image_url2,
+            'img3' => $image_url3,
+            'desc' => $request->desc,
+        ]);
 
-        return redirect()->route('campaigns.index')->with('success', $request->name.' Blog Updated Successfully');
+        return redirect()->route('campaigns.index')->with('success', $request->name . ' Blog Updated Successfully');
     }
 
     /**

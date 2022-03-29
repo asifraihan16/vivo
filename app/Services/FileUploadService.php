@@ -10,7 +10,9 @@ class FileUploadService
     {
         try {
             // return Storage::disk('s3')->put($path, request()->file($fileName));
-            return request()->file($fileName)->store("{$path}", 's3');
+            $path = request()->file($fileName)->store("{$path}", 's3');
+            Storage::disk('s3')->setVisibility($path, 'public');
+            return $path;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }

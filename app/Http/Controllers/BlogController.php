@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Services\FileUploadService;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function __construct()
+    protected $fileUploadService;
+
+    public function __construct(FileUploadService $fileUploadService)
     {
         $this->middleware('auth');
+        $this->fileUploadService = $fileUploadService;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,50 +49,33 @@ class BlogController extends Controller
         // return $request;
 
         $rules = [
-           'title' => 'required',
-           // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-           'img' => 'required|mimes:jpeg,jpg|max:150',
-           'desc' => 'required',
+            'title' => 'required',
+            // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
+            'img' => 'required|mimes:jpeg,jpg|max:150',
+            'desc' => 'required',
         ];
 
         $customMessages = [
-           // 'product_image.required' => 'Please Provide Product Image',
-           // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
-           // 'product_image.max' => 'Product Image Max Size 100KB',
-           // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
+            // 'product_image.required' => 'Please Provide Product Image',
+            // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
+            // 'product_image.max' => 'Product Image Max Size 100KB',
+            // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
         ];
 
         $this->validate($request, $rules, $customMessages);
 
-        if ($request->file('img'))
-        {
-            $image_name = $request->title;
+        $image_url = '';
 
-            // TODO:
-            $upload_path = storage_path().'/app/public/blog/';
-
-            $image_path = 'app/public/blog/';
-
-            $image = $request->img;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            $image->move($upload_path, $imageName);
-
-            $image_url = $image_path.$imageName;
-
-        }
-        else
-        {
-            $image_url = '';
+        if ($request->file('img')) {
+            $image_url = $this->fileUploadService->upload('img', 'blog');
         }
 
 
         Blog::create([
-                          'title' => $request->title,
-                          'img' => $image_url,
-                          'desc' => $request->desc,
-                        ]);
+            'title' => $request->title,
+            'img' => $image_url,
+            'desc' => $request->desc,
+        ]);
 
         return redirect()->route('blogs.index');
         // return Redirect::to("admin/mobile_series");
@@ -113,8 +101,6 @@ class BlogController extends Controller
     public function edit(Blog $blog)
     {
         $data = Blog::find($blog);
-        // return $data;
-
         return view('admin.blogs.edit', compact('data'));
     }
 
@@ -128,60 +114,39 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         $rules = [
-           'title' => 'required',
-           // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-           'img' => 'mimes:jpeg,jpg|max:100',
-           'desc' => 'required',
+            'title' => 'required',
+            // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
+            'img' => 'mimes:jpeg,jpg|max:100',
+            'desc' => 'required',
         ];
 
         $customMessages = [
-           // 'product_image.required' => 'Please Provide Product Image',
-           // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
-           // 'product_image.max' => 'Product Image Max Size 100KB',
-           // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
+            // 'product_image.required' => 'Please Provide Product Image',
+            // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
+            // 'product_image.max' => 'Product Image Max Size 100KB',
+            // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
         ];
 
         $this->validate($request, $rules, $customMessages);
 
-        if ($request->file('img') != '')
-        {
-            $blogs = Blog::find($blog->id);
+        $blogs = Blog::find($blog->id);
+        $image_url = $blog->img;
+        if ($request->file('img') != '') {
+            $image_url = $this->fileUploadService->upload('img', 'blog');
 
-            if($blog->img != '' && $blog->img != null){
-                // TODO:
-               $image_old = storage_path('').'/'.$blog->img;
-
-               unlink($image_old);
+            if ($blog->img != '' && $blog->img != null) {
+                // $image_old = storage_path('') . '/' . $blog->img;
+                // unlink($image_old);
             }
-
-            $image_name = $request->title;
-
-            // TODO:
-            $upload_path = storage_path().'/app/public/blog/';
-
-            $image_path = 'app/public/blog/';
-
-            $image = $request->img;
-
-            $imageName = $image_name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            $image->move($upload_path, $imageName);
-
-            $image_url = $image_path.$imageName;
-
-        }
-        else
-        {
-            $image_url = $blog->img;
         }
 
         Blog::where('id', $blog->id)->update([
-                'title' => $request->title,
-                'img' => $image_url,
-                'desc' => $request->desc,
-              ]);
+            'title' => $request->title,
+            'img' => $image_url,
+            'desc' => $request->desc,
+        ]);
 
-        return redirect()->route('blogs.index')->with('success', $request->name.' Blog Updated Successfully');
+        return redirect()->route('blogs.index')->with('success', $request->name . ' Blog Updated Successfully');
     }
 
     /**

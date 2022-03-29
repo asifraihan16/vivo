@@ -8,6 +8,7 @@ use App\MobileSeriesVersion;
 use App\Services\FileUploadService;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use DB;
 use Auth;
@@ -64,18 +65,17 @@ class PhotoGalleryController extends Controller
         ];
 
         $customMessages = [
-           // 'product_image.required' => 'Please Provide Product Image',
-           // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
-           'product_image.max' => 'Product Image Max Size 1024KB',
-           // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
+            // 'product_image.required' => 'Please Provide Product Image',
+            // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
+            'product_image.max' => 'Product Image Max Size 1024KB',
+            // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
         ];
 
         $this->validate($request, $rules, $customMessages);
 
         $image_url = '';
 
-        if($request->hasFile('img'))
-        {
+        if ($request->hasFile('img')) {
             $image_url = $this->fileUploadService->upload('img', 'photo_galleries');
 
             /*
@@ -137,8 +137,7 @@ class PhotoGalleryController extends Controller
 
         $photo_galleries_id = $photo_galleries->id;
 
-        for($index = 0; $index < count($request->tags_id); $index++)
-        {
+        for ($index = 0; $index < count($request->tags_id); $index++) {
             $photo_galleries_tags = new Photogallariestags;
             $photo_galleries_tags->photo_galleries_id = $photo_galleries_id;
             $photo_galleries_tags->tags_id = $request->tags_id[$index];
@@ -197,27 +196,24 @@ class PhotoGalleryController extends Controller
 
     public function photo_history()
     {
-        // return 'history';
-
         $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions','mobile_series_versions.id', '=','photo_galleries.mobile_series_versions_id')
+            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
             ->select(
                 'photo_galleries.*',
                 'mobile_series_versions.name as mobile_series_versions_name',
-                )
+            )
             ->orderBy('photo_galleries.created_at', 'desc')
             ->get();
 
         $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags','tags.id', '=','photo_galleries_tags.tags_id')
+            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
             ->select(
                 'photo_galleries_tags.*',
                 'tags.name as tags_name'
-                )
+            )
             ->orderBy('photo_galleries_tags.created_at', 'desc')
             ->get();
 
-        // return $photo_galleries_tag;
         return view('user.photo_history.index', compact('photo_galleries', 'photo_galleries_tag'));
     }
 
@@ -226,21 +222,21 @@ class PhotoGalleryController extends Controller
         // return 'history';
 
         $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions','mobile_series_versions.id', '=','photo_galleries.mobile_series_versions_id')
+            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
             ->select(
                 'photo_galleries.*',
                 'mobile_series_versions.name as mobile_series_versions_name',
-                )
+            )
             ->orderBy('photo_galleries.created_at', 'desc')
-            ->where('photo_galleries.status', '=', 0 )
+            ->where('photo_galleries.status', '=', 0)
             ->get();
 
         $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags','tags.id', '=','photo_galleries_tags.tags_id')
+            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
             ->select(
                 'photo_galleries_tags.*',
                 'tags.name as tags_name'
-                )
+            )
             ->orderBy('photo_galleries_tags.created_at', 'desc')
             ->get();
 
@@ -253,8 +249,8 @@ class PhotoGalleryController extends Controller
         $photo_galleries = PhotoGallery::find($id);
 
         PhotoGallery::where('id', $photo_galleries->id)->update([
-                      'status' => 1,
-                    ]);
+            'status' => 1,
+        ]);
 
 
         // return redirect()->url('admin/approved_request');
@@ -266,21 +262,21 @@ class PhotoGalleryController extends Controller
         // return 'approved screen';
 
         $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions','mobile_series_versions.id', '=','photo_galleries.mobile_series_versions_id')
+            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
             ->select(
                 'photo_galleries.*',
                 'mobile_series_versions.name as mobile_series_versions_name',
-                )
+            )
             ->orderBy('photo_galleries.created_at', 'desc')
             ->where('photo_galleries.status', '=', 1)
             ->get();
 
         $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags','tags.id', '=','photo_galleries_tags.tags_id')
+            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
             ->select(
                 'photo_galleries_tags.*',
                 'tags.name as tags_name'
-                )
+            )
             ->orderBy('photo_galleries_tags.created_at', 'desc')
             ->get();
 

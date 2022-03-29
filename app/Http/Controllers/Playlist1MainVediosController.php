@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\playlist1_main_vedios;
+use App\Services\FileUploadService;
 use Illuminate\Http\Request;
 use Image;
 
 class Playlist1MainVediosController extends Controller
 {
-    public function __construct()
+    protected $fileUploadService;
+
+    public function __construct(FileUploadService $fileUploadService)
     {
         $this->middleware('auth');
+        $this->fileUploadService = $fileUploadService;
     }
     /**
      * Display a listing of the resource.
@@ -43,52 +47,46 @@ class Playlist1MainVediosController extends Controller
     public function store(Request $request)
     {
         $rules = [
-           'title' => 'required',
-           'desc' => 'required',
-           'link' => 'required',
-           'img' => 'required|mimes:jpeg,jpg|max:150',
+            'title' => 'required',
+            'desc' => 'required',
+            'link' => 'required',
+            'img' => 'required|mimes:jpeg,jpg|max:150',
         ];
 
         $customMessages = [
-           // 'product_image.required' => 'Please Provide Product Image',
-           // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
-           // 'product_image.max' => 'Product Image Max Size 100KB',
-           // 'img.dimensions' => 'Image Dimension(Width : 602px, Height : 602px)',
+            // 'product_image.required' => 'Please Provide Product Image',
+            // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
+            // 'product_image.max' => 'Product Image Max Size 100KB',
+            // 'img.dimensions' => 'Image Dimension(Width : 602px, Height : 602px)',
         ];
 
         $this->validate($request, $rules, $customMessages);
 
-        if ($request->file('img'))
-        {
-            $image = $request->file('img');
+        $image_url = '';
 
-            $imageName = $request->title.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-            // TODO:
+        if ($request->file('img')) {
+            $image_url = $this->fileUploadService->upload('img', 'photo_galleries');
+
+            /* $image = $request->file('img');
+            $imageName = $request->title . '_' . date('YmdHis') . '.' . $image->getClientOriginalExtension();
             $path = storage_path('/images');
-
             $img = Image::make($image->getRealPath());
-
             $img->resize(function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($path.'/'.$imageName);
+            })->save($path . '/' . $imageName);
 
             $image_path = 'images';
-
-            $image_url = $image_path.'/'.$imageName;
-        }
-        else
-        {
-            $image_url = '';
+            $image_url = $image_path . '/' . $imageName; */
         }
 
         playlist1_main_vedios::create([
-                        'title' => $request->title,
-                        'desc' => $request->desc,
-                        'link' => $request->link,
-                        'img' => $image_url,
-                    ]);
+            'title' => $request->title,
+            'desc' => $request->desc,
+            'link' => $request->link,
+            'img' => $image_url,
+        ]);
 
-        return redirect()->route('playlist1_main_vedios.index')->with('success', $request->name.'Tags Created Successfully');
+        return redirect()->route('playlist1_main_vedios.index')->with('success', $request->name . 'Tags Created Successfully');
     }
     /**
      * Display the specified resource.
