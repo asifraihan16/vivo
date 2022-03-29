@@ -182,7 +182,6 @@ class UserProfileController extends Controller
 
     public function user_profile_info(Request $request)
     {
-        return $request;
         $id = Session::get('id');
 
         $rules = [
@@ -206,7 +205,7 @@ class UserProfileController extends Controller
                 // $image_old = storage_path('') . '/' . $user_info->img;
                 // unlink($image_old);
             }
-            $image_url = $this->fileUploadService->upload('img', 'photo_galleries');
+            $image_url = $this->fileUploadService->upload('img', 'profile_image');
 
             /* $image_name = $request->name;
             $upload_path = storage_path() . '/app/public/profile_image/';
@@ -231,13 +230,9 @@ class UserProfileController extends Controller
             $image_url = Session::get('img');
         }
 
-        if ($request->email != '') {
-            $email = $request->email;
-        }
+        $email = $request->email ?? null;
 
-        if ($request->contact != '') {
-            $contact = $request->contact;
-        }
+        $contact = $request->contact ?? null;
 
         // return $id;
         User::where('id', $id)->update([
@@ -248,7 +243,7 @@ class UserProfileController extends Controller
         ]);
 
         // $user = Auth::user();
-        $user = User::find(Session::get('id'));;
+        $user = User::find(Session::get('id'));
 
         Session::put('id', $user->id);
         Session::put('name', $user->name);
