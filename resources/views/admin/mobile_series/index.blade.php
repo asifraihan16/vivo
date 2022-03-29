@@ -27,11 +27,17 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            	@foreach($data as $key=>$value) 
+                                            	@foreach($data as $key=>$value)
 		                                            <tr>
 		                                                <td>{{ $key+1 }}</td>
 		                                                <td>{{ $value->name }}</td>
-		                                                <td><img width="100px" src="{{ asset('/storage/'.$value->img) }}"></td>
+		                                                <td>
+                                                            @if ($value->img)
+                                                            <img width="100px" src="{{ $value->img ? Storage::url($value->img) : '' }}">
+                                                            @else
+                                                            <p>No Image</p>
+                                                            @endif
+                                                        </td>
 		                                                <td>
 		                                                	@if($value->status == 1)
 		                                                		<a href="{{ url('admin/mobile-series-status-update', $value->id) }}" class="btn btn-info">Active</a>
@@ -53,6 +59,6 @@
                     </div>
                 </div><!-- container -->
             </div>
-            <!-- end page content -->       
+            <!-- end page content -->
 
 @endsection
