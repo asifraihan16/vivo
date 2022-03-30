@@ -117,6 +117,16 @@
 <script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
 
 @yield('scripts')
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2369R89R46"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2369R89R46');
+</script>
 </body>
 
 </html>
