@@ -54,8 +54,6 @@ class PhotoGalleryController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
-
         $rules = [
             'mobile_series_versions_id' => 'required',
             'title' => 'required',
@@ -145,6 +143,7 @@ class PhotoGalleryController extends Controller
             $photo_galleries_tags->save();
         }
 
+        // return response()->json(['success'=>'Successfully uploaded.']);
         // return 'submit';
         return redirect()->route('user.photo_history');
     }
