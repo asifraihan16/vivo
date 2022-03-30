@@ -61,8 +61,8 @@
                     <div class="signup-image">
                         <figure><img src="{{URL::asset('admin/assets/images/vivo_logo.png')}}" alt="sing up image"></figure>
                         <a href="{{url('user/login')}}" class="signup-image-link">Already have an account</a>
-                    </div>                    
-                    
+                    </div>
+
                 </div>
             </div>
         </section>

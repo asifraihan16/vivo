@@ -150,6 +150,7 @@ class FrontendController extends Controller
             ->select('exibitions.*')
             ->get();
 
+
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'final_data'));
     }
 
