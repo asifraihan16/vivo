@@ -98,7 +98,7 @@
                 <div class="container">
                     <h2 class="display-none">footer</h2>
                     <span class="footer-copyright">
-                        <a href='/' style="color: #fff;">© 2022 vivo Mobile Communication Co., Ltd. All rights reserved.
+                        <a href='/' style="color: #fff;">© 2022 Haicheng Mobile Company (BD) Ltd. All rights reserved.
                             | Privacy Policy | Warranty Terms | Privacy Support</a>
                 </div>
             </section>
