@@ -30,13 +30,13 @@ Route::get('/image_description/{id}', 'FrontendController@image_description');
 Route::get('admin/', 'AuthController@home');
 Route::get('admin/login', 'AuthController@index')->name('login');
 // Route::get('login', [ 'as' => 'login', 'uses' => 'AuthController@index']);
-Route::post('admin/post-login', 'AuthController@postLogin'); 
+Route::post('admin/post-login', 'AuthController@postLogin');
 Route::get('admin/register', 'AuthController@register');
 Route::post('admin/post-register', 'AuthController@postRegister');
 Route::get('admin/logout', 'AuthController@logout');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-	Route::get('dashboard', 'AuthController@dashboard'); 
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
+	Route::get('dashboard', 'AuthController@dashboard');
 	Route::resource('mobile-series', 'MobileSeriesController');
 	Route::get('mobile-series-status-update/{id}', 'MobileSeriesController@statusUpdate');
 	Route::resource('mobile_series_versions', 'MobileSeriesVersionController');
@@ -68,7 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 	Route::get('user/', 'AuthController@user_home');
 	Route::get('user/login', 'AuthController@user_index');
-	Route::post('user/post-login', 'AuthController@user_postLogin'); 
+	Route::post('user/post-login', 'AuthController@user_postLogin');
 	Route::get('user/register', 'AuthController@user_register');
 	Route::post('user/post-register', 'AuthController@user_postRegister');
 	Route::get('user/logout', 'AuthController@user_logout');
