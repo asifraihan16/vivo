@@ -24,6 +24,7 @@
         <link href="{{ URL::asset('admin/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ URL::asset('admin/assets/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
+        @yield('styles')
     </head>
 
     <body class="">
