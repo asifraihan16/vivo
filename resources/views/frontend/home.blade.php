@@ -68,8 +68,8 @@
                                 <div class="column is-3 branding aos-init" style="">
                                     <div class="work-item">
                                         <figure>
-                                            <a href="{{ Storage::url($moments[0]->img1) }}"
-                                                class="mfp-lightbox mfp-image" title="">
+                                            <a href="{{ Storage::url($moments[0]->img1) }}" class="mfp-lightbox mfp-image"
+                                                title="">
                                                 <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img1) }}">
                                                 <figcaption>
@@ -89,8 +89,8 @@
                                 <div class="column is-6 prototype aos-init" style="">
                                     <div class="work-item">
                                         <figure>
-                                            <a href="{{ Storage::url($moments[0]->img2) }}"
-                                                class="mfp-lightbox mfp-image" title="">
+                                            <a href="{{ Storage::url($moments[0]->img2) }}" class="mfp-lightbox mfp-image"
+                                                title="">
                                                 <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img2) }}">
                                                 <figcaption>
@@ -103,8 +103,8 @@
                                 <div class="column is-3 branding aos-init" style="">
                                     <div class="work-item">
                                         <figure>
-                                            <a href="{{ Storage::url($moments[0]->img3) }}"
-                                                class="mfp-lightbox mfp-image" title="">
+                                            <a href="{{ Storage::url($moments[0]->img3) }}" class="mfp-lightbox mfp-image"
+                                                title="">
                                                 <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img3) }}">
                                                 <figcaption>
@@ -117,8 +117,8 @@
                                 <div class="column is-6 branding aos-init" style="">
                                     <div class="work-item">
                                         <figure>
-                                            <a href="{{ Storage::url($moments[0]->img4) }}"
-                                                class="mfp-lightbox mfp-image" title="">
+                                            <a href="{{ Storage::url($moments[0]->img4) }}" class="mfp-lightbox mfp-image"
+                                                title="">
                                                 <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img4) }}">
                                                 <figcaption>
@@ -202,8 +202,8 @@
                                 <div class="works-latest">
                                     <div class="works-latest-item">
                                         <!-- <div class="works-latest-item-icon style-2">
-                            <x-embed url="{{ $playlist1_main[0]->link }}" />
-                          </div> -->
+                                <x-embed url="{{ $playlist1_main[0]->link }}" />
+                              </div> -->
                                         <img alt="VIVO Bangladesh"
                                             src="{{ URL::asset('frontend/assets/images/youtube/V21 1.jpg') }}">
                                         <div class="works-latest-item-icon style-2">
@@ -257,8 +257,8 @@
                                 <div class="works-latest">
                                     <div class="works-latest-item">
                                         <!-- <div class="works-latest-item-icon style-2">
-                            <x-embed url="{{ $playlist1_main[0]->link }}" />
-                          </div> -->
+                                <x-embed url="{{ $playlist1_main[0]->link }}" />
+                              </div> -->
                                         <img alt="VIVO Bangladesh"
                                             src="{{ URL::asset('frontend/assets/images/youtube/V21e 2.jpg') }}">
                                         <div class="works-latest-item-icon style-2">
@@ -302,12 +302,10 @@
                                 @foreach ($mobile_series as $value)
                                     <div class="column is-4 branding " data-aos="fade-up">
                                         <div class="work-item">
-                                            <center><button
-                                                    class="mobile-series-title style-1">{{ $value->name }}</span></button>
-                                                <figure>
-                                                    <img alt="VIVO Bangladesh"
-                                                        src="{{ $value->img ? Storage::url($value->img) : '' }}">
-                                                </figure>
+                                            <button class="mobile-series-title style-1">{{ $value->name }}</span></button>
+                                            <figure>
+                                                <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
+                                            </figure>
                                         </div>
                                         <!-- .work-item -->
                                     </div>

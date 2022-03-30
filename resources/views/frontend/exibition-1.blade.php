@@ -37,7 +37,7 @@
                                                 <?php $var = 'img' . $i; ?>
                                                 <a href="{{ Storage::url($exhibitions[0]->$var) }}"
                                                     class="mfp-lightbox mfp-image" title="">
-                                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    <img alt="Exibition Image"
                                                         src="{{ Storage::url($exhibitions[0]->$var) }}">
                                                     <figcaption>
                                                         <ul class="social">
@@ -79,15 +79,14 @@
                                 <div class="_grid columns is-variable is-3 is-multiline">
                                     @foreach ($series as $key => $versions)
                                         @foreach ($versions as $exhibitions)
-                                            <div class="_grid-item column is-4 {{ Str::slug($key) }}">
+                                            <a href="{{ url('image_description/' . $exhibitions->id) }}" class="_grid-item column is-4 {{ Str::slug($key) }}">
                                                 <div class="work-item">
                                                     <figure>
-                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                            src="{{ Storage::url($exhibitions->img) }}">
+                                                        <img alt="Exibition Image" src="{{ Storage::url($exhibitions->img) }}">
                                                     </figure>
                                                 </div>
                                                 <!-- .work-item -->
-                                            </div>
+                                            </a>
                                         @endforeach
                                     @endforeach
                                 </div>

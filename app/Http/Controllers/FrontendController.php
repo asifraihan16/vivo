@@ -142,14 +142,13 @@ class FrontendController extends Controller
                     ->where('photo_galleries.status', '=', 1)
                     ->where('photo_galleries.mobile_series_versions_id', '=', $version->id)
                     ->limit($per_version_limit)
-                    ->get()->toArray();;
+                    ->get()->toArray();
             }
         }
 
         $exhibitions = DB::table('exibitions')
             ->select('exibitions.*')
             ->get();
-
 
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'final_data'));
     }
