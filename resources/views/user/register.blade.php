@@ -1,127 +1,76 @@
-
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vivo-Admin Panel</title>
 
-    <head>
-        <meta charset="utf-8" />
-        <title>VIVO - User Panel</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{ URL::asset('login/fonts/material-icon/css/material-design-iconic-font.min.css') }}">
 
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ URL::asset('login/css/style.css') }}">
+</head>
+<body>
 
-        <!-- App css -->
-        <link href="{{ URL::asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ URL::asset('admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ URL::asset('admin/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+    <div class="main">
+        <!-- Sing in  Form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form" action="{{url('user/post-register')}}">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name" value="{{ old('name') }}"/>
+                                @if ($errors->has('name'))
+                                   <span class="error">{{ $errors->first('name') }}</span>
+                                 @endif
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email" value="{{ old('email') }}"/>
+                                @if ($errors->has('email'))
+                                   <span class="error">{{ $errors->first('email') }}</span>
+                                 @endif
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="pass" placeholder="Password"/>
+                                @if ($errors->has('password'))
+                                   <span class="error">{{ $errors->first('password') }}</span>
+                                 @endif
+                            </div>
 
-    </head>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
 
-    <body class="account-body accountbg">
-
-        <!-- Log In page -->
-        <div class="container">
-            <div class="row vh-100 d-flex justify-content-center">
-                <div class="col-12 align-self-center">
-                    <div class="row">
-                        <div class="col-lg-5 mx-auto">
-                            <div class="card">
-                                <div class="card-body p-0 auth-header-box" style="background-color: #3280dd;">
-                                    <div class="text-center p-3">
-                                        <a href="index.html" class="logo logo-admin">
-                                            <img src="{{URL::asset('admin/assets/images/vivo_logo.png')}}" height="50" alt="logo" class="auth-logo">
-                                        </a>
-                                        <h4 class="mt-3 mb-1 fw-semibold text-white font-18">User Resgister Panel</h4> 
-                                    </div>
-                                </div>
-                                <div class="card-body p-0">
-                                    <ul class="nav-border nav nav-pills" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active fw-semibold" data-bs-toggle="tab" href="#LogIn_Tab" role="tab">Register</a>
-                                        </li>
-                                    </ul>
-                                     <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <div class="tab-pane active p-3" id="LogIn_Tab" role="tabpanel">                                       
-                                            <form class="form-horizontal auth-form" method="POST" action="{{url('user/post-register')}}">
-                                                {{ csrf_field() }}
-                                                <div class="form-group mb-2">
-                                                    <label class="form-label" for="username">Name</label>
-                                                    <div class="input-group">                                                                                         
-                                                        <input type="text" class="form-control" name="name" id="username" placeholder="Enter Name" value="{{ old('name') }}">
-                                                        @if ($errors->has('name'))
-                                                           <span class="error">{{ $errors->first('name') }}</span>
-                                                         @endif 
-                                                    </div>                                    
-                                                </div>
-
-                                                <div class="form-group mb-2">
-                                                    <label class="form-label" for="username">Email</label>
-                                                    <div class="input-group">                                                                                         
-                                                        <input type="email" class="form-control" name="email" id="username" placeholder="Enter Email" value="{{ old('email') }}">
-                                                        @if ($errors->has('email'))
-                                                           <span class="error">{{ $errors->first('email') }}</span>
-                                                         @endif 
-                                                    </div>                                    
-                                                </div><!--end form-group--> 
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="{{ url('/user/auth/redirect/facebook') }}"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="{{ url('/user/auth/redirect/google') }}"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{{URL::asset('admin/assets/images/vivo_logo.png')}}" alt="sing up image"></figure>
+                        <a href="{{url('user/login')}}" class="signup-image-link">Already have an account</a>
+                    </div>                    
                     
-                                                <div class="form-group mb-2">
-                                                    <label class="form-label" for="userpassword">Password</label>                                            
-                                                    <div class="input-group">                                  
-                                                        <input type="password" class="form-control" name="password" id="userpassword" placeholder="Enter password">
-                                                        @if ($errors->has('password'))
-                                                           <span class="error">{{ $errors->first('password') }}</span>
-                                                         @endif
-                                                    </div>
-                                                </div><!--end form-group-->
-                    
-                                                <div class="form-group mb-0 row">
-                                                    <div class="col-12">
-                                                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register <i class="fas fa-sign-in-alt ms-1"></i></button>
-                                                    </div><!--end col--> 
-                                                </div> <!--end form-group-->                           
-                                            </form><!--end form-->
-                                            <div class="m-3 text-center text-muted">
-                                                <p class="mb-0">Have an account already?  <a href="{{url('user/login')}}" class="text-primary ms-2">Login</a></p>
-                                            </div>
-                                            <div class="account-social">
-                                                <h6 class="mb-3">Or Login With</h6>
-                                            </div>
-                                            <div class="btn-group w-100">
-                                                <a href="{{ url('/user/auth/redirect/facebook') }}" style="width: 100%; margin-bottom: 10px; background: #166FE5;"><button type="button" class="btn btn-sm btn-outline-secondary" style="width: 100%; color : #fff">Facebook</button></a>
-                                            </div>
-                                            <br/>
-                                            <div class="btn-group w-100">
-                                                <a href="{{ url('/user/auth/redirect/google') }}" style="width: 100%; background: #EA4335;"><button type="button" class="btn btn-sm btn-outline-secondary" style="width: 100%; color : #fff">Google</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--end card-body-->
-                                <div class="card-body bg-light-alt text-center">
-                                    <span class="text-muted d-none d-sm-inline-block">Geniee360 © All Rights Reserved</span>                                            
-                                </div>
-                            </div><!--end card-->
-                        </div><!--end col-->
-                    </div><!--end row-->
-                </div><!--end col-->
-            </div><!--end row-->
-        </div><!--end container-->
-        <!-- End Log In page -->
+                </div>
+            </div>
+        </section>
 
-        
+    </div>
 
-
-        <!-- jQuery  -->
-        <script src="{{ URL::asset('admin/assets/js/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/js/waves.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/js/feather.min.js') }}"></script>
-        <script src="{{ URL::asset('admin/assets/js/simplebar.min.js') }}"></script>
-
-        
-    </body>
-
+    <!-- JS -->
+    <script src="{{ URL::asset('login/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('login/js/main.js') }}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

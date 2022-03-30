@@ -306,7 +306,7 @@
                                                     class="mobile-series-title style-1">{{ $value->name }}</span></button>
                                                 <figure>
                                                     <img alt="VIVO Bangladesh"
-                                                        src="{{ asset('/storage/' . $value->img) }}">
+                                                        src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                                 </figure>
                                         </div>
                                         <!-- .work-item -->
@@ -332,7 +332,7 @@
                                             <figure class="post-image">
                                                 <a href="{{ url('/blog_details/' . $value->id) }}">
                                                     <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                        src="{{ asset('/storage/' . $value->img) }}"> </a>
+                                                        src="{{ $value->img ? Storage::url($value->img) : '' }}"> </a>
                                             </figure>
                                             <div class="entry-header">
                                                 <h2 class="entry-title">

@@ -31,7 +31,7 @@
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $value->name }}</td>
-                                                <td><img width="100px" src="{{ Storage::url($value->img) }}"></td>
+                                                <td><img width="100px" src="{{ $value->img ? Storage::url($value->img) : '' }}"></td>
                                                 <td class="text-right">
                                                     <a href="{{ route('home_sliders.edit', $value->id) }}"
                                                         class="btn btn-outline-warning">Edit</a>

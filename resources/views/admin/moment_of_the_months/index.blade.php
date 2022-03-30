@@ -56,31 +56,31 @@
 		                                            <tr>
 		                                                <td>{{ $key+1 }}</td>
                                                         <td>{{ $value->title1 }}</td>
-		                                                <td><img width="100px" src="{{ asset('/storage/'.$value->img1) }}"></td>
+		                                                <td><img width="100px" src="{{ $value->img7 ? Storage::url($value->img7) : '' }}"></td>
                                                         <td>{{ $value->link1 }}</td>
 
                                                         <td>{{ $value->title2 }}</td>
-                                                        <td><img width="100px" src="{{ asset('/storage/'.$value->img2) }}"></td>
+                                                        <td><img width="100px" src="{{ $value->img7 ? Storage::url($value->img7) : '' }}"></td>
                                                         <td>{{ $value->link2 }}</td>
 
                                                         <td>{{ $value->title3 }}</td>
-                                                        <td><img width="100px" src="{{ asset('/storage/'.$value->img3) }}"></td>
+                                                        <td><img width="100px" src="{{ $value->img7 ? Storage::url($value->img7) : '' }}"></td>
                                                         <td>{{ $value->link3 }}</td>
 
                                                         <td>{{ $value->title4 }}</td>
-                                                        <td><img width="100px" src="{{ asset('/storage/'.$value->img4) }}"></td>
+                                                        <td><img width="100px" src="{{ $value->img7 ? Storage::url($value->img7) : '' }}"></td>
                                                         <td>{{ $value->link4 }}</td>
 
                                                         <td>{{ $value->title5 }}</td>
-                                                        <td><img width="100px" src="{{ asset('/storage/'.$value->img5) }}"></td>
+                                                        <td><img width="100px" src="{{ $value->img7 ? Storage::url($value->img7) : '' }}"></td>
                                                         <td>{{ $value->link5 }}</td>
 
                                                         <td>{{ $value->title6 }}</td>
-                                                        <td><img width="100px" src="{{ asset('/storage/'.$value->img6) }}"></td>
+                                                        <td><img width="100px" src="{{ $value->img7 ? Storage::url($value->img7) : '' }}"></td>
                                                         <td>{{ $value->link6 }}</td>
 
                                                         <td>{{ $value->title7 }}</td>
-                                                        <td><img width="100px" src="{{ asset('/storage/'.$value->img7) }}"></td>
+                                                        <td><img width="100px" src="{{ $value->img7 ? Storage::url($value->img7) : '' }}"></td>
                                                         <td>{{ $value->link7 }}</td>
 		                                                <td class="text-right">
 	                                                        <a href="{{ route('moment_of_the_months.edit', $value->id) }}" class="btn btn-outline-warning">Edit</a>

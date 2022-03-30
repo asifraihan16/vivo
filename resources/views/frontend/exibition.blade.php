@@ -37,10 +37,10 @@
                                         <div class="work-item">
                                             <figure>
                                                 <?php $var = 'img' . $i; ?>
-                                                <a href="{{ asset('/storage/' . $exhibitions[0]->$var) }}"
+                                                <a href="{{ $exhibitions[0]->$var ? Storage::url($exhibitions[0]->$var) : '' }}"
                                                     class="mfp-lightbox mfp-image" title="">
                                                     <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                        src="{{ asset('/storage/' . $exhibitions[0]->$var) }}">
+                                                        src="{{ $exhibitions[0]->$var ? Storage::url($exhibitions[0]->$var) : '' }}">
                                                     <figcaption>
                                                         <ul class="social">
                                                             <li>
@@ -82,7 +82,7 @@
                                                 <div class="work-item">
                                                     <figure>
                                                         <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                            src="{{ asset('/storage/' . $exhibitions->img) }}">
+                                                            src="{{ $exhibitions->img ? Storage::url($exhibitions->img) : '' }}">
                                                     </figure>
                                                 </div>
                                                 <!-- .work-item -->

@@ -57,7 +57,7 @@
                                                          <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Image  (Dimension : 602px * 602px, Size : 50kb)</label>
                                                         <div class="col-sm-10">
                                                             {{-- <input type="file" class="form-control" id="inputName" name="product_image"> --}}
-                                                            <img src="{{ asset('/storage/'.$data[0]->img) }}">
+                                                            <img src="{{ $data[0]->img ? Storage::url($data[0]->img) : '' }}">
                                                             <input type="file" class="form-control" name="img">
                                                             {!! $errors->first('img', '<p class="help-block">:message</p>') !!}
                                                         </div>

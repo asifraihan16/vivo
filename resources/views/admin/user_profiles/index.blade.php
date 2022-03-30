@@ -26,7 +26,7 @@
                                         <div class="">
                                             <center>
                                             @if(Session()->get('img') != null)
-                                                <img src="{{asset('/storage/'.Session()->get('img'))}}" alt="" class="rounded-square">
+                                                <img src="{{ Session()->get('img') ? Storage::url(Session()->get('img')) : '' }}" alt="" class="rounded-square">
                                             @else
                                                 <img src="{{asset('public/admin/assets/images/users/dummy_user.png')}}" alt="" class="rounded-square">
                                                 

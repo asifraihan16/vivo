@@ -43,7 +43,7 @@
                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                                     <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Image 1</label>
                                                                     <div class="col-sm-10">
-                                                                        <img src="{{ asset('/storage/'.$data[0]->img1) }}" width="200px" height="200px">
+                                                                        <img src="{{ $data[0]->img1 ? Storage::url($data[0]->img1) : '' }}" width="200px" height="200px">
                                                                         <input type="file" class="form-control" name="img1" />
                                                                         {!! $errors->first('img1', '<p class="help-block">:message</p>') !!}
                                                                     </div>
@@ -68,7 +68,7 @@
                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                                     <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Image 2</label>
                                                                     <div class="col-sm-10">
-                                                                        <img src="{{ asset('/storage/'.$data[0]->img2) }}" width="200px" height="200px">
+                                                                        <img src="{{ $data[0]->img2 ? Storage::url($data[0]->img2) : '' }}" width="200px" height="200px">
                                                                         <input type="file" class="form-control" name="img2" />
                                                                         {!! $errors->first('img2', '<p class="help-block">:message</p>') !!}
                                                                     </div>
@@ -93,7 +93,7 @@
                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                                     <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Image 3</label>
                                                                     <div class="col-sm-10">
-                                                                        <img src="{{ asset('/storage/'.$data[0]->img3) }}" width="200px" height="200px">
+                                                                        <img src="{{ $data[0]->img3 ? Storage::url($data[0]->img3) : '' }}" width="200px" height="200px">
                                                                         <input type="file" id="input-file-now" class="form-control" name="img3" />
                                                                         {!! $errors->first('img3', '<p class="help-block">:message</p>') !!}
                                                                     </div>
@@ -118,7 +118,7 @@
                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                                     <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Image 4</label>
                                                                     <div class="col-sm-10">
-                                                                        <img src="{{ asset('/storage/'.$data[0]->img4) }}" width="200px" height="200px">
+                                                                        <img src="{{ $data[0]->img4 ? Storage::url($data[0]->img4) : '' }}" width="200px" height="200px">
                                                                         <input type="file" id="input-file-now" class="form-control" name="img4" />
                                                                         {!! $errors->first('img4', '<p class="help-block">:message</p>') !!}
                                                                     </div>
@@ -143,7 +143,7 @@
                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                                     <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Image 5</label>
                                                                     <div class="col-sm-10">
-                                                                        <img src="{{ asset('/storage/'.$data[0]->img5) }}" width="200px" height="200px">
+                                                                        <img src="{{ $data[0]->img5 ? Storage::url($data[0]->img5) : '' }}" width="200px" height="200px">
                                                                         <input type="file" id="input-file-now" class="form-control" name="img5" />
                                                                         {!! $errors->first('img5', '<p class="help-block">:message</p>') !!}
                                                                     </div>
@@ -168,7 +168,7 @@
                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                                     <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Image 6</label>
                                                                     <div class="col-sm-10">
-                                                                        <img src="{{ asset('/storage/'.$data[0]->img6) }}" width="200px" height="200px">
+                                                                        <img src="{{ $data[0]->img6 ? Storage::url($data[0]->img6) : '' }}" width="200px" height="200px">
                                                                         <input type="file" id="input-file-now" class="form-control" name="img6" />
                                                                         {!! $errors->first('img6', '<p class="help-block">:message</p>') !!}
                                                                     </div>
@@ -193,7 +193,7 @@
                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
                                                                     <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Image 7</label>
                                                                     <div class="col-sm-10">
-                                                                        <img src="{{ asset('/storage/'.$data[0]->img7) }}" width="200px" height="200px">
+                                                                        <img src="{{ $data[0]->img7 ? Storage::url($data[0]->img7) : '' }}" width="200px" height="200px">
                                                                         <input type="file" id="input-file-now" class="form-control" name="img7" />
                                                                         {!! $errors->first('img7', '<p class="help-block">:message</p>') !!}
                                                                     </div>

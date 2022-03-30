@@ -22,7 +22,9 @@ Route::get('/blog_details/{id}', 'FrontendController@blog_details');
 Route::get('/campaign', 'FrontendController@campaign');
 Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
-Route::get('/image_description', 'FrontendController@image_description');
+//----- addition--------
+Route::get('/image_description/{id}', 'FrontendController@image_description');
+//-----addition---------
 
 
 Route::get('admin/', 'AuthController@home');

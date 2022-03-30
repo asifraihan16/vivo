@@ -46,7 +46,7 @@
                                   <td><a href="{{url('/campaign_detail/'.$data->id)}}">{{$data->title}}</a></td>
                                   <td><a href="{{url('/campaign_detail/'.$data->id)}}">{{$data->title_detail}}</a></td>
                                   <td><a href="{{url('/campaign_detail/'.$data->id)}}">
-                                    <img width="100px" src="{{ asset('/storage/'.$data->img1) }}"></a>
+                                    <img width="100px" src="{{ $value->img ? Storage::url($value->img) : '' }}"></a>
                                   </td>
                                 </tr>
                               @endforeach

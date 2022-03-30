@@ -31,7 +31,7 @@
 		                                            <tr>
 		                                                <td>{{ $key+1 }}</td>
                                                         <td>{{ $value->title }}</td>
-		                                                <td><img width="100px" src="{{ asset('/storage/'.$value->img) }}"></td>                                                        
+		                                                <td><img width="100px" src="{{ $value->img ? Storage::url($value->img) : '' }}"></td>                                                        
                                                         <td>{{ $value->desc }}</td>
 		                                                <td class="text-right">
 	                                                        <a href="{{ route('blogs.edit', $value->id) }}" class="btn btn-outline-warning">Edit</a>

@@ -35,9 +35,9 @@
 		                                                <td>{{ $key+1 }}</td>
                                                         <td>{{ $value->title }}</td>
                                                         <td>{{ $value->title_detail }}</td>
-		                                                <td><img width="100px" src="{{ asset('/storage/'.$value->img1) }}"></td>
-                                                        <td><img width="100px" src="{{ asset('/storage/'.$value->img2) }}"></td>
-                                                        <td><img width="100px" src="{{ asset('/storage/'.$value->img3) }}"></td>                                                       
+		                                                <td><img width="100px" src="{{ $value->img1 ? Storage::url($value->img1) : '' }}"></td>
+                                                        <td><img width="100px" src="{{ $value->img2 ? Storage::url($value->img2) : '' }}"></td>
+                                                        <td><img width="100px" src="{{ $value->img3 ? Storage::url($value->img3) : '' }}"></td>                                                       
                                                         <td>{{ $value->desc }}</td>
 		                                                <td class="text-right">
 	                                                        <a href="{{ route('campaigns.edit', $value->id) }}" class="btn btn-outline-warning">Edit</a>

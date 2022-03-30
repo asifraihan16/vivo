@@ -61,7 +61,7 @@
                                                     <img src="{{ Storage::url(Session()->get('img')) }}" alt=""
                                                         weight="128" height="128" class="rounded-square">
                                                 @else
-                                                    <img src="{{ asset('public/admin/assets/images/users/dummy_user.png') }}"
+                                                    <img src="{{ asset('admin/assets/images/users/dummy_user.png') }}"
                                                         alt="" weight="128" height="128" class="rounded-square">
                                                 @endif
 

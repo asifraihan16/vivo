@@ -37,7 +37,7 @@
                               <div class="column is-narrow is-6">
                                 <figure class="post-image">
                                   <a href="{{url('blog_details')}}">
-                                    <img alt="Joo - Niche Multi-Purpose HTML Template" src="{{ asset('/storage/'.$value->img) }}"> </a>
+                                    <img alt="Joo - Niche Multi-Purpose HTML Template" src="{{ $value->img ? Storage::url($value->img) : '' }}"> </a>
                                 </figure>
                               </div>
                               <div class="column">

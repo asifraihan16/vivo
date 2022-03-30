@@ -194,8 +194,32 @@ class FrontendController extends Controller
         return view('frontend.contact');
     }
 
-    public function image_description()
+    public function image_description($id)
     {
-        return view('frontend.image_description');
+        // return $id;
+        $image_details = DB::table('photo_galleries')
+                ->join('mobile_series_versions','mobile_series_versions.id','=','photo_galleries.mobile_series_versions_id')
+                ->join('users','users.id','=','photo_galleries.users_id')
+                ->select(
+                    'photo_galleries.*',
+                    'mobile_series_versions.name as mobile_series_versions_name',
+                    'users.name as username'
+                    )
+                ->where('photo_galleries.id','=',$id)
+                ->get();
+
+        $image_tags = DB::table('photo_galleries_tags')
+                ->join('tags','tags.id','=','photo_galleries_tags.tags_id')
+                ->select(
+                    'tags.*'
+                    )
+                ->where('photo_galleries_tags.photo_galleries_id','=',$id)
+                ->get();
+        // echo "<pre/>";
+        // print_r($image_details);
+        // die;
+        // return $image_tags;
+
+        return view('frontend.image_description', compact('image_details', 'image_tags'));
     }
 }

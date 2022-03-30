@@ -57,7 +57,7 @@
                                                                 <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Slider Image 1 (1920px * 850px)</label>
                                                                 <div class="col-sm-10">
 
-                                                                    <img src="{{ asset('/storage/'.$data[0]->img1) }}">
+                                                                    <img src="{{ $data[0]->img1 ? Storage::url($data[0]->img1) : '' }}">
                                                                     <input type="file" id="input-file-now" class="dropify" name="img1" />
                                                                     {!! $errors->first('img1', '<p class="help-block">:message</p>') !!}
                                                                 </div>
@@ -66,7 +66,7 @@
                                                                 <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Slider Image 2 (1920px * 850px)</label>
                                                                 <div class="col-sm-10">
 
-                                                                    <img src="{{ asset('/storage/'.$data[0]->img2) }}">
+                                                                    <img src="{{ $data[0]->img2 ? Storage::url($data[0]->img2) : '' }}">
                                                                     <input type="file" id="input-file-now" class="dropify" name="img2" />
                                                                     {!! $errors->first('img2', '<p class="help-block">:message</p>') !!}
                                                                 </div>
@@ -74,7 +74,7 @@
                                                             <div class="mb-3 row">
                                                                 <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Slider Image 3 (1920px * 850px)</label>
                                                                 <div class="col-sm-10">
-                                                                    <img src="{{ asset('/storage/'.$data[0]->img3) }}">
+                                                                    <img src="{{ $data[0]->img3 ? Storage::url($data[0]->img3) : '' }}">
                                                                     <input type="file" id="input-file-now" class="dropify" name="img3" />                       
                                                                     {!! $errors->first('img3', '<p class="help-block">:message</p>') !!}
                                                                 </div>
