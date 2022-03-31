@@ -7,6 +7,7 @@ Use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
+use DB;
 
 class AuthController extends Controller
 {
@@ -48,8 +49,17 @@ class AuthController extends Controller
         return Redirect::to("admin/login")->withSuccess('Oppes! You have entered invalid credentials');
     }
 
-    public function postRegister(Request $request)
+    public function _postRegister(Request $request)
     {
+        // if($request->is_admin != '')
+        // {
+        //     $id_admin = $request->is_admin;
+        // }
+        // else
+        // {
+        //     $id_admin = '';
+        // }
+
         request()->validate([
         'name' => 'required',
         'email' => 'required|email|unique:users',
@@ -61,6 +71,30 @@ class AuthController extends Controller
         $check = $this->create($data);
 
         return Redirect::to("admin/dashboard")->withSuccess('Great! You have Successfully loggedin');
+    }
+
+    public function postRegister(Request $request)
+    {  
+        // return $request;
+        request()->validate([
+        'name' => 'required',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:6',
+        ]);
+
+        return User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'is_admin' => $request->is_admin,
+          ]);
+         
+        // $data = $request->all();
+        // return $data;
+ 
+        // $check = $this->create($data);
+       
+        return Redirect::to("admin/users")->withSuccess('Great! You have Successfully loggedin');
     }
 
     public function dashboard()
@@ -167,6 +201,21 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
         return Redirect('user/login');
+    }
+
+    public function user_list()
+    {
+        $data = DB::table('users')
+                    ->where('is_admin', '=', 1)
+                    ->get();
+
+        return view('admin.users.index', compact('data'));
+        // return $admin_user;
+    }
+
+    public function users_create()
+    {
+        return view('admin.users.create');
     }
 }
 ?>

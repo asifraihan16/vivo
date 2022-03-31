@@ -72,7 +72,7 @@
                                             <a href="{{ url('/galleries') }}">Photographer</a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('/exibition') }}">Exhibition</a>
+                                            <a href="{{ url('/exhibition') }}">Exhibition</a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/blogs') }}">Blogs</a>

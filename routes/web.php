@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontendController@index');
 Route::get('/galleries', 'FrontendController@galleries');
-Route::get('/exibition', 'FrontendController@exibition');
+Route::get('/exhibition', 'FrontendController@exhibition');
 Route::get('/exibition2', 'FrontendController@exibition2');
 Route::get('/blogs', 'FrontendController@blogs');
 Route::get('/blog_details/{id}', 'FrontendController@blog_details');
@@ -62,7 +62,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
 	Route::get('pending_request', 'PhotoGalleryController@pending_request');
 	Route::get('pending_request_approved/{id}', 'PhotoGalleryController@pending_request_approved');
 	Route::get('approved_request', 'PhotoGalleryController@approved_request')->name('admin.approved_request');
-	Route::get('user_profile', 'UserProfileController@show');
+	Route::get('users', 'AuthController@user_list');
+	Route::get('users_create', 'AuthController@users_create');
+	Route::post('admin_user_create', 'AuthController@postRegister');
+	Route::get('user_profile', 'AuthController@show');
 	Route::post('profile_info', 'UserProfileController@profile_info');
 });
 

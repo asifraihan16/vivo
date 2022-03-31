@@ -112,7 +112,7 @@ class FrontendController extends Controller
         return view('frontend.exibition', compact('exhibitions', 'mobile_series', 'mobile_series_versions', 'mobile_series_versions_wise_image'));
     }
 
-    public function exibition()
+    public function exhibition()
     {
         $mobile_series = MobileSeries::all();
         $final_data = array();
@@ -142,6 +142,7 @@ class FrontendController extends Controller
                     ->where('photo_galleries.status', '=', 1)
                     ->where('photo_galleries.mobile_series_versions_id', '=', $version->id)
                     ->limit($per_version_limit)
+                    ->orderBy('created_at','desc')
                     ->get()->toArray();
             }
         }

@@ -4,7 +4,7 @@
                 <a href="index.html" class="logo">                    
                     <span>
                         <!-- <img src="{{URL::asset('public/frontend/assets/images/logo/vivo_logo.jpg')}}" alt="logo-large" class="logo-lg logo-light"> -->
-                        <img src="{{URL::asset('public/admin/assets/images/vivo_logo.png')}}" alt="logo-large" class="logo-dark">
+                        <img src="{{URL::asset('admin/assets/images/vivo_logo.png')}}" alt="logo-large" class="logo-dark">
                     </span>
                 </a>
             </div>
@@ -52,6 +52,9 @@
                             <li class="nav-item"><a class="nav-link" href="{{ route('blogs.index') }}"><i class="ti-control-record"></i>Blog Post</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('campaigns.index') }}"><i class="ti-control-record"></i>Campaign</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="{{url('admin/users')}}"> <i data-feather="user-plus" class="align-self-center menu-icon"></i><span>Users</span></a>
                     </li>
                     <li>
                         <a href="{{url('admin/user_profile')}}"> <i data-feather="user-plus" class="align-self-center menu-icon"></i><span>Profile</span></a>
