@@ -109,7 +109,7 @@ class FrontendController extends Controller
             )
             ->get();
 
-        return view('frontend.exibition', compact('exhibitions', 'mobile_series', 'mobile_series_versions', 'mobile_series_versions_wise_image'));
+        return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'mobile_series_versions', 'mobile_series_versions_wise_image'));
     }
 
     public function exhibition()
