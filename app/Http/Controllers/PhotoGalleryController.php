@@ -202,6 +202,7 @@ class PhotoGalleryController extends Controller
                 'mobile_series_versions.name as mobile_series_versions_name',
             )
             ->orderBy('photo_galleries.created_at', 'desc')
+            ->where('photo_galleries.users_id', '=', Auth::id())
             ->get();
 
         $photo_galleries_tag = DB::table('photo_galleries_tags')
