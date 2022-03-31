@@ -44,7 +44,7 @@
                 <!-- .column -->
                 <div class="column is-4">
                     <div class="widget widget-links">
-                        <h3 class="widget-title ">Explore vivo</h3>
+                        <h3 class=" ">Explore vivo</h3>
                         <ul>
                             <li>
                                 <a href="#">Info</a>

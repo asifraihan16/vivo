@@ -51,6 +51,9 @@
                             </div>
                         </form>
                         <div class="social-login">
+                            <span class="social-label">Don't have an account ? <a href="{{url('user/register')}}" class="signup-image-link">Sign up</a></span>
+                        </div>
+                        <div class="social-login">
                             <span class="social-label">Or login with</span>
                             <ul class="socials">
                                 <li><a href="{{ url('/user/auth/redirect/facebook') }}"><i

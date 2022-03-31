@@ -7,7 +7,7 @@
       <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
           <div id="header-bottom-inner" class="site-header-bottom-inner ">
-            <section class="hero page-title is-medium has-text-centered blog-single" style="background: #812323 url({{ asset('/public/frontend/assets/images/page-header/5.jpg') }}) no-repeat top center; background-size: cover;}">
+            <section class="hero page-title is-medium has-text-centered blog-single" style="background: #812323 url({{ asset('/frontend/assets/images/page-header/5.jpg') }}) no-repeat top center; background-size: cover;}">
               <div class="hero-body">
                 <div class="container">
                 </div>

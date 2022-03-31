@@ -6,7 +6,7 @@
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('/public/frontend/assets/images/page-header/4.jpg') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ asset('/frontend/assets/images/page-header/4.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
                         </div>
@@ -31,7 +31,7 @@
                             <br>
                             <article class="blog-post ">
                                 <figure class="post-image">
-                                    <img alt="Joo - Niche Multi-Purpose HTML Template" src="{{ $value->img ? Storage::url($value->img) : '' }}">
+                                    <img alt="Joo - Niche Multi-Purpose HTML Template" src="{{ $data->img ? Storage::url($data->img) : '' }}">
                                 </figure>
                                 <div class="entry-header">
                                     <div class="post-meta">
