@@ -35,9 +35,9 @@
                                         <ul class="work-images">
                                             <li>
                                                 <figure>
-                                                    {{-- <a href="{{ asset('/storage/'.$image_details[0]->img) }}" class="mfp-lightbox mfp-image" title="Creative Design"> --}}
+                                                    {{-- <a href="{{ asset('/storage/'.$image_details->img) }}" class="mfp-lightbox mfp-image" title="Creative Design"> --}}
                                                     <img alt="Exibition Image"
-                                                        src="{{ Storage::url($image_details[0]->img) }}">
+                                                        src="{{ Storage::url($image_details->img) }}">
                                                     {{-- <figcaption>
                                   <ul class="social">
                                     <li>
@@ -68,21 +68,21 @@
                                                         <i class="icon-tag"></i>
                                                     </span>
                                                     <a href="#">Author Name :</a>
-                                                    <a href="#">{{ $image_details[0]->username }}</a>
+                                                    <a href="{{ route('exibition-photos-by-author', ['author_id'=> $image_details->users_id]) }}">{{ $image_details->username }}</a>
                                                 </li>
                                                 <li>
                                                     <span class="icon">
                                                         <i class="icon-tag"></i>
                                                     </span>
                                                     <a href="#">Image Title :</a>
-                                                    <a href="#">{{ $image_details[0]->title }}</a>
+                                                    <a href="#">{{ $image_details->title }}</a>
                                                 </li>
                                                 <li>
                                                     <span class="icon">
                                                         <i class="icon-tag"></i>
                                                     </span>
                                                     <a href="#">Phone Model :</a>
-                                                    <a href="#">{{ $image_details[0]->mobile_series_versions_name }}</a>
+                                                    <a href="#">{{ $image_details->mobile_series_versions_name }}</a>
                                                 </li>
                                                 <li>
                                                     <span class="icon">
