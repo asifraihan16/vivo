@@ -173,6 +173,7 @@ class FrontendController extends Controller
                 'mobile_series_version.mobile_series'
             ])
             ->where('users_id', $author_id)
+            ->where('status', 1)
             ->paginate(18);
 
         return view('frontend.exibition_photos_by_author', compact('author', 'photo_galleries'));
