@@ -8,4 +8,9 @@ class PhotoGallery extends Model
 {
     protected $table = 'photo_galleries';
     protected $fillable = ['mobile_series_versions_id','title','img','status'];
+
+    public function mobile_series_version()
+    {
+        return $this->belongsTo(MobileSeriesVersion::class, 'mobile_series_versions_id');
+    }
 }

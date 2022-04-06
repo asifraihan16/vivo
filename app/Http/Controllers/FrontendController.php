@@ -8,6 +8,8 @@ use App\MobileSeries;
 use App\MobileSeriesVersion;
 use App\Blog;
 use App\Campaign;
+use App\PhotoGallery;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
@@ -114,6 +116,12 @@ class FrontendController extends Controller
 
     public function exhibition()
     {
+        /* $mobile_series = MobileSeries::query()
+            ->with([
+                'mobile_series_versions',
+            ])
+            ->get(); */
+
         $mobile_series = MobileSeries::all();
         $final_data = array();
 
@@ -156,37 +164,48 @@ class FrontendController extends Controller
             ->select('exibitions.*')
             ->get();
 
-
-
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'final_data'));
+    }
+
+    public function exhibition_photos_by_author($author_id)
+    {
+        $author = User::where('id', $author_id)
+            ->select('id', 'name', 'email', 'contact')
+            ->firstOrFail();
+
+        $photo_galleries = PhotoGallery::query()
+            ->with([
+                'mobile_series_version.mobile_series'
+            ])
+            ->where('users_id', $author_id)
+            ->where('status', 1)
+            ->paginate(18);
+
+        return view('frontend.exibition_photos_by_author', compact('author', 'photo_galleries'));
     }
 
     public function blogs()
     {
         $mobile_series_version = MobileSeriesVersion::all();
         $blogs = Blog::all();
-
         return view('frontend.blogs', compact('mobile_series_version', 'blogs'));
     }
 
     public function blog_details($id)
     {
         $blog_details = Blog::find($id);
-        // return $blog_details;
         return view('frontend.blog_details', compact('blog_details'));
     }
 
     public function campaign()
     {
         $campaigns = Campaign::all();
-
         return view('frontend.campaign', compact('campaigns'));
     }
 
     public function campaign_detail($id)
     {
         $data = Campaign::find($id);
-
         return view('frontend.campaign_detail', compact('data'));
     }
 
@@ -197,7 +216,7 @@ class FrontendController extends Controller
 
     public function contact()
     {
-        // return 'Page is Under Construction';
+        // TODO: 'Page is Under Construction';
         return view('frontend.contact');
     }
 
@@ -205,27 +224,24 @@ class FrontendController extends Controller
     {
         // return $id;
         $image_details = DB::table('photo_galleries')
-                ->join('mobile_series_versions','mobile_series_versions.id','=','photo_galleries.mobile_series_versions_id')
-                ->join('users','users.id','=','photo_galleries.users_id')
-                ->select(
-                    'photo_galleries.*',
-                    'mobile_series_versions.name as mobile_series_versions_name',
-                    'users.name as username'
-                    )
-                ->where('photo_galleries.id','=',$id)
-                ->get();
+            ->join('mobile_series_versions','mobile_series_versions.id','=','photo_galleries.mobile_series_versions_id')
+            ->join('users','users.id','=','photo_galleries.users_id')
+            ->select(
+                'photo_galleries.*',
+                'mobile_series_versions.name as mobile_series_versions_name',
+                'users.name as username'
+                )
+            ->where('photo_galleries.id','=',$id)
+            ->first();
 
         $image_tags = DB::table('photo_galleries_tags')
-                ->join('tags','tags.id','=','photo_galleries_tags.tags_id')
-                ->select(
-                    'tags.*'
-                    )
-                ->where('photo_galleries_tags.photo_galleries_id','=',$id)
-                ->get();
-        // echo "<pre/>";
-        // print_r($image_details);
-        // die;
-        // return $image_tags;
+            ->join('tags','tags.id','=','photo_galleries_tags.tags_id')
+            ->select(
+                'tags.*'
+                )
+            ->where('photo_galleries_tags.photo_galleries_id','=',$id)
+            ->get();
+
 
         return view('frontend.image_description', compact('image_details', 'image_tags'));
     }
