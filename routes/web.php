@@ -36,6 +36,8 @@ Route::get('admin/register', 'AuthController@register');
 Route::post('admin/post-register', 'AuthController@postRegister');
 Route::get('admin/logout', 'AuthController@logout');
 
+Route::resource('blog-comments', 'BlogCommentController')->only('store');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
 	Route::get('dashboard', 'AuthController@dashboard');
 	Route::resource('mobile-series', 'MobileSeriesController');

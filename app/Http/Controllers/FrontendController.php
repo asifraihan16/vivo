@@ -145,12 +145,13 @@ class FrontendController extends Controller
                     ->select(
                         'photo_galleries.*',
                         'mobile_series_versions.name as mobile_series_versions_name',
-                        'mobile_series.name as mobile_series_name', 'mobile_series.id as mobile_series_id'
+                        'mobile_series.name as mobile_series_name',
+                        'mobile_series.id as mobile_series_id'
                     )
                     ->where('photo_galleries.status', '=', 1)
                     ->where('photo_galleries.mobile_series_versions_id', '=', $version->id)
                     ->limit($per_version_limit)
-                    ->orderBy('created_at','desc')
+                    ->orderBy('created_at', 'desc')
                     ->get()->toArray();
             }
         }
@@ -189,7 +190,14 @@ class FrontendController extends Controller
     public function blog_details($id)
     {
         $blog_details = Blog::find($id);
-        return view('frontend.blog_details', compact('blog_details'));
+        $comments = DB::table('blog_comments as a')
+            ->select('a.*', 'b.id', 'b.name', 'b.email', 'b.img')
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->where('a.blog_id', $blog_details->id)
+            // ->latest()
+            ->get();
+
+        return view('frontend.blog_details', compact('blog_details', 'comments'));
     }
 
     public function campaign()
@@ -219,22 +227,22 @@ class FrontendController extends Controller
     {
         // return $id;
         $image_details = DB::table('photo_galleries')
-            ->join('mobile_series_versions','mobile_series_versions.id','=','photo_galleries.mobile_series_versions_id')
-            ->join('users','users.id','=','photo_galleries.users_id')
+            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
+            ->join('users', 'users.id', '=', 'photo_galleries.users_id')
             ->select(
                 'photo_galleries.*',
                 'mobile_series_versions.name as mobile_series_versions_name',
                 'users.name as username'
-                )
-            ->where('photo_galleries.id','=',$id)
+            )
+            ->where('photo_galleries.id', '=', $id)
             ->first();
 
         $image_tags = DB::table('photo_galleries_tags')
-            ->join('tags','tags.id','=','photo_galleries_tags.tags_id')
+            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
             ->select(
                 'tags.*'
-                )
-            ->where('photo_galleries_tags.photo_galleries_id','=',$id)
+            )
+            ->where('photo_galleries_tags.photo_galleries_id', '=', $id)
             ->get();
 
 
