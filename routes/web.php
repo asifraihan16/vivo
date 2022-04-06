@@ -51,11 +51,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
 	Route::resource('photographers', 'PhotographerController');
 	Route::resource('exibition_upload', 'ExibitionController');
 	Route::resource('playlists', 'PlaylistController');
+
 	Route::resource('playlist1_main_vedios', 'Playlist1MainVediosController')->only('index', 'create', 'store');
 	Route::delete('playlist1_main_vedios/{id}', 'Playlist1MainVediosController@destroy')->name('playlist1_main_vedios.destroy');
-	Route::resource('playlist1_other_vedios', 'Playlist1OtherVediosController');
-	Route::resource('playlist2_main_vedios', 'Playlist2MainVediosController');
-	Route::resource('playlist2_other_vedios', 'Playlist2OtherVediosController');
+
+	Route::resource('playlist1_other_vedios', 'Playlist1OtherVediosController')->only('index', 'create', 'store');
+	Route::delete('playlist1_other_vedios/{id}', 'Playlist1OtherVediosController@destroy')->name('playlist1_other_vedios.destroy');
+
+	Route::resource('playlist2_main_vedios', 'Playlist2MainVediosController')->only('index', 'create', 'store');
+	Route::delete('playlist2_main_vedios/{id}', 'Playlist2MainVediosController@destroy')->name('playlist2_main_vedios.destroy');
+
+	Route::resource('playlist2_other_vedios', 'Playlist2OtherVediosController')->only('index', 'create', 'store');
+	Route::delete('playlist2_other_vedios/{id}', 'Playlist2OtherVediosController@destroy')->name('playlist2_other_vedios.destroy');
+
 	Route::get('playlists/{id}', 'PlaylistController@statusUpdate');
 	Route::resource('blogs', 'BlogController');
 	Route::get('blogs/{id}', 'BlogController@statusUpdate');
