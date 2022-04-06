@@ -50,7 +50,7 @@ class Playlist1MainVediosController extends Controller
             'title' => 'required',
             'desc' => 'required',
             'link' => 'required',
-            'img' => 'required|mimes:jpeg,jpg|max:150',
+            'img' => 'required|mimes:jpeg,jpg',
         ];
 
         $customMessages = [

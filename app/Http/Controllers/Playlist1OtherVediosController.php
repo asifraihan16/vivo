@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\playlist1_other_vedios;
+use App\Services\FileUploadService;
 use Illuminate\Http\Request;
 
 class Playlist1OtherVediosController extends Controller
@@ -19,6 +20,8 @@ class Playlist1OtherVediosController extends Controller
     public function index()
     {
         $data = playlist1_other_vedios::all();
+
+        // return $data;
 
         return view('admin.playlist1_other_vedios.index', compact('data'));
     }
@@ -43,6 +46,7 @@ class Playlist1OtherVediosController extends Controller
     {
         $rules = [
            'link' => 'required',
+            'img' => 'required|mimes:jpeg,jpg',
            // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
         ];
 
@@ -55,8 +59,15 @@ class Playlist1OtherVediosController extends Controller
 
         $this->validate($request, $rules, $customMessages);
 
+        $image_url = '';
+
+        if ($request->file('img')) {
+            $image_url = $this->fileUploadService->upload('img', 'photo_galleries');
+        }
+
         playlist1_other_vedios::create([
                         'link' => $request->link,
+                        'img' => $image_url,
                     ]);
 
         return redirect()->route('playlist1_other_vedios.index')->with('success', $request->name.'Tags Created Successfully');

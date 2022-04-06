@@ -19,11 +19,6 @@
                                             data-scaleend="150" data-rotatestart="0" data-rotateend="0"
                                             data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="15">
 
-                                        <a class="tp-caption tp-resizeme mfp-lightbox mfp-iframe button is-primary is-rounded"
-                                            href="#"
-                                            data-frames='[{"delay":1600,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":800,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                                            data-x="center" data-hoffset="['0','0','0','0']" data-y="center"
-                                            data-voffset="['135','135','0','0']" data-type="button"> Get Down </a>
                                         <div class="tp-caption rev-scroll-btn revs-white"
                                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                             data-y="['bottom','bottom','bottom','bottom']"
@@ -205,7 +200,7 @@
                                 <x-embed url="{{ $playlist1_main[0]->link }}" />
                               </div> -->
                                         <img alt="VIVO Bangladesh"
-                                            src="{{ URL::asset('frontend/assets/images/youtube/V21 1.jpg') }}">
+                                            src="{{ Storage::url($playlist1_main[0]->img) }}">
                                         <div class="works-latest-item-icon style-2">
                                             <a href="{{ $playlist1_main[0]->link }}" class="mfp-lightbox mfp-iframe">
                                                 <span class="icon ripple-effect">
@@ -223,7 +218,7 @@
                             @foreach ($playlist1_other as $value)
                                 <div class="works-latest-item">
                                     <img alt="VIVO Bangladesh"
-                                        src="{{ URL::asset('frontend/assets/images/youtube/V21e 1.jpg') }}">
+                                        src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                     <div class="works-latest-item-icon style-2">
                                         <a href="{{ $value->link }}" class="mfp-lightbox mfp-iframe">
                                             <span class="icon ripple-effect">
@@ -260,7 +255,7 @@
                                 <x-embed url="{{ $playlist1_main[0]->link }}" />
                               </div> -->
                                         <img alt="VIVO Bangladesh"
-                                            src="{{ URL::asset('frontend/assets/images/youtube/V21e 2.jpg') }}">
+                                            src="{{ Storage::url($playlist1_main[0]->img) }}">
                                         <div class="works-latest-item-icon style-2">
                                             <a href="{{ $playlist2_main[0]->link }}" class="mfp-lightbox mfp-iframe">
                                                 <span class="icon ripple-effect">
@@ -278,7 +273,7 @@
                             @foreach ($playlist2_other as $value)
                                 <div class="works-latest-item">
                                     <img alt="VIVO Bangladesh"
-                                        src="{{ URL::asset('frontend/assets/images/youtube/V23 5G 1.jpg') }}">
+                                        src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                     <div class="works-latest-item-icon style-2">
                                         <a href="{{ $value->link }}" class="mfp-lightbox mfp-iframe">
                                             <span class="icon ripple-effect">

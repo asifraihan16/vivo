@@ -6,7 +6,7 @@
       <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
           <div id="header-bottom-inner" class="site-header-bottom-inner ">
-            <section class="hero page-title is-medium has-text-centered blog-single" style="background: #812323 url({{ asset('/public/frontend/assets/images/page-header/3.jpg') }}) no-repeat top center; background-size: cover;}">
+            <section class="hero page-title is-medium has-text-centered blog-single" style="background: #812323 url({{ asset('/frontend/assets/images/page-header/3.jpg') }}) no-repeat top center; background-size: cover;}">
               <div class="hero-body">
                 <div class="container">
                 </div>
@@ -46,7 +46,7 @@
                                   <td><a href="{{url('/campaign_detail/'.$data->id)}}">{{$data->title}}</a></td>
                                   <td><a href="{{url('/campaign_detail/'.$data->id)}}">{{$data->title_detail}}</a></td>
                                   <td><a href="{{url('/campaign_detail/'.$data->id)}}">
-                                    <img width="100px" src="{{ $data->img ? Storage::url($data->img) : '' }}"></a>
+                                    <img width="100px" src="{{ $data->img1 ? Storage::url($data->img1) : '' }}"></a>
                                   </td>
                                 </tr>
                               @endforeach
@@ -54,7 +54,8 @@
                           </table>
                         </div>
                       </div>
-                      <br> </div>
+                      <br> 
+                    </div>
                   </section>
                 </div>
                 <!-- #content-area-inner -->

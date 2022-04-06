@@ -60,11 +60,12 @@
                             <!-- .columns -->
                         </div>
                         <!-- .works -->
-                    </div>
+                    </div>                    
                 </section>
 
                 <section class="section hero-2 works-list is-clearfix">
                     <div class="container">
+                        <button>View All</button>
                         @foreach ($final_data as $key => $series)
                             <h1 class="heading-title style-1">{{ $key }}</h1>
 
@@ -94,6 +95,7 @@
                             </div>
                         @endforeach
                         <!-- .works -->
+                                <a class="button is-danger is-radiusless">View All</a>
                     </div>
                 </section>
 

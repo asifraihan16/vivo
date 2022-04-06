@@ -51,9 +51,8 @@
                             <div id="header-logo" class="site-logo ">
                                 <div id="logo-inner" class="site-logo-inner">
                                     <a href="{{ url('/') }}">
-                                        <!-- <span class="logo-text">VIVO</span>  -->
-                                        <img alt="VIVO Logo"
-                                            src="{{ asset('frontend/assets/images/logo/vivo_logo.png') }}">
+                                        <span class="logo-text" style="text-transform: none;">vivo</span> 
+                                        {{-- <img alt="VIVO Logo" src="{{ asset('frontend/assets/images/logo/vivo_logo.png') }}"> --}}
                                     </a>
                                 </div>
                                 <!-- #logo-inner -->

@@ -13,9 +13,15 @@ body .image-hover figure img {
 }
 
 /*header, .site-header-top{position: absolute !important;}*/
-body.header-transparent header {
-    background-color: #006eb69e;
-    /* color: #fff; */
+
+.body.header-transparent header{background-color: #fff !important;}
+
+.main-navigation>ul>li>a{color: #000 !important;}
+
+body.header-transparent header{position: relative !important;}
+
+.mobile-series-in-blogPage a{
+    color: #7389FF;
 }
 
 /*#nav-wrap #site-navigation ul li a {color:#fff !important;}*/

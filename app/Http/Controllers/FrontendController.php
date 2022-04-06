@@ -137,7 +137,7 @@ class FrontendController extends Controller
                     ->select(
                         'photo_galleries.*',
                         'mobile_series_versions.name as mobile_series_versions_name',
-                        'mobile_series.name as mobile_series_name, mobile_series.id as mobile_series_id'
+                        'mobile_series.name as mobile_series_name', 'mobile_series.id as mobile_series_id'
                     )
                     ->where('photo_galleries.status', '=', 1)
                     ->where('photo_galleries.mobile_series_versions_id', '=', $version->id)
@@ -147,9 +147,15 @@ class FrontendController extends Controller
             }
         }
 
+        // echo "<pre/>";
+        // print_r($final_data['V Series']['V23e'][0]->id);
+        // die;        
+        // return dd($final_data);
+
         $exhibitions = DB::table('exibitions')
             ->select('exibitions.*')
             ->get();
+
 
 
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'final_data'));

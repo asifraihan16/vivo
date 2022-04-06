@@ -88,11 +88,10 @@
                     <!-- .widget -->
                     <div class="widget widget-links">
                       <h3 class="widget-title ">Mobile Series</h3>
-                      <ul>
+                      <ul class="mobile-series-in-blogPage">
                          @foreach($mobile_series_version as $data)
                             <li>
                               <a href="#">{{$data->name}}</a>
-                              <span>(4)</span>
                             </li>
                         @endforeach
                       </ul>
