@@ -155,11 +155,6 @@ class FrontendController extends Controller
             }
         }
 
-        // echo "<pre/>";
-        // print_r($final_data['V Series']['V23e'][0]->id);
-        // die;        
-        // return dd($final_data);
-
         $exhibitions = DB::table('exibitions')
             ->select('exibitions.*')
             ->get();

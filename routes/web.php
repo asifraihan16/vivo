@@ -51,7 +51,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
 	Route::resource('photographers', 'PhotographerController');
 	Route::resource('exibition_upload', 'ExibitionController');
 	Route::resource('playlists', 'PlaylistController');
-	Route::resource('playlist1_main_vedios', 'Playlist1MainVediosController');
+	Route::resource('playlist1_main_vedios', 'Playlist1MainVediosController')->only('index', 'create', 'store');
+	Route::delete('playlist1_main_vedios/{id}', 'Playlist1MainVediosController@destroy')->name('playlist1_main_vedios.destroy');
 	Route::resource('playlist1_other_vedios', 'Playlist1OtherVediosController');
 	Route::resource('playlist2_main_vedios', 'Playlist2MainVediosController');
 	Route::resource('playlist2_other_vedios', 'Playlist2OtherVediosController');

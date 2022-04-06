@@ -196,11 +196,7 @@
                             <div class="column is-6-desktop is-12-tablet has-text-centered" data-aos="fade-up">
                                 <div class="works-latest">
                                     <div class="works-latest-item">
-                                        <!-- <div class="works-latest-item-icon style-2">
-                                <x-embed url="{{ $playlist1_main[0]->link }}" />
-                              </div> -->
-                                        <img alt="VIVO Bangladesh"
-                                            src="{{ Storage::url($playlist1_main[0]->img) }}">
+                                        <img alt="VIVO Bangladesh" src="{{ Storage::url($playlist1_main[0]->img) }}">
                                         <div class="works-latest-item-icon style-2">
                                             <a href="{{ $playlist1_main[0]->link }}" class="mfp-lightbox mfp-iframe">
                                                 <span class="icon ripple-effect">
@@ -251,11 +247,7 @@
                             <div class="column is-6-desktop is-12-tablet has-text-centered" data-aos="fade-up">
                                 <div class="works-latest">
                                     <div class="works-latest-item">
-                                        <!-- <div class="works-latest-item-icon style-2">
-                                <x-embed url="{{ $playlist1_main[0]->link }}" />
-                              </div> -->
-                                        <img alt="VIVO Bangladesh"
-                                            src="{{ Storage::url($playlist1_main[0]->img) }}">
+                                        <img alt="VIVO Bangladesh" src="{{ Storage::url($playlist1_main[0]->img) }}">
                                         <div class="works-latest-item-icon style-2">
                                             <a href="{{ $playlist2_main[0]->link }}" class="mfp-lightbox mfp-iframe">
                                                 <span class="icon ripple-effect">
