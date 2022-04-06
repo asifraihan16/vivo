@@ -22,22 +22,11 @@ class PhotoGalleryController extends Controller
         $this->fileUploadService = $fileUploadService;
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $mobile_series_versions = MobileSeriesVersion::all();
@@ -46,19 +35,13 @@ class PhotoGalleryController extends Controller
         return view('user.photo_galleries.create', compact('mobile_series_versions', 'tags'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $rules = [
             'mobile_series_versions_id' => 'required',
             'title' => 'required',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'required|mimes:jpeg,jpg',
+            'img' => 'required|image',
             'tags_id' => 'required',
         ];
 
@@ -74,7 +57,7 @@ class PhotoGalleryController extends Controller
         $image_url = '';
 
         if ($request->hasFile('img')) {
-            $image_url = $this->fileUploadService->upload('img', 'photo_galleries');
+            $image_url = $this->fileUploadService->resizeUpload('img', 866, null, 'photo_galleries');
 
             /*
             //get filename with extension
@@ -148,35 +131,16 @@ class PhotoGalleryController extends Controller
         return redirect()->route('user.photo_history');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\PhotoGallery  $photoGallery
-     * @return \Illuminate\Http\Response
-     */
     public function show(PhotoGallery $photoGallery)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\PhotoGallery  $photoGallery
-     * @return \Illuminate\Http\Response
-     */
     public function edit(PhotoGallery $photoGallery)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PhotoGallery  $photoGallery
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, PhotoGallery $photoGallery)
     {
         //
