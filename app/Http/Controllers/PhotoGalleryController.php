@@ -87,52 +87,24 @@ class PhotoGalleryController extends Controller
 
     public function photo_history()
     {
-        $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
-            ->select(
-                'photo_galleries.*',
-                'mobile_series_versions.name as mobile_series_versions_name',
-            )
-            ->orderBy('photo_galleries.created_at', 'desc')
-            ->where('photo_galleries.users_id', '=', Auth::id())
-            ->get();
+        $photo_galleries = PhotoGallery::query()
+            ->with(['tags', 'mobile_series_version:id,name'])
+            ->where('users_id', auth()->id())
+            ->latest()
+            ->paginate(15);
 
-        $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
-            ->select(
-                'photo_galleries_tags.*',
-                'tags.name as tags_name'
-            )
-            ->orderBy('photo_galleries_tags.created_at', 'desc')
-            ->get();
-
-        return view('user.photo_history.index', compact('photo_galleries', 'photo_galleries_tag'));
+        return view('user.photo_history.index', compact('photo_galleries'));
     }
 
     public function pending_request()
     {
-        // return 'history';
+        $photo_galleries = PhotoGallery::query()
+            ->with(['tags', 'mobile_series_version:id,name'])
+            ->where('status', 0)
+            ->latest()
+            ->paginate(15);
 
-        $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
-            ->select(
-                'photo_galleries.*',
-                'mobile_series_versions.name as mobile_series_versions_name',
-            )
-            ->orderBy('photo_galleries.created_at', 'desc')
-            ->where('photo_galleries.status', '=', 0)
-            ->get();
-
-        $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
-            ->select(
-                'photo_galleries_tags.*',
-                'tags.name as tags_name'
-            )
-            ->orderBy('photo_galleries_tags.created_at', 'desc')
-            ->get();
-
-        return view('admin.photo_galleries.pending_request', compact('photo_galleries', 'photo_galleries_tag'));
+        return view('admin.photo_galleries.pending_request', compact('photo_galleries'));
     }
 
     public function pending_request_approved($id)
@@ -148,25 +120,12 @@ class PhotoGalleryController extends Controller
 
     public function approved_request()
     {
-        $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
-            ->select(
-                'photo_galleries.*',
-                'mobile_series_versions.name as mobile_series_versions_name',
-            )
-            ->orderBy('photo_galleries.created_at', 'desc')
-            ->where('photo_galleries.status', '=', 1)
-            ->get();
+        $photo_galleries = PhotoGallery::query()
+            ->with(['tags', 'mobile_series_version:id,name'])
+            ->where('status', 1)
+            ->latest()
+            ->paginate(15);
 
-        $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
-            ->select(
-                'photo_galleries_tags.*',
-                'tags.name as tags_name'
-            )
-            ->orderBy('photo_galleries_tags.created_at', 'desc')
-            ->get();
-
-        return view('admin.photo_galleries.approved_request', compact('photo_galleries', 'photo_galleries_tag'));
+        return view('admin.photo_galleries.approved_request', compact('photo_galleries'));
     }
 }

@@ -95,7 +95,15 @@
                                 <!-- #site-navigation -->
                             </div>
 
+                            @guest
                             <a href="{{ url('user/login') }}" class="button is-white">Signin/Register</a>
+                            @else
+                                @if(auth()->user()->is_admin === 1 || auth()->user()->user_type === 1)
+                                    <a href="{{ url('admin/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a>
+                                @else
+                                    <a href="{{ url('user/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a>
+                                @endif
+                            @endguest
                             <!-- .header-menu-icons -->
                             <div class="modal search-form-overlay">
                                 <div class="modal-background"></div>

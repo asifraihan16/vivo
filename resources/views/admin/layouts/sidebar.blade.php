@@ -1,9 +1,8 @@
 <div class="left-sidenav">
             <!-- LOGO -->
             <div class="brand">
-                <a href="index.html" class="logo">                    
+                <a href="{{ url('admin/dashboard') }}" class="logo">
                     <span>
-                        <!-- <img src="{{URL::asset('public/frontend/assets/images/logo/vivo_logo.jpg')}}" alt="logo-large" class="logo-lg logo-light"> -->
                         <img src="{{URL::asset('admin/assets/images/vivo_logo.png')}}" alt="logo-large" class="logo-dark">
                     </span>
                 </a>
@@ -15,7 +14,7 @@
             <div class="menu-content h-100" data-simplebar>
                 <ul class="metismenu left-sidenav-menu">
                     <li>
-                        <a href="{{ url('admin/dashboard') }}"> <i data-feather="home" class="align-self-center menu-icon"></i><span>Dashboard</span></a>                        
+                        <a href="{{ url('admin/dashboard') }}"> <i data-feather="home" class="align-self-center menu-icon"></i><span>Dashboard</span></a>
                     </li>
 
                     <li>

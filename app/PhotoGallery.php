@@ -13,4 +13,9 @@ class PhotoGallery extends Model
     {
         return $this->belongsTo(MobileSeriesVersion::class, 'mobile_series_versions_id');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'photo_galleries_tags', 'photo_galleries_id', 'tags_id');
+    }
 }
