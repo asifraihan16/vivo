@@ -96,7 +96,6 @@ class AuthController extends Controller
 
     public function dashboard()
     {
-
         if (Auth::check()) {
             return view('admin.dashboard');
         }

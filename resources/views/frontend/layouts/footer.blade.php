@@ -35,7 +35,7 @@
                         <h3 class="widget-title ">Support</h3>
                         <ul>
                             <li>
-                                <a href="#">FAQs</a>
+                                <a href="{{ route('frontend.faqs') }}">FAQs</a>
                             </li>
                         </ul>
                     </div>
@@ -121,11 +121,14 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2369R89R46"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-2369R89R46');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2369R89R46');
 </script>
 </body>
 

@@ -17,11 +17,7 @@ class MobileSeriesController extends Controller
         $this->middleware('auth');
         $this->fileUploadService = $fileUploadService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $data = MobileSeries::all();
@@ -29,25 +25,13 @@ class MobileSeriesController extends Controller
         return view('admin.mobile_series.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.mobile_series.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-
         $rules = [
             'name' => 'required|unique:mobile_series',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',

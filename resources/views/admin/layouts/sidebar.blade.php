@@ -53,6 +53,9 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="{{ route('faqs.index') }}"> <i data-feather="help-circle" class="align-self-center menu-icon"></i><span>FAQS</span></a>
+                    </li>
+                    <li>
                         <a href="{{url('admin/users')}}"> <i data-feather="user-plus" class="align-self-center menu-icon"></i><span>Users</span></a>
                     </li>
                     <li>

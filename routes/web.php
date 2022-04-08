@@ -23,9 +23,9 @@ Route::get('/blog_details/{id}', 'FrontendController@blog_details');
 Route::get('/campaign', 'FrontendController@campaign');
 Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
-//----- addition--------
 Route::get('/image_description/{id}', 'FrontendController@image_description');
-//-----addition---------
+
+Route::get('faqs', 'MiscController@faqs')->name('frontend.faqs');
 
 
 Route::get('admin/', 'AuthController@home');
@@ -79,6 +79,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::post('admin_user_create', 'AuthController@postRegister');
     Route::get('user_profile', 'AuthController@show');
     Route::post('profile_info', 'UserProfileController@profile_info');
+
+    Route::resource('faqs', 'Admin\FaqsController')->only('index', 'store', 'update', 'destroy');
 });
 
 Route::get('user/', 'AuthController@user_home');

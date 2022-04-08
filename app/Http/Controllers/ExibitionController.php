@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exibition;
 use App\Services\FileUploadService;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Storage;
 
 class ExibitionController extends Controller
 {
@@ -15,35 +16,18 @@ class ExibitionController extends Controller
         $this->middleware('auth');
         $this->fileUploadService = $fileUploadService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        // return 'index';
         $data = Exibition::all();
-
         return view('admin.exibitions.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.exibitions.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $rules = [
@@ -116,38 +100,17 @@ class ExibitionController extends Controller
         return redirect()->route('exibition_upload.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Exibition  $exibition
-     * @return \Illuminate\Http\Response
-     */
     public function show(Exibition $exibition)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Exibition  $exibition
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Exibition $exibition)
     {
         $data = Exibition::all();
-        // return $data[0]->id;
-
         return view('admin.exibitions.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Exibition  $exibition
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $exibition = Exibition::find($id);
@@ -263,12 +226,6 @@ class ExibitionController extends Controller
         return redirect()->route('exibition_upload.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Exibition  $exibition
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Exibition $exibition)
     {
         //
