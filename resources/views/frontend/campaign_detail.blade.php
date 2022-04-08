@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'Campaign')
+
 @section('content')
     <!-- #header-wrap -->
     <div id="header-bottom-wrap" class="is-clearfix">

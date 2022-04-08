@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'Photos by Author')
+
 @section('content')
     <!-- #header-wrap -->
     <div id="header-bottom-wrap" class="is-clearfix">
@@ -50,7 +52,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        
+
                         {{ $photo_galleries->links('vendor.pagination.default') }}
                     </div>
                 </section>

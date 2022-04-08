@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'Photographer')
+
 @section('content')
     <!-- #header-wrap -->
     <div id="header-bottom-wrap" class="is-clearfix">

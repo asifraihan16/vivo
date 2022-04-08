@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Jozoor">
-    <meta name="description" content="VIVO Bangladesh">
-    <meta name="keywords" content="creative, niche, responsive, html5, css3, multipurpose, all in one, html, template">
-    <title>Homepage | VIVO Bangladesh</title>
+
+    <meta name="author" content="vivo">
+    <meta name="description" content="VIVO Moments">
+    <meta name="keywords" content="vivo, vivo bangladesh, vivo moments, photography">
+    <title>@yield('title', 'Home') | VIVO Moments</title>
+
+    <meta property="og:title" content="@yield('title', 'Home') | VIVO Moments">
+    <meta property="og:description" content="VIVO Moments">
+    <meta property="og:site_name" content="VIVO Moments">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="{{ URL::asset('frontend/assets/css/vendor.min.css?v=1557279752872') }}">
     <link rel="stylesheet" href="{{ URL::asset('frontend/assets/css/styles.min.css?v=1557279752872') }}">
     <link rel="stylesheet" href="{{ URL::asset('frontend/assets/css/custom.css?v=1557279752872') }}">
@@ -51,7 +59,7 @@
                             <div id="header-logo" class="site-logo ">
                                 <div id="logo-inner" class="site-logo-inner">
                                     <a href="{{ url('/') }}">
-                                        <span class="logo-text" style="text-transform: none;">vivo</span> 
+                                        <span class="logo-text" style="text-transform: none;">vivo</span>
                                         {{-- <img alt="VIVO Logo" src="{{ asset('frontend/assets/images/logo/vivo_logo.png') }}"> --}}
                                     </a>
                                 </div>
