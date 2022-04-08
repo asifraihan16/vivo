@@ -55,63 +55,18 @@ class PhotoGalleryController extends Controller
         $this->validate($request, $rules, $customMessages);
 
         $image_url = '';
+        $image_thumb_url = '';
 
         if ($request->hasFile('img')) {
-            $image_url = $this->fileUploadService->resizeUpload('img', 866, null, 'photo_galleries');
-
-            /*
-            //get filename with extension
-            $filenamewithextension = $request->file('img')->getClientOriginalName();
-
-            //get filename without extension
-            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-
-            //get file extension
-            // $extension = $request->file('img')->getClientOriginalExtension();
-            $image = $request->file('img');
-            //filename to store
-            $filenametostore = $request->name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            //Upload File
-            $request->file('img')->storeAs('photo_galleries', $filenametostore);
-
-            //Compress Image Code Here
-            // $filepath = public_path('storage/profile_images/'.$filenametostore);
-            $filepath = storage_path('app/public/photo_galleries/'.$filenametostore);
-            // return 'ok';
-
-            try {
-                \Tinify\setKey(env("TINIFY_API_KEY"));
-                $source = \Tinify\fromFile($filepath);
-                $source->toFile($filepath);
-            } catch(\Tinify\AccountException $e) {
-                // Verify your API key and account limit.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            } catch(\Tinify\ClientException $e) {
-                // Check your source image and request options.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            } catch(\Tinify\ServerException $e) {
-                // Temporary issue with the Tinify API.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            } catch(\Tinify\ConnectionException $e) {
-                // A network connection error occurred.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            } catch(Exception $e) {
-                // Something else went wrong, unrelated to the Tinify API.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            }
-
-            // return 'ok';
-
-            $image_url = 'app/public/photo_galleries/'.$filenametostore;
-
-            // return redirect('ROUTE_HERE')->with('success', "Image uploaded successfully.");*/
+            $image_thumb_url = $this->fileUploadService->resizeUpload('img', 650, null, 'photo_galleries', true);
+            $image_url = $this->fileUploadService->resizeUpload('img', 1732, null, 'photo_galleries');
         }
 
         $photo_galleries = new PhotoGallery;
         $photo_galleries->mobile_series_versions_id = $request->mobile_series_versions_id;
         $photo_galleries->title = $request->title;
         $photo_galleries->img = $image_url;
+        $photo_galleries->img_thumbnail = $image_thumb_url;
         $photo_galleries->status = 0;
         $photo_galleries->users_id = Auth::id();
         $photo_galleries->save();
@@ -127,34 +82,7 @@ class PhotoGalleryController extends Controller
         }
 
         // return response()->json(['success'=>'Successfully uploaded.']);
-        // return 'submit';
         return redirect()->route('user.photo_history');
-    }
-
-    public function show(PhotoGallery $photoGallery)
-    {
-        //
-    }
-
-    public function edit(PhotoGallery $photoGallery)
-    {
-        //
-    }
-
-    public function update(Request $request, PhotoGallery $photoGallery)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\PhotoGallery  $photoGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PhotoGallery $photoGallery)
-    {
-        //
     }
 
     public function photo_history()
@@ -204,7 +132,6 @@ class PhotoGalleryController extends Controller
             ->orderBy('photo_galleries_tags.created_at', 'desc')
             ->get();
 
-        // return $photo_galleries_tag;
         return view('admin.photo_galleries.pending_request', compact('photo_galleries', 'photo_galleries_tag'));
     }
 
@@ -216,15 +143,11 @@ class PhotoGalleryController extends Controller
             'status' => 1,
         ]);
 
-
-        // return redirect()->url('admin/approved_request');
         return redirect()->route('admin.approved_request');
     }
 
     public function approved_request()
     {
-        // return 'approved screen';
-
         $photo_galleries = DB::table('photo_galleries')
             ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
             ->select(
@@ -244,7 +167,6 @@ class PhotoGalleryController extends Controller
             ->orderBy('photo_galleries_tags.created_at', 'desc')
             ->get();
 
-        // return $photo_galleries_tag;
         return view('admin.photo_galleries.approved_request', compact('photo_galleries', 'photo_galleries_tag'));
     }
 }

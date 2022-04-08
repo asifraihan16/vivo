@@ -10,59 +10,46 @@ use App\Blog;
 use App\Campaign;
 use App\PhotoGallery;
 use App\User;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        $home_sliders = DB::table('home_sliders')
-            ->select(
-                'home_sliders.*'
-            )
-            ->get();
+        $ttl = 1800; // 30 minutes
+        $home_sliders = cache()->remember('home_sliders_home', $ttl, function () {
+            return DB::table('home_sliders')->get();
+        });
 
-        $moments = DB::table('moment_of_the_months')
-            ->select(
-                'moment_of_the_months.*'
-            )
-            ->get();
+        $moments = cache()->remember('moments_home', $ttl, function () {
+            return DB::table('moment_of_the_months')->get();
+        });
 
-        $playlist1_main = DB::table('playlist1_main_vedios')
-            ->select(
-                'playlist1_main_vedios.*'
-            )
-            ->get();
+        $playlist1_main = cache()->remember('playlist1_main_home', $ttl, function () {
+            return DB::table('playlist1_main_vedios')->get();
+        });
 
-        $playlist1_other = DB::table('playlist1_other_vedios')
-            ->select(
-                'playlist1_other_vedios.*'
-            )
-            ->get();
+        $playlist1_other = cache()->remember('playlist1_other_home', $ttl, function () {
+            return DB::table('playlist1_other_vedios')->get();
+        });
 
-        $playlist2_main = DB::table('playlist2_main_vedios')
-            ->select(
-                'playlist2_main_vedios.*'
-            )
-            ->get();
+        $playlist2_main = cache()->remember('playlist2_main_home', $ttl, function () {
+            return DB::table('playlist2_main_vedios')->get();
+        });
 
-        $playlist2_other = DB::table('playlist2_other_vedios')
-            ->select(
-                'playlist2_other_vedios.*'
-            )
-            ->get();
+        $playlist2_other = cache()->remember('playlist2_other_home', $ttl, function () {
+            return DB::table('playlist2_other_vedios')->get();
+        });
 
         $blogs = DB::table('blogs')
-            ->select(
-                'blogs.*'
-            )
+            ->latest()
+            ->limit(6)
             ->get();
 
-        $mobile_series = DB::table('mobile_series')
-            ->select(
-                'mobile_series.*'
-            )
-            ->get();
+        $mobile_series = cache()->remember('mobile_series_home', $ttl, function () {
+            return DB::table('mobile_series')->get();
+        });
 
         return view('frontend.home', compact('home_sliders', 'moments', 'playlist1_main', 'playlist1_other', 'playlist2_main', 'playlist2_other', 'blogs', 'mobile_series'));
     }

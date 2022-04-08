@@ -20,12 +20,16 @@ class FileUploadService
         }
     }
 
-    public function resizeUpload($fileName, $width, $height, $path = '')
+    public function resizeUpload($fileName, $width, $height, $path = '', $thumbnail = false)
     {
         try {
             $file = request()->file($fileName);
             $extension = $file->getClientOriginalExtension();
-            $filePath = "$path/" . $file->hashName();
+            $hashedName = $file->hashName();
+            $filePath = "$path/" . $hashedName;
+            if ($thumbnail) {
+                $filePath = "$path/thumb_" . $hashedName;
+            }
 
             $img = Image::make($file)
                 ->resize($width, $height, function ($constraint) {

@@ -35,7 +35,7 @@
                                                     <button type="button" class="btn btn-outline-primary btn-sm"
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalLarge{{ $value->id }}">
-                                                        <img width="100px" src="{{ Storage::url($value->img) }}">
+                                                        <img width="100px" src="{{ $value->img_thumbnail ? Storage::url($value->img_thumbnail) : Storage::url($value->img) }}">
                                                     </button>
                                                     <div class="modal fade bd-example-modal-lg"
                                                         id="exampleModalLarge{{ $value->id }}" tabindex="-1"

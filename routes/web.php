@@ -39,74 +39,72 @@ Route::get('admin/logout', 'AuthController@logout');
 Route::resource('blog-comments', 'BlogCommentController')->only('store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], function () {
-	Route::get('dashboard', 'AuthController@dashboard');
-	Route::resource('mobile-series', 'MobileSeriesController');
-	Route::get('mobile-series-status-update/{id}', 'MobileSeriesController@statusUpdate');
-	Route::resource('mobile_series_versions', 'MobileSeriesVersionController');
-	Route::get('mobile_series_versions_status_update/{id}', 'MobileSeriesVersionController@statusUpdate');
-	Route::resource('tags', 'TagController');
-	Route::get('tags_status_update/{id}', 'TagController@statusUpdate');
-	Route::resource('home_sliders', 'HomeSliderController');
-	Route::get('home_sliders/{id}', 'HomeSliderController@statusUpdate');
-	Route::resource('moment_of_the_months', 'MomentOfTheMonthController');
-	Route::get('moment_of_the_months/{id}', 'MomentOfTheMonthController@statusUpdate');
-	Route::resource('photographers', 'PhotographerController');
-	Route::resource('exibition_upload', 'ExibitionController');
-	Route::resource('playlists', 'PlaylistController');
+    Route::get('dashboard', 'AuthController@dashboard');
+    Route::resource('mobile-series', 'MobileSeriesController');
+    Route::get('mobile-series-status-update/{id}', 'MobileSeriesController@statusUpdate');
+    Route::resource('mobile_series_versions', 'MobileSeriesVersionController');
+    Route::get('mobile_series_versions_status_update/{id}', 'MobileSeriesVersionController@statusUpdate');
+    Route::resource('tags', 'TagController');
+    Route::get('tags_status_update/{id}', 'TagController@statusUpdate');
+    Route::resource('home_sliders', 'HomeSliderController');
+    Route::get('home_sliders/{id}', 'HomeSliderController@statusUpdate');
+    Route::resource('moment_of_the_months', 'MomentOfTheMonthController');
+    Route::get('moment_of_the_months/{id}', 'MomentOfTheMonthController@statusUpdate');
+    Route::resource('photographers', 'PhotographerController');
+    Route::resource('exibition_upload', 'ExibitionController');
+    Route::resource('playlists', 'PlaylistController');
 
-	Route::resource('playlist1_main_vedios', 'Playlist1MainVediosController')->only('index', 'create', 'store');
-	Route::delete('playlist1_main_vedios/{id}', 'Playlist1MainVediosController@destroy')->name('playlist1_main_vedios.destroy');
+    Route::resource('playlist1_main_vedios', 'Playlist1MainVediosController')->only('index', 'create', 'store');
+    Route::delete('playlist1_main_vedios/{id}', 'Playlist1MainVediosController@destroy')->name('playlist1_main_vedios.destroy');
 
-	Route::resource('playlist1_other_vedios', 'Playlist1OtherVediosController')->only('index', 'create', 'store');
-	Route::delete('playlist1_other_vedios/{id}', 'Playlist1OtherVediosController@destroy')->name('playlist1_other_vedios.destroy');
+    Route::resource('playlist1_other_vedios', 'Playlist1OtherVediosController')->only('index', 'create', 'store');
+    Route::delete('playlist1_other_vedios/{id}', 'Playlist1OtherVediosController@destroy')->name('playlist1_other_vedios.destroy');
 
-	Route::resource('playlist2_main_vedios', 'Playlist2MainVediosController')->only('index', 'create', 'store');
-	Route::delete('playlist2_main_vedios/{id}', 'Playlist2MainVediosController@destroy')->name('playlist2_main_vedios.destroy');
+    Route::resource('playlist2_main_vedios', 'Playlist2MainVediosController')->only('index', 'create', 'store');
+    Route::delete('playlist2_main_vedios/{id}', 'Playlist2MainVediosController@destroy')->name('playlist2_main_vedios.destroy');
 
-	Route::resource('playlist2_other_vedios', 'Playlist2OtherVediosController')->only('index', 'create', 'store');
-	Route::delete('playlist2_other_vedios/{id}', 'Playlist2OtherVediosController@destroy')->name('playlist2_other_vedios.destroy');
+    Route::resource('playlist2_other_vedios', 'Playlist2OtherVediosController')->only('index', 'create', 'store');
+    Route::delete('playlist2_other_vedios/{id}', 'Playlist2OtherVediosController@destroy')->name('playlist2_other_vedios.destroy');
 
-	Route::get('playlists/{id}', 'PlaylistController@statusUpdate');
-	Route::resource('blogs', 'BlogController');
-	Route::get('blogs/{id}', 'BlogController@statusUpdate');
-	Route::resource('campaigns', 'CampaignController');
-	Route::get('campaigns/{id}', 'CampaignController@statusUpdate');
-	Route::get('pending_request', 'PhotoGalleryController@pending_request');
-	Route::get('pending_request_approved/{id}', 'PhotoGalleryController@pending_request_approved');
-	Route::get('approved_request', 'PhotoGalleryController@approved_request')->name('admin.approved_request');
-	Route::get('users', 'AuthController@user_list');
-	Route::get('users_create', 'AuthController@users_create');
-	Route::post('admin_user_create', 'AuthController@postRegister');
-	Route::get('user_profile', 'AuthController@show');
-	Route::post('profile_info', 'UserProfileController@profile_info');
+    Route::get('playlists/{id}', 'PlaylistController@statusUpdate');
+    Route::resource('blogs', 'BlogController');
+    Route::get('blogs/{id}', 'BlogController@statusUpdate');
+    Route::resource('campaigns', 'CampaignController');
+    Route::get('campaigns/{id}', 'CampaignController@statusUpdate');
+    Route::get('pending_request', 'PhotoGalleryController@pending_request');
+    Route::get('pending_request_approved/{id}', 'PhotoGalleryController@pending_request_approved');
+    Route::get('approved_request', 'PhotoGalleryController@approved_request')->name('admin.approved_request');
+    Route::get('users', 'AuthController@user_list');
+    Route::get('users_create', 'AuthController@users_create');
+    Route::post('admin_user_create', 'AuthController@postRegister');
+    Route::get('user_profile', 'AuthController@show');
+    Route::post('profile_info', 'UserProfileController@profile_info');
 });
 
-	Route::get('user/', 'AuthController@user_home');
-	Route::get('user/login', 'AuthController@user_index');
-	Route::post('user/post-login', 'AuthController@user_postLogin');
-	Route::get('user/register', 'AuthController@user_register');
-	Route::post('user/post-register', 'AuthController@user_postRegister');
-	Route::get('user/logout', 'AuthController@user_logout');
+Route::get('user/', 'AuthController@user_home');
+Route::get('user/login', 'AuthController@user_index');
+Route::post('user/post-login', 'AuthController@user_postLogin');
+Route::get('user/register', 'AuthController@user_register');
+Route::post('user/post-register', 'AuthController@user_postRegister');
+Route::get('user/logout', 'AuthController@user_logout');
 
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
-	Route::get('dashboard', 'AuthController@user_dashboard');
-	Route::get('user_profile', 'UserProfileController@user_show');
-	Route::post('profile_info', 'UserProfileController@user_profile_info');
+    Route::get('dashboard', 'AuthController@user_dashboard');
+    Route::get('user_profile', 'UserProfileController@user_show');
+    Route::post('profile_info', 'UserProfileController@user_profile_info');
 
-	Route::get('photo_upload', 'PhotoGalleryController@create');
-	Route::post('photo_upload', 'PhotoGalleryController@store');
-	Route::get('photo_history', 'PhotoGalleryController@photo_history')->name('user.photo_history');
+    Route::get('photo_upload', 'PhotoGalleryController@create');
+    Route::post('photo_upload', 'PhotoGalleryController@store');
+    Route::get('photo_history', 'PhotoGalleryController@photo_history')->name('user.photo_history');
 
-	// socialite routes
-	// Route::get('/facebook-login', 'SocialController@redirectToProvider');
-	// Route::get('/callback', 'SocialController@handleProviderCallback');
-	// facebook route
-	Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
-	Route::get('/callback/{provider}', 'SocialController@callback');
+    // socialite routes
+    // Route::get('/facebook-login', 'SocialController@redirectToProvider');
+    // Route::get('/callback', 'SocialController@handleProviderCallback');
+    // facebook route
+    Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+    Route::get('/callback/{provider}', 'SocialController@callback');
 
-	// google route
-	Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
- 	Route::get('/callback/{provider}', 'SocialController@callback');
-
+    // google route
+    Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+    Route::get('/callback/{provider}', 'SocialController@callback');
 });
-

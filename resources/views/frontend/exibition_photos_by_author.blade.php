@@ -44,8 +44,8 @@
                                         class="_grid-item column is-4 branding">
                                         <div class="work-item">
                                             <figure>
-                                                {{-- <img alt="Joo - Niche Multi-Purpose HTML Template" src="{{ asset('frontend/assets/images/portfolio/1.png') }}"> --}}
-                                                <img alt="Exibition Image" src="{{ Storage::url($photo->img) }}">
+                                                {{-- <img alt="Exibition Image" src="{{ Storage::url($photo->img) }}"> --}}
+                                                <img alt="Exibition Image" src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                             </figure>
                                         </div>
                                     </a>

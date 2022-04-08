@@ -84,7 +84,8 @@
                                             <a href="{{ url('image_description/' . $exhibitions->id) }}" class="_grid-item column is-4 {{ Str::slug($key) }}">
                                                 <div class="work-item">
                                                     <figure>
-                                                        <img alt="Exibition Image" src="{{ Storage::url($exhibitions->img) }}">
+                                                        {{-- <img alt="Exibition Image" src="{{ Storage::url($exhibitions->img) }}"> --}}
+                                                        <img alt="Exibition Image" src="{{ $exhibitions->img_thumbnail ? Storage::url($exhibitions->img_thumbnail) : Storage::url($exhibitions->img) }}">
                                                     </figure>
                                                 </div>
                                                 <!-- .work-item -->
