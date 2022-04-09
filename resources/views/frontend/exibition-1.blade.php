@@ -39,7 +39,7 @@
                                                 <?php $var = 'img' . $i; ?>
                                                 <a href="{{ Storage::url($exhibitions[0]->$var) }}"
                                                     class="mfp-lightbox mfp-image" title="">
-                                                    <img alt="Exibition Image"
+                                                    <img alt="Exibition Image" loading="lazy"
                                                         src="{{ Storage::url($exhibitions[0]->$var) }}">
                                                     <figcaption>
                                                         <ul class="social">
@@ -73,17 +73,19 @@
                                     <ul>
                                         <li data-filter="*" class="active">show all</li>
                                         @foreach ($series->mobile_series_versions as $key => $version)
-                                            <li data-filter="{{ '.version-'.$version->id }}">{{ $version->name }}</li>
+                                            <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
 
                                 <div class="_grid columns is-variable is-3 is-multiline">
                                     @foreach ($series->series_gallery_photos as $key => $photo)
-                                        <a href="{{ url('image_description/' . $photo->id) }}" class="_grid-item column is-4 {{ 'version-'.$photo->mobile_series_versions_id }}">
+                                        <a href="{{ url('image_description/' . $photo->id) }}"
+                                            class="_grid-item column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
                                                 <figure>
-                                                    <img alt="Exibition Image" src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                    <img alt="Exibition Image" loading="lazy"
+                                                        src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                 </figure>
                                             </div>
                                             <!-- .work-item -->
@@ -91,7 +93,8 @@
                                     @endforeach
                                 </div>
 
-                                <div style="text-align:center;"><a href="" class="button is-danger is-radiusless">View All</a></div>
+                                <div style="text-align:center;"><a href="" class="button is-danger is-radiusless">View
+                                        All</a></div>
                             </div>
                         @endforeach
                     </div>

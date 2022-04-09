@@ -115,7 +115,8 @@ class PhotoGalleryController extends Controller
             'status' => 1,
         ]);
 
-        return redirect()->route('admin.approved_request');
+        return back();
+        // return redirect()->route('admin.approved_request');
     }
 
     public function approved_request()
