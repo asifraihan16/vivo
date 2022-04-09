@@ -3,7 +3,6 @@
 @section('title', 'Photographer')
 
 @section('content')
-    <!-- #header-wrap -->
     <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
@@ -12,23 +11,51 @@
                     <div class="hero-body">
                         <div class="container">
                         </div>
-                        <!-- .hero-body -->
                     </div>
-                    <!-- .container -->
                 </section>
-                <!-- .page-title -->
             </div>
-            <!-- #header-bottom-inner -->
         </div>
-        <!-- #header-bottom -->
     </div>
-    <!-- #header-bottom-wrap -->
-    <!-- import content layouts and modules -->
+
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
+                <br><br>
 
-                <section class="section works-list is-clearfix">
+                @foreach ($mobile_series as $series)
+                    <section class="section {{ $loop->even ? 'has-background-primary-light' : '' }} works-list is-clearfix">
+                        <div class="container">
+                            <h1 class="heading-title style-1">{{ $series->name }}</h1>
+                            <div class="works isotope masonry image-hover effect-8 grid-container">
+                                <div class="masonry-filters">
+                                    <ul>
+                                        {{-- <li data-filter=".branding, .prototype" class="active">show all</li> --}}
+                                        <li data-filter="*" class="active">show all</li>
+                                        @foreach ($series->mobile_series_versions as $version)
+                                            <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                                <div class="_grid columns is-variable is-3 is-multiline">
+                                    @foreach ($series->series_gallery_photos as $photo)
+                                        <div class="_grid-item column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
+                                            <a href="{{ url('image_description/' . $photo->id) }}" class="work-item">
+                                                <figure>
+                                                    <img alt="Exibition Image" class="lazy"
+                                                        data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                </figure>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                @endforeach
+
+                {{-- <section class="section works-list is-clearfix">
                     <div class="container">
                         <h1 class="heading-title style-1">X Series</h1>
                         <div class="works isotope masonry image-hover effect-8 grid-container">
@@ -309,7 +336,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> --}}
 
             </div>
             <!-- #content-area-inner -->
@@ -356,6 +383,10 @@
 
 @section('styles')
     <style>
+        /* .section {
+            padding: 1rem 1.5rem;
+        } */
+
         .work-item figure img {
             width: 600px;
             height: 400px;

@@ -64,7 +64,7 @@
                 </section>
 
                 @foreach ($mobile_series as $series)
-                    <section class="section works-list is-clearfix">
+                    <section class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
                         <div class="container">
                             <h1 class="heading-title style-1">{{ $series->name }}</h1>
 
@@ -140,6 +140,9 @@
 
 @section('styles')
     <style>
+        /* .section {
+            padding: 1rem 1.5rem;
+        } */
         .work-item figure img {
             width: 600px;
             height: 400px;
