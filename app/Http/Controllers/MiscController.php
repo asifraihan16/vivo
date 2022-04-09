@@ -19,7 +19,17 @@ class MiscController extends Controller
             ->orderBy('question_order', 'asc')
             ->orderBy('id', 'desc')
             ->get();
-            
+
         return view('frontend.faqs', compact('faqs'));
+    }
+
+    public function privacy_policy()
+    {
+        return view('frontend.privacy_policy');
+    }
+
+    public function warranty_terms()
+    {
+        return view('frontend.waranty_terms');
     }
 }

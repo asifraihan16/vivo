@@ -26,6 +26,8 @@ Route::get('/contact', 'FrontendController@contact');
 Route::get('/image_description/{id}', 'FrontendController@image_description');
 
 Route::get('faqs', 'MiscController@faqs')->name('frontend.faqs');
+Route::get('privacy-policy', 'MiscController@privacy_policy')->name('frontend.privacy-policy');
+Route::get('warranty-terms', 'MiscController@warranty_terms')->name('frontend.warranty-terms');
 
 
 Route::get('admin/', 'AuthController@home');
