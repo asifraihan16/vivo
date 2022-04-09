@@ -50,7 +50,7 @@
                                 <a href="#">Image Licensing</a>
                             </li>
                             <li>
-                                <a href="#">Privacy Policy</a>
+                                <a href="{{ route('frontend.privacy-policy') }}">Privacy Policy</a>
                             </li>
                         </ul>
                     </div>
@@ -80,11 +80,11 @@
                 <!-- .column -->
                 <div class="column is-4">
                     <div class="widget widget-links">
-                      <h3 class="widget-title ">Chat Support (Sat-Thu 9:00-18:00 excluding public holidays)</h3>
-                      <h3 class="widget-title ">Email Us(Reply in 24h)</h3>
-                      <h3 class="widget-title">(Sat-Thu 9:00 - 18:00 excluding public holidays)
-                      <br/>
-                      <span style = "font-size: 2rem !important;color: #415fff;"">+8809610991079</span>
+                        <h3 class="widget-title ">Chat Support (Sat-Thu 9:00-18:00 excluding public holidays)</h3>
+                        <h3 class="widget-title ">Email Us(Reply in 24h)</h3>
+                        <h3 class="widget-title">(Sat-Thu 9:00 - 18:00 excluding public holidays)
+                            <br />
+                            <span style="font-size: 2rem !important;color: #415fff;"">+8809610991079</span>
                       </h3>
 
                     </div>
@@ -98,112 +98,117 @@
     <!-- #footer -->
 </div>
 <!-- #footer-wrap -->
-<!-- <div id="footer-bottom-wrap" class="is-clearfix" style="border-top: 1px solid #45474D;">
-        <div id="footer-bottom" class="site-footer-bottom">
-          <div id="footer-bottom-inner" class="site-footer-bottom-inner ">
-            <section class="section footer-bottom-content" style="text-align: left;padding : 40px">
-              <div class="container">
-                <h2 class="display-none">footer</h2>
-                <span class="footer-copyright">
-                  <a href='/' style="color: #fff;">9th & 10th Floor, Tower-A, 144 - Police Plaza Concord, Gulshan 1, Dhaka-1212</a>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div> -->
-<!-- #footer-bottom-wrap -->
-<div id="footer-bottom-wrap" class="is-clearfix" style="">
-    <div id="footer-bottom" class="site-footer-bottom">
-        <div id="footer-bottom-inner" class="site-footer-bottom-inner ">
-            <section class="section footer-bottom-content"
-                style="text-align: left;background-color: #fff;padding : 30px">
-                <div class="global-social-links style-1">
-                    <ul>
-                        <li>
-                            <a href="https://www.facebook.com/vivoBangladesh/">
-                                <span class="icon">
-                                    <i class="fab fa-facebook-f"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/Bangladeshvivo">
-                                <span class="icon">
-                                    <i class="fab fa-twitter"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/vivo_bangladesh/">
-                                <span class="icon">
-                                    <i class="fab fa-instagram"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.youtube.com/c/vivoBangladesh">
-                                <span class="icon">
-                                    <i class="fab fa-youtube"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/company/vivo-bangladesh/">
-                                <span class="icon">
-                                    <i class="fab fa-instagram"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
+<!-- <div id=" footer-bottom-wrap" class="is-clearfix" style="border-top: 1px solid #45474D;">
+                                <div id="footer-bottom" class="site-footer-bottom">
+                                    <div id="footer-bottom-inner" class="site-footer-bottom-inner ">
+                                        <section class="section footer-bottom-content"
+                                            style="text-align: left;padding : 40px">
+                                            <div class="container">
+                                                <h2 class="display-none">footer</h2>
+                                                <span class="footer-copyright">
+                                                    <a href='/' style="color: #fff;">9th & 10th Floor, Tower-A, 144 -
+                                                        Police Plaza Concord, Gulshan 1, Dhaka-1212</a>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                    </div> -->
+                    <!-- #footer-bottom-wrap -->
+                    <div id="footer-bottom-wrap" class="is-clearfix" style="">
+                        <div id="footer-bottom" class="site-footer-bottom">
+                            <div id="footer-bottom-inner" class="site-footer-bottom-inner ">
+                                <section class="section footer-bottom-content"
+                                    style="text-align: left;background-color: #fff;padding : 30px">
+                                    <div class="global-social-links style-1">
+                                        <ul>
+                                            <li>
+                                                <a href="https://www.facebook.com/vivoBangladesh/">
+                                                    <span class="icon">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://twitter.com/Bangladeshvivo">
+                                                    <span class="icon">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.instagram.com/vivo_bangladesh/">
+                                                    <span class="icon">
+                                                        <i class="fab fa-instagram"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.youtube.com/c/vivoBangladesh">
+                                                    <span class="icon">
+                                                        <i class="fab fa-youtube"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.linkedin.com/company/vivo-bangladesh/">
+                                                    <span class="icon">
+                                                        <i class="fab fa-instagram"></i>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                                <!-- .footer-bottom-content -->
+                            </div>
+                            <!-- #footer-bottom-inner -->
+                        </div>
+                        <!-- #footer-bottom -->
+                    </div>
+
+                    <div id="footer-bottom-wrap" class="is-clearfix" style="">
+                        <div id="footer-bottom" class="site-footer-bottom">
+                            <div id="footer-bottom-inner" class="site-footer-bottom-inner ">
+                                <section class="section footer-bottom-content"
+                                    style="text-align: left;background-color: #415FFF;padding : 30px">
+                                    <div class="container">
+                                        {{-- <h2 class="display-none">footer</h2> --}}
+                                        <span class="footer-copyright">
+                                            © 2022 Haicheng Mobile Company (BD) Ltd. All rights reserved.
+                                            <a href="{{ route('frontend.privacy-policy') }}" style="color: #fff;">| Privacy Policy</a>
+                                            <a href="{{ route('frontend.warranty-terms') }}" style="color: #fff;"> | Warranty Terms</a>
+                                            <a href="#" style="color: #fff;"> | Privacy Support</a>
+                                        </span>
+                                    </div>
+                                </section>
+                                <!-- .footer-bottom-content -->
+                            </div>
+                            <!-- #footer-bottom-inner -->
+                        </div>
+                        <!-- #footer-bottom -->
+                    </div>
+                    <!-- show floating buttons -->
+
                 </div>
-            </section>
-            <!-- .footer-bottom-content -->
-        </div>
-        <!-- #footer-bottom-inner -->
-    </div>
-    <!-- #footer-bottom -->
-</div>
+                <!-- #site-wrap -->
+                <script src="{{ URL::asset('frontend/assets/js/vendor.min.js?v=1557279752872') }}"></script>
+                <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script>
+                <script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
 
-<div id="footer-bottom-wrap" class="is-clearfix" style="">
-    <div id="footer-bottom" class="site-footer-bottom">
-        <div id="footer-bottom-inner" class="site-footer-bottom-inner ">
-            <section class="section footer-bottom-content"
-                style="text-align: left;background-color: #415FFF;padding : 30px">
-                <div class="container">
-                    {{-- <h2 class="display-none">footer</h2> --}}
-                    <span class="footer-copyright">
-                        <a href='/' style="color: #fff;">© 2022 Haicheng Mobile Company (BD) Ltd. All rights reserved.
-                            | Privacy Policy | Warranty Terms | Privacy Support</a>
-                </div>
-            </section>
-            <!-- .footer-bottom-content -->
-        </div>
-        <!-- #footer-bottom-inner -->
-    </div>
-    <!-- #footer-bottom -->
-</div>
-<!-- show floating buttons -->
+                @yield('scripts')
 
-</div>
-<!-- #site-wrap -->
-<script src="{{ URL::asset('frontend/assets/js/vendor.min.js?v=1557279752872') }}"></script>
-<script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script>
-<script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
+                <!-- Global site tag (gtag.js) - Google Analytics -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-2369R89R46"></script>
+                <script>
+                    window.dataLayer = window.dataLayer || [];
 
-@yield('scripts')
+                    function gtag() {
+                        dataLayer.push(arguments);
+                    }
+                    gtag('js', new Date());
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2369R89R46"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
+                    gtag('config', 'G-2369R89R46');
+                </script>
+                </body>
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-2369R89R46');
-</script>
-</body>
-
-</html>
+                </html>
