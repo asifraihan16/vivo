@@ -37,8 +37,10 @@
                                         <div class="work-item">
                                             <figure>
                                                 <?php $var = 'img' . $i; ?>
-                                                <a href="{{ Storage::url($exhibitions[0]->$var) }}" class="mfp-lightbox mfp-image" title="">
-                                                    <img alt="Exibition Image" class="lazy" data-src="{{ Storage::url($exhibitions[0]->$var) }}">
+                                                <a href="{{ Storage::url($exhibitions[0]->$var) }}"
+                                                    class="mfp-lightbox mfp-image" title="">
+                                                    <img alt="Exibition Image" class="lazy"
+                                                        data-src="{{ Storage::url($exhibitions[0]->$var) }}">
                                                     <figcaption>
                                                         <ul class="social">
                                                             <li>
@@ -61,41 +63,40 @@
                     </div>
                 </section>
 
-                <section class="section hero-2 works-list is-clearfix">
-                    <div class="container">
-                        @foreach ($mobile_series as $key => $series)
+                @foreach ($mobile_series as $series)
+                    <section class="section works-list is-clearfix">
+                        <div class="container">
                             <h1 class="heading-title style-1">{{ $series->name }}</h1>
 
                             <div class="works isotope masonry image-hover effect-8 grid-container">
                                 <div class="masonry-filters">
                                     <ul>
                                         <li data-filter="*" class="active">show all</li>
-                                        @foreach ($series->mobile_series_versions as $key => $version)
+                                        @foreach ($series->mobile_series_versions as $version)
                                             <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
 
                                 <div class="_grid columns is-variable is-3 is-multiline">
-                                    @foreach ($series->series_gallery_photos as $key => $photo)
-                                        <a href="{{ url('image_description/' . $photo->id) }}"
-                                            class="_grid-item column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
-                                            <div class="work-item">
+                                    @foreach ($series->series_gallery_photos as $photo)
+                                        <div class="_grid-item column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
+                                            <a href="{{ url('image_description/' . $photo->id) }}" class="work-item">
                                                 <figure>
-                                                    <img alt="Exibition Image" class="lazy" data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                    <img alt="Exibition Image" class="lazy"
+                                                        data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                 </figure>
-                                            </div>
-                                            <!-- .work-item -->
-                                        </a>
+                                            </a>
+                                        </div>
                                     @endforeach
                                 </div>
 
                                 <div style="text-align:center;"><a href="" class="button is-danger is-radiusless">View
                                         All</a></div>
                             </div>
-                        @endforeach
-                    </div>
-                </section>
+                        </div>
+                    </section>
+                @endforeach
             </div>
         </div>
     </div>
@@ -142,6 +143,29 @@
         .work-item figure img {
             width: 600px;
             height: 400px;
+        }
+
+        /* ---- grid ---- */
+        .grid {
+            /* background: #ddd; */
+            /* max-width: 1200px; */
+        }
+
+        /* clear fix */
+        .grid:after {
+            /* content: '';
+                display: block;
+                clear: both; */
+        }
+
+        /* ---- .grid-item ---- */
+        .grid-item {
+            /* float: left; */
+            /* width: 100px; */
+            /* height: 100px; */
+            /* background: #0d8; */
+            /* border: 2px solid #333; */
+            /* border-color: rgba(0, 0, 0, 0.7); */
         }
 
         .masonry-filters ul {
