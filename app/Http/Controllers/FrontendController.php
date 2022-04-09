@@ -10,7 +10,7 @@ use App\Blog;
 use App\Campaign;
 use App\PhotoGallery;
 use App\User;
-use Illuminate\Support\Facades\Cache;
+// use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
@@ -75,7 +75,7 @@ class FrontendController extends Controller
                 ->where('mobile_series_versions.mobile_series_id', '=', $value->id)
                 ->get();
         }
-        // return $mobile_series_versions;
+
         foreach ($mobile_series_versions as $key => $value) {
             foreach ($value as $data) {
                 $mobile_series_versions_wise_image[$data->id] = DB::table('photo_galleries')
@@ -90,7 +90,6 @@ class FrontendController extends Controller
                     ->get();
             }
         }
-        // return $mobile_series_versions_wise_image;
 
         $exhibitions = DB::table('exibitions')
             ->select(
@@ -103,51 +102,25 @@ class FrontendController extends Controller
 
     public function exhibition()
     {
-        /* $mobile_series = MobileSeries::query()
+        $mobile_series = MobileSeries::query()
             ->with([
                 'mobile_series_versions',
             ])
-            ->get(); */
-
-        $mobile_series = MobileSeries::all();
-        $final_data = array();
-
-        foreach ($mobile_series as $series) {
-            $versions = DB::table('mobile_series_versions')
-                ->select(
-                    'mobile_series_versions.*'
-                )
-                ->where('mobile_series_versions.mobile_series_id', '=', $series->id)
-                ->get();
-
-            $version_count = sizeof($versions);
-            $desired_image_limit = 9;
-            $per_version_limit = $version_count > 0 ? round($desired_image_limit / $version_count) : 0;
-
-            foreach ($versions as $version) {
-
-                $final_data[$series->name][$version->name] =  DB::table('photo_galleries')
-                    ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
-                    ->join('mobile_series', 'mobile_series.id', '=', 'mobile_series_versions.mobile_series_id')
-                    ->select(
-                        'photo_galleries.*',
-                        'mobile_series_versions.name as mobile_series_versions_name',
-                        'mobile_series.name as mobile_series_name',
-                        'mobile_series.id as mobile_series_id'
-                    )
-                    ->where('photo_galleries.status', '=', 1)
-                    ->where('photo_galleries.mobile_series_versions_id', '=', $version->id)
-                    ->limit($per_version_limit)
-                    ->orderBy('created_at', 'desc')
-                    ->get()->toArray();
-            }
-        }
-
-        $exhibitions = DB::table('exibitions')
-            ->select('exibitions.*')
             ->get();
 
-        return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'final_data'));
+        foreach ($mobile_series as $series) {
+            $series->load([
+                'series_gallery_photos' => function ($query) {
+                    $query->where('photo_galleries.status', 1)
+                        ->latest()
+                        ->limit(18);
+                }
+            ]);
+        }
+
+        $exhibitions = DB::table('exibitions')->get();
+
+        return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', /*'final_data' */));
     }
 
     public function exhibition_photos_by_author($author_id)

@@ -76,7 +76,7 @@
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('/galleries') }}">Photographer</a>
+                                            <a href="{{ route('frontend.photographer') }}">Photographer</a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/exhibition') }}">Exhibition</a>
@@ -96,12 +96,14 @@
                             </div>
 
                             @guest
-                            <a href="{{ url('user/login') }}" class="button is-white">Signin/Register</a>
+                                <a href="{{ url('user/login') }}" class="button is-white">Signin/Register</a>
                             @else
-                                @if(auth()->user()->is_admin === 1 || auth()->user()->user_type === 1)
-                                    <a href="{{ url('admin/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a>
+                                @if (auth()->user()->is_admin === 1 || auth()->user()->user_type === 1)
+                                    <a href="{{ url('admin/dashboard') }}"
+                                        class="button is-white">{{ auth()->user()->name }}</a>
                                 @else
-                                    <a href="{{ url('user/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a>
+                                    <a href="{{ url('user/dashboard') }}"
+                                        class="button is-white">{{ auth()->user()->name }}</a>
                                 @endif
                             @endguest
                             <!-- .header-menu-icons -->

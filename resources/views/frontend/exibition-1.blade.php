@@ -65,49 +65,40 @@
 
                 <section class="section hero-2 works-list is-clearfix">
                     <div class="container">
-                        @foreach ($final_data as $key => $series)
-                            <h1 class="heading-title style-1">{{ $key }}</h1>
+                        @foreach ($mobile_series as $key => $series)
+                            <h1 class="heading-title style-1">{{ $series->name }}</h1>
 
                             <div class="works isotope masonry image-hover effect-8 grid-container">
                                 <div class="masonry-filters">
                                     <ul>
                                         <li data-filter="*" class="active">show all</li>
-                                        @foreach ($series as $key => $versions)
-                                            <li data-filter="{{ '.'.Str::slug($key) }}">{{ $key }}</li>
+                                        @foreach ($series->mobile_series_versions as $key => $version)
+                                            <li data-filter="{{ '.version-'.$version->id }}">{{ $version->name }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
 
                                 <div class="_grid columns is-variable is-3 is-multiline">
-                                    @foreach ($series as $key => $versions)
-                                        @foreach ($versions as $exhibitions)
-                                            <a href="{{ url('image_description/' . $exhibitions->id) }}" class="_grid-item column is-4 {{ Str::slug($key) }}">
-                                                <div class="work-item">
-                                                    <figure>
-                                                        {{-- <img alt="Exibition Image" src="{{ Storage::url($exhibitions->img) }}"> --}}
-                                                        <img alt="Exibition Image" src="{{ $exhibitions->img_thumbnail ? Storage::url($exhibitions->img_thumbnail) : Storage::url($exhibitions->img) }}">
-                                                    </figure>
-                                                </div>
-                                                <!-- .work-item -->
-                                            </a>
-                                        @endforeach
+                                    @foreach ($series->series_gallery_photos as $key => $photo)
+                                        <a href="{{ url('image_description/' . $photo->id) }}" class="_grid-item column is-4 {{ 'version-'.$photo->mobile_series_versions_id }}">
+                                            <div class="work-item">
+                                                <figure>
+                                                    <img alt="Exibition Image" src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                </figure>
+                                            </div>
+                                            <!-- .work-item -->
+                                        </a>
                                     @endforeach
                                 </div>
 
                                 <div style="text-align:center;"><a href="" class="button is-danger is-radiusless">View All</a></div>
-                                <!-- .columns -->
                             </div>
                         @endforeach
-                        <!-- .works -->
                     </div>
                 </section>
-
             </div>
-            <!-- #content-area-inner -->
         </div>
-        <!-- #content-area -->
     </div>
-    <!-- #content-main-wrap -->
 @endsection
 
 
