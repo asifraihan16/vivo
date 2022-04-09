@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class IsAdmin
+class IsPhotographer
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,10 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->is_admin == 1 || $request->user()->user_type == 1){
+        if($request->user()->user_type == 2){
             return $next($request);
         }
 
-        return abort(401, 'Unauthorized access');
+        return redirect()->route('photographer.login');
     }
 }

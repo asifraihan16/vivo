@@ -112,6 +112,7 @@ class FrontendController extends Controller
             $series->load([
                 'series_gallery_photos' => function ($query) {
                     $query->where('photo_galleries.status', 1)
+                        ->where('is_photographer_image', 0)
                         ->latest()
                         ->limit(18);
                 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use DB;
+use Exception;
 
 class AuthController extends Controller
 {
@@ -47,20 +48,11 @@ class AuthController extends Controller
 
             return redirect()->intended('admin/dashboard');
         }
-        return Redirect::to("admin/login")->withSuccess('Oppes! You have entered invalid credentials');
+        return Redirect::to("admin/login")->withSuccess('Opps! You have entered invalid credentials');
     }
 
     public function _postRegister(Request $request)
     {
-        // if($request->is_admin != '')
-        // {
-        //     $id_admin = $request->is_admin;
-        // }
-        // else
-        // {
-        //     $id_admin = '';
-        // }
-
         request()->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
@@ -131,7 +123,7 @@ class AuthController extends Controller
 
     public function user_register()
     {
-        return view('user/register');
+        return view('user.register');
     }
 
     public function user_postLogin(Request $request)
@@ -214,5 +206,59 @@ class AuthController extends Controller
     public function show()
     {
 
+    }
+
+    public function photographer_login()
+    {
+        return view('admin.photographer_login');
+    }
+
+    public function post_photographer_login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt(['email'=> $request->email, 'password'=> $request->password, 'user_type'=> 2])) {
+            $user = Auth::user();
+
+            return redirect()->route('photographer.dashboard');
+
+            // Session::put('id', $user->id);
+            // Session::put('name', $user->name);
+            // Session::put('email', $user->email);
+            // Session::put('img', $user->img);
+            // Session::put('contact', $user->img);
+            // Authentication passed...
+        } else {
+            return back()->withError('Oops! You have entered wrong credentials');
+        }
+    }
+
+    public function photographer_signup()
+    {
+        return view('admin.photographer_signup');
+    }
+
+    public function post_photographer_signup(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string',
+        ]);
+
+        try {
+            $validated['user_type'] = 2; // 2 - Photographer (`user_types` table)
+            $validated['password'] = Hash::make($request->password);
+            $user = User::create($validated);
+
+            Auth::login($user);
+
+            return redirect()->route('photographer.dashboard');
+        } catch (Exception $e) {
+            return back()->withError($e->getMessage());
+        }
     }
 }
