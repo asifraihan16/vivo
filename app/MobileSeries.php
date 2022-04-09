@@ -13,4 +13,9 @@ class MobileSeries extends Model
     {
         return $this->hasMany(MobileSeriesVersion::class, 'mobile_series_id');
     }
+
+    public function series_gallery_photos()
+    {
+        return $this->hasManyThrough(PhotoGallery::class, MobileSeriesVersion::class, 'mobile_series_id', 'mobile_series_versions_id');
+    }
 }
