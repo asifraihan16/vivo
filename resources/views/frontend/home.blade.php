@@ -55,8 +55,8 @@
                 <!-- import content layouts and modules -->
                 <!-- start adding page content -->
                 <!-- works section -->
-                <section class="section works-list is-clearfix">
-                    <div class="container">
+                <section class="section works-list is-clearfix padding-3rem">
+                    <div class="container width-80-percent">
                         <h1 class="heading-title style-1">Moments</h1>
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
@@ -179,8 +179,8 @@
 
                 <!-- Vedio section -->
 
-                <section class="section has-background-primary-light watch-video is-clearfix">
-                    <div class="container">
+                <section class="section has-background-primary-light watch-video is-clearfix padding-3rem">
+                    <div class="container width-80-percent">
                         <div class="columns is-variable is-8 is-multiline">
                             <div class="column is-6-desktop is-12-tablet" data-aos="fade">
                                 <br>
@@ -199,7 +199,7 @@
                                         <img alt="VIVO Bangladesh" src="{{ Storage::url($playlist1_main[0]->img) }}">
                                         <div class="works-latest-item-icon style-2">
                                             <a href="{{ $playlist1_main[0]->link }}" class="mfp-lightbox mfp-iframe">
-                                                <span class="icon ripple-effect">
+                                                <span class="icon ripple-effect vedio-play-button">
                                                     <i class="ion-ios-play"></i>
                                                 </span>
                                             </a>
@@ -217,7 +217,7 @@
                                         src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                     <div class="works-latest-item-icon style-2">
                                         <a href="{{ $value->link }}" class="mfp-lightbox mfp-iframe">
-                                            <span class="icon ripple-effect">
+                                            <span class="icon ripple-effect vedio-play-button">
                                                 <i class="ion-ios-play"></i>
                                             </span>
                                         </a>
@@ -230,8 +230,8 @@
                     </div>
                 </section>
 
-                <section class="section watch-video is-clearfix">
-                    <div class="container">
+                <section class="section watch-video is-clearfix padding-3rem">
+                    <div class="container width-80-percent">
                         <div class="columns is-variable is-8 is-multiline">
                             <div class="column is-6-desktop is-12-tablet" data-aos="fade">
                                 <br>
@@ -282,8 +282,8 @@
                 </section>
 
                 <!-- phone category section -->
-                <section class="section has-background-primary-light works-list is-clearfix">
-                    <div class="container">
+                <section class="section has-background-primary-light works-list is-clearfix padding-3rem">
+                    <div class="container width-80-percent">
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-4 is-multiline">
                                 @foreach ($mobile_series as $value)
@@ -305,9 +305,9 @@
                 </section>
 
                 <!-- blog category -->
-                <section class="section hero is-clearfix">
+                <section class="section hero is-clearfix padding-3rem">
                     <h1 class="heading-title style-1">Blogs</h1>
-                    <div class="container">
+                    <div class="container width-80-percent">
                         <br>
                         <div class="isotope masonry">
                             <div class="blog-list style-2 columns is-variable is-4 is-multiline">

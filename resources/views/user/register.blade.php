@@ -50,13 +50,13 @@
                             </div>
                         </form>
 
-                        <div class="social-login">
+                        {{-- <div class="social-login">
                             <span class="social-label">Or login with</span>
                             <ul class="socials">
                                 <li><a href="{{ url('/user/auth/redirect/facebook') }}"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                                 <li><a href="{{ url('/user/auth/redirect/google') }}"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="signup-image">
                         <figure><img src="{{URL::asset('admin/assets/images/vivo_logo.png')}}" alt="sing up image"></figure>

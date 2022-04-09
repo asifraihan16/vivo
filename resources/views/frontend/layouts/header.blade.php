@@ -87,9 +87,9 @@
                                         <li>
                                             <a href="{{ url('/campaign') }}">Campaign</a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <a href="{{ url('/contact') }}">Image Licensing</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </nav>
                                 <!-- #site-navigation -->

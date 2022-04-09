@@ -3,7 +3,7 @@
     <footer id="footer" class="site-footer">
         <div id="footer-inner" class="site-footer-inner container">
             <div class="columns is-variable is-12 is-multiline">
-                <div class="column is-4">
+                <div class="column is-2">
                     <div class="widget widget-links">
                         <h3 class="widget-title ">Popular Links</h3>
                         <ul>
@@ -30,7 +30,7 @@
                     <!-- .widget -->
                 </div>
                 <!-- .column -->
-                <div class="column is-4">
+                <div class="column is-2">
                     <div class="widget widget-links">
                         <h3 class="widget-title ">Support</h3>
                         <ul>
@@ -41,10 +41,25 @@
                     </div>
                     <!-- .widget -->
                 </div>
-                <!-- .column -->
-                <div class="column is-4">
+
+                <div class="column is-2">
                     <div class="widget widget-links">
-                        <h3 class=" ">Explore vivo</h3>
+                        <h3 class="widget-title ">Terms and Conditions</h3>
+                        <ul>
+                            <li>
+                                <a href="#">Image Licensing</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- .widget -->
+                </div>
+                <!-- .column -->
+                <div class="column is-2">
+                    <div class="widget widget-links">
+                        <h3 class="widget-title ">Explore vivo</h3>
                         <ul>
                             <li>
                                 <a href="#">Info</a>
@@ -52,20 +67,27 @@
                             <li>
                                 <a href="#">Press</a>
                             </li>
+                            <li>
+                                <a href="https://www.vivo.com/bd">vivo BD</a>
+                            </li>
+                            <li>
+                                <a href="#">Sitemap</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- .widget -->
                 </div>
                 <!-- .column -->
                 <div class="column is-4">
-                    <!-- <div class="widget widget-links">
-                  <h3 class="widget-title ">Chat Support (Sat-Thu 9:00-18:00 excluding public holidays)</h3>
-                  <h3 class="widget-title ">Email Us(Reply in 24h)</h3>
-                  <h3 class="widget-title">(Sat-Thu 9:00 - 18:00 excluding public holidays)
-                  <br/>
-                  <span style = "font-size: 2rem !important;color: #415fff;"">+8809610991079</span>
-                  </h3>
-                </div> -->
+                    <div class="widget widget-links">
+                      <h3 class="widget-title ">Chat Support (Sat-Thu 9:00-18:00 excluding public holidays)</h3>
+                      <h3 class="widget-title ">Email Us(Reply in 24h)</h3>
+                      <h3 class="widget-title">(Sat-Thu 9:00 - 18:00 excluding public holidays)
+                      <br/>
+                      <span style = "font-size: 2rem !important;color: #415fff;"">+8809610991079</span>
+                      </h3>
+
+                    </div>
                     <!-- .widget -->
                 </div>
             </div>
@@ -90,13 +112,14 @@
         </div>
       </div> -->
 <!-- #footer-bottom-wrap -->
+
 <div id="footer-bottom-wrap" class="is-clearfix" style="">
     <div id="footer-bottom" class="site-footer-bottom">
         <div id="footer-bottom-inner" class="site-footer-bottom-inner ">
             <section class="section footer-bottom-content"
                 style="text-align: left;background-color: #415FFF;padding : 30px">
                 <div class="container">
-                    <h2 class="display-none">footer</h2>
+                    {{-- <h2 class="display-none">footer</h2> --}}
                     <span class="footer-copyright">
                         <a href='/' style="color: #fff;">© 2022 Haicheng Mobile Company (BD) Ltd. All rights reserved.
                             | Privacy Policy | Warranty Terms | Privacy Support</a>

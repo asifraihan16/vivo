@@ -121,98 +121,6 @@
 
                 <section class="section has-background-primary-light works-list is-clearfix">
                     <div class="container">
-                        <h1 class="heading-title style-1">Y Series</h1>
-                        <div class="works isotope masonry image-hover effect-8 grid-container">
-                            <div class="masonry-filters">
-                                <ul>
-                                    <li data-filter=".branding-y, .prototype-y" class="active">show all</li>
-                                    <li data-filter=".branding-y">Y21 T</li>
-                                    <li data-filter=".prototype-y">Y15s</li>
-                                    <li data-filter=".prototype-y">Y53s</li>
-                                </ul>
-                            </div>
-                            <div class="_grid columns is-variable is-3 is-multiline">
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/1.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/14.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/2.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/11.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/3.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/12.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/4.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/10.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section works-list is-clearfix">
-                    <div class="container">
                         <h1 class="heading-title style-1">V Series</h1>
                         <div class="works isotope masonry image-hover effect-8 grid-container">
                             <div class="masonry-filters">
@@ -297,6 +205,98 @@
                                     </div>
                                 </div>
                                 <div class="_grid-item column is-4 prototype">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/10.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section works-list is-clearfix">
+                    <div class="container">
+                        <h1 class="heading-title style-1">Y Series</h1>
+                        <div class="works isotope masonry image-hover effect-8 grid-container">
+                            <div class="masonry-filters">
+                                <ul>
+                                    <li data-filter=".branding-y, .prototype-y" class="active">show all</li>
+                                    <li data-filter=".branding-y">Y21 T</li>
+                                    <li data-filter=".prototype-y">Y15s</li>
+                                    <li data-filter=".prototype-y">Y53s</li>
+                                </ul>
+                            </div>
+                            <div class="_grid columns is-variable is-3 is-multiline">
+                                <div class="_grid-item column is-4 branding-y">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/1.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="_grid-item column is-4 prototype-y">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/14.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="_grid-item column is-4 branding-y">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="_grid-item column is-4 branding-y">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/2.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="_grid-item column is-4 branding-y">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/11.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="_grid-item column is-4 branding-y">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/3.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="_grid-item column is-4 branding-y">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/12.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="_grid-item column is-4 prototype-y">
+                                    <div class="work-item">
+                                        <figure>
+                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                src="{{ asset('frontend/assets/images/portfolio/4.png') }}">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="_grid-item column is-4 prototype-y">
                                     <div class="work-item">
                                         <figure>
                                             <img alt="Joo - Niche Multi-Purpose HTML Template"
