@@ -112,6 +112,57 @@
         </div>
       </div> -->
 <!-- #footer-bottom-wrap -->
+<div id="footer-bottom-wrap" class="is-clearfix" style="">
+    <div id="footer-bottom" class="site-footer-bottom">
+        <div id="footer-bottom-inner" class="site-footer-bottom-inner ">
+            <section class="section footer-bottom-content"
+                style="text-align: left;background-color: #fff;padding : 30px">
+                <div class="global-social-links style-1">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/vivoBangladesh/">
+                                <span class="icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/Bangladeshvivo">
+                                <span class="icon">
+                                    <i class="fab fa-twitter"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/vivo_bangladesh/">
+                                <span class="icon">
+                                    <i class="fab fa-instagram"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/c/vivoBangladesh">
+                                <span class="icon">
+                                    <i class="fab fa-youtube"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/company/vivo-bangladesh/">
+                                <span class="icon">
+                                    <i class="fab fa-instagram"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- .footer-bottom-content -->
+        </div>
+        <!-- #footer-bottom-inner -->
+    </div>
+    <!-- #footer-bottom -->
+</div>
 
 <div id="footer-bottom-wrap" class="is-clearfix" style="">
     <div id="footer-bottom" class="site-footer-bottom">
@@ -121,11 +172,8 @@
                 <div class="container">
                     {{-- <h2 class="display-none">footer</h2> --}}
                     <span class="footer-copyright">
-                        © 2022 Haicheng Mobile Company (BD) Ltd. All rights reserved.
-                        <a href="{{ route('frontend.privacy-policy') }}" style="color: #fff;">Privacy Policy</a>
-                        <a href="{{ route('frontend.warranty-terms') }}" style="color: #fff;">| Warranty Terms</a>
-                        <a href="#" style="color: #fff;">| Privacy Support</a>
-                    </span>
+                        <a href='/' style="color: #fff;">© 2022 Haicheng Mobile Company (BD) Ltd. All rights reserved.
+                            | Privacy Policy | Warranty Terms | Privacy Support</a>
                 </div>
             </section>
             <!-- .footer-bottom-content -->

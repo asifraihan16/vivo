@@ -72,47 +72,6 @@
                         </div>
                         <br>
                         <br>
-                        <div class="has-text-centered">
-                            <div class="global-social-links style-1">
-                                <ul>
-                                    <li>
-                                        <a href="https://www.facebook.com/vivoBangladesh/">
-                                            <span class="icon">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/Bangladeshvivo">
-                                            <span class="icon">
-                                                <i class="fab fa-twitter"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/vivo_bangladesh/">
-                                            <span class="icon">
-                                                <i class="fab fa-instagram"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.youtube.com/c/vivoBangladesh">
-                                            <span class="icon">
-                                                <i class="fab fa-youtube"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.linkedin.com/company/vivo-bangladesh/">
-                                            <span class="icon">
-                                                <i class="fab fa-instagram"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </section>
                 <!-- .get-in-touch contact-page -->
