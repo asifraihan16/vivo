@@ -175,8 +175,10 @@
                                         {{-- <h2 class="display-none">footer</h2> --}}
                                         <span class="footer-copyright">
                                             © 2022 Haicheng Mobile Company (BD) Ltd. All rights reserved.
-                                            <a href="{{ route('frontend.privacy-policy') }}" style="color: #fff;">| Privacy Policy</a>
-                                            <a href="{{ route('frontend.warranty-terms') }}" style="color: #fff;"> | Warranty Terms</a>
+                                            <a href="{{ route('frontend.privacy-policy') }}" style="color: #fff;">|
+                                                Privacy Policy</a>
+                                            <a href="{{ route('frontend.warranty-terms') }}" style="color: #fff;"> |
+                                                Warranty Terms</a>
                                             <a href="#" style="color: #fff;"> | Privacy Support</a>
                                         </span>
                                     </div>
@@ -194,6 +196,16 @@
                 <script src="{{ URL::asset('frontend/assets/js/vendor.min.js?v=1557279752872') }}"></script>
                 <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script>
                 <script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
+
+                <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
+                <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js">
+                </script>
+
+                <script type="text/javascript">
+                    $(function() {
+                        $('.lazy').Lazy();
+                    });
+                </script>
 
                 @yield('scripts')
 

@@ -37,10 +37,8 @@
                                         <div class="work-item">
                                             <figure>
                                                 <?php $var = 'img' . $i; ?>
-                                                <a href="{{ Storage::url($exhibitions[0]->$var) }}"
-                                                    class="mfp-lightbox mfp-image" title="">
-                                                    <img alt="Exibition Image" loading="lazy"
-                                                        src="{{ Storage::url($exhibitions[0]->$var) }}">
+                                                <a href="{{ Storage::url($exhibitions[0]->$var) }}" class="mfp-lightbox mfp-image" title="">
+                                                    <img alt="Exibition Image" class="lazy" data-src="{{ Storage::url($exhibitions[0]->$var) }}">
                                                     <figcaption>
                                                         <ul class="social">
                                                             <li>
@@ -84,8 +82,7 @@
                                             class="_grid-item column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
                                                 <figure>
-                                                    <img alt="Exibition Image" loading="lazy"
-                                                        src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                    <img alt="Exibition Image" class="lazy" data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                 </figure>
                                             </div>
                                             <!-- .work-item -->
@@ -109,7 +106,6 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-
             $('.grid-container').each(function(i, gridContainer) {
                 var $gridContainer = $(gridContainer);
                 // init isotope for container
