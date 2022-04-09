@@ -17,11 +17,31 @@ body .image-hover figure img {
 .body.header-transparent header{background-color: #fff !important;}
 
 .main-navigation>ul>li>a{color: #000 !important;}
+.main-navigation>ul>li>a:hover{
+    color: #617AFD !important;
+}
 
 body.header-transparent header{position: relative !important;}
 
 .mobile-series-in-blogPage a{
     color: #7389FF;
+}
+
+.padding-3rem
+{
+    padding : 3rem;
+}
+
+.width-80-percent
+{
+    width: 80%;
+    max-height: 80%;
+}
+
+.watch-video .works-latest .works-latest-item .works-latest-item-icon .vedio-play-button
+{
+    background-color: transparent !important;
+    color: #fff !important;
 }
 
 /*#nav-wrap #site-navigation ul li a {color:#fff !important;}*/
