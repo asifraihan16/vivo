@@ -125,20 +125,6 @@
                                             </div>
                                             <!-- .work-item -->
                                         </div>
-                                        <div class="column is-12 branding aos-init" style="">
-                                            <div class="work-item">
-                                                <figure>
-                                                    <a href="{{ Storage::url($moments[0]->img7) }}"
-                                                        class="mfp-lightbox mfp-image" title="">
-                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                            src="{{ Storage::url($moments[0]->img7) }}">
-                                                        <figcaption>
-                                                        </figcaption>
-                                                    </a>
-                                                </figure>
-                                            </div>
-                                            <!-- .work-item -->
-                                        </div>
                                     </div>
                                     <!-- .work-item -->
                                 </div>
