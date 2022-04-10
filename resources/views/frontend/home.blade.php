@@ -19,7 +19,7 @@
                                             data-scaleend="150" data-rotatestart="0" data-rotateend="0"
                                             data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="15">
 
-                                        <div class="tp-caption rev-scroll-btn revs-white"
+                                        <!-- <div class="tp-caption rev-scroll-btn revs-white"
                                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                                             data-y="['bottom','bottom','bottom','bottom']"
                                             data-voffset="['50','50','50','50']" data-width="30" data-height="50"
@@ -32,7 +32,7 @@
                                             data-paddingleft="[0,0,0,0]"
                                             style="z-index: 19; min-width: 30px; max-width: 30px; max-width: 50px; max-width: 50px;border-width:1.5px!important;cursor:pointer;">
                                             <span></span>
-                                        </div>
+                                        </div> -->
                                     </li>
                                 @endforeach
                                 <!-- slide -->

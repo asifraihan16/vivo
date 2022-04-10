@@ -1,7 +1,7 @@
 <div class="left-sidenav">
             <!-- LOGO -->
             <div class="brand">
-                <a href="{{ url('user/dashboard') }}" class="logo">
+                <a href="{{ url('/') }}" target="_blank" class="logo">
                     <span>
                         <img src="{{URL::asset('admin/assets/images/vivo_logo.png')}}" alt="logo-large" class="logo-dark">
                     </span>

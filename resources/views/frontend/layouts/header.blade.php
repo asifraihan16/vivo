@@ -9,7 +9,7 @@
     <meta name="author" content="vivo">
     <meta name="description" content="VIVO Moments">
     <meta name="keywords" content="vivo, vivo bangladesh, vivo moments, photography">
-    <title>@yield('title', 'Home') | VIVO Moments</title>
+    <title>@yield('title', 'Home') | vivo Moments</title>
 
     <meta property="og:title" content="@yield('title', 'Home') | VIVO Moments">
     <meta property="og:description" content="VIVO Moments">
