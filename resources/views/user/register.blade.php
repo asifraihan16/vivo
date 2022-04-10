@@ -38,6 +38,13 @@
                                  @endif
                             </div>
                             <div class="form-group">
+                                <label for="contact_no"><i class="zmdi zmdi-email"></i></label>
+                                <input type="text" name="contact" id="contact" placeholder="Your Contact No" value="{{ old('contact') }}"/>
+                                @if ($errors->has('contact_no'))
+                                   <span class="error">{{ $errors->first('contact') }}</span>
+                                 @endif
+                            </div>
+                            <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="pass" placeholder="Password"/>
                                 @if ($errors->has('password'))

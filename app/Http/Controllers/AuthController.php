@@ -99,6 +99,7 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'contact' => $data['contact'],
             'password' => Hash::make($data['password'])
         ]);
     }
@@ -159,6 +160,7 @@ class AuthController extends Controller
         ]);
 
         $data = $request->all();
+        //dd($data);
 
         $check = $this->create($data);
         return Redirect::to("user/dashboard")->withSuccess('Great! You have Successfully loggedin');
