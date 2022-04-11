@@ -30,7 +30,123 @@
 
                 <section class="section hero works-list padding-bottom-none padding-top-none is-clearfix">
                     <div>
-                        <div class="works isotope masonry image-hover effect-10 mfp-lightbox-gallery margin-bottom-none">
+
+                        <div class="works isotope image-hover effect-8">
+                            <div class="columns is-variable is-1 is-multiline" style="">
+                                <div class="column is-3 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($exhibitions[0]->img1) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    src="{{ Storage::url($exhibitions[0]->img1) }}">
+                                                <figcaption>
+                                                    <ul class="social">
+                                                        <li>
+                                                            <span class="icon">
+                                                                <i class="icon-magnifier"></i>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-6 prototype aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($exhibitions[0]->img2) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    src="{{ Storage::url($exhibitions[0]->img2) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-3 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($exhibitions[0]->img3) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    src="{{ Storage::url($exhibitions[0]->img3) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-6 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($exhibitions[0]->img4) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    src="{{ Storage::url($exhibitions[0]->img4) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-6 development aos-init" style="">
+                                    <div class="columns is-variable is-1 is-multiline">
+                                        <div class="column is-6 branding aos-init" data-aos="fade-up" style="">
+                                            <div class="work-item">
+                                                <figure>
+                                                    <a href="{{ Storage::url($exhibitions[0]->img5) }}"
+                                                        class="mfp-lightbox mfp-image" title="">
+                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                            src="{{ Storage::url($exhibitions[0]->img5) }}">
+                                                        <figcaption>
+                                                        </figcaption>
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <!-- .work-item -->
+                                        </div>
+                                        <div class="column is-6 branding aos-init" style="">
+                                            <div class="work-item">
+                                                <figure>
+                                                    <a href="{{ Storage::url($exhibitions[0]->img6) }}"
+                                                        class="mfp-lightbox mfp-image" title="">
+                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                            src="{{ Storage::url($exhibitions[0]->img6) }}">
+                                                        <figcaption>
+                                                        </figcaption>
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <!-- .work-item -->
+                                        </div>
+                                        <div class="column is-12 branding aos-init" style="">
+                                            <div class="work-item">
+                                                <figure>
+                                                    <a href="{{ Storage::url($exhibitions[0]->img7) }}"
+                                                        class="mfp-lightbox mfp-image" title="">
+                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                            src="{{ Storage::url($exhibitions[0]->img7) }}">
+                                                        <figcaption>
+                                                        </figcaption>
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <!-- .work-item -->
+                                        </div>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                            </div>
+                            <!-- .columns -->
+                        </div>
+                        <!-- <div class="works isotope masonry image-hover effect-10 mfp-lightbox-gallery margin-bottom-none">
                             <div class="columns is-variable is-gapless is-multiline">
                                 @for ($i = 1; $i <= 8; $i++)
                                     <div class="column is-3 branding " data-aos="fade">
@@ -58,7 +174,7 @@
                                 @endfor
                             </div>
                             <!-- .columns -->
-                        </div>
+                        </div> -->
                         <!-- .works -->
                     </div>
                 </section>

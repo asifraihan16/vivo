@@ -68,7 +68,7 @@
                                 <a href="#">Press</a>
                             </li>
                             <li>
-                                <a href="https://www.vivo.com/bd">vivo BD</a>
+                                <a href="https://www.vivo.com/bd" style="text-transform: none;">vivo BD</a>
                             </li>
                             <li>
                                 <a href="#">Sitemap</a>

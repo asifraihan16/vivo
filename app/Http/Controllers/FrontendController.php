@@ -138,6 +138,8 @@ class FrontendController extends Controller
 
         $exhibitions = DB::table('exibitions')->get();
 
+        // return $exhibitions;
+
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', /*'final_data' */));
     }
 
