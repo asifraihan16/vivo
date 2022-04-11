@@ -119,6 +119,7 @@ class FrontendController extends Controller
 
     public function exhibition()
     {
+        $ttl = 1800;
         $mobile_series = MobileSeries::query()
             ->with([
                 'mobile_series_versions',
@@ -138,9 +139,13 @@ class FrontendController extends Controller
 
         $exhibitions = DB::table('exibitions')->get();
 
+        $moments = cache()->remember('moments_home', $ttl, function () {
+            return DB::table('moment_of_the_months')->get();
+        });
+
         // return $exhibitions;
 
-        return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', /*'final_data' */));
+        return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'moments'/*'final_data' */));
     }
 
     public function exhibition_photos_by_author($author_id)
