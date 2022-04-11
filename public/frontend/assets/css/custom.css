@@ -32,10 +32,10 @@ body.header-transparent header{position: relative !important;}
     padding : 3rem;
 }
 
-.width-80-percent
+.container .width-80-percent
 {
     width: 80%;
-    max-height: 80%;
+    max-width: 80%;
 }
 
 .watch-video .works-latest .works-latest-item .works-latest-item-icon .vedio-play-button
