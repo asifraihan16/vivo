@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="{{ URL::asset('admin/assets/images/vivo_logo.png') }}" alt="sing up image">
+                        <figure><img src="{{ asset('frontend/assets/images/logo/vivo_logo.png') }}" alt="sing up image">
                         </figure>
                         {{-- <a href="#" class="signup-image-link">Create an account</a> --}}
                     </div>
