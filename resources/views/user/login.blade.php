@@ -23,14 +23,16 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="{{ asset('frontend/assets/images/logo/vivo_logo.png') }}" alt="sing up image">
+                        <figure><img src="{{ asset('frontend/assets/images/logo/vivo_logo.png') }}"
+                                alt="sing up image">
                         </figure>
                         {{-- <a href="#" class="signup-image-link">Create an account</a> --}}
                     </div>
 
                     <div class="signin-form">
                         <h2 class="form-title">Sign in</h2>
-                        <form method="POST" class="register-form" id="login-form" action="{{ url('user/post-login') }}">
+                        <form method="POST" class="register-form" id="login-form"
+                            action="{{ url('user/post-login') }}">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="your_name"></label>
@@ -46,12 +48,24 @@
                                     <span class="error">{{ $errors->first('password') }}</span>
                                 @endif
                             </div>
+
+                            <div class="form-group">
+                                <label for="accept_privacy_policy" style="position: relative !important;">
+                                    <input type="checkbox" name="accept_privacy_policy" id="accept_privacy_policy"
+                                    class="form-control"
+                                    style="display: inline;"
+                                    required>
+                                    Accept <a href="{{ route('frontend.privacy-policy') }}">Privacy Policy</a>
+                                </label>
+                            </div>
+
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label">Don't have an account ? <a href="{{url('user/register')}}" class="signup-image-link">Sign up</a></span>
+                            <span class="social-label">Don't have an account ? <a href="{{ url('user/register') }}"
+                                    class="signup-image-link">Sign up</a></span>
                         </div>
                         {{-- <div class="social-login">
                             <span class="social-label">Or login with</span>
