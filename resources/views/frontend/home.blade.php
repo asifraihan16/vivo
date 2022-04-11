@@ -189,7 +189,7 @@
                             <br>
                             <!-- .works-button -->
                         </div>
-                        <div class="columns is-variable is-8 is-multiline">                            
+                        <div class="columns is-variable is-8 is-multiline">
                             <div class="column is-12-desktop is-12-tablet has-text-centered" data-aos="fade-up">
                                 <div class="works-latest">
                                     <div class="works-latest-item">
@@ -222,11 +222,11 @@
                             <br>
                             <!-- .works-button -->
                         </div>
-                        <div class="columns is-variable is-8 is-multiline">                            
+                        <div class="columns is-variable is-8 is-multiline">
                             <div class="column is-12-desktop is-12-tablet has-text-centered" data-aos="fade-up">
                                 <div class="works-latest">
                                     <div class="works-latest-item">
-                                        <iframe width="100%" height="400" src="{{ $playlist2_main[0]->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe width="100%" height="400" src="{{ $playlist2_main[0]->link ?? '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         <!-- .works-latest-icon -->
                                     </div>
                                     <!-- .works-latest-item -->
