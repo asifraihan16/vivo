@@ -146,6 +146,35 @@
                             </div>
                             <!-- .columns -->
                         </div>
+                        <!-- <div class="works isotope masonry image-hover effect-10 mfp-lightbox-gallery margin-bottom-none">
+                            <div class="columns is-variable is-gapless is-multiline">
+                                @for ($i = 1; $i <= 8; $i++)
+                                    <div class="column is-3 branding " data-aos="fade">
+                                        <div class="work-item">
+                                            <figure>
+                                                <?php $var = 'img' . $i; ?>
+                                                <a href="{{ Storage::url($exhibitions[0]->$var) }}"
+                                                    class="mfp-lightbox mfp-image" title="">
+                                                    <img alt="Exibition Image" class="lazy"
+                                                        data-src="{{ Storage::url($exhibitions[0]->$var) }}">
+                                                    <figcaption>
+                                                        <ul class="social">
+                                                            <li>
+                                                                <span class="icon">
+                                                                    <i class="icon-magnifier"></i>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </figcaption>
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <!-- .work-item -->
+                                    </div>
+                                @endfor
+                            </div>
+                            <!-- .columns -->
+                        </div> -->
                         <!-- .works -->
                     </div>
                 </section>
