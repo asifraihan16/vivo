@@ -1,4 +1,4 @@
-{{-- This page has different image size enable but lazy loading disabled. Different image size doesn't work on lazy loaded image --}}
+{{-- This page has lazy loading image enabled but images size is fixed. Different image size doesn't work on lazy loaded image --}}
 @extends('frontend.layouts.app')
 
 @section('title', 'Exibition')
@@ -96,39 +96,49 @@
                                     </div>
                                     <!-- .work-item -->
                                 </div>
-                                <div class="column is-6 development aos-init" style="">
-                                    <div class="columns is-variable is-1 is-multiline">
-                                        <div class="column is-6 branding aos-init" data-aos="fade-up" style="">
-                                            <div class="work-item">
-                                                <figure>
-                                                    <a href="{{ Storage::url($moments[0]->img5) }}"
-                                                        class="mfp-lightbox mfp-image" title="">
-                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                            src="{{ Storage::url($moments[0]->img5) }}">
-                                                        <figcaption>
-                                                        </figcaption>
-                                                    </a>
-                                                </figure>
-                                            </div>
-                                            <!-- .work-item -->
-                                        </div>
-                                        <div class="column is-6 branding aos-init" style="">
-                                            <div class="work-item">
-                                                <figure>
-                                                    <a href="{{ Storage::url($moments[0]->img6) }}"
-                                                        class="mfp-lightbox mfp-image" title="">
-                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                            src="{{ Storage::url($moments[0]->img6) }}">
-                                                        <figcaption>
-                                                        </figcaption>
-                                                    </a>
-                                                </figure>
-                                            </div>
-                                            <!-- .work-item -->
-                                        </div>
+                                <div class="column is-3 branding aos-init" data-aos="fade-up" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img5) }}"
+                                                class="mfp-lightbox mfp-image" title="">
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    src="{{ Storage::url($moments[0]->img5) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
                                     </div>
                                     <!-- .work-item -->
                                 </div>
+                                <div class="column is-3 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img6) }}"
+                                                class="mfp-lightbox mfp-image" title="">
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    src="{{ Storage::url($moments[0]->img6) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-6 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img7) }}"
+                                                class="mfp-lightbox mfp-image" title="">
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    src="{{ Storage::url($moments[0]->img7) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+
                             </div>
                             <!-- .columns -->
                         </div>
@@ -141,10 +151,10 @@
                         <div class="container">
                             <h1 class="heading-title style-1">{{ $series->name }}</h1>
 
-                            <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
+                            <div class="works isotope masonry image-hover effect-8 grid-container">
                                 <div class="masonry-filters">
                                     <ul>
-                                        <li data-filter="*" class="active show-all">show all</li>
+                                        <li data-filter="*" class="active">show all</li>
                                         @foreach ($series->mobile_series_versions as $version)
                                             <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}</li>
                                         @endforeach
@@ -153,14 +163,14 @@
 
                                 <div class="_grid columns is-variable is-3 is-multiline">
                                     @foreach ($series->series_gallery_photos as $photo)
-                                        <div class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
+                                        <div class="_grid-item {{-- aos-init --}} column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
                                                 <figure>
                                                     <a href="{{ url('image_description/' . $photo->id) }}">
-                                                        <img alt="Exibition Image" style="min-width: 375px;"
-                                                            src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
-                                                        {{-- <img alt="Exibition Image" class="lazy" style="min-width: 375px;"
-                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
+                                                        {{-- <img alt="Exibition Image" style="min-width: 375px;"
+                                                            src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
+                                                        <img alt="Exibition Image" class="lazy iso-img-cls"
+                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                     </a>
                                                 </figure>
                                             </div>
@@ -187,13 +197,12 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.grid-container').each(function(i, gridContainer) {
-            // $('.mfp-lightbox-gallery').each(function(i, gridContainer) {
                 var $gridContainer = $(gridContainer);
                 // init isotope for container
                 var $grid = $gridContainer.find('._grid').imagesLoaded(function() {
                     $grid.isotope({
                         itemSelector: '._grid-item',
-                        // layoutMode: 'fitRows'
+                        layoutMode: 'fitRows'
                     })
                 });
                 // initi filters for container
@@ -204,8 +213,6 @@
                     });
                 });
             });
-
-            // $('.show-all').click();
 
             $('.masonry-filters').each(function(i, buttonGroup) {
                 var $buttonGroup = $(buttonGroup);
@@ -225,9 +232,9 @@
         /* .section {
             padding: 1rem 1.5rem;
         } */
-        .work-item figure img {
-            /* width: 600px; */
-            /* height: 400px; */
+        .iso-img-cls {
+            width: 600px;
+            height: 400px;
         }
 
         /* ---- grid ---- */
@@ -276,7 +283,7 @@
 
         .masonry-filters ul li:hover,
         .masonry-filters ul li.active {
-            color: #f30337;
+            color: #4768FF;
         }
 
     </style>

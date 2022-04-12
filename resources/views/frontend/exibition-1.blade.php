@@ -98,8 +98,8 @@
                                 <div class="column is-3 branding aos-init" data-aos="fade-up" style="">
                                     <div class="work-item">
                                         <figure>
-                                            <a href="{{ Storage::url($moments[0]->img5) }}"
-                                                class="mfp-lightbox mfp-image" title="">
+                                            <a href="{{ Storage::url($moments[0]->img5) }}" class="mfp-lightbox mfp-image"
+                                                title="">
                                                 <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img5) }}">
                                                 <figcaption>
@@ -146,30 +146,33 @@
                 </section>
 
                 @foreach ($mobile_series as $series)
-                    <section class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
+                    <section
+                        class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
                         <div class="container">
                             <h1 class="heading-title style-1">{{ $series->name }}</h1>
 
-                            <div class="works isotope masonry image-hover effect-8 grid-container">
+                            <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
                                 <div class="masonry-filters">
                                     <ul>
                                         <li data-filter="*" class="active">show all</li>
                                         @foreach ($series->mobile_series_versions as $version)
-                                            <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}</li>
+                                            <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </div>
 
-                                <div class="_grid columns is-variable is-3 is-multiline">
+                                <div class="_grid columns is-variable is-1 is-multiline">
                                     @foreach ($series->series_gallery_photos as $photo)
-                                        <div class="_grid-item {{-- aos-init --}} column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
+                                        <div
+                                            class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
                                                 <figure>
-                                                    <a href="{{ url('image_description/' . $photo->id) }}">
-                                                        {{-- <img alt="Exibition Image" style="min-width: 375px;"
-                                                            src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
-                                                        <img alt="Exibition Image" class="lazy iso-img-cls"
-                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                    <a href="{{ url('image_description/' . $photo->id) }}" class="mfp-lightbox mfp-image">
+                                                        <img alt="Exibition Image" style="min-width: 375px;"
+                                                            src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                        {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
+                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
                                                     </a>
                                                 </figure>
                                             </div>
@@ -178,7 +181,7 @@
                                 </div>
 
                                 <div style="text-align:center;">
-                                    <a href="{{ route('frontend.photos-by-series', ['series_id'=>$series->id, 'series'=> Str::slug($series->name)])  }}"
+                                    <a href="{{ route('frontend.photos-by-series', ['series_id' => $series->id, 'series' => Str::slug($series->name)]) }}"
                                         class="button is-danger is-radiusless">View All</a>
                                 </div>
                             </div>
@@ -201,7 +204,7 @@
                 var $grid = $gridContainer.find('._grid').imagesLoaded(function() {
                     $grid.isotope({
                         itemSelector: '._grid-item',
-                        layoutMode: 'fitRows'
+                        // layoutMode: 'fitRows',
                     })
                 });
                 // initi filters for container
@@ -229,11 +232,11 @@
 @section('styles')
     <style>
         /* .section {
-            padding: 1rem 1.5rem;
-        } */
+                    padding: 1rem 1.5rem;
+                } */
         .iso-img-cls {
-            width: 600px;
-            height: 400px;
+            /* width: 600px; */
+            /* height: 400px; */
         }
 
         /* ---- grid ---- */
@@ -245,8 +248,8 @@
         /* clear fix */
         .grid:after {
             /* content: '';
-                display: block;
-                clear: both; */
+                        display: block;
+                        clear: both; */
         }
 
         /* ---- .grid-item ---- */
@@ -258,6 +261,8 @@
             /* border: 2px solid #333; */
             /* border-color: rgba(0, 0, 0, 0.7); */
         }
+
+        ._grid-item {}
 
         .masonry-filters ul {
             text-align: center;

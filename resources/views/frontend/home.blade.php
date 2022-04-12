@@ -63,10 +63,8 @@
                                 <div class="column is-3 branding aos-init" style="">
                                     <div class="work-item">
                                         <figure>
-                                            <a href="{{ Storage::url($moments[0]->img1) }}" class="mfp-lightbox mfp-image"
-                                                title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                    src="{{ Storage::url($moments[0]->img1) }}">
+                                            <a href="{{ Storage::url($moments[0]->img1) }}" class="mfp-lightbox mfp-image" title="">
+                                                <img alt="Moments Photo" src="{{ Storage::url($moments[0]->img1) }}">
                                                 <figcaption>
                                                     <ul class="social">
                                                         <li>
@@ -86,7 +84,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img2) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Photo"
                                                     src="{{ Storage::url($moments[0]->img2) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -100,7 +98,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img3) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Photo"
                                                     src="{{ Storage::url($moments[0]->img3) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -114,7 +112,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img4) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Photo"
                                                     src="{{ Storage::url($moments[0]->img4) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -123,18 +121,13 @@
                                     </div>
                                     <!-- .work-item -->
                                 </div>
-                                <!-- <div class="column is-6 development aos-init" style="">
-                                    <div class="columns is-variable is-1 is-multiline">
-                                        {{-- Inside cols here --}}
-                                    </div>
-                                </div> -->
 
                                 <div class="column is-3 branding aos-init" data-aos="fade-up" style="">
                                     <div class="work-item">
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img5) }}"
                                                 class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Photo"
                                                     src="{{ Storage::url($moments[0]->img5) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -148,7 +141,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img6) }}"
                                                 class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Photo"
                                                     src="{{ Storage::url($moments[0]->img6) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -162,7 +155,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img7) }}"
                                                 class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Photo"
                                                     src="{{ Storage::url($moments[0]->img7) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -184,11 +177,8 @@
                 <section class="section has-background-primary-light watch-video is-clearfix padding-3rem">
                     <div class="container width-80-percent">
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade" style="text-align: center;">
-                            <br>
-                            <br>
                             <p class="heading-title-top has-text-center has-text-tertiary"></p>
                             <h1 class="heading-title style-1 has-text-center">Events and Compaign</h1>
-                            <br>
                             <!-- .works-button -->
                         </div>
                         <div class="columns is-variable is-8 is-multiline">
@@ -282,7 +272,7 @@
                                         <article class="blog-post">
                                             <figure class="post-image">
                                                 <a href="{{ url('/blog_details/' . $value->id) }}">
-                                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    <img alt="Blog Photo"
                                                         src="{{ $value->img ? Storage::url($value->img) : '' }}"> </a>
                                             </figure>
                                             <div class="entry-header">

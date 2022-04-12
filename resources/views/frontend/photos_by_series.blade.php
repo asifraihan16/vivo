@@ -53,7 +53,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="_grid columns is-variable is-3 is-multiline">
+                            <div class="_grid columns is-variable is-1 is-multiline">
                                 @foreach ($photos as $photo)
                                     <a href="{{ url('image_description/' . $photo->id) }}"
                                         class="_grid-item column is-4 branding">
@@ -143,7 +143,7 @@
 
         .masonry-filters ul li:hover,
         .masonry-filters ul li.active {
-            color: #f30337 !important;
+            color: #4768FF !important;
         }
 
         .masonry-filters ul li a {
@@ -152,7 +152,7 @@
 
         .masonry-filters ul li a:hover,
         .masonry-filters ul li a.active {
-            color: #f30337 !important;
+            color: #4768FF !important;
         }
 
     </style>

@@ -37,7 +37,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="_grid columns is-variable is-3 is-multiline">
+                                <div class="_grid columns is-variable is-1 is-multiline">
                                     @foreach ($series->series_gallery_photos as $photo)
                                         <div class="_grid-item column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <a href="{{ url('image_description/' . $photo->id) }}" class="work-item">
@@ -439,7 +439,7 @@
 
         .masonry-filters ul li:hover,
         .masonry-filters ul li.active {
-            color: #f30337;
+            color: #4768FF;
         }
 
     </style>
