@@ -222,12 +222,12 @@
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade-up">
                           <div class="works-latest">
                             <div class="works-latest-item">
-                              <!-- <div class="works-latest-item-icon style-2">
-                                <x-embed url="{{$playlist2_main[0]->link}}" />
+                            <!-- <div class="works-latest-item-icon style-2">
+                                <x-embed url="{{$playlist2_main[0]->link ?? ''}}" />
                               </div> -->
                               <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21 1.jpg') }}" class="main-vedio">
                               <div class="works-latest-item-icon style-2">
-                                <a href="{{$playlist2_main[0]->link}}" class="mfp-lightbox mfp-iframe">
+                                <a href="{{ $playlist2_main[0]->link ?? '' }}" class="mfp-lightbox mfp-iframe">
                                   <span class="icon ripple-effect">
                                     <i class="ion-ios-play"></i>
                                   </span>

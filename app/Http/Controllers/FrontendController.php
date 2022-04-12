@@ -18,40 +18,28 @@ class FrontendController extends Controller
     public function index()
     {
         $ttl = 1800; // 30 minutes
-        $home_sliders = cache()->remember('home_sliders_home', $ttl, function () {
-            return DB::table('home_sliders')->get();
-        });
+        $home_sliders = DB::table('home_sliders')->get();
 
-        $moments = cache()->remember('moments_home', $ttl, function () {
+        /* $moments = cache()->remember('moments_home', $ttl, function () {
             return DB::table('moment_of_the_months')->get();
-        });
+        }); */
 
-        $playlist1_main = cache()->remember('playlist1_main_home', $ttl, function () {
-            return DB::table('playlist1_main_vedios')->get();
-        });
+        $moments = DB::table('moment_of_the_months')->get();
 
-        $playlist1_other = cache()->remember('playlist1_other_home', $ttl, function () {
-            return DB::table('playlist1_other_vedios')->get();
-        });
+        $playlist1_main = DB::table('playlist1_main_vedios')->get();
 
-        $playlist2_main = cache()->remember('playlist2_main_home', $ttl, function () {
-            return DB::table('playlist2_main_vedios')->get();
-        });
+        $playlist1_other = DB::table('playlist1_other_vedios')->get();
 
-        $playlist2_other = cache()->remember('playlist2_other_home', $ttl, function () {
-            return DB::table('playlist2_other_vedios')->get();
-        });
+        $playlist2_main = DB::table('playlist2_main_vedios')->get();
+
+        $playlist2_other = DB::table('playlist2_other_vedios')->get();
 
         $blogs = DB::table('blogs')
             ->latest()
             ->limit(6)
             ->get();
 
-        $mobile_series = cache()->remember('mobile_series_home', $ttl, function () {
-            return DB::table('mobile_series')->get();
-        });
-
-        // return $playlist2_main[0]->link;
+        $mobile_series = DB::table('mobile_series')->get();
 
         return view('frontend.home', compact('home_sliders', 'moments', 'playlist1_main', 'playlist1_other', 'playlist2_main', 'playlist2_other', 'blogs', 'mobile_series'));
     }
