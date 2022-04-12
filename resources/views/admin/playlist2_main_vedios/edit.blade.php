@@ -24,7 +24,7 @@
                                                             <div class="mb-3 row">
                                                                 <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Name</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" id="horizontalInput1" placeholder="Enter Mobile Series Name" name="name" required="" value="{{ $data[0]->name }}">
+                                                                    <input type="text" class="form-control" id="horizontalInput1" placeholder="Enter Mobile Series Name" name="name" value="{{ $data[0]->name }}">
                                                                     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
                                                                 </div>
                                                             </div>

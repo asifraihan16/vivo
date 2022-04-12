@@ -23,14 +23,14 @@
                                                             <div class="mb-3 row">
                                                                 <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Title</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" id="horizontalInput1"  name="title" required="" value="{{ old('title') }}">
+                                                                    <input type="text" class="form-control" id="horizontalInput1"  name="title" ="" value="{{ old('title') }}">
                                                                     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
                                                                 </div>
                                                             </div>
                                                             <div class="mb-3 row">
                                                                 <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Playlist Image(Dimension : 602px * 602px, Size : 150kb)</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="file" id="input-file-now" class="form-control" name="img" required />
+                                                                    <input type="file" id="input-file-now" class="form-control" name="img"  />
                                                                     {!! $errors->first('img', '<p class="help-block">:message</p>') !!}
                                                                 </div>
                                                             </div>
@@ -43,7 +43,7 @@
                                                             <div class="mb-3 row">
                                                                 <label for="horizontalInput1" class="col-sm-2 form-label align-self-center mb-lg-0">Embeded Link</label>
                                                                 <div class="col-sm-10">
-                                                                    <input type="text" class="form-control" id="horizontalInput1" name="link" required="" value="{{ old('link') }}">
+                                                                    <input type="text" class="form-control" id="horizontalInput1" name="link" value="{{ old('link') }}">
                                                                     {!! $errors->first('link', '<p class="help-block">:message</p>') !!}
                                                                 </div>
                                                             </div>
