@@ -185,7 +185,7 @@
                             <br>
                             <br>
                             <p class="heading-title-top has-text-center has-text-tertiary"></p>
-                            <h1 class="heading-title style-1 has-text-center">watch your video</h1>
+                            <h1 class="heading-title style-1 has-text-center">Events and Compaign</h1>
                             <br>
                             <!-- .works-button -->
                         </div>
@@ -218,7 +218,7 @@
                             <br>
                             <br>
                             <p class="heading-title-top has-text-center has-text-tertiary"></p>
-                            <h1 class="heading-title style-1 has-text-center">watch your video</h1>
+                            <h1 class="heading-title style-1 has-text-center">Ads and Features</h1>
                             <br>
                             <!-- .works-button -->
                         </div>
