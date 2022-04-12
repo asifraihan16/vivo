@@ -152,7 +152,7 @@
                                             <li>
                                                 <a href="https://www.linkedin.com/company/vivo-bangladesh/">
                                                     <span class="icon">
-                                                        <i class="fab fa-instagram"></i>
+                                                        <i class="fab fa-linkedin"></i>
                                                     </span>
                                                 </a>
                                             </li>
