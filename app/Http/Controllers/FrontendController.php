@@ -145,8 +145,6 @@ class FrontendController extends Controller
             return DB::table('moment_of_the_months')->get();
         });
 
-        // return $exhibitions;
-
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'moments'/*'final_data' */));
     }
 
@@ -234,5 +232,26 @@ class FrontendController extends Controller
 
 
         return view('frontend.image_description', compact('image_details', 'image_tags'));
+    }
+
+    public function photos_by_series($series_id)
+    {
+        $series = MobileSeries::findOrFail($series_id);
+        $versions = DB::table('mobile_series_versions')
+            ->where('mobile_series_id', $series_id)
+            ->get();
+        $photos = DB::table('photo_galleries')
+            ->when(request()->series_version,
+                function ($query) {
+                    $query->where('mobile_series_versions_id', request()->series_version);
+                }, function ($query) use ($versions) {
+                    $query->whereIn('mobile_series_versions_id', $versions->pluck('id'));
+                })
+            ->where('status', 1)
+            ->where('is_photographer_image', 0)
+            ->orderBy('id', 'desc')
+            ->paginate(18);
+
+        return view('frontend.photos_by_series', compact('series', 'versions', 'photos'));
     }
 }

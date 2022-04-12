@@ -163,8 +163,10 @@
                                     @endforeach
                                 </div>
 
-                                <div style="text-align:center;"><a href="" class="button is-danger is-radiusless">View
-                                        All</a></div>
+                                <div style="text-align:center;">
+                                    <a href="{{ route('frontend.photos-by-series', ['series_id'=>$series->id, 'series'=> Str::slug($series->name)])  }}"
+                                        class="button is-danger is-radiusless">View All</a>
+                                </div>
                             </div>
                         </div>
                     </section>

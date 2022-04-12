@@ -23,7 +23,9 @@ Route::get('/blog_details/{id}', 'FrontendController@blog_details');
 Route::get('/campaign', 'FrontendController@campaign');
 Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
+
 Route::get('/image_description/{id}', 'FrontendController@image_description');
+Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-series');
 
 Route::get('faqs', 'MiscController@faqs')->name('frontend.faqs');
 Route::get('privacy-policy', 'MiscController@privacy_policy')->name('frontend.privacy-policy');
