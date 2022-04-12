@@ -168,8 +168,8 @@
                                             class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
                                                 <figure>
-                                                    <a href="{{ url('image_description/' . $photo->id) }}" class="mfp-lightbox mfp-image">
-                                                        <img alt="Exibition Image" style="min-width: 375px;"
+                                                    <a href="{{ url('image_description/' . $photo->id) }}" class="">
+                                                        <img alt="Exibition Image"
                                                             src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                         {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
                                                             data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
