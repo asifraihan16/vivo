@@ -10161,7 +10161,7 @@ footer .widget-links ul li {
 footer .widget-links ul li:before {
     content: "\e606";
     vertical-align: middle;
-    color: #f80036;
+    color: #ffffff;
     padding-right: 5px;
     -webkit-transition: all .3s ease;
     transition: all .3s ease
@@ -16373,7 +16373,7 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
 .page-title.intro-image .hero-body h1 {
     color: #fff;
     font-size: 80px;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 600;
     letter-spacing: 0;
     line-height: 1.2
@@ -17634,7 +17634,7 @@ a.tag:hover {
 }
 
 .widget-list .content p {
-    color: #f80036;
+    color: #ffffff;
     font-size: 13.5px;
     font-size: .84375rem;
     letter-spacing: 1px;
@@ -19684,7 +19684,7 @@ body.topbar-background.dark-color:not(.primary-color) .site-header-top .header-m
     letter-spacing: 1px;
     -webkit-transition: all .4s ease;
     transition: all .4s ease;
-    color: #f80036;
+    color: #ffffff;
     font-family: Poppins, sans-serif
 }
 
@@ -19693,7 +19693,7 @@ body.topbar-background.dark-color:not(.primary-color) .site-header-top .header-m
 }
 
 .works .work-item .work-item-meta h5 a {
-    color: #f80036;
+    color: #ffffff;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
 }
