@@ -7620,13 +7620,13 @@ a.box:active {
 }
 
 .button.is-danger {
-    background-color: #ff3860;
+    background-color: #4768FF;
     border-color: transparent;
     color: #fff;
 }
 
 .button.is-danger:hover, .button.is-danger.is-hovered {
-    background-color: #ff2b56;
+    background-color: #4768FF;
     border-color: transparent;
     color: #fff;
 }
@@ -11687,7 +11687,7 @@ a.box:active {
 }
 
 .file.is-danger:hover .file-cta, .file.is-danger.is-hovered .file-cta {
-    background-color: #ff2b56;
+    background-color: #4768FF;
     border-color: transparent;
     color: #fff;
 }
@@ -23672,7 +23672,7 @@ label.panel-block:hover {
 }
 
 .pricing-table .pricing-plan.is-danger .plan-footer .button:hover, .pricing-table .pricing-plan.is-danger .plan-footer .button.is-hovered {
-    background-color: #ff2b56;
+    background-color: #4768FF;
     border-color: transparent;
     color: #fff;
 }

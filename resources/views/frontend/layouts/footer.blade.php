@@ -122,14 +122,14 @@
                                     <div class="global-social-links style-1">
                                         <ul>
                                             <li>
-                                                <a href="https://www.facebook.com/vivoBangladesh/">
+                                                <a href="https://www.facebook.com/vivoBangladesh">
                                                     <span class="icon">
                                                         <i class="fab fa-facebook-f"></i>
                                                     </span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://twitter.com/Bangladeshvivo">
+                                                <a href="https://twitter.com/BangladeshVivo">
                                                     <span class="icon">
                                                         <i class="fab fa-twitter"></i>
                                                     </span>

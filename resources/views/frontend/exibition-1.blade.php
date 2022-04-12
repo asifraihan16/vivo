@@ -282,7 +282,7 @@
 
         .masonry-filters ul li:hover,
         .masonry-filters ul li.active {
-            color: #f30337;
+            color: #4768FF;
         }
 
     </style>
