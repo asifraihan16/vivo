@@ -4,6 +4,18 @@
  * DON'T EDIT TEMPLATE CSS/SCSS FILES DIRECTLY, JUST USE THIS FILE.
  */
 
+@font-face {
+    font-family: 'vivotypeEN-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/frontend/assets/fonts/vivotypeEN-Regular.ttf');
+}
+
+body, button, input, select, textarea, .heading-title.style-1, .menu, .footer .widget-links, 
+footer .widget-links, .widget-title, .footer-bottom-content, .footer-bottom-content .footer-copyright, .widget{
+    font-family: vivotypeEN-Regular;
+}
+
 .works-latest .works-latest-item .works-latest-item-meta h5 a, .works-latest .works-latest-item .works-latest-item-meta h3 a, .works-latest .works-latest-item .works-latest-item-meta h5, .works-latest-item .works-latest-item-meta h3 {
  opacity: 1;
 }
@@ -12,14 +24,26 @@ body .image-hover figure img {
     min-height: auto!important;
 }
 
+body.footer-background.dark-color footer a:hover, .blog-post .entry-header .entry-title a:hover,
+.blog-post .entry-header .post-meta ul li a:hover, .blog-post .entry-header .post-meta ul li span:hover,
+.blog-post .entry-footer .button:hover,
+.main-navigation>ul>li>a:hover,
+.mobile-series-in-blogPage a,
+.campaign-list a:hover,
+.blog-post .entry-header .entry-title:hover
+{
+    color: rgba(65, 95, 255, 1.0) !important;
+}
+
+.campaign-list a{
+    color: #000;
+}
 /*header, .site-header-top{position: absolute !important;}*/
 
 .body.header-transparent header{background-color: #fff !important;}
 
 .main-navigation>ul>li>a{color: #000 !important;}
-.main-navigation>ul>li>a:hover{
-    color: #617AFD !important;
-}
+
 
 body.header-transparent header{position: relative !important;}
 

@@ -34,7 +34,7 @@
                         <br>
                         <div class="columns is-variable is-multiline is-centered">
                             <div class="column is-9">
-                                <table class="table is-fullwidth">
+                                <table class="table is-fullwidth campaign-list">
                                     <thead>
                                         <tr>
                                             <th>Title</th>
