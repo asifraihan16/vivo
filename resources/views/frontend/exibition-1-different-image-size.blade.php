@@ -140,10 +140,10 @@
                         <div class="container">
                             <h1 class="heading-title style-1">{{ $series->name }}</h1>
 
-                            <div class="works isotope masonry image-hover effect-8 grid-container">
+                            <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
                                 <div class="masonry-filters">
                                     <ul>
-                                        <li data-filter="*" class="active">show all</li>
+                                        <li data-filter="*" class="active show-all">show all</li>
                                         @foreach ($series->mobile_series_versions as $version)
                                             <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}</li>
                                         @endforeach
@@ -152,14 +152,14 @@
 
                                 <div class="_grid columns is-variable is-3 is-multiline">
                                     @foreach ($series->series_gallery_photos as $photo)
-                                        <div class="_grid-item {{-- aos-init --}} column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
+                                        <div class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
                                                 <figure>
                                                     <a href="{{ url('image_description/' . $photo->id) }}">
-                                                        {{-- <img alt="Exibition Image" style="min-width: 375px;"
-                                                            src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
-                                                        <img alt="Exibition Image" class="lazy"
-                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                        <img alt="Exibition Image" style="min-width: 375px;"
+                                                            src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                        {{-- <img alt="Exibition Image" class="lazy" style="min-width: 375px;"
+                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
                                                     </a>
                                                 </figure>
                                             </div>
@@ -186,12 +186,13 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.grid-container').each(function(i, gridContainer) {
+            // $('.mfp-lightbox-gallery').each(function(i, gridContainer) {
                 var $gridContainer = $(gridContainer);
                 // init isotope for container
                 var $grid = $gridContainer.find('._grid').imagesLoaded(function() {
                     $grid.isotope({
                         itemSelector: '._grid-item',
-                        layoutMode: 'fitRows'
+                        // layoutMode: 'fitRows'
                     })
                 });
                 // initi filters for container
@@ -202,6 +203,8 @@
                     });
                 });
             });
+
+            // $('.show-all').click();
 
             $('.masonry-filters').each(function(i, buttonGroup) {
                 var $buttonGroup = $(buttonGroup);
@@ -222,8 +225,8 @@
             padding: 1rem 1.5rem;
         } */
         .work-item figure img {
-            width: 600px;
-            height: 400px;
+            /* width: 600px; */
+            /* height: 400px; */
         }
 
         /* ---- grid ---- */
