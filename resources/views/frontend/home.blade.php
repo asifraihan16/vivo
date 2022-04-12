@@ -181,29 +181,19 @@
 
                 <section class="section has-background-primary-light watch-video is-clearfix padding-3rem">
                     <div class="container width-80-percent">
-                        <div class="columns is-variable is-8 is-multiline">
-                            <div class="column is-6-desktop is-12-tablet" data-aos="fade">
-                                <br>
-                                <br>
-                                <p class="heading-title-top has-text-left has-text-tertiary">video</p>
-                                <h1 class="heading-title style-1 has-text-left">watch your video</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices
-                                    eleifend gravi, nulla nunc varius lectus, nec rutrum justo nibh eu lectus metus
-                                    ultrices.</p>
-                                <br>
-                                <!-- .works-button -->
-                            </div>
-                            <div class="column is-6-desktop is-12-tablet has-text-centered" data-aos="fade-up">
+                        <div class="column is-12-desktop is-12-tablet" data-aos="fade" style="text-align: center;">
+                            <br>
+                            <br>
+                            <p class="heading-title-top has-text-center has-text-tertiary"></p>
+                            <h1 class="heading-title style-1 has-text-center">watch your video</h1>
+                            <br>
+                            <!-- .works-button -->
+                        </div>
+                        <div class="columns is-variable is-8 is-multiline">                            
+                            <div class="column is-12-desktop is-12-tablet has-text-centered" data-aos="fade-up">
                                 <div class="works-latest">
                                     <div class="works-latest-item">
-                                        <img alt="VIVO Bangladesh" src="{{ Storage::url($playlist1_main[0]->img) }}">
-                                        <div class="works-latest-item-icon style-2">
-                                            <a href="{{ $playlist1_main[0]->link }}" class="mfp-lightbox mfp-iframe">
-                                                <span class="icon ripple-effect vedio-play-button">
-                                                    <i class="ion-ios-play"></i>
-                                                </span>
-                                            </a>
-                                        </div>
+                                        <iframe width="100%" height="400" src="{{ $playlist1_main[0]->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         <!-- .works-latest-icon -->
                                     </div>
                                     <!-- .works-latest-item -->
@@ -213,15 +203,7 @@
                         <div class="works-latest image-hover effect-1 owl-carousel dots carousel-items-3">
                             @foreach ($playlist1_other as $value)
                                 <div class="works-latest-item">
-                                    <img alt="VIVO Bangladesh"
-                                        src="{{ $value->img ? Storage::url($value->img) : '' }}">
-                                    <div class="works-latest-item-icon style-2">
-                                        <a href="{{ $value->link }}" class="mfp-lightbox mfp-iframe">
-                                            <span class="icon ripple-effect vedio-play-button">
-                                                <i class="ion-ios-play"></i>
-                                            </span>
-                                        </a>
-                                    </div>
+                                    <iframe width="100%" height="auto" src="{{ $value->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     <!-- .works-latest-icon -->
                                 </div>
                             @endforeach
@@ -232,29 +214,19 @@
 
                 <section class="section watch-video is-clearfix padding-3rem">
                     <div class="container width-80-percent">
-                        <div class="columns is-variable is-8 is-multiline">
-                            <div class="column is-6-desktop is-12-tablet" data-aos="fade">
-                                <br>
-                                <br>
-                                <p class="heading-title-top has-text-left has-text-tertiary">video</p>
-                                <h1 class="heading-title style-1 has-text-left">watch your video</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices
-                                    eleifend gravi, nulla nunc varius lectus, nec rutrum justo nibh eu lectus metus
-                                    ultrices.</p>
-                                <br>
-                                <!-- .works-button -->
-                            </div>
-                            <div class="column is-6-desktop is-12-tablet has-text-centered" data-aos="fade-up">
+                        <div class="column is-12-desktop is-12-tablet" data-aos="fade" style="text-align: center;">
+                            <br>
+                            <br>
+                            <p class="heading-title-top has-text-center has-text-tertiary"></p>
+                            <h1 class="heading-title style-1 has-text-center">watch your video</h1>
+                            <br>
+                            <!-- .works-button -->
+                        </div>
+                        <div class="columns is-variable is-8 is-multiline">                            
+                            <div class="column is-12-desktop is-12-tablet has-text-centered" data-aos="fade-up">
                                 <div class="works-latest">
                                     <div class="works-latest-item">
-                                        <img alt="VIVO Bangladesh" src="{{ Storage::url($playlist1_main[0]->img) }}">
-                                        <div class="works-latest-item-icon style-2">
-                                            <a href="{{ $playlist2_main[0]->link }}" class="mfp-lightbox mfp-iframe">
-                                                <span class="icon ripple-effect">
-                                                    <i class="ion-ios-play"></i>
-                                                </span>
-                                            </a>
-                                        </div>
+                                        <iframe width="100%" height="400" src="{{ $playlist2_main[0]->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         <!-- .works-latest-icon -->
                                     </div>
                                     <!-- .works-latest-item -->
@@ -264,15 +236,7 @@
                         <div class="works-latest image-hover effect-1 owl-carousel dots carousel-items-3">
                             @foreach ($playlist2_other as $value)
                                 <div class="works-latest-item">
-                                    <img alt="VIVO Bangladesh"
-                                        src="{{ $value->img ? Storage::url($value->img) : '' }}">
-                                    <div class="works-latest-item-icon style-2">
-                                        <a href="{{ $value->link }}" class="mfp-lightbox mfp-iframe">
-                                            <span class="icon ripple-effect">
-                                                <i class="ion-ios-play"></i>
-                                            </span>
-                                        </a>
-                                    </div>
+                                    <iframe width="100%" height="auto" src="{{ $value->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     <!-- .works-latest-icon -->
                                 </div>
                             @endforeach
