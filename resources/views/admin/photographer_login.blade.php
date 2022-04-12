@@ -33,7 +33,7 @@
                         <p style="margin: 0; padding: 0">Photographer</p>
                         <h2 class="form-title mt-0">Sign in</h2>
                         <form method="POST" class="register-form" id="login-form"
-                            action="{{ route('photographer.login') }}">
+                            action="{{ route('photographer.post-login') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="your_name"></label>

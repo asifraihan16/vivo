@@ -25,7 +25,7 @@
                                         <div class="card-body">
                                             <div class="general-label">
                                                 <div id="err"></div>
-                                                <form id="file_upload_form" class="form-horizontal auth-form" method="POST" action="{{ route('photographer.upload-photo') }}" enctype="multipart/form-data">
+                                                <form id="file_upload_form" class="form-horizontal auth-form" method="POST" action="{{ route('photographer.post-upload-photo') }}" enctype="multipart/form-data">
                                                     @csrf
 
                                                     <input type="hidden" class="form-control" id="horizontalInput1"

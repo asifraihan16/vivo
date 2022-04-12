@@ -41,9 +41,9 @@ Route::post('admin/post-register', 'AuthController@postRegister');
 Route::get('admin/logout', 'AuthController@logout');
 
 Route::get('photographers/login', 'AuthController@photographer_login')->name('photographer.login');
-Route::post('photographers/login', 'AuthController@post_photographer_login')->name('photographer.login');
+Route::post('photographers/login', 'AuthController@post_photographer_login')->name('photographer.post-login');
 Route::get('photographers/signup', 'AuthController@photographer_signup')->name('photographer.signup');
-Route::post('photographers/signup', 'AuthController@post_photographer_signup')->name('photographer.signup');
+Route::post('photographers/signup', 'AuthController@post_photographer_signup')->name('photographer.post-signup');
 
 
 Route::resource('blog-comments', 'BlogCommentController')->only('store');
@@ -125,7 +125,7 @@ Route::group(['prefix'=> 'photographers', 'middleware'=> ['auth', 'is_photograph
     Route::get('dashboard', 'Photographer\DashboardController@index')->name('photographer.dashboard');
 
     Route::get('photo_upload', 'Photographer\PhotoGalleryController@create')->name('photographer.upload-photo');
-    Route::post('photo_upload', 'Photographer\PhotoGalleryController@store')->name('photographer.upload-photo');
+    Route::post('photo_upload', 'Photographer\PhotoGalleryController@store')->name('photographer.post-upload-photo');
     Route::get('photo_history', 'Photographer\PhotoGalleryController@photo_history')->name('photographer.photo_history');
 });
 
