@@ -180,9 +180,7 @@
                               <img alt="VIVO Bangladesh" src="{{ $playlist1_main[0]->img ? Storage::url($playlist1_main[0]->img) : '' }}" class="main-vedio">
                               <div class="works-latest-item-icon style-2">
                                 <a href="{{$playlist1_main[0]->link}}" class="mfp-lightbox mfp-iframe">
-                                  <span class="icon ripple-effect">
-                                    <i class="ion-ios-play"></i>
-                                  </span>
+                                  <div class="play"></div>
                                 </a>
                               </div>
                               <!-- .works-latest-icon -->
@@ -196,9 +194,7 @@
                                 <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                 <div class="works-latest-item-icon style-2">
                                   <a href="{{$value->link}}" class="mfp-lightbox mfp-iframe">
-                                    <span class="icon ripple-effect">
-                                      <i class="ion-ios-play"></i>
-                                    </span>
+                                    <div class="play2"></div>
                                   </a>
                                 </div>
                                 <!-- .works-latest-icon -->
@@ -228,9 +224,7 @@
                               <img alt="VIVO Bangladesh" src="{{ $playlist2_main[0]->img ? Storage::url($playlist2_main[0]->img) : '' }}" class="main-vedio">
                               <div class="works-latest-item-icon style-2">
                                 <a href="{{ $playlist2_main[0]->link ?? '' }}" class="mfp-lightbox mfp-iframe">
-                                  <span class="icon ripple-effect">
-                                    <i class="ion-ios-play"></i>
-                                  </span>
+                                  <div class="play"></div>
                                 </a>
                               </div>
                               <!-- .works-latest-icon -->
@@ -244,9 +238,7 @@
                                 <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                 <div class="works-latest-item-icon style-2">
                                   <a href="{{$value->link}}" class="mfp-lightbox mfp-iframe">
-                                    <span class="icon ripple-effect">
-                                      <i class="ion-ios-play"></i>
-                                    </span>
+                                    <div class="play2"></div>
                                   </a>
                                 </div>
                                 <!-- .works-latest-icon -->
