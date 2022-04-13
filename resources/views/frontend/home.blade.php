@@ -177,7 +177,7 @@
                               <!-- <div class="works-latest-item-icon style-2">
                                 <x-embed url="{{$playlist1_main[0]->link}}" />
                               </div> -->
-                              <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21 1.jpg') }}" class="main-vedio">
+                              <img alt="VIVO Bangladesh" src="{{ $playlist1_main[0]->img ? Storage::url($playlist1_main[0]->img) : '' }}" class="main-vedio">
                               <div class="works-latest-item-icon style-2">
                                 <a href="{{$playlist1_main[0]->link}}" class="mfp-lightbox mfp-iframe">
                                   <span class="icon ripple-effect">
@@ -193,7 +193,7 @@
                         <div class="works-latest image-hover effect-1 owl-carousel dots carousel-items-3">
                             @foreach($playlist1_other as $value)
                               <div class="works-latest-item">
-                                <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21e 1.jpg') }}">
+                                <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                 <div class="works-latest-item-icon style-2">
                                   <a href="{{$value->link}}" class="mfp-lightbox mfp-iframe">
                                     <span class="icon ripple-effect">
@@ -225,7 +225,7 @@
                             <!-- <div class="works-latest-item-icon style-2">
                                 <x-embed url="{{$playlist2_main[0]->link ?? ''}}" />
                               </div> -->
-                              <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21 1.jpg') }}" class="main-vedio">
+                              <img alt="VIVO Bangladesh" src="{{ $playlist2_main[0]->img ? Storage::url($playlist2_main[0]->img) : '' }}" class="main-vedio">
                               <div class="works-latest-item-icon style-2">
                                 <a href="{{ $playlist2_main[0]->link ?? '' }}" class="mfp-lightbox mfp-iframe">
                                   <span class="icon ripple-effect">
@@ -241,7 +241,7 @@
                         <div class="works-latest image-hover effect-1 owl-carousel dots carousel-items-3">
                             @foreach($playlist2_other as $value)
                               <div class="works-latest-item">
-                                <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21e 1.jpg') }}">
+                                <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                 <div class="works-latest-item-icon style-2">
                                   <a href="{{$value->link}}" class="mfp-lightbox mfp-iframe">
                                     <span class="icon ripple-effect">
