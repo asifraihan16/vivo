@@ -38,17 +38,22 @@
                                     <li data-filter=".prototype">X60 Pro</li>
                                 </ul>
                             </div> --}}
-                            <div class="_grid columns is-variable is-3 is-multiline">
+                            <div class="_grid columns is-variable is-1 is-multiline">
                                 @foreach ($photo_galleries as $photo)
-                                    <a href="{{ url('image_description/' . $photo->id) }}"
-                                        class="_grid-item column is-4 branding">
+                                    <div
+                                        class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                         <div class="work-item">
                                             <figure>
-                                                {{-- <img alt="Exibition Image" src="{{ Storage::url($photo->img) }}"> --}}
-                                                <img alt="Exibition Image" src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                <a href="{{ url('image_description/' . $photo->id) }}"
+                                                    class="">
+                                                    <img alt="Exibition Image"
+                                                        src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                    {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
+                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
+                                                </a>
                                             </figure>
                                         </div>
-                                    </a>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
@@ -66,14 +71,13 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-
-            /* $('.grid-container').each(function(i, gridContainer) {
+            $('.grid-container').each(function(i, gridContainer) {
                 var $gridContainer = $(gridContainer);
                 // init isotope for container
                 var $grid = $gridContainer.find('._grid').imagesLoaded(function() {
                     $grid.isotope({
                         itemSelector: '._grid-item',
-                        layoutMode: 'fitRows'
+                        // layoutMode: 'fitRows',
                     })
                 });
                 // initi filters for container
@@ -91,19 +95,46 @@
                     $buttonGroup.find('.active').removeClass('active');
                     $(this).addClass('active');
                 });
-            }); */
+            });
 
         });
     </script>
 @endsection
 
-
 @section('styles')
     <style>
-        .work-item figure img {
-            width: 600px;
-            height: 400px;
+        /* .section {
+                    padding: 1rem 1.5rem;
+                } */
+        .iso-img-cls {
+            /* width: 600px; */
+            /* height: 400px; */
         }
+
+        /* ---- grid ---- */
+        .grid {
+            /* background: #ddd; */
+            /* max-width: 1200px; */
+        }
+
+        /* clear fix */
+        .grid:after {
+            /* content: '';
+                        display: block;
+                        clear: both; */
+        }
+
+        /* ---- .grid-item ---- */
+        .grid-item {
+            /* float: left; */
+            /* width: 100px; */
+            /* height: 100px; */
+            /* background: #0d8; */
+            /* border: 2px solid #333; */
+            /* border-color: rgba(0, 0, 0, 0.7); */
+        }
+
+        ._grid-item {}
 
         .masonry-filters ul {
             text-align: center;
@@ -128,7 +159,7 @@
 
         .masonry-filters ul li:hover,
         .masonry-filters ul li.active {
-            color: #f30337;
+            color: #4768FF;
         }
 
     </style>

@@ -41,8 +41,6 @@ class FrontendController extends Controller
 
         $mobile_series = DB::table('mobile_series')->get();
 
-        // return $playlist2_main;
-
         return view('frontend.home', compact('home_sliders', 'moments', 'playlist1_main', 'playlist1_other', 'playlist2_main', 'playlist2_other', 'blogs', 'mobile_series'));
     }
 
@@ -200,7 +198,6 @@ class FrontendController extends Controller
 
     public function image_description($id)
     {
-        // return $id;
         $image_details = DB::table('photo_galleries')
             ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
             ->join('users', 'users.id', '=', 'photo_galleries.users_id')
@@ -218,8 +215,9 @@ class FrontendController extends Controller
                 'tags.*'
             )
             ->where('photo_galleries_tags.photo_galleries_id', '=', $id)
-            ->get();
-
+            ->select('name')
+            ->get()
+            ->pluck('name');
 
         return view('frontend.image_description', compact('image_details', 'image_tags'));
     }
@@ -230,6 +228,7 @@ class FrontendController extends Controller
         $versions = DB::table('mobile_series_versions')
             ->where('mobile_series_id', $series_id)
             ->get();
+        $is_photographer_image = request()->page_ref == 'photographer' ? 1 : 0;
         $photos = DB::table('photo_galleries')
             ->when(request()->series_version,
                 function ($query) {
@@ -238,7 +237,7 @@ class FrontendController extends Controller
                     $query->whereIn('mobile_series_versions_id', $versions->pluck('id'));
                 })
             ->where('status', 1)
-            ->where('is_photographer_image', 0)
+            ->where('is_photographer_image', $is_photographer_image)
             ->orderBy('id', 'desc')
             ->paginate(18);
 

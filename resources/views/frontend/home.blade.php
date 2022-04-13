@@ -50,7 +50,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img1) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Image"
                                                     src="{{ Storage::url($moments[0]->img1) }}">
                                                 <figcaption>
                                                     <ul class="social">
@@ -71,7 +71,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img2) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Image"
                                                     src="{{ Storage::url($moments[0]->img2) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -85,7 +85,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img3) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Image"
                                                     src="{{ Storage::url($moments[0]->img3) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -99,7 +99,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img4) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Image"
                                                     src="{{ Storage::url($moments[0]->img4) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -112,9 +112,9 @@
                                 <div class="column is-3 branding aos-init" data-aos="fade-up" style="">
                                     <div class="work-item">
                                         <figure>
-                                            <a href="{{ Storage::url($moments[0]->img5) }}"
-                                                class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <a href="{{ Storage::url($moments[0]->img5) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Moments Image"
                                                     src="{{ Storage::url($moments[0]->img5) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -128,7 +128,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img6) }}"
                                                 class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Image"
                                                     src="{{ Storage::url($moments[0]->img6) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -142,7 +142,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img7) }}"
                                                 class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                <img alt="Moments Image"
                                                     src="{{ Storage::url($moments[0]->img7) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -172,35 +172,37 @@
                             <!-- .works-button -->
                         </div>
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade-up">
-                          <div class="works-latest">
-                            <div class="works-latest-item">
-                              <!-- <div class="works-latest-item-icon style-2">
-                                <x-embed url="{{$playlist1_main[0]->link}}" />
-                              </div> -->
-                              <img alt="VIVO Bangladesh" src="{{ $playlist1_main[0]->img ? Storage::url($playlist1_main[0]->img) : '' }}" class="main-vedio">
-                              <div class="works-latest-item-icon style-2">
-                                <a href="{{$playlist1_main[0]->link}}" class="mfp-lightbox mfp-iframe">
-                                  <div class="play"></div>
-                                </a>
-                              </div>
-                              <!-- .works-latest-icon -->
+                            <div class="works-latest">
+                                <div class="works-latest-item">
+                                    <!-- <div class="works-latest-item-icon style-2">
+                                    <x-embed url="{{ $playlist1_main[0]->link }}" />
+                                  </div> -->
+                                    <img alt="VIVO Bangladesh"
+                                        src="{{ $playlist1_main[0]->img ? Storage::url($playlist1_main[0]->img) : '' }}"
+                                        class="main-vedio">
+                                    <div class="works-latest-item-icon style-2">
+                                        <a href="{{ $playlist1_main[0]->link }}" class="mfp-lightbox mfp-iframe">
+                                            <div class="play"></div>
+                                        </a>
+                                    </div>
+                                    <!-- .works-latest-icon -->
+                                </div>
+                                <!-- .works-latest-item -->
                             </div>
-                            <!-- .works-latest-item -->
-                          </div>
                         </div>
                         <div class="works-latest image-hover effect-1 owl-carousel dots carousel-items-3">
-                            @foreach($playlist1_other as $value)
-                              <div class="works-latest-item">
-                                <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
-                                <div class="works-latest-item-icon style-2">
-                                  <a href="{{$value->link}}" class="mfp-lightbox mfp-iframe">
-                                    <div class="play2"></div>
-                                  </a>
+                            @foreach ($playlist1_other as $value)
+                                <div class="works-latest-item">
+                                    <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
+                                    <div class="works-latest-item-icon style-2">
+                                        <a href="{{ $value->link }}" class="mfp-lightbox mfp-iframe">
+                                            <div class="play2"></div>
+                                        </a>
+                                    </div>
+                                    <!-- .works-latest-icon -->
                                 </div>
-                                <!-- .works-latest-icon -->
-                              </div>
                             @endforeach
-                          <!-- .work-item -->
+                            <!-- .work-item -->
                         </div>
                     </div>
                 </section>
@@ -216,35 +218,37 @@
                             <!-- .works-button -->
                         </div>
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade-up">
-                          <div class="works-latest">
-                            <div class="works-latest-item">
-                            <!-- <div class="works-latest-item-icon style-2">
-                                <x-embed url="{{$playlist2_main[0]->link ?? ''}}" />
-                              </div> -->
-                              <img alt="VIVO Bangladesh" src="{{ $playlist2_main[0]->img ? Storage::url($playlist2_main[0]->img) : '' }}" class="main-vedio">
-                              <div class="works-latest-item-icon style-2">
-                                <a href="{{ $playlist2_main[0]->link ?? '' }}" class="mfp-lightbox mfp-iframe">
-                                  <div class="play"></div>
-                                </a>
-                              </div>
-                              <!-- .works-latest-icon -->
+                            <div class="works-latest">
+                                <div class="works-latest-item">
+                                    <!-- <div class="works-latest-item-icon style-2">
+                                    <x-embed url="{{ $playlist2_main[0]->link ?? '' }}" />
+                                  </div> -->
+                                    <img alt="VIVO Bangladesh"
+                                        src="{{ $playlist2_main[0]->img ? Storage::url($playlist2_main[0]->img) : '' }}"
+                                        class="main-vedio">
+                                    <div class="works-latest-item-icon style-2">
+                                        <a href="{{ $playlist2_main[0]->link ?? '' }}" class="mfp-lightbox mfp-iframe">
+                                            <div class="play"></div>
+                                        </a>
+                                    </div>
+                                    <!-- .works-latest-icon -->
+                                </div>
+                                <!-- .works-latest-item -->
                             </div>
-                            <!-- .works-latest-item -->
-                          </div>
                         </div>
                         <div class="works-latest image-hover effect-1 owl-carousel dots carousel-items-3">
-                            @foreach($playlist2_other as $value)
-                              <div class="works-latest-item">
-                                <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
-                                <div class="works-latest-item-icon style-2">
-                                  <a href="{{$value->link}}" class="mfp-lightbox mfp-iframe">
-                                    <div class="play2"></div>
-                                  </a>
+                            @foreach ($playlist2_other as $value)
+                                <div class="works-latest-item">
+                                    <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
+                                    <div class="works-latest-item-icon style-2">
+                                        <a href="{{ $value->link }}" class="mfp-lightbox mfp-iframe">
+                                            <div class="play2"></div>
+                                        </a>
+                                    </div>
+                                    <!-- .works-latest-icon -->
                                 </div>
-                                <!-- .works-latest-icon -->
-                              </div>
                             @endforeach
-                          <!-- .work-item -->
+                            <!-- .work-item -->
                         </div>
                     </div>
                 </section>
@@ -257,9 +261,11 @@
                                 @foreach ($mobile_series as $value)
                                     <div class="column is-4 branding " data-aos="fade-up">
                                         <div class="work-item">
-                                            <button class="mobile-series-title style-1">{{ $value->name }}</span></button>
+                                            <button
+                                                class="mobile-series-title style-1">{{ $value->name }}</span></button>
                                             <figure>
-                                                <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
+                                                <img alt="VIVO Bangladesh"
+                                                    src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                             </figure>
                                         </div>
                                         <!-- .work-item -->
@@ -284,7 +290,7 @@
                                         <article class="blog-post">
                                             <figure class="post-image">
                                                 <a href="{{ url('/blog_details/' . $value->id) }}">
-                                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    <img alt="Blog Image"
                                                         src="{{ $value->img ? Storage::url($value->img) : '' }}"> </a>
                                             </figure>
                                             <div class="entry-header">
@@ -320,4 +326,14 @@
         </div>
         <!-- #content-area -->
     </div>
+@endsection
+
+
+@section('styles')
+    <style>
+        .post-meta ul li span {
+            color: #4768FF !important;
+        }
+
+    </style>
 @endsection

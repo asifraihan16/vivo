@@ -39,7 +39,7 @@
                                                     <div class="column is-narrow is-6">
                                                         <figure class="post-image">
                                                             <a href="{{ url('blog_details') }}">
-                                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                                <img alt="Blog Image"
                                                                     src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                                             </a>
                                                         </figure>
@@ -116,4 +116,17 @@
         <!-- #content-area -->
     </div>
     <!-- #content-main-wrap -->
+@endsection
+
+@section('styles')
+    <style>
+        .icon i {
+            color: #4768FF;
+        }
+
+        .blog-post .entry-footer .button:after {
+            color: #4768FF !important;
+        }
+
+    </style>
 @endsection

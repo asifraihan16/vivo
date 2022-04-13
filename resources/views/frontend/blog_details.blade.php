@@ -138,7 +138,7 @@
                                 <!-- .field -->
                                 <div class="field ">
                                     <div class="control ">
-                                        <button class="button" type="submit">post comment</button>
+                                        <button class="button is-danger" type="submit">post comment</button>
                                     </div>
                                 </div>
                                 <!-- .field -->
@@ -154,4 +154,14 @@
         <!-- #content-area -->
     </div>
     <!-- #content-main-wrap -->
+@endsection
+
+
+@section('styles')
+    <style>
+        .icon i {
+            color: #4768FF;
+        }
+
+    </style>
 @endsection

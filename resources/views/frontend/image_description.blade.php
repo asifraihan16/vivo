@@ -22,8 +22,7 @@
         </div>
         <!-- #header-bottom -->
     </div>
-    <!-- #header-bottom-wrap -->
-    <!-- import content layouts and modules -->
+
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
@@ -37,19 +36,8 @@
                                         <ul class="work-images">
                                             <li>
                                                 <figure>
-                                                    {{-- <a href="{{ asset('/storage/'.$image_details->img) }}" class="mfp-lightbox mfp-image" title="Creative Design"> --}}
-                                                    <img alt="Exibition Image"
+                                                    <img alt="Exibition Image" class="mfp-lightbox mfp-image"
                                                         src="{{ Storage::url($image_details->img) }}">
-                                                    {{-- <figcaption>
-                                  <ul class="social">
-                                    <li>
-                                      <span class="icon">
-                                        <i class="icon-magnifier"></i>
-                                      </span>
-                                    </li>
-                                  </ul>
-                                </figcaption> --}}
-                                                    {{-- </a> --}}
                                                 </figure>
                                             </li>
                                         </ul>
@@ -57,20 +45,22 @@
                                 </div>
                                 <!-- .work-content -->
                             </div>
+
                             <div class="column is-narrow is-3">
                                 <div class="work-details sidebar-fixed">
                                     <div class="columns is-variable is-multiline">
                                         <!-- widgets list -->
                                         <!-- .widget -->
                                         <div class="column widget is-12 widget-links ">
-                                            <h3 class="widget-title ">details</h3>
+                                            <h3 class="widget-title ">Details</h3>
                                             <ul>
                                                 <li>
                                                     <span class="icon">
                                                         <i class="icon-tag"></i>
                                                     </span>
                                                     <a href="#">Author Name :</a>
-                                                    <a href="{{ route('exibition-photos-by-author', ['author_id'=> $image_details->users_id]) }}">{{ $image_details->username }}</a>
+                                                    <a
+                                                        href="{{ route('exibition-photos-by-author', ['author_id' => $image_details->users_id]) }}">{{ $image_details->username }}</a>
                                                 </li>
                                                 <li>
                                                     <span class="icon">
@@ -90,18 +80,11 @@
                                                     <span class="icon">
                                                         <i class="icon-tag"></i>
                                                     </span>
-                                                    <a href="#">Tags</a>,
-                                                    <a href="#">
-                                                        @foreach ($image_tags as $value)
-                                                            <span>{{ $value->name }},</span>
-                                                        @endforeach
-                                                    </a>
+                                                    <a href="#">Tags:</a>
+                                                    <a href="#"> {{ $image_tags->join(', ') }}</a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- .widget -->
-                                        <!-- .widget -->
-                                        <!-- .widget -->
                                     </div>
                                     <!-- .columns -->
                                 </div>
@@ -117,4 +100,17 @@
         <!-- #content-area -->
     </div>
     <!-- #content-main-wrap -->
+@endsection
+
+
+@section('styles')
+    <style>
+        .icon i {
+            color: #4768FF;
+        }
+
+        .portfolio-single .widget-links ul li a:hover {
+            color: #4768FF;
+        }
+    </style>
 @endsection

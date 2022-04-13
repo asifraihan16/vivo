@@ -1,3 +1,12 @@
+<style>
+    .pagination-previous:hover,
+    .pagination-next:hover,
+    .pagination-list li a:hover,
+    .pagination-list li a.is-current
+    {
+        background-color: #4768FF !important;
+    }
+</style>
 @if ($paginator->hasPages())
     <nav class="pagination is-centered is-rounded">
         {{-- Previous Page Link --}}
