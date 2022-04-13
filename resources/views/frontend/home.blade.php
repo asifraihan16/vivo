@@ -18,21 +18,6 @@
                                             data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100"
                                             data-scaleend="150" data-rotatestart="0" data-rotateend="0"
                                             data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="15">
-
-                                        <!-- <div class="tp-caption rev-scroll-btn revs-white"
-                                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-                                            data-y="['bottom','bottom','bottom','bottom']"
-                                            data-voffset="['50','50','50','50']" data-width="30" data-height="50"
-                                            data-whitespace="nowrap" data-type="button"
-                                            data-actions='[{"event":"click","action":"scrollbelow","offset":"px","delay":""}]'
-                                            data-basealign="slide"
-                                            data-frames='[{"from":"y:-50px;opacity:0;","speed":1500,"to":"o:1;","delay":2400,"ease":"Power4.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-                                            data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
-                                            data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
-                                            data-paddingleft="[0,0,0,0]"
-                                            style="z-index: 19; min-width: 30px; max-width: 30px; max-width: 50px; max-width: 50px;border-width:1.5px!important;cursor:pointer;">
-                                            <span></span>
-                                        </div> -->
                                     </li>
                                 @endforeach
                                 <!-- slide -->
@@ -63,8 +48,10 @@
                                 <div class="column is-3 branding aos-init" style="">
                                     <div class="work-item">
                                         <figure>
-                                            <a href="{{ Storage::url($moments[0]->img1) }}" class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Moments Photo" src="{{ Storage::url($moments[0]->img1) }}">
+                                            <a href="{{ Storage::url($moments[0]->img1) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    src="{{ Storage::url($moments[0]->img1) }}">
                                                 <figcaption>
                                                     <ul class="social">
                                                         <li>
@@ -84,7 +71,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img2) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Moments Photo"
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img2) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -98,7 +85,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img3) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Moments Photo"
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img3) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -112,7 +99,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img4) }}" class="mfp-lightbox mfp-image"
                                                 title="">
-                                                <img alt="Moments Photo"
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img4) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -127,7 +114,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img5) }}"
                                                 class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Moments Photo"
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img5) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -141,7 +128,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img6) }}"
                                                 class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Moments Photo"
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img6) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -155,7 +142,7 @@
                                         <figure>
                                             <a href="{{ Storage::url($moments[0]->img7) }}"
                                                 class="mfp-lightbox mfp-image" title="">
-                                                <img alt="Moments Photo"
+                                                <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                     src="{{ Storage::url($moments[0]->img7) }}">
                                                 <figcaption>
                                                 </figcaption>
@@ -177,29 +164,47 @@
                 <section class="section has-background-primary-light watch-video is-clearfix padding-3rem">
                     <div class="container width-80-percent">
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade" style="text-align: center;">
+                            <br>
+                            <br>
                             <p class="heading-title-top has-text-center has-text-tertiary"></p>
-                            <h1 class="heading-title style-1 has-text-center">Events and Compaign</h1>
+                            <h1 class="heading-title style-1 has-text-center">Events and Campaign</h1>
+                            <br>
                             <!-- .works-button -->
                         </div>
-                        <div class="columns is-variable is-8 is-multiline">
-                            <div class="column is-12-desktop is-12-tablet has-text-centered" data-aos="fade-up">
-                                <div class="works-latest">
-                                    <div class="works-latest-item">
-                                        <iframe width="100%" height="400" src="{{ $playlist1_main[0]->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        <!-- .works-latest-icon -->
-                                    </div>
-                                    <!-- .works-latest-item -->
-                                </div>
+                        <div class="column is-12-desktop is-12-tablet" data-aos="fade-up">
+                          <div class="works-latest">
+                            <div class="works-latest-item">
+                              <!-- <div class="works-latest-item-icon style-2">
+                                <x-embed url="{{$playlist1_main[0]->link}}" />
+                              </div> -->
+                              <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21 1.jpg') }}" class="main-vedio">
+                              <div class="works-latest-item-icon style-2">
+                                <a href="{{$playlist1_main[0]->link}}" class="mfp-lightbox mfp-iframe">
+                                  <span class="icon ripple-effect">
+                                    <i class="ion-ios-play"></i>
+                                  </span>
+                                </a>
+                              </div>
+                              <!-- .works-latest-icon -->
                             </div>
+                            <!-- .works-latest-item -->
+                          </div>
                         </div>
                         <div class="works-latest image-hover effect-1 owl-carousel dots carousel-items-3">
-                            @foreach ($playlist1_other as $value)
-                                <div class="works-latest-item">
-                                    <iframe width="100%" height="auto" src="{{ $value->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <!-- .works-latest-icon -->
+                            @foreach($playlist1_other as $value)
+                              <div class="works-latest-item">
+                                <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21e 1.jpg') }}">
+                                <div class="works-latest-item-icon style-2">
+                                  <a href="{{$value->link}}" class="mfp-lightbox mfp-iframe">
+                                    <span class="icon ripple-effect">
+                                      <i class="ion-ios-play"></i>
+                                    </span>
+                                  </a>
                                 </div>
+                                <!-- .works-latest-icon -->
+                              </div>
                             @endforeach
-                            <!-- .work-item -->
+                          <!-- .work-item -->
                         </div>
                     </div>
                 </section>
@@ -214,25 +219,40 @@
                             <br>
                             <!-- .works-button -->
                         </div>
-                        <div class="columns is-variable is-8 is-multiline">
-                            <div class="column is-12-desktop is-12-tablet has-text-centered" data-aos="fade-up">
-                                <div class="works-latest">
-                                    <div class="works-latest-item">
-                                        <iframe width="100%" height="400" src="{{ $playlist2_main[0]->link ?? '' }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        <!-- .works-latest-icon -->
-                                    </div>
-                                    <!-- .works-latest-item -->
-                                </div>
+                        <div class="column is-12-desktop is-12-tablet" data-aos="fade-up">
+                          <div class="works-latest">
+                            <div class="works-latest-item">
+                              <!-- <div class="works-latest-item-icon style-2">
+                                <x-embed url="{{$playlist2_main[0]->link}}" />
+                              </div> -->
+                              <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21 1.jpg') }}" class="main-vedio">
+                              <div class="works-latest-item-icon style-2">
+                                <a href="{{$playlist2_main[0]->link}}" class="mfp-lightbox mfp-iframe">
+                                  <span class="icon ripple-effect">
+                                    <i class="ion-ios-play"></i>
+                                  </span>
+                                </a>
+                              </div>
+                              <!-- .works-latest-icon -->
                             </div>
+                            <!-- .works-latest-item -->
+                          </div>
                         </div>
                         <div class="works-latest image-hover effect-1 owl-carousel dots carousel-items-3">
-                            @foreach ($playlist2_other as $value)
-                                <div class="works-latest-item">
-                                    <iframe width="100%" height="auto" src="{{ $value->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <!-- .works-latest-icon -->
+                            @foreach($playlist2_other as $value)
+                              <div class="works-latest-item">
+                                <img alt="VIVO Bangladesh" src="{{ URL::asset('frontend/assets/images/youtube/V21e 1.jpg') }}">
+                                <div class="works-latest-item-icon style-2">
+                                  <a href="{{$value->link}}" class="mfp-lightbox mfp-iframe">
+                                    <span class="icon ripple-effect">
+                                      <i class="ion-ios-play"></i>
+                                    </span>
+                                  </a>
                                 </div>
+                                <!-- .works-latest-icon -->
+                              </div>
                             @endforeach
-                            <!-- .work-item -->
+                          <!-- .work-item -->
                         </div>
                     </div>
                 </section>
@@ -272,7 +292,7 @@
                                         <article class="blog-post">
                                             <figure class="post-image">
                                                 <a href="{{ url('/blog_details/' . $value->id) }}">
-                                                    <img alt="Blog Photo"
+                                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
                                                         src="{{ $value->img ? Storage::url($value->img) : '' }}"> </a>
                                             </figure>
                                             <div class="entry-header">

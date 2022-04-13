@@ -12,7 +12,7 @@
 }
 
 body, button, input, select, textarea, .heading-title.style-1, .menu, .footer .widget-links, 
-footer .widget-links, .widget-title, .footer-bottom-content, .footer-bottom-content .footer-copyright, .widget{
+footer .widget-links, .widget-title, .footer-bottom-content, .footer-bottom-content .footer-copyright, .widget, .button{
     font-family: vivotypeEN-Regular;
 }
 
@@ -24,13 +24,39 @@ body .image-hover figure img {
     min-height: auto!important;
 }
 
+.main-vedio{width: 100%; height: 560px;}
+
+.works-latest .works-latest-item .works-latest-item-icon .icon{
+    width: 55px !important;
+    height: 35px !important;
+    border-radius: 20% !important;
+    border: 1px solid #fff !important;
+    color: #fff !important;
+    background-color: #FF0202 !important;
+    opacity: .8 !important;
+    -webkit-transition: all .4s ease-in-out !important;
+    transition: all .4s ease-in-out !important;
+}
+
+@media screen and (max-width: 768px){
+
+    body .works-latest .works-latest-item .works-latest-item-icon .icon
+    {
+        width: 55px !important;
+        height: 40px !important;
+    }
+
+}  
+
+
 body.footer-background.dark-color footer a:hover, .blog-post .entry-header .entry-title a:hover,
 .blog-post .entry-header .post-meta ul li a:hover, .blog-post .entry-header .post-meta ul li span:hover,
 .blog-post .entry-footer .button:hover,
 .main-navigation>ul>li>a:hover,
 .mobile-series-in-blogPage a,
 .campaign-list a:hover,
-.blog-post .entry-header .entry-title:hover
+.blog-post .entry-header .entry-title:hover,
+.global-social-links.style-1 li .icon:hover, .global-social-links.style-3 li .icon:hover
 {
     color: rgba(65, 95, 255, 1.0) !important;
 }
