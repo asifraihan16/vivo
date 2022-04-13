@@ -34,9 +34,9 @@ class Playlist1MainVediosController extends Controller
     {
         $rules = [
             'title' => 'required',
-            // 'desc' => 'required',
+            'desc' => 'required',
             'link' => 'required',
-            // 'img' => 'required|mimes:jpeg,jpg',
+            'img' => 'required|mimes:jpeg,jpg',
             // 'img' => 'required|image',
         ];
 

@@ -33,7 +33,7 @@ class Playlist1OtherVediosController extends Controller
     {
         $rules = [
             'link' => 'required',
-            // 'img' => 'required|mimes:jpeg,jpg',
+            'img' => 'required|mimes:jpeg,jpg',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
         ];
 

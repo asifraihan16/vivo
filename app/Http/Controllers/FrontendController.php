@@ -41,6 +41,8 @@ class FrontendController extends Controller
 
         $mobile_series = DB::table('mobile_series')->get();
 
+        // return $playlist2_main;
+
         return view('frontend.home', compact('home_sliders', 'moments', 'playlist1_main', 'playlist1_other', 'playlist2_main', 'playlist2_other', 'blogs', 'mobile_series'));
     }
 
