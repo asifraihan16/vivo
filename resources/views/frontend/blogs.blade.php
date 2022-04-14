@@ -11,6 +11,7 @@
                     style="background: #812323 url({{ asset('/frontend/assets/images/page-header/2.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
+                          <h1>Blog</h1>
                         </div>
                         <!-- .hero-body -->
                     </div>

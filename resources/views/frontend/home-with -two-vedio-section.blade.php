@@ -167,7 +167,7 @@
                             <br>
                             <br>
                             <p class="heading-title-top has-text-center has-text-tertiary"></p>
-                            <h1 class="heading-title style-1 has-text-center">Features and Campaign</h1>
+                            <h1 class="heading-title style-1 has-text-center">Events and Campaign</h1>
                             <br>
                             <!-- .works-button -->
                         </div>
@@ -207,7 +207,7 @@
                     </div>
                 </section>
 
-                {{-- <section class="section watch-video is-clearfix padding-3rem">
+                <section class="section watch-video is-clearfix padding-3rem">
                     <div class="container width-80-percent">
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade" style="text-align: center;">
                             <br>
@@ -251,7 +251,7 @@
                             <!-- .work-item -->
                         </div>
                     </div>
-                </section> --}}
+                </section>
 
                 <!-- phone category section -->
                 <section class="section has-background-primary-light works-list is-clearfix padding-3rem">
