@@ -44,7 +44,7 @@ class PhotoGalleryController extends Controller
         ]);
 
         $image_thumb_url = $this->fileUploadService->resizeUpload('img', 650, null, 'photo_galleries', true);
-        $image_url = $this->fileUploadService->resizeUpload('img', 1732, null, 'photo_galleries');
+        $image_url = $this->fileUploadService->resizeUpload('img', 1920, null, 'photo_galleries');
 
         $validated['img'] = $image_url;
         $validated['img_thumbnail'] = $image_thumb_url;

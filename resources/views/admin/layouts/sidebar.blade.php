@@ -32,7 +32,7 @@
                         <a href="javascript: void(0);"> <i data-feather="grid" class="align-self-center menu-icon"></i><span>Frontend</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                         <ul class="nav-second-level" aria-expanded="false">
                             <li class="nav-item"><a class="nav-link" href="{{ route('home_sliders.index') }}"><i class="ti-control-record"></i>Home Slider</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('moment_of_the_months.index') }}"><i class="ti-control-record"></i>Moments</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('moments.index') }}"><i class="ti-control-record"></i>Moments</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('exibition_upload.index') }}"><i class="ti-control-record"></i>Exibition</a></li>
                             <li class="nav-item">
                                 <a href="javascript: void(0);"> <i data-feather="grid" class="align-self-center menu-icon"></i><span>Playlist 1</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>

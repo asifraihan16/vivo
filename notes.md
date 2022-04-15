@@ -12,4 +12,5 @@
 * pa migrate --path=/database/migrations/2022_04_08_141204_create_faqs_table.php
 * pa migrate --path=/database/migrations/2022_04_09_101130_create_user_types_table.php
 * ALTER TABLE `photo_galleries` ADD `is_photographer_image` TINYINT(3) NOT NULL DEFAULT '0' COMMENT '1 - Yes, 0 - No' AFTER `users_id`;
+* pa migrate --path=/database/migrations/2022_04_15_085951_create_moments_table.php
 ------------------------------ DONE --------------------------------

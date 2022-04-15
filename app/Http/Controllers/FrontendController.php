@@ -24,7 +24,12 @@ class FrontendController extends Controller
             return DB::table('moment_of_the_months')->get();
         }); */
 
-        $moments = DB::table('moment_of_the_months')->get();
+        // $moments = DB::table('moment_of_the_months')->get();
+        $moments = DB::table('moments')
+            ->where('is_active', 1)
+            ->where('image_type', 1) // 1 - Moment of the month
+            ->orderBy('image_order', 'asc')
+            ->get();
 
         $playlist1_main = DB::table('playlist1_main_vedios')->get();
 
@@ -129,11 +134,13 @@ class FrontendController extends Controller
 
         $exhibitions = DB::table('exibitions')->get();
 
-        $moments = cache()->remember('moments_home', $ttl, function () {
-            return DB::table('moment_of_the_months')->get();
-        });
+        $moments = DB::table('moments')
+            ->where('is_active', 1)
+            ->where('image_type', 1) // 1 - Moment of the month
+            ->orderBy('image_order', 'asc')
+            ->get();
 
-        return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'moments'/*'final_data' */));
+        return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'moments'));
     }
 
     public function exhibition_photos_by_author($author_id)
