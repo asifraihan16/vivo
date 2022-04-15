@@ -64,6 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::resource('exibition_upload', 'ExibitionController');
     Route::resource('playlists', 'PlaylistController');
     Route::resource('moments', 'Admin\MomentsController');
+    Route::get('moments/{moment}/{status}/update-status', 'Admin\MomentsController@updateStatus')->name('moments.update-status');
 
     Route::resource('playlist1_main_vedios', 'Playlist1MainVediosController')->only('index', 'create', 'store');
     Route::delete('playlist1_main_vedios/{id}', 'Playlist1MainVediosController@destroy')->name('playlist1_main_vedios.destroy');

@@ -9,7 +9,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title float-left">Playlist 1 Other Vedio List</h4>
-                            <a href="{{ url('admin/playlist1_other_vedios/create') }}"><button type="button"
+                            <a href="{{ route('moments.create') }}"><button type="button"
                                     class="btn btn-outline-info float-right">Create</button></a>
                         </div>
                         <!--end card-header-->
@@ -80,10 +80,24 @@
                                                     @if($moment->is_active == 1)
                                                     <span class="text-success">Active</span>
                                                     @else
-                                                    <span class="text-danger">Active</span>
+                                                    <span class="text-danger">Inactive</span>
                                                     @endif
                                                 </td>
                                                 <td>
+                                                    @if($moment->is_active == 1)
+                                                    <a href="{{ route('moments.update-status', ['moment'=>$moment->id, 'status'=>2]) }}"
+                                                        onclick="return confirm('Are you sure want to deactivate?')"
+                                                        class="btn btn-warning btn-sm btn-icon" title="Deactivate">
+                                                        <i class="fa fa-thumbs-down"></i>
+                                                    </a>
+                                                    @else
+                                                    <a href="{{ route('moments.update-status', ['moment'=>$moment->id, 'status'=>1]) }}"
+                                                        onclick="return confirm('Are you sure want to activate?')"
+                                                        class="btn btn-success btn-sm btn-icon" title="Activate">
+                                                        <i class="fa fa-thumbs-up"></i>
+                                                    </a>
+                                                    @endif
+
                                                     <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="confirmDelete('delete-form-{{ $moment->id }}')">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
