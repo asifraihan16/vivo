@@ -53,6 +53,8 @@
                                                                 </span>
                                                             </li>
                                                         </ul>
+
+                                                        <h3 class="photo-bottom-caption">{{ $moment->title }}</>
                                                     </figcaption>
                                                 </a>
                                             </figure>
@@ -128,9 +130,6 @@
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade-up">
                             <div class="works-latest">
                                 <div class="works-latest-item">
-                                    {{-- <div class="works-latest-item-icon style-2">
-                                        <x-embed url="{{ $playlist2_main[0]->link ?? '' }}" />
-                                    </div> --}}
                                     <img alt="VIVO Bangladesh"
                                         src="{{ $playlist2_main[0]->img ? Storage::url($playlist2_main[0]->img) : '' }}"
                                         class="main-vedio">
@@ -241,6 +240,17 @@
     <style>
         .post-meta ul li span {
             color: #4768FF !important;
+        }
+
+        .photo-bottom-caption {
+            bottom: 0 !important;
+            left: 0;
+            width: auto !important;
+            color: #fff;
+            padding-bottom: 1.5rem !important;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: left;
         }
 
     </style>

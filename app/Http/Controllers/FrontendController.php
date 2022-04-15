@@ -24,7 +24,6 @@ class FrontendController extends Controller
             return DB::table('moment_of_the_months')->get();
         }); */
 
-        // $moments = DB::table('moment_of_the_months')->get();
         $moments = DB::table('moments')
             ->where('is_active', 1)
             ->where('image_type', 1) // 1 - Moment of the month

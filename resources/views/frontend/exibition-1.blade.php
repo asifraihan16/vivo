@@ -49,6 +49,8 @@
                                                             </span>
                                                         </li>
                                                     </ul>
+
+                                                    <h3 class="photo-bottom-caption">{{ $moment->title }}</>
                                                 </figcaption>
                                             </a>
                                         </figure>
@@ -206,6 +208,17 @@
         .masonry-filters ul li:hover,
         .masonry-filters ul li.active {
             color: #4768FF;
+        }
+
+        .photo-bottom-caption {
+            bottom: 0 !important;
+            left: 0;
+            width: auto !important;
+            color: #fff;
+            padding-bottom: 1.5rem !important;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: left;
         }
 
     </style>
