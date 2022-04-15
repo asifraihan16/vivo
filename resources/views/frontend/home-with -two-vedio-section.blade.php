@@ -20,45 +20,137 @@
                                             data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="15">
                                     </li>
                                 @endforeach
+                                <!-- slide -->
                             </ul>
                         </div>
+                        <!-- .rev_slider -->
                     </div>
+                    <!-- .rev_slider_wrapper -->
                 </section>
+                <!-- .slider -->
             </div>
+            <!-- #header-bottom-inner -->
         </div>
+        <!-- #header-bottom -->
     </div>
 
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
+                <!-- import content layouts and modules -->
+                <!-- start adding page content -->
+                <!-- works section -->
                 <section class="section works-list is-clearfix padding-3rem">
                     <div class="container width-80-percent">
                         <h1 class="heading-title style-1">Moments</h1>
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
-
-                                @foreach ($moments as $moment)
-                                    <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
-                                        <div class="work-item">
-                                            <figure>
-                                                <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
-                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }}">
-                                                    <img alt="{{ $moment->title }}"
-                                                        src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}">
-                                                    <figcaption>
-                                                        <ul class="social">
-                                                            <li>
-                                                                <span class="icon">
-                                                                    <i class="icon-magnifier"></i>
-                                                                </span>
-                                                            </li>
-                                                        </ul>
-                                                    </figcaption>
-                                                </a>
-                                            </figure>
-                                        </div>
+                                <div class="column is-3 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img1) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Moments Image"
+                                                    src="{{ Storage::url($moments[0]->img1) }}">
+                                                <figcaption>
+                                                    <ul class="social">
+                                                        <li>
+                                                            <span class="icon">
+                                                                <i class="icon-magnifier"></i>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
                                     </div>
-                                @endforeach
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-6 prototype aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img2) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Moments Image"
+                                                    src="{{ Storage::url($moments[0]->img2) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-3 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img3) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Moments Image"
+                                                    src="{{ Storage::url($moments[0]->img3) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-6 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img4) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Moments Image"
+                                                    src="{{ Storage::url($moments[0]->img4) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+
+                                <div class="column is-3 branding aos-init" data-aos="fade-up" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img5) }}" class="mfp-lightbox mfp-image"
+                                                title="">
+                                                <img alt="Moments Image"
+                                                    src="{{ Storage::url($moments[0]->img5) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-3 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img6) }}"
+                                                class="mfp-lightbox mfp-image" title="">
+                                                <img alt="Moments Image"
+                                                    src="{{ Storage::url($moments[0]->img6) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
+                                <div class="column is-6 branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ Storage::url($moments[0]->img7) }}"
+                                                class="mfp-lightbox mfp-image" title="">
+                                                <img alt="Moments Image"
+                                                    src="{{ Storage::url($moments[0]->img7) }}">
+                                                <figcaption>
+                                                </figcaption>
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <!-- .work-item -->
+                                </div>
 
                             </div>
                             <!-- .columns -->
@@ -75,16 +167,16 @@
                             <br>
                             <br>
                             <p class="heading-title-top has-text-center has-text-tertiary"></p>
-                            <h1 class="heading-title style-1 has-text-center">Features and Campaign</h1>
+                            <h1 class="heading-title style-1 has-text-center">Events and Campaign</h1>
                             <br>
                             <!-- .works-button -->
                         </div>
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade-up">
                             <div class="works-latest">
                                 <div class="works-latest-item">
-                                    {{-- <div class="works-latest-item-icon style-2">
-                                        <x-embed url="{{ $playlist1_main[0]->link }}" />
-                                    </div> --}}
+                                    <!-- <div class="works-latest-item-icon style-2">
+                                    <x-embed url="{{ $playlist1_main[0]->link }}" />
+                                  </div> -->
                                     <img alt="VIVO Bangladesh"
                                         src="{{ $playlist1_main[0]->img ? Storage::url($playlist1_main[0]->img) : '' }}"
                                         class="main-vedio">
@@ -115,7 +207,7 @@
                     </div>
                 </section>
 
-                {{-- <section class="section watch-video is-clearfix padding-3rem">
+                <section class="section watch-video is-clearfix padding-3rem">
                     <div class="container width-80-percent">
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade" style="text-align: center;">
                             <br>
@@ -128,9 +220,9 @@
                         <div class="column is-12-desktop is-12-tablet" data-aos="fade-up">
                             <div class="works-latest">
                                 <div class="works-latest-item">
-                                    {{-- <div class="works-latest-item-icon style-2">
-                                        <x-embed url="{{ $playlist2_main[0]->link ?? '' }}" />
-                                    </div> --}}
+                                    <!-- <div class="works-latest-item-icon style-2">
+                                    <x-embed url="{{ $playlist2_main[0]->link ?? '' }}" />
+                                  </div> -->
                                     <img alt="VIVO Bangladesh"
                                         src="{{ $playlist2_main[0]->img ? Storage::url($playlist2_main[0]->img) : '' }}"
                                         class="main-vedio">
@@ -159,7 +251,7 @@
                             <!-- .work-item -->
                         </div>
                     </div>
-                </section> --}}
+                </section>
 
                 <!-- phone category section -->
                 <section class="section has-background-primary-light works-list is-clearfix padding-3rem">

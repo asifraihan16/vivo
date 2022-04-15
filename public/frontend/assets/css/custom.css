@@ -144,7 +144,8 @@ body.footer-background.dark-color footer a:hover, .blog-post .entry-header .entr
 .mobile-series-in-blogPage a,
 .campaign-list a:hover,
 .blog-post .entry-header .entry-title:hover,
-.global-social-links.style-1 li .icon:hover, .global-social-links.style-3 li .icon:hover
+.global-social-links.style-1 li .icon:hover, .global-social-links.style-3 li .icon:hover,
+body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) header:not(.hide-on-scroll):not(.show-on-scroll) .main-navigation>ul>li.active>a
 {
     color: rgba(65, 95, 255, 1.0) !important;
 }

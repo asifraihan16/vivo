@@ -12,21 +12,20 @@
 @endsection
 
 @section('content')
-    {{-- <div id="header-bottom-wrap" class="is-clearfix">
+    <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
                     style="background: #812323 url({{ asset('/frontend/assets/images/page-header/3.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
-                            <h1>Privacy Policy</h1>
-                            <h3>Frequently Asked Questions</h3>
+                            <h1>Warrenty Terms</h1>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">

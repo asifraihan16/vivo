@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-    {{-- <div id="header-bottom-wrap" class="is-clearfix">
+    <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
@@ -20,13 +20,12 @@
                     <div class="hero-body">
                         <div class="container">
                             <h1>Privacy Policy</h1>
-                            <h3>Frequently Asked Questions</h3>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
