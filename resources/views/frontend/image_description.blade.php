@@ -30,20 +30,27 @@
                 <section class="section portfolio-single is-clearfix">
                     <div class="container">
                         <div class="columns is-variable is-multiline is-6 ">
-                            <div class="column ">
-                                <div class="work-content">
-                                    <div class="image-hover effect-10 mfp-lightbox-gallery">
-                                        <ul class="work-images">
-                                            <li>
-                                                <figure>
-                                                    <img alt="Exibition Image" class="mfp-lightbox mfp-image"
-                                                        src="{{ Storage::url($image_details->img) }}">
-                                                </figure>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            <div class="column aos-init">
+
+
+                                <div class="work-item">
+                                    <figure>
+                                        <a href="{{ $image_details->img ? Storage::url($image_details->img) : '' }}"
+                                            class="mfp-lightbox mfp-image" title="{{ $image_details->title }}">
+                                            <img alt="{{ $image_details->title }}"
+                                                src="{{ $image_details->img ? Storage::url($image_details->img) : '' }}">
+                                            <figcaption>
+                                                <ul class="social">
+                                                    <li>
+                                                        <span class="icon">
+                                                            <i class="icon-magnifier"></i>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </figcaption>
+                                        </a>
+                                    </figure>
                                 </div>
-                                <!-- .work-content -->
                             </div>
 
                             <div class="column is-narrow is-3">
@@ -101,7 +108,6 @@
     </div>
     <!-- #content-main-wrap -->
 @endsection
-
 
 @section('styles')
     <style>

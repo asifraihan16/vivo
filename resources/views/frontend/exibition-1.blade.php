@@ -11,7 +11,7 @@
                     style="background: #812323 url({{ asset('/frontend/assets/images/page-header/6.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
-                          <h1>Exhibition</h1>
+                            <h1>Exhibition</h1>
                         </div>
                         <!-- .hero-body -->
                     </div>
@@ -34,28 +34,28 @@
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
                                 @foreach ($moments as $moment)
-                                <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
-                                    <div class="work-item">
-                                        <figure>
-                                            <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}" class="mfp-lightbox mfp-image"
-                                                title="{{ $moment->title }}">
-                                                <img alt="{{ $moment->title }}"
-                                                    src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}">
-                                                <figcaption>
-                                                    <ul class="social">
-                                                        <li>
-                                                            <span class="icon">
-                                                                <i class="icon-magnifier"></i>
-                                                            </span>
-                                                        </li>
-                                                    </ul>
+                                    <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
+                                        <div class="work-item">
+                                            <figure>
+                                                <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
+                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }}">
+                                                    <img alt="{{ $moment->title }}"
+                                                        src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}">
+                                                    <figcaption>
+                                                        <ul class="social">
+                                                            <li>
+                                                                <span class="icon">
+                                                                    <i class="icon-magnifier"></i>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
 
-                                                    <h3 class="photo-bottom-caption">{{ $moment->title }}</>
-                                                </figcaption>
-                                            </a>
-                                        </figure>
+                                                        <h3 class="photo-bottom-caption">{{ $moment->title }}</>
+                                                    </figcaption>
+                                                </a>
+                                            </figure>
+                                        </div>
                                     </div>
-                                </div>
                                 @endforeach
 
                             </div>
@@ -88,7 +88,8 @@
                                             class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
                                                 <figure>
-                                                    <a href="{{ url('image_description/' . $photo->id) }}" class="">
+                                                    <a href="{{ url('image_description/' . $photo->id) }}"
+                                                        class="">
                                                         <img alt="Exibition Image"
                                                             src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                         {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
@@ -152,8 +153,8 @@
 @section('styles')
     <style>
         /* .section {
-                    padding: 1rem 1.5rem;
-                } */
+                        padding: 1rem 1.5rem;
+                    } */
         .iso-img-cls {
             /* width: 600px; */
             /* height: 400px; */
@@ -168,8 +169,8 @@
         /* clear fix */
         .grid:after {
             /* content: '';
-                        display: block;
-                        clear: both; */
+                            display: block;
+                            clear: both; */
         }
 
         /* ---- .grid-item ---- */
