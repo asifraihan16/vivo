@@ -89,7 +89,7 @@
                                     </div> --}}
                                     <img alt="VIVO Bangladesh"
                                         src="{{ $playlist1_main[0]->img ? Storage::url($playlist1_main[0]->img) : '' }}"
-                                        class="main-vedio">
+                                        class="main-vedio" style="width: 100%;">
                                     <div class="works-latest-item-icon style-2">
                                         <a href="{{ $playlist1_main[0]->link }}" class="mfp-lightbox mfp-iframe">
                                             <div class="play"></div>
@@ -104,7 +104,7 @@
                             @foreach ($playlist1_other as $value)
                                 <div class="works-latest-item">
                                     <img alt="VIVO Bangladesh" src="{{ $value->img ? Storage::url($value->img) : '' }}">
-                                    <div class="works-latest-item-icon style-2">
+                                    <div class="works-latest-item-icon style-2 sl-play-area">
                                         <a href="{{ $value->link }}" class="mfp-lightbox mfp-iframe">
                                             <div class="play2"></div>
                                         </a>
@@ -251,6 +251,33 @@
             font-size: 24px;
             font-weight: 500;
             text-align: left;
+        }
+
+        .watch-video .works-latest .works-latest-item .works-latest-item-icon {
+            top: 50% !important;
+            left: 50% !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            .play {
+                font-size: 1em;
+                /* change this to change size */
+            }
+
+            .watch-video .works-latest .works-latest-item .works-latest-item-icon {
+                top: 60% !important;
+            }
+
+
+            .play2 {
+                font-size: .8em;
+                /* change this to change size */
+            }
+
+            .watch-video .works-latest .works-latest-item .sl-play-area {
+                top: 50% !important;
+            }
+
         }
 
     </style>
