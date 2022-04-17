@@ -105,12 +105,12 @@ code {
 }
 
 ::-moz-selection {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
 ::selection {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
@@ -157,7 +157,7 @@ code {
 }
 
 .comment-notes .required {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content-404.content h1,
@@ -871,7 +871,7 @@ body.boxed-layout #site-wrap {
 
 #quickviewInfo .quickview-body .footer .widget-list .content a:hover,
 #quickviewInfo .quickview-body footer .widget-list .content a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .ripple-effect {
@@ -1047,7 +1047,7 @@ pre[class*=language-] {
 }
 
 .back-to-top.is-primary:hover .icon {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .back-to-top.is-info .icon {
@@ -1264,7 +1264,7 @@ pre[class*=language-] {
 }
 
 .bd-notification.is-primary {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
@@ -1491,7 +1491,7 @@ canvas {
     width: 35px;
     height: 35px;
     border-radius: 100%;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
@@ -1515,7 +1515,7 @@ canvas {
 
 .global-social-links.style-1 li .icon:hover,
 .global-social-links.style-3 li .icon:hover {
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     background-color: transparent
 }
 
@@ -1525,7 +1525,7 @@ canvas {
 }
 
 .global-social-links.style-2 li .icon:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .global-social-links.style-3 li .icon,
@@ -1535,7 +1535,7 @@ canvas {
 
 .global-social-links.style-4 li .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .global-social-links.style-4 li .icon i {
@@ -1904,17 +1904,17 @@ canvas {
 
 .content blockquote.is-link,
 .entry-content blockquote.is-link {
-    border-color: rgba(65, 95, 255, 1.0)
+    border-color: #f80036
 }
 
 .content blockquote.is-link span,
 .entry-content blockquote.is-link span {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-link.style-1:before,
 .entry-content blockquote.is-link.style-1:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-link.style-1 span,
@@ -1924,13 +1924,13 @@ canvas {
 
 .content blockquote.is-link.style-1 span:before,
 .entry-content blockquote.is-link.style-1 span:before {
-    border-color: rgba(65, 95, 255, 1.0);
-    background-color: rgba(65, 95, 255, 1.0)
+    border-color: #f80036;
+    background-color: #f80036
 }
 
 .content blockquote.is-link.style-2:before,
 .entry-content blockquote.is-link.style-2:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-link.style-3 span,
@@ -1940,12 +1940,12 @@ canvas {
 
 .content blockquote.is-link.style-3:before,
 .entry-content blockquote.is-link.style-3:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-link.style-3:after,
 .entry-content blockquote.is-link.style-3:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-danger,
@@ -1996,17 +1996,17 @@ canvas {
 
 .content blockquote.is-primary,
 .entry-content blockquote.is-primary {
-    border-color: rgba(65, 95, 255, 1.0)
+    border-color: #f80036
 }
 
 .content blockquote.is-primary span,
 .entry-content blockquote.is-primary span {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-primary.style-1:before,
 .entry-content blockquote.is-primary.style-1:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-primary.style-1 span,
@@ -2016,13 +2016,13 @@ canvas {
 
 .content blockquote.is-primary.style-1 span:before,
 .entry-content blockquote.is-primary.style-1 span:before {
-    border-color: rgba(65, 95, 255, 1.0);
-    background-color: rgba(65, 95, 255, 1.0)
+    border-color: #f80036;
+    background-color: #f80036
 }
 
 .content blockquote.is-primary.style-2:before,
 .entry-content blockquote.is-primary.style-2:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-primary.style-3 span,
@@ -2032,12 +2032,12 @@ canvas {
 
 .content blockquote.is-primary.style-3:before,
 .entry-content blockquote.is-primary.style-3:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-primary.style-3:after,
 .entry-content blockquote.is-primary.style-3:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content blockquote.is-secondary,
@@ -2287,7 +2287,7 @@ canvas {
     width: 85px;
     height: 85px;
     border-radius: 100%;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     margin-bottom: 32px;
     -webkit-transition: all .4s ease;
@@ -2365,7 +2365,7 @@ canvas {
 }
 
 .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .columns.is-4 .column .box-item {
@@ -2741,15 +2741,15 @@ canvas {
 }
 
 .boxes-is-link .box-item .icon {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .boxes-is-link .box-item .button:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link .box-item .button:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link .box-item:hover .icon {
@@ -2757,7 +2757,7 @@ canvas {
 }
 
 .boxes-is-link .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-2 .box-item .icon {
@@ -2765,13 +2765,13 @@ canvas {
 }
 
 .boxes-is-link.boxes-style-2 .box-item:hover .icon {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-3 .box-item .icon,
 .boxes-is-link.boxes-style-6 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-3 .box-item:hover .icon,
@@ -2781,12 +2781,12 @@ canvas {
 
 .boxes-is-link.boxes-style-3 .box-item:hover h3 a,
 .boxes-is-link.boxes-style-6 .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-4 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-4 .box-item:hover .icon {
@@ -2794,30 +2794,30 @@ canvas {
 }
 
 .boxes-is-link.boxes-style-4 .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-4 .box-item:hover .button {
-    background-color: rgba(65, 95, 255, 1.0) !important;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    background-color: #f80036 !important;
+    border: 1px solid #f80036
 }
 
 .boxes-is-link.boxes-style-4 .box-item .button {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-4 .box-item .button:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-4 .box-item .button:hover {
-    background-color: rgba(65, 95, 255, 1.0) !important;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    background-color: #f80036 !important;
+    border: 1px solid #f80036
 }
 
 .boxes-is-link.boxes-style-5 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-link.boxes-style-5 .box-item:hover .icon {
@@ -2825,7 +2825,7 @@ canvas {
 }
 
 .boxes-is-link.boxes-style-6 .box-item:hover {
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .boxes-is-link.boxes-style-6 .box-item:hover h3 a {
@@ -2925,15 +2925,15 @@ canvas {
 }
 
 .boxes-is-primary .box-item .icon {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .boxes-is-primary .box-item .button:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary .box-item .button:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary .box-item:hover .icon {
@@ -2941,7 +2941,7 @@ canvas {
 }
 
 .boxes-is-primary .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-2 .box-item .icon {
@@ -2949,13 +2949,13 @@ canvas {
 }
 
 .boxes-is-primary.boxes-style-2 .box-item:hover .icon {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-3 .box-item .icon,
 .boxes-is-primary.boxes-style-6 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-3 .box-item:hover .icon,
@@ -2965,12 +2965,12 @@ canvas {
 
 .boxes-is-primary.boxes-style-3 .box-item:hover h3 a,
 .boxes-is-primary.boxes-style-6 .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-4 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-4 .box-item:hover .icon {
@@ -2978,30 +2978,30 @@ canvas {
 }
 
 .boxes-is-primary.boxes-style-4 .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-4 .box-item:hover .button {
-    background-color: rgba(65, 95, 255, 1.0) !important;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    background-color: #f80036 !important;
+    border: 1px solid #f80036
 }
 
 .boxes-is-primary.boxes-style-4 .box-item .button {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-4 .box-item .button:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-4 .box-item .button:hover {
-    background-color: rgba(65, 95, 255, 1.0) !important;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    background-color: #f80036 !important;
+    border: 1px solid #f80036
 }
 
 .boxes-is-primary.boxes-style-5 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-is-primary.boxes-style-5 .box-item:hover .icon {
@@ -3009,7 +3009,7 @@ canvas {
 }
 
 .boxes-is-primary.boxes-style-6 .box-item:hover {
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .boxes-is-primary.boxes-style-6 .box-item:hover h3 a {
@@ -3350,7 +3350,7 @@ canvas {
 }
 
 .boxes-style-2 .box-item:hover .icon {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-style-2 .box-item:hover h3 a {
@@ -3360,7 +3360,7 @@ canvas {
 .boxes-style-3 .box-item .icon,
 .boxes-style-6 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     width: auto;
     height: auto;
     margin-bottom: 0;
@@ -3397,7 +3397,7 @@ canvas {
 
 .boxes-style-3 .box-item:hover h3 a,
 .boxes-style-6 .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-style-3.has-text-white .box-item .icon,
@@ -3448,7 +3448,7 @@ canvas {
 
 .boxes-style-4 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     width: auto;
     height: auto;
     margin-bottom: 28px
@@ -3469,14 +3469,14 @@ canvas {
 }
 
 .boxes-style-4 .box-item:hover h3 a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .boxes-style-4 .box-item:hover .button {
     color: #fff;
     border: 1px solid #f0f0f0;
-    background-color: rgba(65, 95, 255, 1.0) !important;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    background-color: #f80036 !important;
+    border: 1px solid #f80036
 }
 
 .boxes-style-4 .box-item:hover .button:after {
@@ -3485,7 +3485,7 @@ canvas {
 }
 
 .boxes-style-4 .box-item .button {
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     border: 1px solid #f0f0f0;
     height: 2.8em;
     padding-right: 41px;
@@ -3493,7 +3493,7 @@ canvas {
 }
 
 .boxes-style-4 .box-item .button:after {
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     top: 0;
     right: 22px
 }
@@ -3501,8 +3501,8 @@ canvas {
 .boxes-style-4 .box-item .button:hover {
     color: #fff;
     border: 1px solid #f0f0f0;
-    background-color: rgba(65, 95, 255, 1.0) !important;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    background-color: #f80036 !important;
+    border: 1px solid #f80036
 }
 
 .boxes-style-4 .box-item .button:hover:after {
@@ -3516,7 +3516,7 @@ canvas {
 
 .boxes-style-5 .box-item .icon {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     width: auto;
     height: auto;
     margin-bottom: 28px
@@ -3569,7 +3569,7 @@ canvas {
 .boxes-style-6 .box-item:hover {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .boxes-style-6 .box-item:hover h3 a {
@@ -3605,7 +3605,7 @@ canvas {
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
     color: #fff;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     outline: 0;
     border-radius: 290486px;
     font-weight: 600
@@ -3655,7 +3655,7 @@ canvas {
 
 .button.is-text:hover {
     background-color: transparent;
-    border-bottom-color: rgba(65, 95, 255, 1.0)
+    border-bottom-color: #f80036
 }
 
 .field.has-addons .control .button,
@@ -3962,7 +3962,7 @@ canvas {
 .clients-list.style-2 .client-item:hover {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .is-divider-vertical:after,
@@ -4039,17 +4039,17 @@ canvas {
 
 .is-divider-vertical.is-link,
 .is-divider.is-link {
-    border-top-color: rgba(65, 95, 255, 1.0)
+    border-top-color: #f80036
 }
 
 .is-divider-vertical.is-link:after,
 .is-divider.is-link:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .is-divider-vertical.is-link.is-divider-vertical:before,
 .is-divider.is-link.is-divider-vertical:before {
-    border-left-color: rgba(65, 95, 255, 1.0)
+    border-left-color: #f80036
 }
 
 .is-divider-vertical.is-info,
@@ -4084,17 +4084,17 @@ canvas {
 
 .is-divider-vertical.is-primary,
 .is-divider.is-primary {
-    border-top-color: rgba(65, 95, 255, 1.0)
+    border-top-color: #f80036
 }
 
 .is-divider-vertical.is-primary:after,
 .is-divider.is-primary:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .is-divider-vertical.is-primary.is-divider-vertical:before,
 .is-divider.is-primary.is-divider-vertical:before {
-    border-left-color: rgba(65, 95, 255, 1.0)
+    border-left-color: #f80036
 }
 
 .is-divider-vertical.is-secondary,
@@ -4375,8 +4375,8 @@ textarea:not([rows]) {
     content: '';
     width: 60px;
     height: 1px;
-    border-bottom: 4px solid rgba(65, 95, 255, 1.0);
-    background-color: rgba(65, 95, 255, 1.0);
+    border-bottom: 4px solid #fb1043;
+    background-color: #fb1043;
     -webkit-transform: none;
     transform: none;
     top: 90%;
@@ -4454,7 +4454,7 @@ textarea:not([rows]) {
     padding-bottom: 12px;
     font-size: 12px;
     font-size: .75rem;
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     letter-spacing: 1.4px;
     font-weight: 600
 }
@@ -4605,7 +4605,7 @@ textarea:not([rows]) {
 }
 
 .image-hover.is-primary figure {
-    background: rgba(65, 95, 255, 1.0)
+    background: #f80036
 }
 
 .image-hover.is-primary-6 figure {
@@ -5167,14 +5167,14 @@ textarea:not([rows]) {
 
 .image-hover.effect-9 figure h5,
 .image-hover.effect-9 figure p {
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     font-size: 13px;
     font-size: .8125rem
 }
 
 .image-hover.effect-9 figure h5 a,
 .image-hover.effect-9 figure p a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .image-hover.effect-9 figure:hover {
@@ -5312,7 +5312,7 @@ textarea:not([rows]) {
 
 .content ol li a:hover,
 .content ul li a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content ol li:first-child,
@@ -5688,7 +5688,7 @@ textarea:not([rows]) {
 
 .content ol.is-link li:before,
 .content ul.is-link li:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content ol.is-info li:before,
@@ -5743,12 +5743,12 @@ textarea:not([rows]) {
 
 .content ol.is-primary li:before,
 .content ul.is-primary li:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content ol.is-primary-2 li:before,
 .content ul.is-primary-2 li:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #fb1043
 }
 
 .content ol.is-primary-3 li:before,
@@ -5870,7 +5870,7 @@ textarea:not([rows]) {
     box-sizing: border-box;
     border-bottom: 0 !important;
     font-family: Poppins, sans-serif;
-    background-color: rgba(65, 95, 255, 1.0) !important
+    background-color: #f80036 !important
 }
 
 .overhang .button {
@@ -6017,7 +6017,7 @@ body.overhang-danger .overhang {
 
 .pagination a.is-current,
 .pagination a:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .pagination a.pagination-ellipsis {
@@ -6099,19 +6099,19 @@ body.overhang-danger .overhang {
 .pagination.single-post a.pagination-next:hover,
 .pagination.single-post a.pagination-previous:hover {
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .pagination.single-post a.pagination-next:after {
     padding-left: 10px;
     margin-right: -6px;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .pagination.single-post a.pagination-previous:before {
     padding-right: 10px;
     margin-left: -6px;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .pagination.single-work {
@@ -6141,7 +6141,7 @@ body.overhang-danger .overhang {
 }
 
 .pagination.single-work a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .pagination.single-work a:hover {
@@ -6184,7 +6184,7 @@ body.overhang-danger .overhang {
 
 .pagination.is-link a.is-current,
 .pagination.is-link a:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .pagination.is-info a.is-current,
@@ -6199,7 +6199,7 @@ body.overhang-danger .overhang {
 
 .pagination.is-primary a.is-current,
 .pagination.is-primary a:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .pagination.is-secondary a.is-current,
@@ -6340,16 +6340,16 @@ body.overhang-danger .overhang {
 }
 
 .accordions .beefup:hover .beefup__head:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .accordions .beefup.is-open>.beefup__head {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .accordions .beefup.is-open>.beefup__head:after {
     content: "\f368";
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .accordions.style-1 .beefup {
@@ -6410,11 +6410,11 @@ body.overhang-danger .overhang {
 }
 
 .accordions.style-2 .beefup:hover .beefup__head:after {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .accordions.style-2 .beefup.is-open>.beefup__head {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
@@ -6486,7 +6486,7 @@ body.overhang-danger .overhang {
 }
 
 .accordions.style-2.is-link .beefup .beefup__head {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
@@ -6576,7 +6576,7 @@ body.overhang-danger .overhang {
 }
 
 .accordions.style-2.is-primary .beefup .beefup__head {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
@@ -6585,7 +6585,7 @@ body.overhang-danger .overhang {
 }
 
 .accordions.style-2.is-primary-2 .beefup .beefup__head {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #fb1043;
     color: #fff
 }
 
@@ -6987,8 +6987,8 @@ body.overhang-danger .overhang {
 }
 
 .tabs-list .tabs.is-link ul li.is-active a {
-    border-bottom-color: rgba(65, 95, 255, 1.0) !important;
-    color: rgba(65, 95, 255, 1.0) !important
+    border-bottom-color: #f80036 !important;
+    color: #f80036 !important
 }
 
 .tabs-list .tabs.is-link.is-boxed ul li.is-active a {
@@ -6996,8 +6996,8 @@ body.overhang-danger .overhang {
 }
 
 .tabs-list .tabs.is-link.is-toggle ul li.is-active a {
-    background-color: rgba(65, 95, 255, 1.0);
-    border-color: rgba(65, 95, 255, 1.0) !important;
+    background-color: #f80036;
+    border-color: #f80036 !important;
     color: #fff !important
 }
 
@@ -7025,8 +7025,8 @@ body.overhang-danger .overhang {
 }
 
 .tabs-list .tabs.is-primary ul li.is-active a {
-    border-bottom-color: rgba(65, 95, 255, 1.0) !important;
-    color: rgba(65, 95, 255, 1.0) !important
+    border-bottom-color: #f80036 !important;
+    color: #f80036 !important
 }
 
 .tabs-list .tabs.is-primary.is-boxed ul li.is-active a {
@@ -7034,8 +7034,8 @@ body.overhang-danger .overhang {
 }
 
 .tabs-list .tabs.is-primary.is-toggle ul li.is-active a {
-    background-color: rgba(65, 95, 255, 1.0);
-    border-color: rgba(65, 95, 255, 1.0) !important;
+    background-color: #f80036;
+    border-color: #f80036 !important;
     color: #fff !important
 }
 
@@ -7044,8 +7044,8 @@ body.overhang-danger .overhang {
 }
 
 .tabs-list .tabs.is-primary-2 ul li.is-active a {
-    border-bottom-color: rgba(65, 95, 255, 1.0) !important;
-    color: rgba(65, 95, 255, 1.0) !important
+    border-bottom-color: #fb1043 !important;
+    color: #fb1043 !important
 }
 
 .tabs-list .tabs.is-primary-2.is-boxed ul li.is-active a {
@@ -7053,8 +7053,8 @@ body.overhang-danger .overhang {
 }
 
 .tabs-list .tabs.is-primary-2.is-toggle ul li.is-active a {
-    background-color: rgba(65, 95, 255, 1.0);
-    border-color: rgba(65, 95, 255, 1.0) !important;
+    background-color: #fb1043;
+    border-color: #fb1043 !important;
     color: #fff !important
 }
 
@@ -7383,7 +7383,7 @@ body.overhang-danger .overhang {
 
 .content .dropcaps:first-letter,
 .entry-content .dropcaps:first-letter {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     font-size: 45px;
     font-size: 2.8125rem;
@@ -7467,14 +7467,14 @@ body.overhang-danger .overhang {
 
 .content .dropcaps.is-link:first-letter,
 .entry-content .dropcaps.is-link:first-letter {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .content .dropcaps.is-link.style-1:first-letter,
 .content .dropcaps.is-link.style-3:first-letter,
 .entry-content .dropcaps.is-link.style-1:first-letter,
 .entry-content .dropcaps.is-link.style-3:first-letter {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content .dropcaps.is-danger:first-letter,
@@ -7491,14 +7491,14 @@ body.overhang-danger .overhang {
 
 .content .dropcaps.is-primary:first-letter,
 .entry-content .dropcaps.is-primary:first-letter {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .content .dropcaps.is-primary.style-1:first-letter,
 .content .dropcaps.is-primary.style-3:first-letter,
 .entry-content .dropcaps.is-primary.style-1:first-letter,
 .entry-content .dropcaps.is-primary.style-3:first-letter {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .content .dropcaps.is-secondary:first-letter,
@@ -7759,7 +7759,7 @@ header {
 }
 
 .blog-author .bio h3:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-author .bio h3 a {
@@ -7769,7 +7769,7 @@ header {
 }
 
 .blog-author .bio h3 a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-author .bio .social-links {
@@ -7789,7 +7789,7 @@ header {
     width: 29px;
     height: 29px;
     border-radius: 100%;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
@@ -7995,7 +7995,7 @@ header {
 }
 
 .blog-post .entry-header .entry-title:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-post .entry-header .entry-title a {
@@ -8005,7 +8005,7 @@ header {
 }
 
 .blog-post .entry-header .entry-title a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-post .entry-header .post-meta {
@@ -8035,11 +8035,11 @@ header {
 
 .blog-post .entry-header .post-meta ul li a:hover,
 .blog-post .entry-header .post-meta ul li span:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #fb1043
 }
 
 .blog-post .entry-header .post-meta ul li .icon {
-    color: rgba(65, 95, 255, 1.0);
+    color: #fb1043;
     font-size: 14px;
     font-size: .875rem;
     vertical-align: text-top;
@@ -8049,7 +8049,7 @@ header {
 }
 
 .blog-post .entry-header .post-meta ul li:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #fb1043
 }
 
 .blog-post .entry-content p {
@@ -8197,16 +8197,16 @@ header {
 
 .blog-list.style-1 .blog-post .entry-header .post-meta ul li a:hover,
 .blog-list.style-1 .blog-post .entry-header .post-meta ul li span:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-list.style-1 .blog-post .entry-header .post-meta ul li:first-child {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-list.style-1 .blog-post .entry-header .post-meta ul li:first-child a,
 .blog-list.style-1 .blog-post .entry-header .post-meta ul li:first-child span {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-list.style-1 .blog-post .entry-header .post-meta ul li:first-child a:hover,
@@ -8273,16 +8273,16 @@ header {
 
 .blog-list.style-2 .blog-post .entry-header .post-meta ul li a:hover,
 .blog-list.style-2 .blog-post .entry-header .post-meta ul li span:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-list.style-2 .blog-post .entry-header .post-meta ul li:first-child {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-list.style-2 .blog-post .entry-header .post-meta ul li:first-child a,
 .blog-list.style-2 .blog-post .entry-header .post-meta ul li:first-child span {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-list.style-2 .blog-post .entry-header .post-meta ul li:first-child a:hover,
@@ -8317,7 +8317,7 @@ header {
     font-family: Poppins, sans-serif;
     letter-spacing: 1px;
     font-weight: 600;
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     font-size: 15px;
     font-size: .9375rem
 }
@@ -8352,7 +8352,7 @@ header {
 
 .blog-list.style-3 .blog-post .entry-header .post-meta ul li a:hover,
 .blog-list.style-3 .blog-post .entry-header .post-meta ul li span:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-list.owl-carousel {
@@ -8478,7 +8478,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .blog-single .entry-footer .post-tags i {
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     font-size: 14px;
     font-size: .875rem
 }
@@ -8494,7 +8494,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .blog-single .entry-footer .post-tags a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .blog-single .entry-footer .social-share>span {
@@ -8527,7 +8527,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
     width: 27px;
     height: 27px;
     border-radius: 100%;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
@@ -8982,7 +8982,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 
 .flexslider.intro .flex-caption .button:hover {
     background-color: #fff;
-    color: rgba(65, 95, 255, 1.0) !important
+    color: #f80036 !important
 }
 
 .flexslider.intro .flex-caption .button .icon i {
@@ -9016,13 +9016,13 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .flexslider.intro .flex-caption .button-caption-2 .icon.ripple-effect:hover {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
 .flexslider.intro .flex-caption .button-caption-2 .icon.ripple-effect:hover:after,
 .flexslider.intro .flex-caption .button-caption-2 .icon.ripple-effect:hover:before {
-    border-color: rgba(65, 95, 255, 1.0)
+    border-color: #f80036
 }
 
 .flexslider.intro .flex-direction-nav a {
@@ -9146,7 +9146,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 
 .comment-list .comment-author a:hover,
 .comments .comment-author a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .comment-list .comment-date,
@@ -9168,7 +9168,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 
 .comment-list .comment-date a:hover,
 .comments .comment-date a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .comment-list .comment-reply,
@@ -9239,7 +9239,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .countdown-time.style-3 .item {
-    border: 2px solid rgba(65, 95, 255, 1.0)
+    border: 2px solid #f80036
 }
 
 .countdown-time.style-3 .item span.label {
@@ -9251,7 +9251,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .countdown-time.style-3 .item:hover span.label {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .countdown-time.style-4 .item {
@@ -9262,7 +9262,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .countdown-time.style-4 .item:hover {
-    border-color: rgba(65, 95, 255, 1.0)
+    border-color: #f80036
 }
 
 .countdown-time.style-4 .item:hover span.label {
@@ -9372,7 +9372,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.style-2 .level-item {
-    border: 1px solid rgba(65, 95, 255, 1.0);
+    border: 1px solid #f80036;
     margin: 0 16px
 }
 
@@ -9393,7 +9393,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.style-2 .level-item:hover .heading {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.style-2.with-icons .level-item {
@@ -9458,7 +9458,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.style-4 .level-item .title {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.style-4 .level-item .heading {
@@ -9498,7 +9498,7 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 .counterup.style-4.with-icons .level-item:hover {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .counterup.style-4.with-icons .level-item:hover .title {
@@ -9724,11 +9724,11 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.is-link .level-item>div .heading {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-link.style-2 .level-item {
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .counterup.is-link.style-2 .level-item .heading {
@@ -9740,11 +9740,11 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.is-link.style-2 .level-item:hover .heading {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-link.style-4 .level-item .title {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-link.style-4 .level-item:hover .title {
@@ -9752,15 +9752,15 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.is-link.style-4 .level-item:hover .heading {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-link.style-4.with-icons .level-item>div .icon {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-link.style-4.with-icons .level-item:hover {
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .counterup.is-link.style-4.with-icons .level-item:hover .title {
@@ -9812,11 +9812,11 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.is-primary .level-item>div .heading {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-primary.style-2 .level-item {
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .counterup.is-primary.style-2 .level-item .heading {
@@ -9828,11 +9828,11 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.is-primary.style-2 .level-item:hover .heading {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-primary.style-4 .level-item .title {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-primary.style-4 .level-item:hover .title {
@@ -9840,15 +9840,15 @@ body.blog-list-style-3 .blog-list.style-3 .blog-post .entry-header .post-meta ul
 }
 
 .counterup.is-primary.style-4 .level-item:hover .heading {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-primary.style-4.with-icons .level-item>div .icon {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .counterup.is-primary.style-4.with-icons .level-item:hover {
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .counterup.is-primary.style-4.with-icons .level-item:hover .title {
@@ -10114,7 +10114,7 @@ footer .footer-social-links li .icon {
     width: 35px;
     height: 35px;
     border-radius: 100%;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
@@ -10204,7 +10204,7 @@ footer .widget-links.links-with-icons ul li .icon i {
 
 .footer .widget-form .button,
 footer .widget-form .button {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     width: 20%
 }
@@ -10248,7 +10248,7 @@ footer a {
 
 .footer a:hover,
 footer a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body.footer-widgets footer {
@@ -10352,7 +10352,7 @@ body.footer-background.primary-color footer .footer-social-links li .icon {
 }
 
 body.footer-background.primary-color footer .footer-social-links li .icon:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body.footer-background.primary-color footer .widget-links ul li:before {
@@ -10412,7 +10412,7 @@ body.footer-background.dark-color footer a:hover {
 }
 
 body.footer-background.dark-color footer .footer-social-links li .icon {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body.footer-background.dark-color footer .footer-social-links li .icon:hover {
@@ -10434,8 +10434,8 @@ body.footer-background.dark-color footer .widget-tags .tagcloud a {
 }
 
 body.footer-background.dark-color footer .widget-tags .tagcloud a:hover {
-    border: 1px solid rgba(65, 95, 255, 1.0);
-    background-color: rgba(65, 95, 255, 1.0) !important
+    border: 1px solid #f80036;
+    background-color: #f80036 !important
 }
 
 body.footer-background.dark-color .footer-bottom-content {
@@ -10624,7 +10624,7 @@ footer .footer-navigation .footer-bottom-content li.current_page_item>a {
 }
 
 .footer-bottom-content .main-navigation li a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .footer-bottom-content .main-navigation.left li a {
@@ -10678,7 +10678,7 @@ footer .footer-navigation .footer-bottom-content li.current_page_item>a {
 }
 
 .image-content .content .text h4 {
-    color: rgba(65, 95, 255, 1.0);
+    color: #fb1043;
     letter-spacing: 2px
 }
 
@@ -13294,7 +13294,7 @@ body.header-menu-border-bottom header .main-navigation>ul>li:hover:after {
     width: 100%;
     height: auto;
     content: '';
-    border-bottom: 2px solid rgba(65, 95, 255, 1.0);
+    border-bottom: 2px solid #f80036;
     bottom: 0;
     position: absolute
 }
@@ -13309,7 +13309,7 @@ body.header-menu-border-top header .main-navigation>ul>li:hover:after {
     width: 100%;
     height: auto;
     content: '';
-    border-top: 2px solid rgba(65, 95, 255, 1.0);
+    border-top: 2px solid #f80036;
     top: 0;
     position: absolute
 }
@@ -13327,7 +13327,7 @@ body.header-menu-background-primary header .main-navigation>ul>li.current-menu-p
 body.header-menu-background-primary header .main-navigation>ul>li.current>a,
 body.header-menu-background-primary header .main-navigation>ul>li.current_page_item>a {
     color: #fff;
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body.header-menu-background-dark header .main-navigation>ul>li.active>a,
@@ -13684,7 +13684,7 @@ header .site-logo img {
 }
 
 .nav-menu-dropdown>li>a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .nav-menu-dropdown>li>ul {
@@ -13728,7 +13728,7 @@ header .site-logo img {
 }
 
 .nav-menu-dropdown>li>ul li a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .nav-menu-dropdown .flag-icon {
@@ -13820,7 +13820,7 @@ header .site-logo img {
 .hamburger-menu:hover .hamburger-menu-icon,
 .hamburger-menu:hover .hamburger-menu-icon:after,
 .hamburger-menu:hover .hamburger-menu-icon:before {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .hamburger-menu.expanded .hamburger-menu-icon {
@@ -14432,7 +14432,7 @@ body.header-hamburger-menu.hamburger-menu-icon-background-color.primary-color he
 body.header-hamburger-menu.hamburger-menu-icon-color.primary-color header .hamburger-menu .hamburger-menu-icon,
 body.header-hamburger-menu.hamburger-menu-icon-color.primary-color header .hamburger-menu .hamburger-menu-icon:after,
 body.header-hamburger-menu.hamburger-menu-icon-color.primary-color header .hamburger-menu .hamburger-menu-icon:before {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body.header-hamburger-menu.hamburger-menu-icon-background-color.primary-color header .hamburger-menu:hover .hamburger-menu-icon,
@@ -14464,7 +14464,7 @@ body.header-hamburger-menu.hamburger-menu-icon-color.white-color header .hamburg
 
 body.header-hamburger-menu.hamburger-menu-icon-background-color.dark-color header .level.top .level-right,
 body.header-hamburger-menu.hamburger-menu-icon-background-color.primary-color header .level.top .level-right {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     padding: 12px;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
@@ -14517,7 +14517,7 @@ body.header-hamburger-menu.hamburger-menu-icon-background-color.dark-color:not(.
 }
 
 body.header-hamburger-menu.hamburger-menu-icon-background-color.dark-color:not(.primary-color) header .level.top .level-right:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body .header-menu-icons {
@@ -14553,7 +14553,7 @@ body .header-menu-icons li a {
 }
 
 body .header-menu-icons li a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body .header-menu-icons li .icon {
@@ -14639,7 +14639,7 @@ body .header-menu-icons li>ul li span.product-amount {
 }
 
 body .header-menu-icons li>ul li span.product-price-total {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body .header-menu-icons li>ul li span.product-price {
@@ -14658,7 +14658,7 @@ body .header-menu-icons li>ul li img {
     border-radius: 100%;
     float: left;
     margin-right: 10px;
-    border: 1px solid rgba(65, 95, 255, 1.0);
+    border: 1px solid #f80036;
     padding: 1px
 }
 
@@ -14675,7 +14675,7 @@ body .header-menu-icons li>ul li.header {
 
 body .header-menu-icons li>ul li.footer a:hover,
 body .header-menu-icons li>ul li.header a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body .header-menu-icons li>ul li a {
@@ -14704,7 +14704,7 @@ body .header-menu-icons li>ul.dropdown-user-account li .product-remove {
     cursor: pointer;
     font-size: 11px;
     font-size: .6875rem;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body .header-menu-icons li>ul.dropdown-shopping-cart li .product-remove:hover,
@@ -14730,7 +14730,7 @@ body .header-menu-icons li>ul.dropdown-user-account li .button {
 
 body .header-menu-icons li>ul.dropdown-shopping-cart li .button.is-outlined,
 body .header-menu-icons li>ul.dropdown-user-account li .button.is-outlined {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body .header-menu-icons li>ul.dropdown-shopping-cart li .button:hover,
@@ -14752,11 +14752,11 @@ body .header-menu-icons li>ul.dropdown-user-account li input {
 body .header-menu-icons li>ul.dropdown-user-account li p.help {
     margin-top: .6rem;
     text-align: center;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body .header-menu-icons li>ul.dropdown-user-account li p.help a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body .header-menu-icons li>ul.dropdown-user-account li p.help a:hover {
@@ -14816,7 +14816,7 @@ body .header-menu-icons.social .icon {
     width: 26px;
     height: 26px;
     border-radius: 100%;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
@@ -15477,11 +15477,11 @@ body.header-side-navigation.side-mini.side-mini-background.dark-color:not(.prima
 }
 
 body.header-side-navigation.side-mini.side-mini-background.dark-color:not(.primary-color) header .level.top .logo-text a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body.header-side-navigation.side-mini.side-mini-background.dark-color:not(.primary-color) header .header-menu-icons li a {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body.header-side-navigation.side-mini.side-mini-background.dark-color:not(.primary-color) header .header-menu-icons li a:hover {
@@ -15763,7 +15763,7 @@ body.header-menu-background-primary header .main-navigation>ul>li>a {
 body.header-menu-background-dark header .main-navigation>ul>li>a:hover,
 body.header-menu-background-primary header .main-navigation>ul>li>a:hover {
     color: #fff;
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body.header-menu-background-dark header .main-navigation>ul>li:last-child>a,
@@ -15835,7 +15835,7 @@ body.header-background-primary header .site-logo .logo-text {
 
 body.header-background-dark header .site-logo:hover,
 body.header-background-primary header .site-logo:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body.header-background-dark header .main-navigation>ul>li>a,
@@ -15876,7 +15876,7 @@ body.header-background-primary header .button:last-child .icon {
 
 body.header-background-dark header .button:last-child:hover,
 body.header-background-primary header .button:last-child:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body.header-background-primary header {
@@ -16201,7 +16201,7 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
 }
 
 .page-title.is-secondary .hero-body .button {
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .page-title.is-secondary .hero-body .button:hover {
@@ -16395,7 +16395,7 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
 
 .page-title.intro-image .hero-body .button:hover {
     background-color: #fff;
-    color: rgba(65, 95, 255, 1.0) !important
+    color: #f80036 !important
 }
 
 .page-title.intro-image .hero-body .button .icon i {
@@ -16476,17 +16476,17 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
 }
 
 .portfolio-single .widget-links ul li a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .portfolio-single .widget-links ul li span {
     font-size: 14px;
     font-size: .875rem;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .portfolio-single .widget-links ul li .icon {
-    color: rgba(65, 95, 255, 1.0);
+    color: #fb1043;
     margin-right: 2.5px;
     width: auto;
     height: auto
@@ -16653,7 +16653,7 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
 
 .pricing-table .pricing-plan:hover {
     margin-top: 0;
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #fb1043
 }
 
 .pricing-table .pricing-plan:first-child {
@@ -16670,7 +16670,7 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
     font-size: 1.75rem;
     font-weight: 600;
     letter-spacing: 0;
-    color: rgba(65, 95, 255, 1.0);
+    color: #fb1043;
     border-bottom: 1px solid #eaeaea;
     padding-bottom: 2.5rem
 }
@@ -16715,7 +16715,7 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
 }
 
 .pricing-table .pricing-plan .plan-footer .button:hover {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 .pricing-table .pricing-plan.is-active {
@@ -16742,14 +16742,14 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
 
 .pricing-table .pricing-plan.is-active .plan-footer .button {
     color: #fff;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     padding: 19px 45px;
     height: 2.42em
 }
 
 .pricing-table .pricing-plan.is-active .plan-footer .button:hover {
     background-color: #fff;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .pricing-table.is-comparative {
@@ -16815,9 +16815,9 @@ section {
 }
 
 .stories .button.is-dark:hover {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
-    border-color: rgba(65, 95, 255, 1.0)
+    border-color: #f80036
 }
 
 .welcome-section {
@@ -16872,9 +16872,9 @@ body.welcome-section-primary-light .clients-section {
 }
 
 .testimonials-section {
-    background: rgba(65, 95, 255, 1.0);
-    background: -webkit-gradient(linear, right top, left top, color-stop(50%, #101010), color-stop(50%, rgba(65, 95, 255, 1.0)));
-    background: linear-gradient(to left, #101010 50%, rgba(65, 95, 255, 1.0) 50%)
+    background: #f80036;
+    background: -webkit-gradient(linear, right top, left top, color-stop(50%, #101010), color-stop(50%, #f80036));
+    background: linear-gradient(to left, #101010 50%, #f80036 50%)
 }
 
 .testimonials-section .heading-title {
@@ -17099,7 +17099,7 @@ body.welcome-section-primary-light .clients-section {
     width: 65px;
     background-color: #fff;
     opacity: 1;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .watch-video .works-latest .works-latest-item .works-latest-item-icon .icon:hover {
@@ -17304,13 +17304,13 @@ body.welcome-section-primary-light .clients-section {
 
 .tag:not(body).is-primary,
 .widget-tags .tagcloud a:not(body).is-primary {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
 .tag:not(body).is-link,
 .widget-tags .tagcloud a:not(body).is-link {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
@@ -17483,7 +17483,7 @@ a.tag:hover {
 }
 
 .widget-form:hover .button {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .widget-links ul li {
@@ -17504,7 +17504,7 @@ a.tag:hover {
 .widget-links ul li span {
     font-size: 14px;
     font-size: .875rem;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .widget-tags .tagcloud a {
@@ -17524,7 +17524,7 @@ a.tag:hover {
 .widget-tags .tagcloud a:hover {
     text-decoration: none;
     color: #fff !important;
-    background-color: rgba(65, 95, 255, 1.0) !important;
+    background-color: #f80036 !important;
     border-color: transparent
 }
 
@@ -17542,7 +17542,7 @@ a.tag:hover {
     width: 36px;
     height: 36px;
     border-radius: 100%;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
@@ -17630,7 +17630,7 @@ a.tag:hover {
 }
 
 .widget-list .content a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .widget-list .content p {
@@ -17736,7 +17736,7 @@ a.tag:hover {
 
 .tp-caption.button:hover {
     background-color: #fff;
-    color: rgba(65, 95, 255, 1.0) !important
+    color: #f80036 !important
 }
 
 .tp-caption.button .icon i {
@@ -17770,13 +17770,13 @@ a.tag:hover {
 }
 
 .tp-caption.button-caption-2 .icon.ripple-effect:hover {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff
 }
 
 .tp-caption.button-caption-2 .icon.ripple-effect:hover:after,
 .tp-caption.button-caption-2 .icon.ripple-effect:hover:before {
-    border-color: rgba(65, 95, 255, 1.0)
+    border-color: #f80036
 }
 
 .subscribe-form {
@@ -17803,7 +17803,7 @@ a.tag:hover {
 }
 
 .subscribe-form .button {
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     padding: 0 41px;
     height: 2.82em;
@@ -17822,7 +17822,7 @@ a.tag:hover {
 
 .subscribe-form.style-1 input:focus,
 .subscribe-form.style-2 input:focus {
-    border: 1px solid rgba(65, 95, 255, 1.0)
+    border: 1px solid #f80036
 }
 
 .subscribe-form.style-1 .button,
@@ -17841,7 +17841,7 @@ a.tag:hover {
     right: 0;
     position: absolute;
     background-color: transparent;
-    color: rgba(65, 95, 255, 1.0);
+    color: #f80036;
     font-size: 27px !important;
     height: 100%;
     width: 14%;
@@ -18122,7 +18122,7 @@ a.tag:hover {
 }
 
 .team .team-member .team-member-meta h3:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .team .team-member .team-member-meta h3 a {
@@ -18132,7 +18132,7 @@ a.tag:hover {
 }
 
 .team .team-member .team-member-meta h3 a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .team .team-member .team-member-meta h5 {
@@ -18185,7 +18185,7 @@ a.tag:hover {
     width: 32px;
     height: 32px;
     border-radius: 100%;
-    background-color: rgba(65, 95, 255, 1.0);
+    background-color: #f80036;
     color: #fff;
     -webkit-transition: all .4s ease;
     transition: all .4s ease
@@ -18899,7 +18899,7 @@ a.tag:hover {
 }
 
 .has-background-primary .testimonials.style-1:before {
-    color: rgba(65, 95, 255, 1.0)
+    color: #fb1043
 }
 
 .has-background-primary .testimonials.style-1 .testimonials-item p {
@@ -18988,7 +18988,7 @@ a.tag:hover {
 }
 
 .site-header-top .topbar-info li a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .site-header-top .topbar-info li .icon {
@@ -19002,7 +19002,7 @@ a.tag:hover {
 .site-header-top .topbar-info li .icon i {
     font-size: 14px;
     font-size: .875rem;
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .site-header-top .nav-menu-dropdown.style-2 {
@@ -19045,7 +19045,7 @@ a.tag:hover {
 }
 
 .site-header-top .main-navigation li a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body.topbar-default .site-header-top {
@@ -19092,15 +19092,15 @@ body.topbar-background.dark-color:not(.primary-color) .site-header-top {
 }
 
 body.topbar-background.dark-color:not(.primary-color) .site-header-top .topbar-info li a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body.topbar-background.dark-color:not(.primary-color) .site-header-top .topbar-info li .icon i {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 body.topbar-background.dark-color:not(.primary-color) .site-header-top .header-menu-icons.social .icon {
-    background-color: rgba(65, 95, 255, 1.0)
+    background-color: #f80036
 }
 
 body.topbar-background.dark-color:not(.primary-color) .site-header-top .header-menu-icons.social .icon:hover {
@@ -19664,7 +19664,7 @@ body.topbar-background.dark-color:not(.primary-color) .site-header-top .header-m
 }
 
 .works .work-item .work-item-meta h3:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .works .work-item .work-item-meta h3 a {
@@ -19674,7 +19674,7 @@ body.topbar-background.dark-color:not(.primary-color) .site-header-top .header-m
 }
 
 .works .work-item .work-item-meta h3 a:hover {
-    color: rgba(65, 95, 255, 1.0)
+    color: #f80036
 }
 
 .works .work-item .work-item-meta h5 {
@@ -21437,7 +21437,7 @@ body.topbar-background.dark-color:not(.primary-color) .site-header-top .header-m
     body.responsive-layout.header-menu-background-dark header .main-navigation>ul>li:hover,
     body.responsive-layout.header-menu-background-primary header .main-navigation>ul>li.active,
     body.responsive-layout.header-menu-background-primary header .main-navigation>ul>li:hover {
-        background-color: rgba(65, 95, 255, 1.0)
+        background-color: #f80036
     }
 
     body.responsive-layout.header-menu-background-dark header .main-navigation>ul>li.active>span,
