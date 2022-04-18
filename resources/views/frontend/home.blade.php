@@ -68,8 +68,13 @@
                         <!-- .works -->
                     </div>
                 </section>
+            </div>
+        </div>
+    </div>
 
-                <!-- Vedio section -->
+    <div id="content-main-wrap" class="is-clearfix">
+        <div id="content-area" class="site-content-area">
+            <div id="content-area-inner" class="site-content-area-inner">
 
                 <section class="section has-background-primary-light watch-video is-clearfix padding-3rem">
                     <div class="container width-80-percent">

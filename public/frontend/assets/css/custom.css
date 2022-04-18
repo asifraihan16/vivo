@@ -126,6 +126,10 @@ body .image-hover figure img {
   width: 0;
 }
 
+.main-navigation>ul>li>a:hover {
+    font-weight: bold;
+}
+
 @media screen and (max-width: 768px){
 
     body .works-latest .works-latest-item .works-latest-item-icon .icon
