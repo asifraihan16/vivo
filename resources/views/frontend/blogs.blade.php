@@ -11,7 +11,7 @@
                     style="background: #812323 url({{ asset('/frontend/assets/images/page-header/2.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
-                          <h1>Blog</h1>
+                            <h1>Blog</h1>
                         </div>
                         <!-- .hero-body -->
                     </div>
@@ -23,8 +23,7 @@
         </div>
         <!-- #header-bottom -->
     </div>
-    <!-- #header-bottom-wrap -->
-    <!-- import content layouts and modules -->
+
     <div id="content-main-wrap" class="is-clearfix">
         <section class="section content-with-sidebar is-clearfix">
             <div class="container">
@@ -87,7 +86,7 @@
                         <!-- #content-area -->
                     </div>
                     <!-- .column -->
-                    <div class="column is-narrow is-4-desktop is-12-tablet">
+                    {{-- <div class="column is-narrow is-4-desktop is-12-tablet">
                         <aside id="sidebar" class="sidebar ">
                             <div id="sidebar-inner" class="site-sidebar-inner">
                                 <!-- import widgets -->
@@ -108,7 +107,7 @@
                             <!-- #sidebar-inner -->
                         </aside>
                         <!-- #sidebar -->
-                    </div>
+                    </div> --}}
                     <!-- .column -->
                 </div>
                 <!-- .columns -->

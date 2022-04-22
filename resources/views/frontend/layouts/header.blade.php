@@ -74,19 +74,19 @@
                             <div id="nav-wrap">
                                 <nav id="site-navigation" class="main-navigation right">
                                     <ul id="main-header-menu" class="menu">
-                                        <li class="mega-menu niche-templates active">
+                                        <li class="{{ isset($active_menu) && strtolower($active_menu) == 'home' ? 'active' : '' }}">
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
-                                        <li>
+                                        <li class="{{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.photographer') }}">Photographer</a>
                                         </li>
-                                        <li>
-                                            <a href="{{ url('/exhibition') }}">Exhibition</a>
+                                        <li class="{{ strtolower($active_menu) == 'gallery' ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.gallery') }}">Gallery</a>
                                         </li>
-                                        <li>
+                                        <li class="{{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">
                                             <a href="{{ url('/blogs') }}">Blogs</a>
                                         </li>
-                                        <li>
+                                        <li class="{{ strtolower($active_menu) == 'campaign' ? 'active' : '' }}">
                                             <a href="{{ url('/campaign') }}">Campaign</a>
                                         </li>
                                         {{-- <li>

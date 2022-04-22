@@ -1,9 +1,8 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Exibition')
+@section('title', 'Gallery')
 
 @section('content')
-    <!-- #header-wrap -->
     <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
@@ -11,20 +10,14 @@
                     style="background: #812323 url({{ asset('/frontend/assets/images/page-header/6.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
-                            <h1>Exhibition</h1>
+                            <h1>Gallery</h1>
                         </div>
-                        <!-- .hero-body -->
                     </div>
-                    <!-- .container -->
                 </section>
-                <!-- .page-title -->
             </div>
-            <!-- #header-bottom-inner -->
         </div>
-        <!-- #header-bottom -->
     </div>
-    <!-- #header-bottom-wrap -->
-    <!-- import content layouts and modules -->
+
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">

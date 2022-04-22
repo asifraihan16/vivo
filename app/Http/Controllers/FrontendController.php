@@ -15,14 +15,16 @@ use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
+    public function __construct()
+    {
+        view()->share('active_menu', '');
+    }
+
     public function index()
     {
+        view()->share('active_menu', 'home');
         $ttl = 1800; // 30 minutes
         $home_sliders = DB::table('home_sliders')->get();
-
-        /* $moments = cache()->remember('moments_home', $ttl, function () {
-            return DB::table('moment_of_the_months')->get();
-        }); */
 
         $moments = DB::table('moments')
             ->where('is_active', 1)
@@ -30,26 +32,15 @@ class FrontendController extends Controller
             ->orderBy('image_order', 'asc')
             ->get();
 
-        $playlist1_main = DB::table('playlist1_main_vedios')->get();
-
-        $playlist1_other = DB::table('playlist1_other_vedios')->get();
-
-        $playlist2_main = DB::table('playlist2_main_vedios')->get();
-
-        $playlist2_other = DB::table('playlist2_other_vedios')->get();
-
-        $blogs = DB::table('blogs')
-            ->latest()
-            ->limit(6)
-            ->get();
-
         $mobile_series = DB::table('mobile_series')->get();
 
-        return view('frontend.home', compact('home_sliders', 'moments', 'playlist1_main', 'playlist1_other', 'playlist2_main', 'playlist2_other', 'blogs', 'mobile_series'));
+        return view('frontend.home', compact('home_sliders', 'moments'));
     }
 
     public function galleries()
     {
+        view()->share('active_menu', 'photographer');
+
         $mobile_series = MobileSeries::query()
             ->with([
                 'mobile_series_versions',
@@ -113,6 +104,8 @@ class FrontendController extends Controller
 
     public function exhibition()
     {
+        view()->share('active_menu', 'gallery');
+
         $ttl = 1800;
         $mobile_series = MobileSeries::query()
             ->with([
@@ -144,6 +137,8 @@ class FrontendController extends Controller
 
     public function exhibition_photos_by_author($author_id)
     {
+        view()->share('active_menu', 'gallery');
+
         $author = User::where('id', $author_id)
             ->select('id', 'name', 'email', 'contact')
             ->firstOrFail();
@@ -161,13 +156,17 @@ class FrontendController extends Controller
 
     public function blogs()
     {
-        $mobile_series_version = MobileSeriesVersion::all();
+        view()->share('active_menu', 'blogs');
+
+        // $mobile_series_version = MobileSeriesVersion::all();
         $blogs = Blog::all();
-        return view('frontend.blogs', compact('mobile_series_version', 'blogs'));
+        return view('frontend.blogs', compact('blogs'));
     }
 
     public function blog_details($id)
     {
+        view()->share('active_menu', 'blogs');
+
         $blog_details = Blog::find($id);
         $comments = DB::table('blog_comments as a')
             ->select('a.*', 'b.id', 'b.name', 'b.email', 'b.img')
@@ -181,12 +180,15 @@ class FrontendController extends Controller
 
     public function campaign()
     {
+        view()->share('active_menu', 'campaign');
+
         $campaigns = Campaign::all();
         return view('frontend.campaign', compact('campaigns'));
     }
 
     public function campaign_detail($id)
     {
+        view()->share('active_menu', 'campaign');
         $data = Campaign::find($id);
         return view('frontend.campaign_detail', compact('data'));
     }
@@ -204,6 +206,8 @@ class FrontendController extends Controller
 
     public function image_description($id)
     {
+        view()->share('active_menu', 'gallery');
+
         $image_details = DB::table('photo_galleries')
             ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
             ->join('users', 'users.id', '=', 'photo_galleries.users_id')
@@ -230,6 +234,8 @@ class FrontendController extends Controller
 
     public function photos_by_series($series_id)
     {
+        view()->share('active_menu', 'gallery');
+
         $series = MobileSeries::findOrFail($series_id);
         $versions = DB::table('mobile_series_versions')
             ->where('mobile_series_id', $series_id)

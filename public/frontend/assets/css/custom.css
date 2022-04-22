@@ -161,7 +161,13 @@ body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) head
 
 .body.header-transparent header{background-color: #fff !important;}
 
-.main-navigation>ul>li>a{color: #000 !important;}
+.main-navigation>ul>li>a{
+    color: #000 !important;
+}
+
+.main-navigation>ul>li.active>a{
+    color: rgba(65, 95, 255, 1.0) !important;
+}
 
 
 body.header-transparent header{position: relative !important;}
