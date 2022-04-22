@@ -28,7 +28,7 @@
         <section class="section content-with-sidebar is-clearfix">
             <div class="container">
                 <div class="columns is-variable is-5 is-multiline ">
-                    <div class="column is-8-desktop is-12-tablet">
+                    <div class="column is-12-desktop is-12-tablet">
                         <div id="content-area" class="site-content-area">
                             <div id="content-area-inner" class="site-content-area-inner">
                                 <div class="blog-list style-list columns is-variable is-4 is-multiline">
