@@ -39,7 +39,8 @@ class PhotoGalleryController extends Controller
     {
         $rules = [
             'mobile_series_versions_id' => 'required',
-            'title' => 'required',
+            'title' => 'string|required',
+            'photo_caption' => 'string|nullable',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
             'img' => 'required|image',
             'tags_id' => 'required',
@@ -65,6 +66,7 @@ class PhotoGalleryController extends Controller
         $photo_galleries = new PhotoGallery;
         $photo_galleries->mobile_series_versions_id = $request->mobile_series_versions_id;
         $photo_galleries->title = $request->title;
+        $photo_galleries->photo_caption = $request->photo_caption ?? null;
         $photo_galleries->img = $image_url;
         $photo_galleries->img_thumbnail = $image_thumb_url;
         $photo_galleries->status = 0;
@@ -117,6 +119,41 @@ class PhotoGalleryController extends Controller
 
         return back();
         // return redirect()->route('admin.approved_request');
+    }
+
+    public function update_tags($photo_gallery_id)
+    {
+        // $mobile_series_versions = MobileSeriesVersion::all();
+        $tags = DB::table('tags')->where('status', 1)->get();
+
+        $gallery_photo = PhotoGallery::findOrFail($photo_gallery_id);
+        $gallery_photo->load(['mobile_series_version', 'tags']);
+
+        return view('admin.photo_galleries.update', compact('gallery_photo', 'tags'));
+    }
+
+    public function update_tags_post(Request $request, $photo_gallery_id)
+    {
+        $request->validate([
+            'tags_id' =>'required|array|min:1'
+        ]);
+
+        $photo = PhotoGallery::find($photo_gallery_id);
+
+        try {
+            DB::transaction(function () use ($photo) {
+                $photo->tags()->detach                                                                                                                                                                                                                              ();
+
+                $tags = request()->tags_id;
+
+                $photo->tags()->attach($tags);
+            });
+            session()->flash('success', 'Tags updated successfully');
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+        }
+
+        return back();
     }
 
     public function approved_request()

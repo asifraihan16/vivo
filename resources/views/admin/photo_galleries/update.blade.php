@@ -1,4 +1,4 @@
-@extends('user.layouts.app')
+@extends('admin.layouts.app')
 
 @section('content-css')
     <link href="{{ URL::asset('admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
@@ -6,48 +6,46 @@
 @endsection
 
 @section('content')
-    <!-- Page Content-->
     <div class="page-content">
         <div class="container-fluid">
-            <!-- Page-Title -->
             <div class="row">
                 <div class="col-lg-12">
+
                     <div class="card">
-                        <!--end card-header-->
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-8">
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+
                                     <div class="card">
                                         <div class="card-header">
-                                            <h4 class="card-title">Photo Upload</h4>
+                                            <h4 class="card-title">Update Photo Tags</h4>
                                         </div>
-                                        <!--end card-header-->
                                         <div class="card-body">
                                             <div class="general-label">
                                                 <div id="err"></div>
                                                 <form id="file_upload_form" class="form-horizontal auth-form" method="POST"
-                                                    action="{{ url('user/photo_upload') }}" enctype="multipart/form-data">
+                                                    action="{{ route('photo-gallery.update-tags-post', ['photo_gallery_id' => $gallery_photo->id]) }}"
+                                                    enctype="multipart/form-data">
                                                     @csrf
-
-                                                    <input type="hidden" class="form-control" id="horizontalInput1"
-                                                        placeholder="" name="users_id" required=""
-                                                        value="{{ old('title') }}">
 
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
                                                             class="col-sm-2 form-label align-self-center mb-lg-0">Mobile
                                                             Model</label>
                                                         <div class="col-sm-10">
-                                                            <select class="select2 form-control custom-select"
-                                                                name="mobile_series_versions_id"
-                                                                style="width: 100%; height:36px;" required="">
-                                                                <option>Select</option>
-                                                                @foreach ($mobile_series_versions as $data)
-                                                                    <option value="{{ $data->id }}"
-                                                                        {{ old('mobile_series_versions_id') == $data->id ? 'selected' : '' }}>
-                                                                        {{ $data->name }}</option>
-                                                                @endforeach
-                                                            </select>
+                                                            <input type="text" class="form-control" id="horizontalInput1"
+                                                                placeholder="Enter Title" name="title"
+                                                                value="{{ $gallery_photo->mobile_series_version->name }}"
+                                                                readonly>
                                                         </div>
                                                     </div>
 
@@ -57,31 +55,21 @@
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="horizontalInput1"
                                                                 placeholder="Enter Title" name="title"
-                                                                value="{{ old('title') }}">
-                                                            {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
+                                                                value="{{ $gallery_photo->title }}" readonly>
                                                         </div>
                                                     </div>
 
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Photo Caption</label>
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Photo
+                                                            Caption</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="horizontalInput1"
                                                                 placeholder="Enter Photo Caption" name="photo_caption"
-                                                                value="{{ old('photo_caption') }}">
-                                                            {!! $errors->first('photo_caption', '<p class="help-block">:message</p>') !!}
+                                                                value="{{ $gallery_photo->photo_caption }}" readonly>
                                                         </div>
                                                     </div>
 
-                                                    <div class="mb-3 row">
-                                                        <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Image</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="file" id="input-file-now" class="dropify"
-                                                                name="img" />
-                                                            {!! $errors->first('img', '<p class="help-block">:message</p>') !!}
-                                                        </div>
-                                                    </div>
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
                                                             class="col-sm-2 form-label align-self-center mb-lg-0">Tags</label>
@@ -92,25 +80,35 @@
                                                                 <option>Select</option>
                                                                 @foreach ($tags as $data)
                                                                     <option value="{{ $data->id }}"
-                                                                        {{ old('tags_id') == $data->id ? 'selected' : '' }}>
+                                                                        {{ $gallery_photo->tags->pluck('id')->contains($data->id) ? 'selected' : '' }}>
                                                                         {{ $data->name }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-10 ms-auto">
-                                                            <button type="submit" class="btn btn-primary">Save</button>
+
+                                                    <div class="mb-3 row">
+                                                        <label for="horizontalInput1"
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Image</label>
+                                                        <div class="col-sm-5">
+                                                            <img src="{{ $gallery_photo->img_thumbnail? Storage::url($gallery_photo->img_thumbnail): Storage::url($gallery_photo->img) }}"
+                                                                alt="" class="img-fluid">
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group mt-3">
+                                                    <div class="row">
+                                                        <div class="col-sm-10 ms-auto">
+                                                            <button type="submit" class="btn btn-primary">Update</button>
+                                                        </div>
+                                                    </div>
+
+                                                    {{-- <div class="form-group mt-3">
                                                         <div class="progress">
                                                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
                                                                 role="progressbar" aria-valuenow="0" aria-valuemin="0"
                                                                 aria-valuemax="100" style="width: 0%"></div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </form>
                                             </div>
                                         </div>
@@ -142,7 +140,8 @@
     <script src="{{ URL::asset('admin/assets/pages/jquery.form.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#file_upload_form').ajaxForm({
+
+            $('#file_upload_form123').ajaxForm({
                 beforeSend: function() {
                     var percentage = '0';
                 },
@@ -160,7 +159,7 @@
                     $('#err').html(msg)
 
                     setTimeout(function() {
-                        window.location.replace('{{ route('user.photo_history') }}');
+                        window.location.replace('{{ url('admin/pending_request') }}');
                     }, 1500);
                 },
                 error: function(res) {
@@ -177,6 +176,7 @@
                 },
                 complete: function(xhr) {}
             });
+
         });
     </script>
 @endsection

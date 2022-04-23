@@ -21,9 +21,10 @@
                                     <th>SL</th>
                                     <th>Mobile Series Version</th>
                                     <th>Title</th>
+                                    <th>Caption</th>
                                     <th>Image</th>
                                     <th>Tags</th>
-                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -32,6 +33,7 @@
                                             <td>{{ $key+1 }}</td>
                                             <td>{{ $value->mobile_series_version->name }}</td>
                                             <td>{{ $value->title }}</td>
+                                            <td>{{ $value->photo_caption ?? 'N/A' }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalLarge{{$value->id}}">
                                                     <img width="100px" src="{{ $value->img_thumbnail ? Storage::url($value->img_thumbnail) : Storage::url($value->img) }}">
@@ -56,10 +58,15 @@
                                             </td>
                                             <td>
                                                 @foreach ($value->tags as $tag)
-                                                    <button type="button" class="btn btn-secondary">
+                                                    <button type="button" class="btn btn-secondary btn-sm">
                                                         {{ $tag->name }}
                                                     </button>
                                                 @endforeach
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('photo-gallery.update-tags', ['photo_gallery_id'=> $value->id]) }}" class="btn btn-sm btn-primary btn-icon">
+                                                    <i class="fa fa-pen"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -33,6 +33,14 @@
                                             style="z-index: 19; min-width: 30px; max-width: 30px; max-width: 50px; max-width: 50px;border-width:1.5px!important;cursor:pointer;">
                                             <span></span>
                                         </div>
+
+                                        <a class="tp-caption tp-resizeme  button is-primary is-rounded "
+                                            href="#"
+                                            data-frames='[{"delay":1600,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":800,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
+                                            data-x="center" data-hoffset="['0','0','0','0']" data-y="center"
+                                            data-voffset="['138','138','0','0']" data-type="button">
+                                            <span>Join the Campaign</span>
+                                        </a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -208,7 +216,6 @@
         </div>
         <!-- #content-area -->
     </div> --}}
-
 @endsection
 
 

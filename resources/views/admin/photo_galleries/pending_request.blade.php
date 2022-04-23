@@ -2,11 +2,8 @@
 
 @section('content')
 
-<!-- Page Content-->
 <div class="page-content">
     <div class="container-fluid">
-        <!-- Page-Title -->
-
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="card">
@@ -21,9 +18,10 @@
                                     <th>SL</th>
                                     <th>Mobile Series Version</th>
                                     <th>Title</th>
+                                    <th>Caption</th>
                                     <th>Image</th>
                                     <th>Tags</th>
-                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -32,8 +30,10 @@
                                             <td>{{ $key+1 }}</td>
                                             <td>{{ $value->mobile_series_version->name }}</td>
                                             <td>{{ $value->title }}</td>
+                                            <td>{{ $value->photo_caption ?? 'N/A' }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalLarge{{$value->id}}">
+                                                <button type="button" class="btn btn-outline-primary btn-sm"
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModalLarge{{$value->id}}">
                                                     <img width="100px" src="{{ $value->img_thumbnail ? Storage::url($value->img_thumbnail) : Storage::url($value->img) }}">
                                                 </button>
                                                 <div class="modal fade bd-example-modal-lg" id="exampleModalLarge{{$value->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -56,27 +56,45 @@
                                             </td>
                                             <td>
                                                 @foreach ($value->tags as $tag)
-                                                    <button type="button" class="btn btn-secondary">
+                                                    <button type="button" class="btn btn-secondary btn-sm">
                                                         {{ $tag->name }}
                                                     </button>
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a href="{{ url('admin/pending_request_approved', $value->id) }}" class="btn btn-info">Approved</a>
+                                                <a href="{{ url('admin/pending_request_approved', $value->id) }}"
+                                                    onclick="return confirm('Are you sure want to approve?')"
+                                                    class="btn btn-info btn-sm">Approve</a>
+
+                                                <a href="{{ route('photo-gallery.update-tags', ['photo_gallery_id'=> $value->id]) }}"
+                                                    class="btn btn-primary btn-sm btn-icon"><i class="fa fa-pen"></i>
+                                                </a>
                                             </td>
                                         </tr>
+
                                     @endforeach
                                 </tbody>
-                            </table><!--end /table-->
+                            </table>
 
                             {{ $photo_galleries->links() }}
-                        </div><!--end /tableresponsive-->
-                    </div><!--end card-body-->
-                </div><!--end card-->
-            </div> <!-- end col -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div><!-- container -->
+    </div>
 </div>
-<!-- end page content -->
 
+@endsection
+
+@section('styles')
+    <link href="{{ asset('admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ URL::asset('admin/assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet"> --}}
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('admin/assets/plugins/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/pages/jquery.forms-advanced.js') }}"></script>
+    {{-- <script src="{{ URL::asset('admin/assets/plugins/dropify/js/dropify.min.js') }}"></script> --}}
+    {{-- <script src="{{ URL::asset('admin/assets/pages/jquery.form-upload.init.js') }}"></script> --}}
 @endsection

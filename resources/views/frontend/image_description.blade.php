@@ -3,7 +3,6 @@
 @section('title', 'Exibition')
 
 @section('content')
-    <!-- #header-wrap -->
     <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
@@ -12,15 +11,10 @@
                     <div class="hero-body">
                         <div class="container">
                         </div>
-                        <!-- .hero-body -->
                     </div>
-                    <!-- .container -->
                 </section>
-                <!-- .page-title -->
             </div>
-            <!-- #header-bottom-inner -->
         </div>
-        <!-- #header-bottom -->
     </div>
 
     <div id="content-main-wrap" class="is-clearfix">
@@ -56,39 +50,38 @@
                             <div class="column is-narrow is-3">
                                 <div class="work-details sidebar-fixed">
                                     <div class="columns is-variable is-multiline">
-                                        <!-- widgets list -->
-                                        <!-- .widget -->
                                         <div class="column widget is-12 widget-links ">
                                             <h3 class="widget-title ">Details</h3>
                                             <ul>
                                                 <li>
-                                                    <span class="icon">
-                                                        <i class="icon-tag"></i>
-                                                    </span>
-                                                    <a href="#">Author Name :</a>
-                                                    <a
-                                                        href="{{ route('exibition-photos-by-author', ['author_id' => $image_details->users_id]) }}">{{ $image_details->username }}</a>
+                                                    <p>
+                                                        <span class="icon"><i class="icon-tag"></i></span>
+                                                        Author Name : <a href="{{ route('exibition-photos-by-author', ['author_id' => $image_details->users_id]) }}">{{ $image_details->username }}</a>
+                                                    </p>
                                                 </li>
                                                 <li>
-                                                    <span class="icon">
-                                                        <i class="icon-tag"></i>
-                                                    </span>
-                                                    <a href="#">Image Title :</a>
-                                                    <a href="#">{{ $image_details->title }}</a>
+                                                    <p>
+                                                        <span class="icon">
+                                                            <i class="icon-tag"></i>
+                                                        </span>
+                                                        Image Title : {{ $image_details->title }}
+                                                    </p>
                                                 </li>
                                                 <li>
-                                                    <span class="icon">
-                                                        <i class="icon-tag"></i>
-                                                    </span>
-                                                    <a href="#">Phone Model :</a>
-                                                    <a href="#">{{ $image_details->mobile_series_versions_name }}</a>
+                                                    <p>
+                                                        <span class="icon">
+                                                            <i class="icon-tag"></i>
+                                                        </span>
+                                                        Phone Model : {{ $image_details->mobile_series_versions_name }}
+                                                    </p>
                                                 </li>
                                                 <li>
-                                                    <span class="icon">
-                                                        <i class="icon-tag"></i>
-                                                    </span>
-                                                    <a href="#">Tags:</a>
-                                                    <a href="#"> {{ $image_tags->join(', ') }}</a>
+                                                    <p>
+                                                        <span class="icon">
+                                                            <i class="icon-tag"></i>
+                                                        </span>
+                                                        Tags : {{ $image_tags->join(', ') }}
+                                                    </p>
                                                 </li>
                                             </ul>
                                         </div>

@@ -9,7 +9,7 @@ class MiscController extends Controller
 {
     public function __construct()
     {
-        //
+        view()->share('active_menu', '');
     }
 
     public function faqs()

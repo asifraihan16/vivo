@@ -85,6 +85,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('campaigns/{id}', 'CampaignController@statusUpdate');
     Route::get('pending_request', 'PhotoGalleryController@pending_request');
     Route::get('pending_request_approved/{id}', 'PhotoGalleryController@pending_request_approved');
+    Route::get('photo-gallery/{photo_gallery_id}/update-tags', 'PhotoGalleryController@update_tags')->name('photo-gallery.update-tags');
+    Route::post('photo-gallery/{photo_gallery_id}/update-tags', 'PhotoGalleryController@update_tags_post')->name('photo-gallery.update-tags-post');
     Route::get('approved_request', 'PhotoGalleryController@approved_request')->name('admin.approved_request');
     Route::get('users', 'AuthController@user_list');
     Route::get('users_create', 'AuthController@users_create');
