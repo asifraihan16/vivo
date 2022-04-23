@@ -32,7 +32,6 @@ class FrontendController extends Controller
             ->orderBy('image_order', 'asc')
             ->get();
 
-        $mobile_series = DB::table('mobile_series')->get();
 
         return view('frontend.home', compact('home_sliders', 'moments'));
     }
