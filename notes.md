@@ -19,9 +19,10 @@
 
 
 
-
-3 (done), 4 (done), 5 (not required as we are showing different size image now), 6 (done)
+* Masonary:
+* https://freefrontend.com/css-masonry-layout-examples/
 
 6. Helps if current solution is not enough (image zoom in/out on modal)
 * https://fancyapps.com/playground/vl
 * https://www.ajax-zoom.com/examples/example5.php
+

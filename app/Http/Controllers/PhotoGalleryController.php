@@ -142,7 +142,7 @@ class PhotoGalleryController extends Controller
 
         try {
             DB::transaction(function () use ($photo) {
-                $photo->tags()->detach                                                                                                                                                                                                                              ();
+                $photo->tags()->detach();
 
                 $tags = request()->tags_id;
 
@@ -153,6 +153,27 @@ class PhotoGalleryController extends Controller
             session()->flash('error', $e->getMessage());
         }
 
+        return back();
+    }
+
+    public function delete_gallery_photo($photo_gallery_id)
+    {
+        try {
+            $photo = PhotoGallery::find($photo_gallery_id);
+
+            Storage::disk('s3')->delete($photo->img);
+
+            DB::transaction(function () use ($photo) {
+
+                $photo->tags()->detach();
+
+                $photo->delete();
+            });
+
+            session()->flash('success', 'Successfully deleted');
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+        }
         return back();
     }
 
