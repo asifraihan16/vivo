@@ -36,7 +36,7 @@ class FrontendController extends Controller
         return view('frontend.home', compact('home_sliders', 'moments'));
     }
 
-    public function galleries()
+    public function photographer()
     {
         view()->share('active_menu', 'photographer');
 
@@ -58,6 +58,16 @@ class FrontendController extends Controller
         }
 
         return view('frontend.galleries-1', compact('mobile_series'));
+    }
+
+    public function videos()
+    {
+        view()->share('active_menu', 'videos');
+
+        $videos = DB::table('playlist1_other_vedios')
+            ->get();
+
+        return view('frontend.videos', compact('videos'));
     }
 
     public function _exibition()
@@ -101,7 +111,7 @@ class FrontendController extends Controller
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'mobile_series_versions', 'mobile_series_versions_wise_image'));
     }
 
-    public function exhibition()
+    public function gallery()
     {
         view()->share('active_menu', 'gallery');
 
@@ -192,10 +202,10 @@ class FrontendController extends Controller
         return view('frontend.campaign_detail', compact('data'));
     }
 
-    public function photographer()
+    /* public function photographer()
     {
         return view('frontend.photographer');
-    }
+    } */
 
     public function contact()
     {

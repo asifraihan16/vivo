@@ -65,6 +65,17 @@
                                                 <a href="{{ route('photo-gallery.update-tags', ['photo_gallery_id'=> $value->id]) }}" class="btn btn-sm btn-primary btn-icon">
                                                     <i class="fa fa-pen"></i>
                                                 </a>
+
+                                                <button type="button" onclick="confirmDelete('delete-form-{{ $value->id }}')"
+                                                    title="Delete" class="btn btn-danger btn-sm btn-icon"><i
+                                                        class="fa fa-trash"></i>
+                                                </button>
+
+                                                <form action="{{ route('photo-gallery.delete-photo', ['photo_gallery_id' => $value->id]) }}"
+                                                    method="POST" id="delete-form-{{ $value->id }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -81,4 +92,17 @@
 </div>
 <!-- end page content -->
 
+@endsection
+
+
+@section('scripts')
+    <script type="text/javascript">
+        function confirmDelete(formId) {
+            if (confirm('Are you sure want to delete?')) {
+                $('#' + formId).submit();
+            } else {
+                return;
+            }
+        }
+    </script>
 @endsection

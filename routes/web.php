@@ -2,20 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', 'FrontendController@index');
-Route::get('/photographer', 'FrontendController@galleries')->name('frontend.photographer');
-Route::get('/gallery', 'FrontendController@exhibition')->name('frontend.gallery');
+Route::get('/photographer', 'FrontendController@photographer')->name('frontend.photographer');
+Route::get('/gallery', 'FrontendController@gallery')->name('frontend.gallery');
 Route::get('/gallery/photos-by-author/{author_id}', 'FrontendController@exhibition_photos_by_author')->name('exibition-photos-by-author');
 Route::get('/exibition2', 'FrontendController@exibition2');
 Route::get('/blogs', 'FrontendController@blogs');
@@ -30,6 +20,8 @@ Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series'
 Route::get('faqs', 'MiscController@faqs')->name('frontend.faqs');
 Route::get('privacy-policy', 'MiscController@privacy_policy')->name('frontend.privacy-policy');
 Route::get('warranty-terms', 'MiscController@warranty_terms')->name('frontend.warranty-terms');
+
+Route::get('videos', 'FrontendController@videos')->name('frontend.videos');
 
 
 Route::get('admin/', 'AuthController@home');

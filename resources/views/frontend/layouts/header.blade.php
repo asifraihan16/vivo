@@ -83,7 +83,7 @@
                                         </li>
 
                                         <li class="{{ strtolower($active_menu) == 'videos' ? 'active' : '' }}">
-                                            <a href="{{ url('/') }}">Videos</a>
+                                            <a href="{{ route('frontend.videos') }}">Videos</a>
                                         </li>
 
                                         <li class="{{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">

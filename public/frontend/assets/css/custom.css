@@ -27,7 +27,7 @@ body .image-hover figure img {
 /* .main-vedio{width: 100%; height: 560px;} */
 
 .works-latest .works-latest-item .works-latest-item-icon .icon{
-    width: 55px !important;
+    /* width: 55px !important;
     height: 35px !important;
     border-radius: 20% !important;
     border: 1px solid #fff !important;
@@ -35,7 +35,7 @@ body .image-hover figure img {
     background-color: #FF0202 !important;
     opacity: .8 !important;
     -webkit-transition: all .4s ease-in-out !important;
-    transition: all .4s ease-in-out !important;
+    transition: all .4s ease-in-out !important; */
 }
 
 .play {
