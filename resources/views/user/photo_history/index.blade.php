@@ -19,8 +19,7 @@
                                     <thead>
                                         <th>SL</th>
                                         <th>Mobile Model</th>
-                                        <th>Title</th>
-                                        <th>Caption</th>
+                                        <th>Photo Caption</th>
                                         <th>Image</th>
                                         <th>Tags</th>
                                         <th>Status</th>
@@ -32,7 +31,6 @@
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $value->mobile_series_version->name }}</td>
                                                 <td>{{ $value->title }}</td>
-                                                <td>{{ $value->photo_caption ?? 'N/A' }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-outline-primary btn-sm"
                                                         data-bs-toggle="modal"

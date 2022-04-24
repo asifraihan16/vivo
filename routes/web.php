@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontendController@index');
 Route::get('/photographer', 'FrontendController@galleries')->name('frontend.photographer');
-Route::get('/exhibition', 'FrontendController@exhibition')->name('frontend.gallery');
-Route::get('/exhibition/photos-by-author/{author_id}', 'FrontendController@exhibition_photos_by_author')->name('exibition-photos-by-author');
+Route::get('/gallery', 'FrontendController@exhibition')->name('frontend.gallery');
+Route::get('/gallery/photos-by-author/{author_id}', 'FrontendController@exhibition_photos_by_author')->name('exibition-photos-by-author');
 Route::get('/exibition2', 'FrontendController@exibition2');
 Route::get('/blogs', 'FrontendController@blogs');
 Route::get('/blog_details/{id}', 'FrontendController@blog_details');

@@ -77,18 +77,27 @@
                                         <li class="{{ isset($active_menu) && strtolower($active_menu) == 'home' ? 'active' : '' }}">
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
-                                        <li class="{{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
-                                            <a href="{{ route('frontend.photographer') }}">Photographer</a>
-                                        </li>
+
                                         <li class="{{ strtolower($active_menu) == 'gallery' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.gallery') }}">Gallery</a>
                                         </li>
+
+                                        <li class="{{ strtolower($active_menu) == 'videos' ? 'active' : '' }}">
+                                            <a href="{{ url('/') }}">Videos</a>
+                                        </li>
+
                                         <li class="{{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">
                                             <a href="{{ url('/blogs') }}">Blogs</a>
                                         </li>
+
                                         <li class="{{ strtolower($active_menu) == 'campaign' ? 'active' : '' }}">
                                             <a href="{{ url('/campaign') }}">Campaign</a>
                                         </li>
+
+                                        <li class="{{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.photographer') }}">Photographers</a>
+                                        </li>
+
                                         {{-- <li>
                                             <a href="{{ url('/contact') }}">Image Licensing</a>
                                         </li> --}}

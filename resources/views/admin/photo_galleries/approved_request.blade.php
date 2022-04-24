@@ -20,8 +20,7 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Mobile Series Version</th>
-                                    <th>Title</th>
-                                    <th>Caption</th>
+                                    <th>Photo Caption</th>
                                     <th>Image</th>
                                     <th>Tags</th>
                                     <th>Action</th>
@@ -33,7 +32,6 @@
                                             <td>{{ $key+1 }}</td>
                                             <td>{{ $value->mobile_series_version->name }}</td>
                                             <td>{{ $value->title }}</td>
-                                            <td>{{ $value->photo_caption ?? 'N/A' }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalLarge{{$value->id}}">
                                                     <img width="100px" src="{{ $value->img_thumbnail ? Storage::url($value->img_thumbnail) : Storage::url($value->img) }}">

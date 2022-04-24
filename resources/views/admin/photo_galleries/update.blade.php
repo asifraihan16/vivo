@@ -51,22 +51,11 @@
 
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Title</label>
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Photo Caption</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="horizontalInput1"
                                                                 placeholder="Enter Title" name="title"
                                                                 value="{{ $gallery_photo->title }}" readonly>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="mb-3 row">
-                                                        <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Photo
-                                                            Caption</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="text" class="form-control" id="horizontalInput1"
-                                                                placeholder="Enter Photo Caption" name="photo_caption"
-                                                                value="{{ $gallery_photo->photo_caption }}" readonly>
                                                         </div>
                                                     </div>
 
