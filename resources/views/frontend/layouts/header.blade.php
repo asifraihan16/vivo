@@ -45,15 +45,18 @@
     <link rel="shortcut icon" href="{{ URL::asset('frontend/assets/images/favicons/vivo_favicon.ico') }}">
 
     @yield('styles')
+
 </head>
 
 {{-- <body class="active-pageloader header-sticky show-on-scroll header-menu-with-icons header-transparent footer-widgets footer-background dark-color widgets-6 submenu-show-arrow-right menu-is-capitalized submenu-is-capitalized logo-text-is-capitalized page-index"> --}}
 <body class="active-pageloader header-sticky show-on-scroll footer-widgets footer-background dark-color
-    widgets-6 submenu-show-arrow-right menu-is-capitalized submenu-is-capitalized logo-text-is-capitalized header-menu-with-icons page-index">
+    widgets-8 submenu-show-arrow-right menu-is-capitalized submenu-is-capitalized logo-text-is-capitalized header-menu-with-icons page-index">
     <div class="pageloader is-active"></div>
     <div id="site-wrap" class="site">
 
         <div id="header-wrap" class="is-clearfix">
+            {{-- Fix header nav dissappears on firefox --}}
+            {{-- Changed on styles.min.css line no 7551: .site-header-top, header { /* position: relative; */ } --}}
             <header id="header" class="site-header">
                 <div id="header-inner" class="site-header-inner container">
                     <div class="level">

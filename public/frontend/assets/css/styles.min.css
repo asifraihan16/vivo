@@ -7554,7 +7554,7 @@ header {
     width: 100%;
     z-index: 100;
     height: auto;
-    position: relative
+    /* position: relative */
 }
 
 .site-header-top {
