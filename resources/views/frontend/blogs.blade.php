@@ -36,11 +36,10 @@
                                         <div class="column is-12" data-aos="fade-up">
                                             <article class="blog-post">
                                                 <div class="columns is-variable is-4 is-multiline">
-                                                    <div class="column is-narrow is-6">
+                                                    <div class="column is-narrow is-4">
                                                         <figure class="post-image">
                                                             <a href="{{ url('blog_details') }}">
-                                                                <img alt="Blog Image"
-                                                                    src="{{ $value->img ? Storage::url($value->img) : '' }}">
+                                                                <img alt="Blog Image" src="{{ $value->img ? Storage::url($value->img) : '' }}">
                                                             </a>
                                                         </figure>
                                                     </div>

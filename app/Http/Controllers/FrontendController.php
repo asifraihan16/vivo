@@ -64,10 +64,11 @@ class FrontendController extends Controller
     {
         view()->share('active_menu', 'videos');
 
+        $main_video = DB::table('playlist1_main_vedios')->first();
         $videos = DB::table('playlist1_other_vedios')
             ->get();
 
-        return view('frontend.videos', compact('videos'));
+        return view('frontend.videos', compact('main_video', 'videos'));
     }
 
     public function _exibition()

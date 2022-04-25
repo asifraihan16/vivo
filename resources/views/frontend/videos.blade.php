@@ -23,16 +23,14 @@
             <div id="content-area-inner" class="site-content-area-inner">
                 <section class="section watch-video is-clearfix">
                     <div class="container">
-                        <div class="columns is-variable is-3 is-multiline">
-                            @foreach ($videos as $video)
-                            <div class="column is-4" data-aos="fade">
+                        <div class="columns is-centered">
+                            <div class="column is-8" data-aos="fade">
                                 <div class="works-latest">
                                     <div class="works-latest-item">
                                         {{-- <img alt="vivo Moments - Video" src="{{ asset('frontend/assets/images/global/introduction.png') }}"> --}}
-                                        <img alt="vivo Moments - Video" src="{{ Storage::disk('s3')->url($video->img) }}">
+                                        <img alt="vivo Moments - Video" src="{{ Storage::disk('s3')->url($main_video->img) }}" style="width: 100%;">
                                         <div class="works-latest-item-icon style-2">
-                                            {{-- <a href="https://www.youtube.com/watch?v=s_e7jp-x-Wo" class="mfp-lightbox mfp-iframe"> --}}
-                                            <a href="{{ $video->link }}" class="mfp-lightbox mfp-iframe">
+                                            <a href="{{ $main_video->link }}" class="mfp-lightbox mfp-iframe">
                                                 <span class="icon ripple-effect">
                                                     <i class="ion-ios-play"></i>
                                                 </span>
@@ -41,9 +39,31 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
-
                         </div>
+
+                        <div class="columns is-centered">
+                            <div class="column is-8-desktop">
+                                <div class="columns is-variable is-centered is-multiline">
+                                    @foreach ($videos as $video)
+                                    <div class="column is-6" data-aos="fade">
+                                        <div class="works-latest">
+                                            <div class="works-latest-item">
+                                                <img alt="vivo Moments - Video" src="{{ Storage::disk('s3')->url($video->img) }}" style="width: 100%;">
+                                                <div class="works-latest-item-icon style-2">
+                                                    <a href="{{ $video->link }}" class="mfp-lightbox mfp-iframe">
+                                                        <span class="icon ripple-effect">
+                                                            <i class="ion-ios-play"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </section>
             </div>
