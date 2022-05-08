@@ -112,8 +112,8 @@ class UserProfileController extends Controller
         $id = Session::get('id');
 
         $rules = [
-            // 'img' => 'mimes:jpeg,jpg|max:100|dimensions:width=300,height=300',
-            'img' => 'mimes:jpeg,jpg|dimensions:width=150,height=150',
+            // 'img' => 'max:100|dimensions:width=300,height=300',
+            'img' => 'dimensions:width=150,height=150',
             'name' => 'required',
         ];
 
@@ -185,7 +185,7 @@ class UserProfileController extends Controller
         $id = Session::get('id');
 
         $rules = [
-            // 'img' => 'mimes:jpeg,jpg|max:100|dimensions:width=300,height=300',
+            // 'img' => 'max:100|dimensions:width=300,height=300',
             'img' => 'mimes:jpeg,jpg',
             'name' => 'required',
         ];

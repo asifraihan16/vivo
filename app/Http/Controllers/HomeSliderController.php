@@ -45,7 +45,7 @@ class HomeSliderController extends Controller
         $rules = [
             'name' => 'required|unique:home_sliders',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'required|mimes:jpeg,jpg|dimensions:width=1920,height=850',
+            'img' => 'required|dimensions:width=1920,height=850',
         ];
 
         $customMessages = [
@@ -125,7 +125,7 @@ class HomeSliderController extends Controller
 
         $rules = [
             'name' => 'required|unique:home_sliders,name,' . $homeSlider->id,
-            'img' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850',
+            'img' => 'dimensions:width=1920,height=850',
             // 'description' => 'required',
             // 'brand' => 'required',
         ];

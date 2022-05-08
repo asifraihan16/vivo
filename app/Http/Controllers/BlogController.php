@@ -51,7 +51,7 @@ class BlogController extends Controller
         $rules = [
             'title' => 'required',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'required|mimes:jpeg,jpg|max:150',
+            'img' => 'required',
             'desc' => 'required',
         ];
 
@@ -116,7 +116,7 @@ class BlogController extends Controller
         $rules = [
             'title' => 'required',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'mimes:jpeg,jpg|max:100',
+            // 'img' => 'max:100',
             'desc' => 'required',
         ];
 

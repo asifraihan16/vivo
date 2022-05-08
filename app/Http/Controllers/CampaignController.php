@@ -51,9 +51,9 @@ class CampaignController extends Controller
             'title' => 'required',
             'title_detail' => 'required',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img1' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-            'img2' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-            'img3' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
+            'img1' => 'dimensions:width=1920,height=850',
+            'img2' => 'dimensions:width=1920,height=850',
+            'img3' => 'dimensions:width=1920,height=850',
             'desc' => 'required',
         ];
 
@@ -135,9 +135,9 @@ class CampaignController extends Controller
             'title' => 'required',
             'title_detail' => 'required',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img1' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-            'img2' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
-            'img3' => 'mimes:jpeg,jpg|dimensions:width=1920,height=850|max:250',
+            'img1' => 'dimensions:width=1920,height=850',
+            'img2' => 'dimensions:width=1920,height=850',
+            'img3' => 'dimensions:width=1920,height=850',
             'desc' => 'required',
         ];
 

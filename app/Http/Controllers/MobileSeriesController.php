@@ -35,7 +35,7 @@ class MobileSeriesController extends Controller
         $rules = [
             'name' => 'required|unique:mobile_series',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'required|mimes:jpeg,jpg|dimensions:width=602,height=602',
+            'img' => 'required|dimensions:width=602,height=602',
         ];
 
         $customMessages = [
@@ -116,7 +116,7 @@ class MobileSeriesController extends Controller
         $rules = [
             'name' => 'required|unique:mobile_series',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'required|mimes:jpeg,jpg|max:2048',
+            'img' => 'required|max:2048',
         ];
 
         $customMessages = [
@@ -192,7 +192,7 @@ class MobileSeriesController extends Controller
 
         $rules = [
             'name' => 'required|unique:mobile_series,name,' . $mobileSeries->id,
-            'img' => 'mimes:jpeg,jpg|dimensions:width=602,height=602',
+            'img' => 'dimensions:width=602,height=602',
             // 'description' => 'required',
             // 'brand' => 'required',
         ];

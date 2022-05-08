@@ -31,14 +31,14 @@ class ExibitionController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'img1' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img2' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img3' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img4' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img5' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img6' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img7' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img8' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
+            'img1' => 'dimensions:width=770,height=475',
+            'img2' => 'dimensions:width=770,height=475',
+            'img3' => 'dimensions:width=770,height=475',
+            'img4' => 'dimensions:width=770,height=475',
+            'img5' => 'dimensions:width=770,height=475',
+            'img6' => 'dimensions:width=770,height=475',
+            'img7' => 'dimensions:width=770,height=475',
+            'img8' => 'dimensions:width=770,height=475',
         ];
 
         $customMessages = [
@@ -116,14 +116,14 @@ class ExibitionController extends Controller
         $exibition = Exibition::find($id);
 
         $rules = [
-            'img1' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img2' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img3' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img4' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img5' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img6' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img7' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
-            'img8' => 'mimes:jpeg,jpg|dimensions:width=770,height=475|max:80',
+            'img1' => 'dimensions:width=770,height=475',
+            'img2' => 'dimensions:width=770,height=475',
+            'img3' => 'dimensions:width=770,height=475',
+            'img4' => 'dimensions:width=770,height=475',
+            'img5' => 'dimensions:width=770,height=475',
+            'img6' => 'dimensions:width=770,height=475',
+            'img7' => 'dimensions:width=770,height=475',
+            'img8' => 'dimensions:width=770,height=475',
         ];
 
         $customMessages = [
