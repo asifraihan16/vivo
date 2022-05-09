@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Moment extends Model
 {
-    protected $fillable = ['title', 'image_path', 'image_link', 'description', 'image_type', 'image_order', 'image_span_col', 'is_active'];
+    protected $fillable = ['title', 'image_path', 'image_link', 'description', 'image_type', 'image_order', 'image_span_col', 'is_active', 'image_for_page'];
 }

@@ -60,6 +60,15 @@
                                                         {!! $errors->first('is_active', '<p class="help-block">:message</p>') !!}
                                                     </div>
 
+                                                    <div class="form-group">
+                                                        <label for="image_for_page">Image For Page *</label>
+                                                        <select name="image_for_page" id="image_for_page" class="form-control" required>
+                                                            <option value="1">Home Page</option>
+                                                            <option value="2">Gallery Page</option>
+                                                        </select>
+                                                        {!! $errors->first('image_for_page', '<p class="help-block">:message</p>') !!}
+                                                    </div>
+
                                                     <div class="row">
                                                         <div class="col-sm-10">
                                                             <button type="submit" class="btn btn-primary">Save</button>

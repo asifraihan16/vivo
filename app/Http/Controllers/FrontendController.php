@@ -29,6 +29,7 @@ class FrontendController extends Controller
         $moments = DB::table('moments')
             ->where('is_active', 1)
             ->where('image_type', 1) // 1 - Moment of the month
+            ->where('image_for_page', 1)
             ->orderBy('image_order', 'asc')
             ->get();
 
@@ -140,6 +141,7 @@ class FrontendController extends Controller
         $moments = DB::table('moments')
             ->where('is_active', 1)
             ->where('image_type', 1) // 1 - Moment of the month
+            ->where('image_for_page', 2)
             ->orderBy('image_order', 'asc')
             ->get();
 

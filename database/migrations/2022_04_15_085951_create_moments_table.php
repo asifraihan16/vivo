@@ -23,6 +23,7 @@ class CreateMomentsTable extends Migration
             $table->unsignedTinyInteger('image_order')->default(1);
             $table->unsignedTinyInteger('image_span_col')->default(3)->comment('No of column for image span');
             $table->boolean('is_active')->default(true);
+            $table->unsignedTinyInteger('image_for_page')->default(1)->comment('1 - Home Page, 2 - Gallery Page');
             $table->timestamps();
         });
     }

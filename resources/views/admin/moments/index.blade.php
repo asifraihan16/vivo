@@ -8,9 +8,17 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title float-left">Playlist 1 Other Vedio List</h4>
-                            <a href="{{ route('moments.create') }}"><button type="button"
-                                    class="btn btn-outline-info float-right">Create</button></a>
+                            <h4 class="card-title float-left">Moments Images</h4>
+
+                            <div class="float-right">
+                                <a href="{{ route('moments.create') }}" class="btn btn-success">Create</a>
+
+                                <div class="btn-group" role="group" aria-label="Filter">
+                                    <a href="{{ route('moments.index') }}" class="btn btn-outline-info {{ request()->has('image_for_page') ? '' : 'active' }}">All Images</a>
+                                    <a href="{{ route('moments.index', ['image_for_page'=> 1]) }}" class="btn btn-outline-info {{ request()->image_for_page == 1 ? 'active' : '' }}">Home Page Images</a>
+                                    <a href="{{ route('moments.index', ['image_for_page'=> 2]) }}" class="btn btn-outline-info {{ request()->image_for_page == 2 ? 'active' : '' }}">Gallery Page Images</a>
+                                </div>
+                            </div>
                         </div>
                         <!--end card-header-->
                         <div class="card-body">
@@ -19,6 +27,7 @@
                                     <thead>
                                         <tr>
                                             <th>Title</th>
+                                            <th>Page</th>
                                             <th>Thumbnail Image</th>
                                             <th>Image order</th>
                                             <th>Span Column</th>
@@ -30,12 +39,14 @@
                                         @foreach ($moments as $key => $moment)
                                             <tr>
                                                 <td>{{ $moment->title }}</td>
+                                                <td>{{ $moment->image_for_page == 1 ? 'Home Page' : 'Gallery Page' }}</td>
                                                 <td>
                                                     @if ($moment->image_path)
                                                         <button type="button" class="btn btn-outline-primary btn-sm"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#exampleModalLarge{{ $moment->id }}">
-                                                            <img width="100px" src="{{ Storage::url($moment->image_path) }}">
+                                                            <img width="100px"
+                                                                src="{{ Storage::url($moment->image_path) }}">
                                                         </button>
                                                     @else
                                                         <p>N/A</p>
@@ -77,28 +88,29 @@
                                                 <td>{{ $moment->image_order }}</td>
                                                 <td>{{ $moment->image_span_col }}</td>
                                                 <td>
-                                                    @if($moment->is_active == 1)
-                                                    <span class="text-success">Active</span>
+                                                    @if ($moment->is_active == 1)
+                                                        <span class="text-success">Active</span>
                                                     @else
-                                                    <span class="text-danger">Inactive</span>
+                                                        <span class="text-danger">Inactive</span>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if($moment->is_active == 1)
-                                                    <a href="{{ route('moments.update-status', ['moment'=>$moment->id, 'status'=>2]) }}"
-                                                        onclick="return confirm('Are you sure want to deactivate?')"
-                                                        class="btn btn-warning btn-sm btn-icon" title="Deactivate">
-                                                        <i class="fa fa-thumbs-down"></i>
-                                                    </a>
+                                                    @if ($moment->is_active == 1)
+                                                        <a href="{{ route('moments.update-status', ['moment' => $moment->id, 'status' => 2]) }}"
+                                                            onclick="return confirm('Are you sure want to deactivate?')"
+                                                            class="btn btn-warning btn-sm btn-icon" title="Deactivate">
+                                                            <i class="fa fa-thumbs-down"></i>
+                                                        </a>
                                                     @else
-                                                    <a href="{{ route('moments.update-status', ['moment'=>$moment->id, 'status'=>1]) }}"
-                                                        onclick="return confirm('Are you sure want to activate?')"
-                                                        class="btn btn-success btn-sm btn-icon" title="Activate">
-                                                        <i class="fa fa-thumbs-up"></i>
-                                                    </a>
+                                                        <a href="{{ route('moments.update-status', ['moment' => $moment->id, 'status' => 1]) }}"
+                                                            onclick="return confirm('Are you sure want to activate?')"
+                                                            class="btn btn-success btn-sm btn-icon" title="Activate">
+                                                            <i class="fa fa-thumbs-up"></i>
+                                                        </a>
                                                     @endif
 
-                                                    <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="confirmDelete('delete-form-{{ $moment->id }}')">
+                                                    <a href="#" class="btn btn-danger btn-sm btn-icon"
+                                                        onclick="confirmDelete('delete-form-{{ $moment->id }}')">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
 
