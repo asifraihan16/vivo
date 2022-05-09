@@ -33,7 +33,8 @@
                                                 <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
                                                     class="mfp-lightbox mfp-image" title="{{ $moment->title }}">
                                                     <img alt="{{ $moment->title }}"
-                                                        src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}">
+                                                        src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
+                                                        style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />
                                                     <figcaption>
                                                         <ul class="social">
                                                             <li>

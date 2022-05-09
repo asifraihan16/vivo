@@ -25,7 +25,7 @@
 
                                                     <div class="form-group">
                                                         <label for="title">Title *</label>
-                                                        <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" required>
+                                                        <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" placeholder="Image title" required>
                                                         {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
                                                     </div>
 
@@ -37,13 +37,17 @@
 
                                                     <div class="form-group">
                                                         <label for="image_order">Image Serial *</label>
-                                                        <input type="number" min="1" name="image_order" id="image_order" class="form-control" value="{{ old('image_order') }}" required>
+                                                        <input type="number" min="1" name="image_order" id="image_order" class="form-control" value="{{ old('image_order') }}" placeholder="Ex: 1" required>
                                                         {!! $errors->first('image_order', '<p class="help-block">:message</p>') !!}
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="image_span_col">Image Column Span *</label>
-                                                        <input type="number" min="1" name="image_span_col" id="image_span_col" class="form-control" value="{{ old('image_span_col') }}" required>
+                                                        <select name="image_span_col" id="image_span_col" class="form-control" required>
+                                                            <option value="3">3 Column</option>
+                                                            <option value="6">6 Column</option>
+                                                        </select>
+                                                        {{-- <input type="number" min="1" name="image_span_col" id="image_span_col" class="form-control" value="{{ old('image_span_col') }}" required> --}}
                                                         {!! $errors->first('image_span_col', '<p class="help-block">:message</p>') !!}
                                                     </div>
 

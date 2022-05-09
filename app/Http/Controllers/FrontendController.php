@@ -65,6 +65,7 @@ class FrontendController extends Controller
         view()->share('active_menu', 'videos');
 
         $main_video = DB::table('playlist1_main_vedios')->first();
+
         $videos = DB::table('playlist1_other_vedios')
             ->get();
 
