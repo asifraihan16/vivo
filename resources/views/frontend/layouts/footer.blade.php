@@ -47,7 +47,7 @@
                         <h3 class="widget-title ">Terms and Conditions</h3>
                         <ul>
                             <li>
-                                <a href="{{ url('/contact') }}">Image Licensing</a>
+                                <a href="{{ route('frontend.image-licensing') }}">Image Licensing</a>
                             </li>
                             <li>
                                 <a href="{{ route('frontend.privacy-policy') }}">Privacy Policy</a>

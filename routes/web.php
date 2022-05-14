@@ -19,6 +19,7 @@ Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series'
 
 Route::get('faqs', 'MiscController@faqs')->name('frontend.faqs');
 Route::get('privacy-policy', 'MiscController@privacy_policy')->name('frontend.privacy-policy');
+Route::get('image-licensing', 'MiscController@image_licensing')->name('frontend.image-licensing');
 Route::get('warranty-terms', 'MiscController@warranty_terms')->name('frontend.warranty-terms');
 
 Route::get('videos', 'FrontendController@videos')->name('frontend.videos');

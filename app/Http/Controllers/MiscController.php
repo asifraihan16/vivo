@@ -23,6 +23,11 @@ class MiscController extends Controller
         return view('frontend.faqs', compact('faqs'));
     }
 
+    public function image_licensing()
+    {
+        return view('frontend.image_licensing');
+    }
+
     public function privacy_policy()
     {
         return view('frontend.privacy_policy');
