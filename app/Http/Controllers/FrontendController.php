@@ -195,7 +195,7 @@ class FrontendController extends Controller
     {
         view()->share('active_menu', 'campaign');
 
-        $campaigns = Campaign::all();
+        $campaigns = Campaign::where('campaign_status', '!=', 1)->get();
         return view('frontend.campaign', compact('campaigns'));
     }
 

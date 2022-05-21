@@ -10,8 +10,8 @@ Route::get('/gallery/photos-by-author/{author_id}', 'FrontendController@exhibiti
 Route::get('/exibition2', 'FrontendController@exibition2');
 Route::get('/blogs', 'FrontendController@blogs');
 Route::get('/blog_details/{id}', 'FrontendController@blog_details');
-Route::get('/campaign', 'FrontendController@campaign');
-Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail');
+Route::get('/campaign', 'FrontendController@campaign')->name('frontend.campaign');
+Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail')->name('frontend.campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
 
 Route::get('/image_description/{id}', 'FrontendController@image_description');

@@ -10,7 +10,7 @@
                     style="background: #812323 url({{ asset('frontend/assets/images/page-header/1.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
-                          <h1>Photographer</h1>
+                            <h1>Photographer</h1>
                         </div>
                     </div>
                 </section>
@@ -26,17 +26,17 @@
                     <section
                         class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
                         <div class="container">
-                            <h1 class="heading-title style-1">{{ $series->name }}</h1>
+                            <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">{{ $series->name }}</h1>
 
                             <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
                                 <div class="masonry-filters">
-                                    <ul>
+                                    {{-- <ul>
                                         <li data-filter="*" class="active">show all</li>
                                         @foreach ($series->mobile_series_versions as $version)
                                             <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}
                                             </li>
                                         @endforeach
-                                    </ul>
+                                    </ul> --}}
                                 </div>
 
                                 <div class="_grid columns is-variable is-1 is-multiline">
@@ -45,7 +45,8 @@
                                             class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
                                                 <figure>
-                                                    <a href="{{ url('image_description/' . $photo->id) }}" class="mfp-lightbox mfp-image">
+                                                    <a href="{{ url('image_description/' . $photo->id) }}"
+                                                        class="mfp-lightbox mfp-image">
                                                         <img alt="Exibition Image" style="min-width: 375px;"
                                                             src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                         {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
@@ -58,7 +59,7 @@
                                 </div>
 
                                 <div style="text-align:center;">
-                                    <a href="{{ route('frontend.photos-by-series', ['series_id' => $series->id, 'series' => Str::slug($series->name), 'page_ref'=> 'photographer']) }}"
+                                    <a href="{{ route('frontend.photos-by-series', ['series_id' => $series->id, 'series' => Str::slug($series->name), 'page_ref' => 'photographer']) }}"
                                         class="button is-danger is-radiusless">View All</a>
                                 </div>
                             </div>
@@ -111,8 +112,8 @@
 @section('styles')
     <style>
         /* .section {
-                    padding: 1rem 1.5rem;
-                } */
+                        padding: 1rem 1.5rem;
+                    } */
         .iso-img-cls {
             /* width: 600px; */
             /* height: 400px; */
@@ -127,8 +128,8 @@
         /* clear fix */
         .grid:after {
             /* content: '';
-                        display: block;
-                        clear: both; */
+                            display: block;
+                            clear: both; */
         }
 
         /* ---- .grid-item ---- */

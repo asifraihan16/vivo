@@ -14,6 +14,7 @@
 * ALTER TABLE `photo_galleries` ADD `is_photographer_image` TINYINT(3) NOT NULL DEFAULT '0' COMMENT '1 - Yes, 0 - No' AFTER `users_id`;
 * pa migrate --path=/database/migrations/2022_04_15_085951_create_moments_table.php
 * pa migrate --path=/database/migrations/2022_04_23_065224_add_photo_caption_to_photo_galleries_table.php
+* ALTER TABLE `campaigns` ADD `campaign_status` TINYINT(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '1 - Draft, 2 - Running, 3 - End' AFTER `desc`;
 ------------------------------ DONE --------------------------------
 
 

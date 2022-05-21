@@ -55,6 +55,7 @@ class CampaignController extends Controller
             'img2' => 'dimensions:width=1920,height=850',
             'img3' => 'dimensions:width=1920,height=850',
             'desc' => 'required',
+            'campaign_status' => 'required|integer|in:1,2,3',
         ];
 
         $customMessages = [
@@ -91,6 +92,7 @@ class CampaignController extends Controller
             'img2' => $image_url2,
             'img3' => $image_url3,
             'desc' => $request->desc,
+            'campaign_status' => $request->campaign_status,
         ]);
 
         return redirect()->route('campaigns.index');
@@ -108,27 +110,11 @@ class CampaignController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Campaign  $campaign
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Campaign $campaign)
     {
-        $data = Campaign::find($campaign);
-        // return $data;
-
-        return view('admin.campaigns.edit', compact('data'));
+        return view('admin.campaigns.edit', compact('campaign'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Campaign  $campaign
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Campaign $campaign)
     {
         $rules = [
@@ -139,10 +125,10 @@ class CampaignController extends Controller
             'img2' => 'dimensions:width=1920,height=850',
             'img3' => 'dimensions:width=1920,height=850',
             'desc' => 'required',
+            'campaign_status' => 'required|integer|in:1,2,3',
         ];
 
         $customMessages = [
-
             'img1.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
             'img2.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
             'img3.dimensions' => 'Image Dimension(Width : 1920px, Height : 850px)',
@@ -186,6 +172,7 @@ class CampaignController extends Controller
             'img2' => $image_url2,
             'img3' => $image_url3,
             'desc' => $request->desc,
+            'campaign_status' => $request->campaign_status,
         ]);
 
         return redirect()->route('campaigns.index')->with('success', $request->name . ' Blog Updated Successfully');
