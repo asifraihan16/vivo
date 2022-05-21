@@ -39,11 +39,11 @@
                                             <div class="general-label">
                                                 <form class="form-horizontal auth-form" method="POST"
                                                     action="{{ url('admin/campaigns') }}" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
+                                                    @csrf
 
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Title</label>
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Campaign Title</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="horizontalInput1"
                                                                 placeholder="Enter Mobile Series Name" name="title"
@@ -53,8 +53,7 @@
                                                     </div>
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Title
-                                                            Details</label>
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Photo Theme</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="horizontalInput1"
                                                                 placeholder="Enter Campaign Title Details"
@@ -102,7 +101,7 @@
                                                             <select name="campaign_status" id="campaign_status"
                                                                 class="form-control" required>
                                                                 <option value="1">Draft</option>
-                                                                <option value="2">Running</option>
+                                                                <option value="2">On Going</option>
                                                                 <option value="3">End</option>
                                                             </select>
                                                             {!! $errors->first('campaign_status', '<p class="help-block">:message</p>') !!}

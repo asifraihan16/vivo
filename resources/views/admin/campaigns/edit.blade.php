@@ -46,7 +46,7 @@
 
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Title</label>
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Campaign Title</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="horizontalInput1"
                                                                 placeholder="Enter Mobile Series Name" name="title"
@@ -56,8 +56,7 @@
                                                     </div>
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Title
-                                                            Details</label>
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Photo Theme</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="horizontalInput1"
                                                                 placeholder="Enter Campaign Title Details"
@@ -117,7 +116,7 @@
                                                                     Draft</option>
                                                                 <option value="2"
                                                                     {{ $campaign->campaign_status == 2 ? 'selected' : '' }}>
-                                                                    Running</option>
+                                                                    On Going</option>
                                                                 <option value="3"
                                                                     {{ $campaign->campaign_status == 3 ? 'selected' : '' }}>
                                                                     End</option>

@@ -59,7 +59,7 @@
                                                 </td>
                                                 <td>
                                                     @if ($data->campaign_status === 2)
-                                                        <span style="color: rgba(65, 95, 255, 1.0)">Running</span>
+                                                        <a href="{{ url('user/login') }}" style="color: rgba(65, 95, 255, 1.0)">On Going</a>
                                                     @elseif ($data->campaign_status === 3)
                                                         <span style="color: #999;">Closed</span>
                                                     @endif
