@@ -53,7 +53,7 @@
                                     <div class="content-404 content">
                                         <h1>503!</h1>
                                         <h2>{{ __('Under Maintenance') }}</h2>
-                                        <p>{{ __($exception->getMessage() ?: 'Service Unavailable') }} </p>
+                                        <p style="font-size: 22px;">{{ __($exception->getMessage() ?: 'Service Unavailable') }} </p>
                                         {{-- <p>
                                             <span class="icon">
                                                 <i class="icon-cup"></i>
