@@ -52,7 +52,7 @@
                                 <div class="column is-half is-offset-one-quarter has-text-centered">
                                     <div class="content-404 content">
                                         <h1>503!</h1>
-                                        <h2>{{ __('Service Unavailable') }}</h2>
+                                        <h2>{{ __('Under Maintenance') }}</h2>
                                         <p>{{ __($exception->getMessage() ?: 'Service Unavailable') }} </p>
                                         {{-- <p>
                                             <span class="icon">
