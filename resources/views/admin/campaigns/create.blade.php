@@ -102,7 +102,7 @@
                                                                 class="form-control" required>
                                                                 <option value="1">Draft</option>
                                                                 <option value="2">On Going</option>
-                                                                <option value="3">End</option>
+                                                                {{-- <option value="3">End</option> --}}
                                                             </select>
                                                             {!! $errors->first('campaign_status', '<p class="help-block">:message</p>') !!}
                                                         </div>

@@ -36,7 +36,7 @@
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
                                                             class="col-sm-2 form-label align-self-center mb-lg-0">Mobile
-                                                            Model</label>
+                                                            Model *</label>
                                                         <div class="col-sm-10">
                                                             <select class="select2 form-control custom-select"
                                                                 name="mobile_series_versions_id"
@@ -64,13 +64,28 @@
 
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
-                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Image</label>
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Image *</label>
                                                         <div class="col-sm-10">
                                                             <input type="file" id="input-file-now" class="dropify"
                                                                 name="img" />
                                                             {!! $errors->first('img', '<p class="help-block">:message</p>') !!}
                                                         </div>
                                                     </div>
+
+                                                    <div class="mb-3 row">
+                                                        <label for="horizontalInput1"
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Campaign *</label>
+                                                        <div class="col-sm-10">
+                                                            <select name="campaign_id" id="campaign_id" class="form-control" >
+                                                                <option value="">Select</option>
+                                                                @foreach ($campaigns as $campaign)
+                                                                    <option value="{{ $campaign->id }}">{{ $campaign->title }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            {!! $errors->first('campaign_id', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
+
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
                                                             class="col-sm-2 form-label align-self-center mb-lg-0">Tags</label>
@@ -157,9 +172,12 @@
                     var errors = errResp.errors;
                     var msg =
                         '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-                    msg += '<strong>' + errResp.message + '!</strong><br>';
+                    msg += '<strong>' + errResp.message + '</strong><br>';
                     if (errors.img) {
-                        msg += errors.img[0];
+                        msg += "* " + errors.img[0] + "<br>";
+                    }
+                    if (errors.campaign_id) {
+                        msg += "* " + errors.campaign_id[0];
                     }
                     msg += '</div>';
                     $('#err').html(msg)

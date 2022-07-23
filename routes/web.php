@@ -75,7 +75,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::resource('blogs', 'BlogController');
     Route::get('blogs/{id}', 'BlogController@statusUpdate');
     Route::resource('campaigns', 'CampaignController');
-    Route::get('campaigns/{id}', 'CampaignController@statusUpdate');
+    Route::get('campaigns/{campaign}/{status}', 'CampaignController@statusUpdate')->name('campaigns.update-status');
     Route::get('pending_request', 'PhotoGalleryController@pending_request');
     Route::get('pending_request_approved/{id}', 'PhotoGalleryController@pending_request_approved');
     Route::get('photo-gallery/{photo_gallery_id}/update-tags', 'PhotoGalleryController@update_tags')->name('photo-gallery.update-tags');
@@ -92,7 +92,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
 });
 
 Route::get('user/', 'AuthController@user_home');
-Route::get('user/login', 'AuthController@user_index');
+Route::get('user/login', 'AuthController@user_index')->name('user.login');
 Route::post('user/post-login', 'AuthController@user_postLogin');
 Route::get('user/register', 'AuthController@user_register');
 Route::post('user/post-register', 'AuthController@user_postRegister');
@@ -103,7 +103,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     Route::get('user_profile', 'UserProfileController@user_show');
     Route::post('profile_info', 'UserProfileController@user_profile_info');
 
-    Route::get('photo_upload', 'PhotoGalleryController@create');
+    Route::get('photo_upload', 'PhotoGalleryController@create')->name('user.photo-upload');
     Route::post('photo_upload', 'PhotoGalleryController@store');
     Route::get('photo_history', 'PhotoGalleryController@photo_history')->name('user.photo_history');
 
@@ -117,6 +117,11 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
     // google route
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/callback/{provider}', 'SocialController@callback');
+
+
+
+    // Like gallery photo
+    Route::post('like-gallery-photo/{photo_gallery}', 'FrontendController@like_gallery_photo')->name('user.like-gallery-photo');
 });
 
 Route::group(['prefix'=> 'photographers', 'middleware'=> ['auth', 'is_photographer']], function () {

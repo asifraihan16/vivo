@@ -12,18 +12,12 @@
                     <div class="hero-body">
                         <div class="container">
                         </div>
-                        <!-- .hero-body -->
                     </div>
-                    <!-- .container -->
                 </section>
-                <!-- .page-title -->
             </div>
-            <!-- #header-bottom-inner -->
         </div>
-        <!-- #header-bottom -->
     </div>
-    <!-- #header-bottom-wrap -->
-    <!-- import content layouts and modules -->
+
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
@@ -46,32 +40,25 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <!-- .post-meta -->
                                     <h2 class="entry-title"> {{ $data->title_detail }} </h2>
                                 </div>
                                 <!-- .entry-header -->
                                 <div class="entry-content content">
                                     {!! $data->desc !!}
                                 </div>
-                                <!-- .entry-content -->
 
-                                <!-- .entry-footer -->
+                                @guest
+                                <a href="{{ route('user.login') }}" class="button is-danger is-rounded ">Join Now</a>
+                                @else
+                                <a href="{{ route('user.photo-upload') }}" class="button is-danger is-rounded ">Join Now</a>
+                                @endguest
                             </article>
 
-                            <!-- .blog-author -->
-                            <!-- .pagination -->
-                            <!-- .columns -->
-
-                            <!-- .comments-box -->
                             <br>
                         </div>
-                        <!-- .blog-single -->
                     </div>
                 </section>
             </div>
-            <!-- #content-area-inner -->
         </div>
-        <!-- #content-area -->
     </div>
-    <!-- #content-main-wrap -->
 @endsection

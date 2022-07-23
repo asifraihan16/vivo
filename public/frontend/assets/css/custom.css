@@ -140,6 +140,23 @@ body .image-hover figure img {
 
 }
 
+.photo-like-area {
+    background-color: rgba(250, 250, 250, .7);
+    position: absolute;
+    top: 8px;
+    /* left: 0; */
+    right: 8px;
+    z-index: 10;
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+.photo-like-area a.unliked {
+    color: #101010;
+}
+.photo-like-area a.liked {
+    color: #4768FF;
+}
+
 
 body.footer-background.dark-color footer a:hover, .blog-post .entry-header .entry-title a:hover,
 .blog-post .entry-header .post-meta ul li a:hover, .blog-post .entry-header .post-meta ul li span:hover,

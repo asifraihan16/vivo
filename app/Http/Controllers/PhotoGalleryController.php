@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Campaign;
 use App\PhotoGallery;
 use App\Photogallariestags;
 use App\MobileSeriesVersion;
@@ -31,8 +32,13 @@ class PhotoGalleryController extends Controller
     {
         $mobile_series_versions = MobileSeriesVersion::all();
         $tags = Tag::all();
+        $campaigns = Campaign::query()
+            ->where('campaign_status', 2)
+            ->where('started_at', '!=', NULL)
+            ->where('ended_at', '=', NULL)
+            ->get();
 
-        return view('user.photo_galleries.create', compact('mobile_series_versions', 'tags'));
+        return view('user.photo_galleries.create', compact('mobile_series_versions', 'tags', 'campaigns'));
     }
 
     public function store(Request $request)
@@ -43,6 +49,7 @@ class PhotoGalleryController extends Controller
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
             'img' => 'required|image',
             'tags_id' => 'required',
+            'campaign_id' => 'required|integer',
         ];
 
         $customMessages = [
@@ -50,6 +57,7 @@ class PhotoGalleryController extends Controller
             // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
             'product_image.max' => 'Product Image Max Size 1024KB',
             // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
+            'campaign_id.required' => 'You must select a campaign'
         ];
 
         $this->validate($request, $rules, $customMessages);
@@ -68,6 +76,7 @@ class PhotoGalleryController extends Controller
         $photo_galleries->img = $image_url;
         $photo_galleries->img_thumbnail = $image_thumb_url;
         $photo_galleries->status = 0;
+        $photo_galleries->campaign_id = $request->campaign_id;
         $photo_galleries->users_id = Auth::id();
         $photo_galleries->save();
 

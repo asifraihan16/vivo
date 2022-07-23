@@ -17,6 +17,11 @@
 * ALTER TABLE `campaigns` ADD `campaign_status` TINYINT(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '1 - Draft, 2 - Running, 3 - End' AFTER `desc`;
 ------------------------------ DONE --------------------------------
 
+* ALTER TABLE `campaigns` ADD `started_at` DATETIME NULL DEFAULT NULL AFTER `campaign_status`, ADD `ended_at` DATETIME NULL DEFAULT NULL AFTER `started_at`;
+* ALTER TABLE `photo_galleries` ADD `campaign_id` BIGINT(20) UNSIGNED NULL DEFAULT NULL AFTER `users_id`;
+
+* CREATE TABLE `vivo_live`.`gallery_photo_likes` ( `photo_gallery_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'Foreign: `photo_galleries - id`' , `user_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'Foreign: `users - id`' , `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ) ENGINE = InnoDB;
+
 
 
 

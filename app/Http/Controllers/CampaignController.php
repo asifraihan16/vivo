@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campaign;
 use App\Services\FileUploadService;
+use Exception;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
@@ -51,11 +52,11 @@ class CampaignController extends Controller
             'title' => 'required',
             'title_detail' => 'required',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img1' => 'dimensions:width=1920,height=850',
+            'img1' => 'dimensions:min_width=1920,min_height=850',
             'img2' => 'dimensions:width=1920,height=850',
             'img3' => 'dimensions:width=1920,height=850',
             'desc' => 'required',
-            'campaign_status' => 'required|integer|in:1,2,3',
+            'campaign_status' => 'required|integer|in:1,2',
         ];
 
         $customMessages = [
@@ -93,6 +94,7 @@ class CampaignController extends Controller
             'img3' => $image_url3,
             'desc' => $request->desc,
             'campaign_status' => $request->campaign_status,
+            'started_at' => $request->campaign_status == 2 ? now() : NULL,
         ]);
 
         return redirect()->route('campaigns.index');
@@ -187,5 +189,30 @@ class CampaignController extends Controller
     public function destroy(Campaign $campaign)
     {
         //
+    }
+
+
+    public function statusUpdate(Campaign $campaign, $status)
+    {
+        try {
+            if ($campaign->campaign_status == 1 && $status == 2) {
+                $campaign->campaign_status = 2;
+
+                if ($campaign->started_at == null) {
+                    $campaign->started_at = now();
+                }
+            } elseif ($campaign->campaign_status == 2 && $status == 1) {
+                $campaign->campaign_status = 1;
+                // $campaign->started_at = null;
+            } elseif ($status == 3) {
+                $campaign->campaign_status = 3;
+                $campaign->ended_at = now();
+            }
+
+            $campaign->save();
+            return back()->withSuccess('Status updated successfully');
+        } catch (Exception $e) {
+            return back()->withError('Status can not be updated');
+        }
     }
 }

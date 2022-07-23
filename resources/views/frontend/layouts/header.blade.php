@@ -9,6 +9,7 @@
     <meta name="author" content="vivo">
     <meta name="description" content="VIVO Moments">
     <meta name="keywords" content="vivo, vivo bangladesh, vivo moments, photography">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>@yield('title', 'Home') | vivo Moments</title>
 
     <meta property="og:title" content="@yield('title', 'Home') | VIVO Moments">
@@ -116,8 +117,8 @@
                                     <a href="{{ url('admin/dashboard') }}"
                                         class="button is-white">{{ auth()->user()->name }}</a>
                                 @else
-                                    <a href="{{ url('user/dashboard') }}"
-                                        class="button is-white">{{ auth()->user()->name }}</a>
+                                    {{-- <a href="{{ url('user/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a> --}}
+                                    <a href="{{ url('user/dashboard') }}" class="button is-white">Upload</a>
                                 @endif
                             @endguest
 
