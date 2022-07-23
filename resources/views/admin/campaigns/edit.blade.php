@@ -104,7 +104,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="mb-3 row">
+                                                    {{-- <div class="mb-3 row">
                                                         <label for="horizontalInput1"
                                                             class="col-sm-2 form-label align-self-center mb-lg-0">Campaing
                                                             Status</label>
@@ -123,7 +123,7 @@
                                                             </select>
                                                             {!! $errors->first('campaign_status', '<p class="help-block">:message</p>') !!}
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"

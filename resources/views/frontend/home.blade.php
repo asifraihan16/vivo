@@ -34,8 +34,8 @@
                                             <span></span>
                                         </div>
 
-                                        <a class="tp-caption tp-resizeme  button is-primary is-rounded "
-                                            href="{{ route('frontend.campaign') }}"
+                                        <a class="tp-caption tp-resizeme button is-primary is-rounded "
+                                            href="{{ $campaign_url }}"
                                             data-frames='[{"delay":400,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":800,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                                             data-x="center" data-hoffset="['0','0','0','0']" data-y="center"
                                             data-voffset="['138','138','0','0']" data-type="button">
