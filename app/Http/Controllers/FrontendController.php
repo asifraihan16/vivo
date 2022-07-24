@@ -45,24 +45,15 @@ class FrontendController extends Controller
     {
         view()->share('active_menu', 'photographer');
 
-        $mobile_series = MobileSeries::query()
-            ->with([
-                'mobile_series_versions',
-            ])
-            ->get();
+        $photographers = DB::table('users')
+            ->where('user_type', 2)
+            ->paginate(15);
 
-        foreach ($mobile_series as $series) {
-            $series->load([
-                'series_gallery_photos' => function ($query) {
-                    $query->where('photo_galleries.status', 1)
-                        ->where('is_photographer_image', 1)
-                        ->latest()
-                        ->limit(18);
-                }
-            ]);
-        }
+        $vivographers = DB::table('users')
+            ->where('user_type', 4)
+            ->paginate(15);
 
-        return view('frontend.galleries-1', compact('mobile_series'));
+        return view('frontend.galleries-1', compact('photographers', 'vivographers'));
     }
 
     public function videos()

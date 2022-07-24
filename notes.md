@@ -22,6 +22,8 @@
 
 * CREATE TABLE `vivo_live`.`gallery_photo_likes` ( `photo_gallery_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'Foreign: `photo_galleries - id`' , `user_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'Foreign: `users - id`' , `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ) ENGINE = InnoDB;
 
+* INSERT INTO `user_types` (`id`, `title`, `slug`, `is_active`, `created_at`, `updated_at`) VALUES (NULL, 'vivographer', 'vivographer', '1', '2022-04-09 16:13:28', '2022-04-09 16:13:28')
+
 
 
 

@@ -10,7 +10,7 @@
                     style="background: #812323 url({{ asset('frontend/assets/images/page-header/1.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
-                            <h1>Photographer</h1>
+                            {{-- <h1>Photographer</h1> --}}
                         </div>
                     </div>
                 </section>
@@ -22,50 +22,97 @@
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
 
-                @foreach ($mobile_series as $series)
-                    <section
-                        class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
-                        <div class="container">
-                            <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">{{ $series->name }}</h1>
-
-                            <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
-                                <div class="masonry-filters">
-                                    {{-- <ul>
-                                        <li data-filter="*" class="active">show all</li>
-                                        @foreach ($series->mobile_series_versions as $version)
-                                            <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}
-                                            </li>
-                                        @endforeach
-                                    </ul> --}}
-                                </div>
-
-                                <div class="_grid columns is-variable is-1 is-multiline">
-                                    @foreach ($series->series_gallery_photos as $photo)
-                                        <div
-                                            class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
-                                            <div class="work-item">
-                                                <figure>
-                                                    <a href="{{ url('image_description/' . $photo->id) }}"
-                                                        class="mfp-lightbox mfp-image">
-                                                        <img alt="Exibition Image" style="min-width: 375px;"
-                                                            src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
-                                                        {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
-                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
-                                                    </a>
-                                                </figure>
+                <!-- Vivographer section Start -->
+                <section class="section {{-- counters --}} works-list is-clearfix {{-- has-background-primary-light --}}">
+                    <div class="container">
+                        <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">Photographer</h1>
+                        <br>
+                        <div class="team style-2">
+                            <div class="columns is-variable is-4 is-multiline">
+                                @foreach ($photographers as $photographer)
+                                    <div class="column is-4">
+                                        <div class="team-member">
+                                            <figure class="team-member-img">
+                                                <a href="../pages/team.html">
+                                                    <img alt="Photographer Image"
+                                                        src="{{ $photographer->img ? Storage::url($photographer->img) : asset('frontend/assets/images/no-image-profile.jpg') }}" />
+                                                </a>
+                                            </figure>
+                                            <div class="team-member-meta">
+                                                <h3>
+                                                    <a href="#">{{ $photographer->name }}</a>
+                                                </h3>
+                                                <h5>
+                                                    <a href="#">Photographer</a>
+                                                </h5>
+                                                {{-- <ul class="team-social-links">
+                                                    <li>
+                                                        <a href="#" target="_blank">
+                                                            <span class="icon">
+                                                                <i class="fab fa-facebook-f"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank">
+                                                            <span class="icon">
+                                                                <i class="fab fa-twitter"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank">
+                                                            <span class="icon">
+                                                                <i class="fab fa-instagram"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul> --}}
                                             </div>
                                         </div>
-                                    @endforeach
-                                </div>
-
-                                <div style="text-align:center;">
-                                    <a href="{{ route('frontend.photos-by-series', ['series_id' => $series->id, 'series' => Str::slug($series->name), 'page_ref' => 'photographer']) }}"
-                                        class="button is-danger is-radiusless">View All</a>
-                                </div>
+                                        <!-- .team-member -->
+                                    </div>
+                                @endforeach
                             </div>
+                            {{ $photographers->withQueryString()->links('vendor.pagination.default') }}
                         </div>
-                    </section>
-                @endforeach
+                    </div>
+                </section> <!-- Photographer section End -->
+
+
+                <!-- Vivographer section Start -->
+                <section class="section {{-- counters --}} works-list is-clearfix has-background-primary-light">
+                    <div class="container">
+                        <h1 class="heading-title style-1" style="margin-bottom: 55px !important; text-transform: lowercase !important;">vivographer</h1>
+                        <br>
+                        <div class="team style-2">
+                            <div class="columns is-variable is-4 is-multiline">
+                                @foreach ($vivographers as $vivographer)
+                                    <div class="column is-4">
+                                        <div class="team-member">
+                                            <figure class="team-member-img">
+                                                <a href="../pages/team.html">
+                                                    <img alt="vivographer image"
+                                                        src="{{ $photographer->img ? Storage::url($photographer->img) : asset('frontend/assets/images/no-image-profile.jpg') }}">
+                                                </a>
+                                            </figure>
+                                            <div class="team-member-meta">
+                                                <h3>
+                                                    <a href="#">{{ $vivographer->name }}</a>
+                                                </h3>
+                                                <h5>
+                                                    <a href="#">vivographer</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <!-- .team-member -->
+                                    </div>
+                                @endforeach
+                            </div>
+                            {{ $vivographers->withQueryString()->links('vendor.pagination.default') }}
+                        </div>
+                    </div>
+                </section> <!-- Vivographer section End -->
 
             </div>
             <!-- #content-area-inner -->
@@ -112,8 +159,8 @@
 @section('styles')
     <style>
         /* .section {
-                        padding: 1rem 1.5rem;
-                    } */
+                                padding: 1rem 1.5rem;
+                            } */
         .iso-img-cls {
             /* width: 600px; */
             /* height: 400px; */
@@ -128,8 +175,8 @@
         /* clear fix */
         .grid:after {
             /* content: '';
-                            display: block;
-                            clear: both; */
+                                    display: block;
+                                    clear: both; */
         }
 
         /* ---- .grid-item ---- */
@@ -169,6 +216,5 @@
         .masonry-filters ul li.active {
             color: #4768FF;
         }
-
     </style>
 @endsection

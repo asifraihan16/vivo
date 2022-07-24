@@ -11,7 +11,7 @@
                     style="background: #812323 url({{ asset('/frontend/assets/images/page-header/3.jpg') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
-                            <h1>Campaign</h1>
+                            {{-- <h1>Campaign</h1> --}}
                         </div>
                     </div>
                 </section>
