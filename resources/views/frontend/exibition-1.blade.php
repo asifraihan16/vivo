@@ -3,14 +3,19 @@
 @section('title', 'Gallery')
 
 @section('content')
+    @php
+        $running_campaing = $ongoing_campaigns->firstWhere('campaign_status', 2);
+        $cover_pic = $running_campaing ? Storage::url($running_campaing->img1) : asset('/frontend/assets/images/page-header/6.jpg');
+    @endphp
+
     <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('/frontend/assets/images/page-header/6.jpg') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ $cover_pic }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
-                            <h1>Gallery</h1>
+                            {{-- <h1>Gallery</h1> --}}
                         </div>
                     </div>
                 </section>

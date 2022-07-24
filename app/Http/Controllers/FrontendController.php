@@ -135,6 +135,7 @@ class FrontendController extends Controller
 
         $ongoing_campaigns = DB::table('campaigns')
             ->where('campaign_status', '!=', 1)
+            ->orderBy('id', 'desc')
             ->get();
 
         $mobile_series = MobileSeries::query()
