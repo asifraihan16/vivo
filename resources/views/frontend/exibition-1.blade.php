@@ -86,21 +86,7 @@
                                         <div
                                             class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <div class="work-item">
-                                                @auth
-                                                <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
-                                                    @php
-                                                        $campaign_of_photo = $ongoing_campaigns->firstWhere('id', $photo->campaign_id)
-                                                    @endphp
-                                                    @if($campaign_of_photo && $campaign_of_photo->campaign_status == 2)
-                                                        <a href="javascript:;" class="{{ in_array($photo->id, $liked_photos_id) ? 'liked' : 'unliked' }}"
-                                                            onclick="likeGalleryPhoto({{ $photo->id }})" id="photo-like-btn-{{ $photo->id }}">
-                                                            <i class="fa fa-heart"></i>
-                                                        </a>
-                                                    @else
-                                                        {{ $photo->likes_count }}
-                                                    @endif
-                                                </div>
-                                                @endauth
+
                                                 <figure>
                                                     <a href="{{ url('image_description/' . $photo->id) }}"
                                                         class="">
