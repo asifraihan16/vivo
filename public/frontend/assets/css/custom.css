@@ -130,6 +130,10 @@ body .image-hover figure img {
     font-weight: bold;
 }
 
+.show-on-mobile {
+    visibility: hidden !important;
+}
+
 @media screen and (max-width: 768px){
 
     body .works-latest .works-latest-item .works-latest-item-icon .icon
@@ -137,6 +141,15 @@ body .image-hover figure img {
         width: 55px !important;
         height: 40px !important;
     }
+
+    .show-on-mobile {
+        visibility: initial !important;
+    }
+
+    .show-on-desktop {
+        visibility: initial !important;
+    }
+
 
 }
 
