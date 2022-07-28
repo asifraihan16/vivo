@@ -126,6 +126,32 @@ body .image-hover figure img {
   width: 0;
 }
 
+.watch-video .works-latest .works-latest-item .works-latest-item-icon .icon {
+    height: 110px;
+    width: 110px;
+    background-color: transparent;
+    opacity: 1;
+    color: rgba(65, 95, 255, 1.0);
+    padding: 2px;
+}
+
+.works-latest .works-latest-item .works-latest-item-icon .icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border: 0;
+    color: #fff;
+    background-color: transparent;
+    opacity: .8;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.watch-video .works-latest .works-latest-item .works-latest-item-icon {
+    top: 68%;
+    left: 62%;
+}
+
 .main-navigation>ul>li>a:hover {
     font-weight: bold;
 }
@@ -148,6 +174,11 @@ body .image-hover figure img {
 
     .show-on-desktop {
         visibility: initial !important;
+    }
+
+    .watch-video .works-latest .works-latest-item .works-latest-item-icon {
+        top: 64%;
+        left: 57%;
     }
 
 
