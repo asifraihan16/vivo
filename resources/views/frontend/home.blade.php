@@ -77,7 +77,8 @@
                                         <div class="work-item">
                                             <figure>
                                                 <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
-                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }}">
+                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} <h1 style=' font-weight: 900;
+                                                    font-size: 100%;'> <a style='color: white;' href='{{ $last_campaign }}'> {{$last_campaign_name}} </a> </h1>">
                                                     <img alt="{{ $moment->title }}"
                                                         src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
                                                         style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />
@@ -91,9 +92,11 @@
                                                         </ul>
 
                                                         <h3 class="photo-bottom-caption">{{ $moment->title }}</>
+                                                            
                                                     </figcaption>
                                                 </a>
                                             </figure>
+                                            
                                         </div>
                                     </div>
                                 @endforeach
