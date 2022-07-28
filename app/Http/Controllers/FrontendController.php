@@ -232,7 +232,6 @@ class FrontendController extends Controller
     {
         view()->share('active_menu', 'blogs');
 
-        // $mobile_series_version = MobileSeriesVersion::all();
         $blogs = Blog::all();
         return view('frontend.blogs', compact('blogs'));
     }

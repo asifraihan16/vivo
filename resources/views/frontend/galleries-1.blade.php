@@ -7,7 +7,7 @@
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('frontend/assets/images/page-header/1.jpg') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ asset('frontend/assets/images/banner-images/Hor-1920x450px-Photographer-Header.webp') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
                             {{-- <h1>Photographer</h1> --}}
@@ -22,7 +22,7 @@
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
 
-                <!-- Vivographer section Start -->
+                <!-- Photographer section Start -->
                 <section class="section {{-- counters --}} works-list is-clearfix {{-- has-background-primary-light --}}">
                     <div class="container">
                         <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">Photographer</h1>
@@ -101,7 +101,7 @@
                                                     <a href="#">{{ $vivographer->name }}</a>
                                                 </h3>
                                                 <h5>
-                                                    <a href="#">vivographer</a>
+                                                    <a href="#" style="text-transform: lowercase !important;">vivographer</a>
                                                 </h5>
                                             </div>
                                         </div>

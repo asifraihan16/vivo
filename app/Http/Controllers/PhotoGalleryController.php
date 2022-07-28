@@ -174,6 +174,8 @@ class PhotoGalleryController extends Controller
 
                 $photo->tags()->detach();
 
+                DB::table('gallery_photo_likes')->where('photo_gallery_id', $photo->id)->delete();
+
                 $photo->delete();
             });
 
@@ -187,8 +189,14 @@ class PhotoGalleryController extends Controller
     public function approved_request()
     {
         $photo_galleries = PhotoGallery::query()
-            ->with(['tags', 'mobile_series_version:id,name'])
+            ->with(['tags', 'mobile_series_version:id,name', 'campaign:id,title'])
+            ->leftJoin('gallery_photo_likes', 'photo_galleries.id', 'gallery_photo_likes.photo_gallery_id')
             ->where('status', 1)
+            ->select([
+                'photo_galleries.*',
+                DB::raw('count(gallery_photo_likes.user_id) as likes_count')
+            ])
+            ->groupBy('photo_galleries.id')
             ->latest()
             ->paginate(15);
 

@@ -8,7 +8,7 @@
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('/frontend/assets/images/page-header/3.jpg') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Hor-1920x450px-Campaign-Header.webp') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
                             {{-- <h1>Campaign</h1> --}}
