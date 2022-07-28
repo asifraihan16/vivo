@@ -200,7 +200,25 @@
             $('.lazy').Lazy();
         });
 
-
+        function likeGalleryPhoto(photo_id)
+        {
+            var actionUrl = '{{ route("user.like-gallery-photo", ["photo_gallery"=> ":photo_id"]) }}'
+            actionUrl = actionUrl.replace(':photo_id', photo_id);
+            $.ajax({
+                url: actionUrl,
+                method: 'POST',
+                success: function (res) {
+                    // $('#photo-like-btn-' + photo_id).css('color', '#4768FF')
+                    if (res.status == 'success' && res.type == 'like') {
+                        $('#photo-like-btn-' + photo_id).removeClass('unliked')
+                        $('#photo-like-btn-' + photo_id).addClass('liked')
+                    } else {
+                        $('#photo-like-btn-' + photo_id).removeClass('liked')
+                        $('#photo-like-btn-' + photo_id).addClass('unliked')
+                    }
+                }
+            })
+        }
     </script>
 
     @yield('scripts')
