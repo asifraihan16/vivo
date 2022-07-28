@@ -47,11 +47,13 @@ class FrontendController extends Controller
 
         $photographers = DB::table('users')
             ->where('user_type', 2)
-            ->paginate(15);
+            ->latest()
+            ->paginate(6);
 
         $vivographers = DB::table('users')
-            ->where('user_type', 4)
-            ->paginate(15);
+            ->where('is_vivographer', 1)
+            ->latest()
+            ->paginate(6);
 
         return view('frontend.galleries-1', compact('photographers', 'vivographers'));
     }

@@ -89,6 +89,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::post('profile_info', 'UserProfileController@profile_info');
 
     Route::resource('faqs', 'Admin\FaqsController')->only('index', 'store', 'update', 'destroy');
+
+    Route::get('participants', 'Admin\ParticipantController@index')->name('participants.index');
+    Route::get('participants/update-vivographer-status/{user}', 'Admin\ParticipantController@update_vivographer_status')->name('participants.update-vivographer-status');
 });
 
 Route::get('user/', 'AuthController@user_home');

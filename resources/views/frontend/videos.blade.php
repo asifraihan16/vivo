@@ -32,7 +32,8 @@
                                         <div class="works-latest-item-icon style-2">
                                             <a href="{{ $main_video->link }}" class="mfp-lightbox mfp-iframe">
                                                 <span class="icon ripple-effect">
-                                                    <i class="ion-ios-play"></i>
+                                                    {{-- <i class="ion-ios-play"></i> --}}
+                                                    <img src="{{ asset('frontend/assets/images/music-icon-01.png') }}" alt="Play Button">
                                                 </span>
                                             </a>
                                         </div>
@@ -52,7 +53,8 @@
                                                 <div class="works-latest-item-icon style-2">
                                                     <a href="{{ $video->link }}" class="mfp-lightbox mfp-iframe">
                                                         <span class="icon ripple-effect">
-                                                            <i class="ion-ios-play"></i>
+                                                            {{-- <i class="ion-ios-play"></i> --}}
+                                                            <img src="{{ asset('frontend/assets/images/music-icon-01.png') }}" alt="Play Button">
                                                         </span>
                                                     </a>
                                                 </div>
