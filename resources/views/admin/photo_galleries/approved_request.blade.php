@@ -9,10 +9,12 @@
 
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <div class="card">
+                <div class="card mt-3">
                     <div class="card-header">
                         <h4 class="card-title float-left">Approved Request</h4>
                     </div><!--end card-header-->
+                </div>
+                <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table mb-0 table-centered">
@@ -23,6 +25,8 @@
                                     <th>Photo Caption</th>
                                     <th>Image</th>
                                     <th>Tags</th>
+                                    <th>Total Likes</th>
+                                    <th>Campaign</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -56,11 +60,13 @@
                                             </td>
                                             <td>
                                                 @foreach ($value->tags as $tag)
-                                                    <button type="button" class="btn btn-secondary btn-sm">
-                                                        {{ $tag->name }}
-                                                    </button>
+                                                <button type="button" class="btn btn-secondary btn-sm">
+                                                    {{ $tag->name }}
+                                                </button>
                                                 @endforeach
                                             </td>
+                                            <td>{{ $value->likes_count }}</td>
+                                            <td>{{ $value->campaign->title ?? 'N/A' }}</td>
                                             <td>
                                                 <a href="{{ route('photo-gallery.update-tags', ['photo_gallery_id'=> $value->id]) }}" class="btn btn-sm btn-primary btn-icon">
                                                     <i class="fa fa-pen"></i>
