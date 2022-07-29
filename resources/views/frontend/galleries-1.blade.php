@@ -30,20 +30,23 @@
                         <div class="team style-2">
                             <div class="columns is-variable is-4 is-multiline">
                                 @foreach ($photographers as $photographer)
+                                    @php
+                                        $photographer_profile = route('frontend.photographer-profile', ['user'=> $photographer->id, 'photographer'=> Str::slug($photographer->name)])
+                                    @endphp
                                     <div class="column is-4">
                                         <div class="team-member">
                                             <figure class="team-member-img">
-                                                <a href="../pages/team.html">
-                                                    <img alt="Photographer Image"
-                                                        src="{{ $photographer->img ? Storage::url($photographer->img) : asset('frontend/assets/images/no-image-profile.jpg') }}" />
+                                                <a href="{{ $photographer_profile }}">
+                                                    <img alt="Photographer Image" style="width: 100%;"
+                                                        src="{{ $photographer->img ? Storage::url($photographer->img) : asset('frontend/assets/images/no-image-profile-01.jpg') }}" />
                                                 </a>
                                             </figure>
                                             <div class="team-member-meta">
                                                 <h3>
-                                                    <a href="#">{{ $photographer->name }}</a>
+                                                    <a href="{{ $photographer_profile }}">{{ $photographer->name }}</a>
                                                 </h3>
                                                 <h5>
-                                                    <a href="#">Photographer</a>
+                                                    <a href="{{ $photographer_profile }}">Photographer</a>
                                                 </h5>
                                                 {{-- <ul class="team-social-links">
                                                     <li>
@@ -88,20 +91,24 @@
                         <div class="team style-2">
                             <div class="columns is-variable is-4 is-multiline">
                                 @foreach ($vivographers as $vivographer)
+
+                                    @php
+                                        $vivographer_profile = route('frontend.vivographer-profile', ['user'=> $vivographer->id, 'vivographer'=> Str::slug($vivographer->name)]);
+                                    @endphp
                                     <div class="column is-4">
                                         <div class="team-member">
                                             <figure class="team-member-img">
-                                                <a href="../pages/team.html">
-                                                    <img alt="vivographer image"
-                                                        src="{{ $photographer->img ? Storage::url($photographer->img) : asset('frontend/assets/images/no-image-profile.jpg') }}">
+                                                <a href="{{ $vivographer_profile }}">
+                                                    <img alt="vivographer image" style="width: 100%;"
+                                                        src="{{ $vivographer->img ? Storage::url($vivographer->img) : asset('frontend/assets/images/no-image-profile-01.jpg') }}">
                                                 </a>
                                             </figure>
                                             <div class="team-member-meta">
                                                 <h3>
-                                                    <a href="#">{{ $vivographer->name }}</a>
+                                                    <a href="{{ $vivographer_profile }}">{{ $vivographer->name }}</a>
                                                 </h3>
                                                 <h5>
-                                                    <a href="#" style="text-transform: lowercase !important;">vivographer</a>
+                                                    <a href="{{ $vivographer_profile }}" style="text-transform: lowercase !important;">vivographer</a>
                                                 </h5>
                                             </div>
                                         </div>

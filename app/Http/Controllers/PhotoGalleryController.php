@@ -186,11 +186,21 @@ class PhotoGalleryController extends Controller
         return back();
     }
 
-    public function approved_request()
+    public function approved_request(Request $request)
     {
+        $request->validate([
+            'campaign'=> 'integer|nullable'
+        ]);
+
         $photo_galleries = PhotoGallery::query()
-            ->with(['tags', 'mobile_series_version:id,name', 'campaign:id,title'])
+            ->with(['tags', 'mobile_series_version:id,name'])
             ->leftJoin('gallery_photo_likes', 'photo_galleries.id', 'gallery_photo_likes.photo_gallery_id')
+            ->when($request->campaign, function ($query) {
+                $query->where('campaign_id', request()->campaign);
+            })
+            ->when($request->photo_status, function ($query) {
+                $query->where('is_winner', request()->photo_status);
+            })
             ->where('status', 1)
             ->select([
                 'photo_galleries.*',
@@ -200,6 +210,24 @@ class PhotoGalleryController extends Controller
             ->latest()
             ->paginate(15);
 
-        return view('admin.photo_galleries.approved_request', compact('photo_galleries'));
+        $campaigns = DB::table('campaigns')->latest()->get();
+
+        return view('admin.photo_galleries.approved_request', compact('photo_galleries', 'campaigns'));
+    }
+
+    public function gallery_photo_update_winner_status($photo_gallery_id)
+    {
+        $photo = PhotoGallery::findOrFail($photo_gallery_id);
+
+        try {
+            $photo->is_winner = $photo->is_winner == 0 ? 1 : 0;
+            $photo->save();
+
+            session()->flash('success', 'Winner status updated successfully');
+        } catch (\Exception $e) {
+            session()->flash('error', 'Winner status update failed');
+        }
+
+        return back();
     }
 }

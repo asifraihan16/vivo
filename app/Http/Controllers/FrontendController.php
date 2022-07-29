@@ -39,8 +39,6 @@ class FrontendController extends Controller
         $last_campaign_name = $last_campaign->title;
         $campaign_url = $ongoing_campaign ? route('frontend.campaign_detail', ['id' => $ongoing_campaign->id]) : route('frontend.campaign');
         $last_campaign = $last_campaign ? route('frontend.campaign_detail', ['id' => $last_campaign->id]) : route('frontend.campaign');
-        // dd($last_campaign);
-        
 
         return view('frontend.home', compact('home_sliders', 'moments', 'campaign_url','last_campaign','last_campaign_name'));
     }
@@ -60,6 +58,32 @@ class FrontendController extends Controller
             ->paginate(6);
 
         return view('frontend.galleries-1', compact('photographers', 'vivographers'));
+    }
+
+    public function user_profile(User $user)
+    {
+        view()->share('active_menu', 'photographer');
+
+        $mobile_series = MobileSeries::query()
+            ->with([
+                'mobile_series_versions',
+            ])
+            ->get();
+
+        foreach ($mobile_series as $series) {
+            $series->load([
+                'series_gallery_photos' => function ($query) use ($user) {
+                    $query
+                        ->where('photo_galleries.status', 1)
+                        // ->where('is_photographer_image', 0)
+                        ->where('photo_galleries.users_id', $user->id)
+                        ->latest()
+                        ->limit(18);
+                }
+            ]);
+        }
+
+        return view('frontend.user-profile', compact('user', 'mobile_series'));
     }
 
     public function videos()
@@ -332,13 +356,17 @@ class FrontendController extends Controller
         $data = Campaign::find($id);
 
         $image_lists = DB::table('photo_galleries')
-        ->join('users', 'users.id', '=', 'photo_galleries.users_id')
-        ->select(
-            'photo_galleries.*',
-            'users.name as username'
-        )
-        ->where('photo_galleries.campaign_id', '=', $id)
-        ->limit(5)->get();
+            ->leftJoin('gallery_photo_likes', 'gallery_photo_likes.photo_gallery_id', '=', 'photo_galleries.id')
+            ->select(
+                'photo_galleries.*',
+                DB::raw('count(gallery_photo_likes.photo_gallery_id) as likes_count')
+            )
+            ->where('photo_galleries.campaign_id', '=', $id)
+            ->where('photo_galleries.is_winner', '=', 1)
+            ->groupBy('photo_galleries.id')
+            ->orderByRaw('count(gallery_photo_likes.photo_gallery_id) desc')
+            ->limit(5)
+            ->get();
 
         return view('frontend.campaign_detail', compact('data','image_lists'));
     }

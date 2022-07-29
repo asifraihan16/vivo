@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontendController@index');
 Route::get('/photographer', 'FrontendController@photographer')->name('frontend.photographer');
+Route::get('/photographer-profile/{user}', 'FrontendController@user_profile')->name('frontend.photographer-profile');
+Route::get('/vivographer-profile/{user}', 'FrontendController@user_profile')->name('frontend.vivographer-profile');
 Route::get('/gallery', 'FrontendController@gallery')->name('frontend.gallery');
 Route::get('/gallery/photos-by-author/{author_id}', 'FrontendController@exhibition_photos_by_author')->name('exibition-photos-by-author');
 Route::get('/exibition2', 'FrontendController@exibition2');
@@ -13,7 +15,7 @@ Route::get('/blog_details/{id}', 'FrontendController@blog_details');
 Route::get('/campaign', 'FrontendController@campaign')->name('frontend.campaign');
 Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail')->name('frontend.campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
-//previous 
+//previous
 Route::get('/previous_campaign_photos/{id}', 'FrontendController@previous_campaign_photoes')->name('frontend.previous_campaign_photos');
 Route::get('/image_description/{id}', 'FrontendController@image_description');
 Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-series');
@@ -82,6 +84,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('photo-gallery/{photo_gallery_id}/update-tags', 'PhotoGalleryController@update_tags')->name('photo-gallery.update-tags');
     Route::post('photo-gallery/{photo_gallery_id}/update-tags', 'PhotoGalleryController@update_tags_post')->name('photo-gallery.update-tags-post');
     Route::delete('photo-gallery/{photo_gallery_id}/delete-photo', 'PhotoGalleryController@delete_gallery_photo')->name('photo-gallery.delete-photo');
+    Route::post('photo-gallery/{photo_gallery_id}/update-winner-status', 'PhotoGalleryController@gallery_photo_update_winner_status')->name('photo-gallery.update-winner-status');
     Route::get('approved_request', 'PhotoGalleryController@approved_request')->name('admin.approved_request');
     Route::get('users', 'AuthController@user_list');
     Route::get('users_create', 'AuthController@users_create');
