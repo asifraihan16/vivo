@@ -72,13 +72,17 @@
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
 
+                                @php
+                                    $last_campaign_link = "<h1 style=' font-weight: 900;
+                                                    font-size: 100%;'><a style='color: white;' href='{$last_campaign}'> {$last_campaign_name}</a></h1>";
+                                @endphp
+
                                 @foreach ($moments as $moment)
                                     <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                         <div class="work-item">
                                             <figure>
                                                 <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
-                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} <h1 style=' font-weight: 900;
-                                                    font-size: 100%;'> <a style='color: white;' href='{{ $last_campaign }}'> {{$last_campaign_name}} </a> </h1>">
+                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} {!! $last_campaign_link !!}">
                                                     <img alt="{{ $moment->title }}"
                                                         src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
                                                         style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />
@@ -92,11 +96,11 @@
                                                         </ul>
 
                                                         <h3 class="photo-bottom-caption">{{ $moment->title }}</>
-                                                            
+
                                                     </figcaption>
                                                 </a>
                                             </figure>
-                                            
+
                                         </div>
                                     </div>
                                 @endforeach

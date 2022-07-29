@@ -27,61 +27,69 @@
                             <br>
                             <article class="blog-post ">
                                 <figure class="post-image">
-                                    <img alt="Joo - Niche Multi-Purpose HTML Template" src="{{ $data->img1 ? Storage::url($data->img1) : '' }}">
+                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                        src="{{ $data->img1 ? Storage::url($data->img1) : '' }}">
                                 </figure>
                                 <div class="columns">
                                     <div class="column is-6">
-                                <div class="entry-header">
-                                    <div class="post-meta">
-                                        <ul>
-                                            <li>
-                                                <span class="icon">
-                                                    <i class="icon-clock"> </i>
-                                                </span>
-                                                <span> {{ date('M-d-Y', strtotime($data->created_at)) }} </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h2 class="entry-title"> {{ $data->title_detail }} </h2>
-                                </div>
-                                <!-- .entry-header -->
-                               
+                                        <div class="entry-header">
+                                            <div class="post-meta">
+                                                <ul>
+                                                    <li>
+                                                        <span class="icon">
+                                                            <i class="icon-clock"> </i>
+                                                        </span>
+                                                        <span> {{ date('M-d-Y', strtotime($data->created_at)) }} </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <h2 class="entry-title"> {{ $data->title_detail }} </h2>
+                                        </div>
+                                        <!-- .entry-header -->
+
                                         <div class="entry-content content">
                                             {!! $data->desc !!}
                                         </div>
                                     </div>
-                                    
-                                  </div>
-                                 
-                               @if($data->campaign_status == 2)
-                                @guest
-                                <a href="{{ route('user.login') }}" class="button is-danger is-rounded ">Join Now</a>
-                                @else
-                                <a href="{{ route('user.photo-upload') }}" class="button is-danger is-rounded ">Join Now</a>
-                                @endguest
+
+                                </div>
+
+                                @if ($data->campaign_status == 2)
+                                    @guest
+                                        <a href="{{ route('user.login') }}" class="button is-danger is-rounded ">Join Now</a>
+                                    @else
+                                        <a href="{{ route('user.photo-upload') }}" class="button is-danger is-rounded ">Join
+                                            Now</a>
+                                    @endguest
                                 @endif
                             </article>
 
                             <br>
                         </div>
                         <div class="column is-12">
-                            @if($data->campaign_status == 3)   
+                            @if ($data->campaign_status == 3)
                                 <div id="content-main-wrap" class="is-clearfix">
                                     <div id="content-area" class="site-content-area">
                                         <div id="content-area-inner" class="site-content-area-inner">
                                             <section class="section works-list is-clearfix padding-3rem">
                                                 <div class="container width-80-percent">
-                                                    <h4 class="heading-title style-1" style="text-transform: inherit;">Previous Campaign Photo</h4>
+                                                    {{-- <h4 class="heading-title style-1" style="text-transform: inherit;">
+                                                        Previous Campaign Photo</h4> --}}
                                                     <br>
                                                     <div class="works isotope image-hover effect-8">
                                                         <div class="columns is-variable is-1 is-multiline" style="">
-                            
+
                                                             @foreach ($image_lists as $moment)
                                                                 <div class="column is-6 branding aos-init" style="">
                                                                     <div class="work-item">
+                                                                        <div class="photo-like-area" id="photo-like-area-{{ $moment->id }}">
+
+                                                                            <i class="fa fa-heart"></i> {{ $moment->likes_count }}
+                                                                        </div>
                                                                         <figure>
-                                                                            <a href="{{ $moment->img? Storage::url($moment->img) : '' }}"
-                                                                                class="mfp-lightbox mfp-image" title="{{ $moment->title }}">
+                                                                            <a href="{{ $moment->img ? Storage::url($moment->img) : '' }}"
+                                                                                class="mfp-lightbox mfp-image"
+                                                                                title="{{ $moment->title }}">
                                                                                 <img alt="{{ $moment->title }}"
                                                                                     src="{{ $moment->img ? Storage::url($moment->img) : '' }}"
                                                                                     style="" />
@@ -89,21 +97,23 @@
                                                                                     <ul class="social">
                                                                                         <li>
                                                                                             <span class="icon">
-                                                                                                <i class="icon-magnifier"></i>
+                                                                                                <i
+                                                                                                    class="icon-magnifier"></i>
                                                                                             </span>
                                                                                         </li>
                                                                                     </ul>
-                            
-                                                                                    <h3 class="photo-bottom-caption">{{ $moment->title }}</>
-                                                                                        
+
+                                                                                    <h3 class="photo-bottom-caption">
+                                                                                        {{ $moment->title }}</>
+
                                                                                 </figcaption>
                                                                             </a>
                                                                         </figure>
-                                                                        
+
                                                                     </div>
                                                                 </div>
                                                             @endforeach
-                                                         
+
                                                         </div>
                                                         <div style="text-align:center;">
                                                             <a href="{{ route('frontend.previous_campaign_photos', $data->id) }}"
@@ -125,4 +135,53 @@
             </div>
         </div>
     </div>
+@endsection
+
+
+
+@section('styles')
+    <style>
+        .post-meta ul li span {
+            color: #4768FF !important;
+        }
+
+        .photo-bottom-caption {
+            bottom: 0 !important;
+            left: 0;
+            width: auto !important;
+            color: #fff;
+            padding-bottom: 1.5rem !important;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .watch-video .works-latest .works-latest-item .works-latest-item-icon {
+            top: 50% !important;
+            left: 50% !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            .play {
+                font-size: 1em;
+                /* change this to change size */
+            }
+
+            .watch-video .works-latest .works-latest-item .works-latest-item-icon {
+                top: 60% !important;
+            }
+
+
+            .play2 {
+                font-size: .8em;
+                /* change this to change size */
+            }
+
+            .watch-video .works-latest .works-latest-item .sl-play-area {
+                top: 50% !important;
+            }
+
+        }
+
+    </style>
 @endsection
