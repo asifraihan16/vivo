@@ -36,7 +36,7 @@ class FrontendController extends Controller
 
         $ongoing_campaign = DB::table('campaigns')->where('campaign_status', 2)->latest()->first();
         $last_campaign = DB::table('campaigns')->where('campaign_status', 3)->latest()->first();
-        $last_campaign_name = $last_campaign->title;
+        $last_campaign_name = $last_campaign->title ?? '';
         $campaign_url = $ongoing_campaign ? route('frontend.campaign_detail', ['id' => $ongoing_campaign->id]) : route('frontend.campaign');
         $last_campaign = $last_campaign ? route('frontend.campaign_detail', ['id' => $last_campaign->id]) : route('frontend.campaign');
 
