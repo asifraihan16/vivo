@@ -115,10 +115,12 @@
                                                             @endforeach
 
                                                         </div>
+                                                        @if($image_lists->count())
                                                         <div style="text-align:center;">
                                                             <a href="{{ route('frontend.previous_campaign_photos', $data->id) }}"
                                                                 class="button is-danger is-radiusless">View All</a>
                                                         </div>
+                                                        @endif
                                                         <!-- .columns -->
                                                     </div>
                                                     <!-- .works -->
