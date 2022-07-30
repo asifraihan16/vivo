@@ -78,10 +78,10 @@
                                         <ul class="list-unstyled personal-detail mb-0">
                                             <li class=""><i
                                                     class="ti ti-mobile me-2 text-secondary font-16 align-middle"></i> <b>
-                                                    phone </b> : {{ Session()->get('contact') }}</li>
+                                                    phone </b> : {{ $user->phone ?? 'N/A' }}</li>
                                             <li class="mt-2"><i
                                                     class="ti ti-email text-secondary font-16 align-middle me-2"></i> <b>
-                                                    Email </b> : {{ Session()->get('email') }}</li>
+                                                    Email </b> : {{ $user->email }}</li>
                                         </ul>
 
                                     </div>
@@ -146,7 +146,7 @@
                                                 {{ csrf_field() }}
 
                                                 <input type="hidden" class="form-control" id="horizontalInput1"
-                                                    name="name" required="" value="{{ Session()->get('name') }}">
+                                                    name="name" required="" value="{{ $user->name }}">
 
                                                 <div class="form-group row">
                                                     <label
@@ -162,7 +162,7 @@
                                                         class="col-xl-3 col-lg-3 text-end mb-lg-0 align-self-center">Name</label>
                                                     <div class="col-lg-9 col-xl-8">
                                                         <input class="form-control" type="text" name="name"
-                                                            value="{{ Session()->get('name') }}">
+                                                            value="{{ $user->name }}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -174,7 +174,7 @@
                                                             <span class="input-group-text"><i
                                                                     class="las la-phone"></i></span>
                                                             <input type="text" class="form-control"
-                                                                value="{{ Session()->get('contact') }}"
+                                                                value="{{ $user->phone }}"
                                                                 placeholder="Contact No" name="contact"
                                                                 aria-describedby="basic-addon1">
                                                         </div>
@@ -189,7 +189,7 @@
                                                             <span class="input-group-text"><i
                                                                     class="las la-at"></i></span>
                                                             <input type="text" class="form-control"
-                                                                value="{{ Session()->get('email') }}" placeholder="Email"
+                                                                value="{{ $user->email }}" placeholder="Email"
                                                                 name="email" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>

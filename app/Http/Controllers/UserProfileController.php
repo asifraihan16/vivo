@@ -69,7 +69,8 @@ class UserProfileController extends Controller
 
     public function user_show(UserProfile $userProfile)
     {
-        return view('user.user_profiles.index');
+        $user = auth()->user();
+        return view('user.user_profiles.index', compact('user'));
     }
 
     /**
@@ -186,7 +187,7 @@ class UserProfileController extends Controller
 
         $rules = [
             // 'img' => 'max:100|dimensions:width=300,height=300',
-            'img' => 'mimes:jpeg,jpg',
+            'img' => 'mimes:jpeg,jpg,png',
             'name' => 'required',
         ];
 
