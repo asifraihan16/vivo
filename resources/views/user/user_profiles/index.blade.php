@@ -78,7 +78,7 @@
                                         <ul class="list-unstyled personal-detail mb-0">
                                             <li class=""><i
                                                     class="ti ti-mobile me-2 text-secondary font-16 align-middle"></i> <b>
-                                                    phone </b> : {{ $user->phone ?? 'N/A' }}</li>
+                                                    phone </b> : {{ $user->contact ?? 'N/A' }}</li>
                                             <li class="mt-2"><i
                                                     class="ti ti-email text-secondary font-16 align-middle me-2"></i> <b>
                                                     Email </b> : {{ $user->email }}</li>
@@ -174,7 +174,7 @@
                                                             <span class="input-group-text"><i
                                                                     class="las la-phone"></i></span>
                                                             <input type="text" class="form-control"
-                                                                value="{{ $user->phone }}"
+                                                                value="{{ $user->contact }}"
                                                                 placeholder="Contact No" name="contact"
                                                                 aria-describedby="basic-addon1">
                                                         </div>
