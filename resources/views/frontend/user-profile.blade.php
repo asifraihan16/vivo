@@ -33,7 +33,7 @@
                             <p class="image">
                                 <img alt="Profile Image"
                                     src="{{ $user->img ? Storage::url($user->img) : asset('frontend/assets/images/no-image-profile.jpg') }}"
-                                    style="border-radius: 50%;padding: 5px;background: white;display: inline-block;margin-bottom: 12px;max-width:180px;">
+                                    style="border-radius: 50%;padding: 5px;background: white;display: inline-block;margin-bottom: 12px;width:180px; height:180px;">
                             </p>
                             <h3 class="subtitle" style="font-size: 24px;">{{ $user->name }}</h3>
                             <h3 class="subtitle" style="text-transform: lowercase;">{{ request()->has('photographer') ? 'Photographer' : 'vivographer' }}</h3>

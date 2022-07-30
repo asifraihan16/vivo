@@ -99,7 +99,7 @@
                                         <div class="team-member">
                                             <figure class="team-member-img">
                                                 <a href="{{ $vivographer_profile }}">
-                                                    <img alt="vivographer image" style="width: 100%;"
+                                                    <img alt="vivographer image" style="width: 100%; height: 350px;"
                                                         src="{{ $vivographer->img ? Storage::url($vivographer->img) : asset('frontend/assets/images/no-image-profile-01.jpg') }}">
                                                 </a>
                                             </figure>
