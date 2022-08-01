@@ -20,9 +20,7 @@
 * ALTER TABLE `campaigns` ADD `started_at` DATETIME NULL DEFAULT NULL AFTER `campaign_status`, ADD `ended_at` DATETIME NULL DEFAULT NULL AFTER `started_at`;
 * ALTER TABLE `photo_galleries` ADD `campaign_id` BIGINT(20) UNSIGNED NULL DEFAULT NULL AFTER `users_id`;
 
-* CREATE TABLE `vivo_live`.`gallery_photo_likes` ( `photo_gallery_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'Foreign: `photo_galleries - id`' , `user_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'Foreign: `users - id`' , `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ) ENGINE = InnoDB;
-
-* INSERT INTO `user_types` (`id`, `title`, `slug`, `is_active`, `created_at`, `updated_at`) VALUES (NULL, 'vivographer', 'vivographer', '1', '2022-04-09 16:13:28', '2022-04-09 16:13:28')
+* CREATE TABLE `gallery_photo_likes` ( `photo_gallery_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'Foreign: `photo_galleries - id`' , `user_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'Foreign: `users - id`' , `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ) ENGINE = InnoDB;
 
 * UPDATE `playlist1_main_vedios` SET `link` = 'https://www.youtube.com/watch?v=_GP1zyZZcCE' WHERE `playlist1_main_vedios`.`id` = 7;
 * UPDATE `playlist1_other_vedios` SET `link` = 'https://www.youtube.com/watch?v=iOHj6wz30qI' WHERE `playlist1_other_vedios`.`id` = 24;
@@ -35,7 +33,7 @@
 
 * ALTER TABLE `users` ADD `is_vivographer` TINYINT(3) NOT NULL DEFAULT '0' COMMENT '1 - Yes, 0 - No' AFTER `contact`;
 * ALTER TABLE `photo_galleries` ADD `is_winner` TINYINT(3) NOT NULL DEFAULT '0' COMMENT '1 - Yes, 0 - No' AFTER `campaign_id`;
-
+------------------------------ DONE on Demo DB --------------------------------
 
 
 
