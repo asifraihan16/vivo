@@ -26,31 +26,14 @@
                     <div class="container">
                         <h3 class="heading-title style-1">{{ $series->name }}</h3>
                         <div class="works isotope masonry image-hover effect-8 grid-container">
-                            <div class="masonry-filters">
+                            {{-- <div class="masonry-filters">
                                 <ul>
-                                    {{-- <li>
-                                        <a href="{{ route('frontend.photos-by-series', [
-                                        'series_id'=> $series->id,
-                                        'series'=> Str::slug($series->name),
-                                        'page'=> request()->page
-                                        ]) }}"
-                                        class="{{ !request()->series_version ? 'active' : '' }}">show all</a>
-                                    </li> --}}
-
                                     <li data-filter="*" class="active">show all</li>
                                     @foreach ($versions as $version)
-                                        {{-- <li>
-                                        <a href="{{ route('frontend.photos-by-series', [
-                                            'series_id'=> $series->id,
-                                            'series'=> Str::slug($series->name),
-                                            'series_version'=> $version->id,
-                                            'page'=> request()->page
-                                            ]) }}" class="{{ request()->series_version && request()->series_version == $version->id ? 'active' : '' }}">{{  $version->name }}</a>
-                                    </li> --}}
-                                        <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}</li>
+                                    <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}</li>
                                     @endforeach
                                 </ul>
-                            </div>
+                            </div> --}}
                             <div class="_grid columns is-variable is-1 is-multiline">
                                 @foreach ($photos as $photo)
                                     <div
