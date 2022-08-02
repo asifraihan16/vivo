@@ -389,13 +389,29 @@ class FrontendController extends Controller
         $image_details = DB::table('photo_galleries')
             ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
             ->join('users', 'users.id', '=', 'photo_galleries.users_id')
+            ->leftJoin('gallery_photo_likes', 'photo_galleries.id', '=', 'gallery_photo_likes.photo_gallery_id')
             ->select(
                 'photo_galleries.*',
                 'mobile_series_versions.name as mobile_series_versions_name',
-                'users.name as username'
+                'users.name as username',
+                DB::raw('count(gallery_photo_likes.user_id) as likes_count')
             )
             ->where('photo_galleries.id', '=', $id)
             ->first();
+
+        $image_details->campaign = null;
+        $image_details->liked_by_user = false;
+
+        if ($image_details->campaign_id) {
+            $image_details->campaign = DB::table('campaigns')->find($image_details->campaign_id);
+        }
+
+        if (auth()->user()) {
+            $image_details->liked_by_user = DB::table('gallery_photo_likes')
+                ->where('user_id', auth()->id())
+                ->where('photo_gallery_id', $id)
+                ->exists();
+        }
 
         $image_tags = DB::table('photo_galleries_tags')
             ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')

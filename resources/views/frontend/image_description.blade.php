@@ -7,7 +7,7 @@
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Hor-1920x450px-Gallery-Header.webp') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Gallery.webp') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
                         </div>
@@ -27,7 +27,18 @@
                             <div class="column aos-init">
 
 
-                                <div class="work-item">
+                                <div class="work-item" style="position: relative;">
+                                    <div class="photo-like-area" id="photo-like-area-{{ $image_details->id }}">
+                                        @if($image_details->campaign && $image_details->campaign->campaign_status == 2 && auth()->user())
+                                            <a href="javascript:;" class="{{ $image_details->liked_by_user ? 'liked' : 'unliked' }}"
+                                                onclick="likeGalleryPhoto({{ $image_details->id }})" id="photo-like-btn-{{ $image_details->id }}">
+                                                <i class="fa fa-heart"></i>
+                                            </a>
+                                        @else
+                                            {{ $image_details->likes_count }}
+                                        @endif
+                                    </div>
+
                                     <figure>
                                         <a href="{{ $image_details->img ? Storage::url($image_details->img) : '' }}"
                                             class="mfp-lightbox mfp-image" title="{{ $image_details->title }}">

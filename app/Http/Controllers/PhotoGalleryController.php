@@ -49,7 +49,7 @@ class PhotoGalleryController extends Controller
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
             'img' => 'required|image',
             'tags_id' => 'required',
-            'campaign_id' => 'required|integer',
+            'campaign_id' => 'nullable|integer',
         ];
 
         $customMessages = [
@@ -57,7 +57,7 @@ class PhotoGalleryController extends Controller
             // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
             'product_image.max' => 'Product Image Max Size 1024KB',
             // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
-            'campaign_id.required' => 'You must select a campaign'
+            // 'campaign_id.required' => 'You must select a campaign'
         ];
 
         $this->validate($request, $rules, $customMessages);
@@ -76,7 +76,7 @@ class PhotoGalleryController extends Controller
         $photo_galleries->img = $image_url;
         $photo_galleries->img_thumbnail = $image_thumb_url;
         $photo_galleries->status = 0;
-        $photo_galleries->campaign_id = $request->campaign_id;
+        $photo_galleries->campaign_id = $request->campaign_id ?? null;
         $photo_galleries->users_id = Auth::id();
         $photo_galleries->save();
 
