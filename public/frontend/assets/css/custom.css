@@ -184,6 +184,10 @@ body .image-hover figure img {
 
 }
 
+.hero .hero-body .container {
+    min-height: 160px !important;
+}
+
 .photo-like-area {
     background-color: rgba(250, 250, 250, .7);
     position: absolute;
