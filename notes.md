@@ -46,3 +46,11 @@
 
 ------------
 powerpoint slide page no - 6, 8, 12, 13
+
+
+TODO:
+* Upload photo without campaign (done)
+* change cover images 
+* campaign table data update on demo (campaign id -4) (db change)
+* update `playlist1_main_vedios` table
+* update `playlist1_other_vedios` table

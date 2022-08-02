@@ -73,8 +73,7 @@
                             <div class="columns is-variable is-1 is-multiline" style="">
 
                                 @php
-                                    $last_campaign_link = "<h1 style=' font-weight: 900;
-                                                    font-size: 100%;'><a style='color: white;' href='{$last_campaign}'> {$last_campaign_name}</a></h1>";
+                                    $last_campaign_link = "<br><a style='color: white; font-weight:900;' href='{$last_campaign}'> {$last_campaign_name}</a>";
                                 @endphp
 
                                 @foreach ($moments as $moment)

@@ -7,7 +7,7 @@
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Hor-1920x450px-Gallery-Header.webp') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Gallery.webp') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
                             {{-- <h1>{{ $series->name }}</h1> --}}
