@@ -7,7 +7,7 @@
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Video.webp') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Video.webp') }}) no-repeat top center; background-size: cover;">
                     <div class="hero-body">
                         <div class="container">
                             {{-- <h1>Videos</h1> --}}
@@ -33,7 +33,7 @@
                                             <a href="{{ $main_video->link }}" class="mfp-lightbox mfp-iframe">
                                                 <span class="icon ripple-effect">
                                                     {{-- <i class="ion-ios-play"></i> --}}
-                                                    <img src="{{ asset('frontend/assets/images/music-icon-01.png') }}" alt="Play Button">
+                                                    <img src="{{ asset('frontend/assets/images/music-icon-02.png') }}" alt="Play Button">
                                                 </span>
                                             </a>
                                         </div>
@@ -54,7 +54,7 @@
                                                     <a href="{{ $video->link }}" class="mfp-lightbox mfp-iframe">
                                                         <span class="icon ripple-effect">
                                                             {{-- <i class="ion-ios-play"></i> --}}
-                                                            <img src="{{ asset('frontend/assets/images/music-icon-01.png') }}" alt="Play Button">
+                                                            <img src="{{ asset('frontend/assets/images/music-icon-02.png') }}" alt="Play Button">
                                                         </span>
                                                     </a>
                                                 </div>
