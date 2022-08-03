@@ -47,6 +47,7 @@ class PhotoGalleryController extends Controller
         $image_thumb_url = $this->fileUploadService->resizeUpload('img', 650, null, 'photo_galleries', true);
         $image_url = $this->fileUploadService->resizeUpload('img', 1920, null, 'photo_galleries');
 
+        $validated['mobile_series_versions_id'] = $request->mobile_series_versions_id ?? NULL;
         $validated['img'] = $image_url;
         $validated['img_thumbnail'] = $image_thumb_url;
         $validated['status'] = 1;
