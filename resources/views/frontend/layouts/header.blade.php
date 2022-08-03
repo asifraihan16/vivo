@@ -119,9 +119,11 @@
                                 @if (auth()->user()->is_admin === 1 || auth()->user()->user_type === 1)
                                     <a href="{{ url('admin/dashboard') }}"
                                         class="button is-white">{{ auth()->user()->name }}</a>
-                                @else
+                                @elseif(auth()->user()->user_type === 2)
                                     {{-- <a href="{{ url('user/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a> --}}
-                                    <a href="{{ url('user/dashboard') }}" class="button is-white">Upload</a>
+                                    <a href="{{ url('photographers/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a>
+                                @else
+                                    <a href="{{ url('user/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a>
                                 @endif
                             @endguest
 
