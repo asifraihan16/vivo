@@ -3,8 +3,7 @@
     <div class="brand">
         <a href="{{ route('photographer.dashboard') }}" class="logo">
             <span>
-                <img src="{{ URL::asset('admin/assets/images/vivo_logo.png') }}" alt="logo-large"
-                    class="logo-dark">
+                <img src="{{ URL::asset('admin/assets/images/vivo_logo.png') }}" alt="logo-large" class="logo-dark">
             </span>
         </a>
     </div>
@@ -23,10 +22,10 @@
                 <a href="{{ route('photographer.photo_history') }}"> <i data-feather="list"
                         class="align-self-center menu-icon"></i><span>Photo History</span></a>
             </li>
-            {{-- <li>
-                <a href="{{ url('user/user_profile') }}"> <i data-feather="user-plus"
+            <li>
+                <a href="{{ route('photographer.profile') }}"> <i data-feather="user-plus"
                         class="align-self-center menu-icon"></i><span>Profile</span></a>
-            </li> --}}
+            </li>
             <li>
                 <a href="{{ url('user/logout') }}"> <i data-feather="lock"
                         class="align-self-center menu-icon"></i><span>Logout</span></a>

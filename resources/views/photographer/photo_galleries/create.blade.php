@@ -12,6 +12,16 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-lg-12">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="card">
                         <!--end card-header-->
                         <div class="card-body">
@@ -25,7 +35,9 @@
                                         <div class="card-body">
                                             <div class="general-label">
                                                 <div id="err"></div>
-                                                <form id="file_upload_form" class="form-horizontal auth-form" method="POST" action="{{ route('photographer.post-upload-photo') }}" enctype="multipart/form-data">
+                                                <form id="file_upload_form" class="form-horizontal auth-form" method="POST"
+                                                    action="{{ route('photographer.post-upload-photo') }}"
+                                                    enctype="multipart/form-data">
                                                     @csrf
 
                                                     <input type="hidden" class="form-control" id="horizontalInput1"
@@ -39,8 +51,8 @@
                                                         <div class="col-sm-10">
                                                             <select class="select2 form-control custom-select"
                                                                 name="mobile_series_versions_id"
-                                                                style="width: 100%; height:36px;" required="">
-                                                                <option>Select</option>
+                                                                style="width: 100%; height:36px;">
+                                                                <option value="">Select</option>
                                                                 @foreach ($mobile_series_versions as $data)
                                                                     <option value="{{ $data->id }}"
                                                                         {{ old('mobile_series_versions_id') == $data->id ? 'selected' : '' }}>

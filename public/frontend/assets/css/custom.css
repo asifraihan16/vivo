@@ -10,10 +10,15 @@
     font-weight: 400;
     src: url('/frontend/assets/fonts/vivotypeEN-Regular.ttf');
 }
+* {
+    /* font-family: vivotypeEN-Regular !important; */
+    font-family: "languageFont","AvenirNext","Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu,sans-serif,"WebRupee";
+}
 
 body, button, input, select, textarea, .heading-title.style-1, .menu, .footer .widget-links,
 footer .widget-links, .widget-title, .footer-bottom-content, .footer-bottom-content .footer-copyright, .widget, .button{
-    font-family: vivotypeEN-Regular;
+    /* font-family: vivotypeEN-Regular !important; */
+    font-family: "languageFont","AvenirNext","Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu,sans-serif,"WebRupee";
 }
 
 .works-latest .works-latest-item .works-latest-item-meta h5 a, .works-latest .works-latest-item .works-latest-item-meta h3 a, .works-latest .works-latest-item .works-latest-item-meta h5, .works-latest-item .works-latest-item-meta h3 {

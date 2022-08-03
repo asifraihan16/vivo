@@ -36,7 +36,8 @@
                                     style="border-radius: 50%;padding: 5px;background: white;display: inline-block;margin-bottom: 12px;width:180px; height:180px;">
                             </p>
                             <h3 class="subtitle" style="font-size: 24px;">{{ $user->name }}</h3>
-                            <h3 class="subtitle" style="text-transform: lowercase;">{{ request()->has('photographer') ? 'Photographer' : 'vivographer' }}</h3>
+                            <h3 class="subtitle" style="text-transform: lowercase;">
+                                {{ request()->has('photographer') ? 'Photographer' : 'vivographer' }}</h3>
                             <ul class="header-menu-icons social">
                                 <li>Share on: </li>
                                 <li>
@@ -93,31 +94,28 @@
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
-                @foreach ($mobile_series as $series)
-                    @if ($series->series_gallery_photos->count())
-                        <section
-                            class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
-                            <div class="container">
-                                <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">
-                                    {{ $series->name }}</h1>
+                <section class="section works-list has-background-primary-light is-clearfix">
+                    <div class="container">
+                        {{-- <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">
+                            {{ $series->name }}</h1> --}}
 
-                                <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
-                                    <div class="masonry-filters">
-                                        {{-- <ul>
+                        <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
+                            <div class="masonry-filters">
+                                {{-- <ul>
                                         <li data-filter="*" class="active">show all</li>
                                         @foreach ($series->mobile_series_versions as $version)
                                             <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}
                                             </li>
                                         @endforeach
                                     </ul> --}}
-                                    </div>
+                            </div>
 
-                                    <div class="_grid columns is-variable is-1 is-multiline">
-                                        @foreach ($series->series_gallery_photos as $photo)
-                                            <div
-                                                class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
-                                                <div class="work-item">
-                                                    {{-- <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
+                            <div class="_grid columns is-variable is-1 is-multiline">
+                                @foreach ($photos as $photo)
+                                    <div
+                                        class="_grid-item aos-init column is-4">
+                                        <div class="work-item">
+                                            {{-- <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
                                                     @php
                                                         $campaign_of_photo = $ongoing_campaigns->firstWhere('id', $photo->campaign_id)
                                                     @endphp
@@ -130,34 +128,30 @@
                                                         {{ $photo->likes_count }}
                                                     @endif
                                                 </div> --}}
-                                                    <figure>
-                                                        <a href="{{ url('image_description/' . $photo->id) }}"
-                                                            class="">
-                                                            <img alt="Exibition Image"
-                                                                src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
-                                                            {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
+                                            <figure>
+                                                <a href="{{ url('image_description/' . $photo->id) }}" class="">
+                                                    <img alt="Exibition Image"
+                                                        src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                    {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
                                                             data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
-                                                        </a>
-                                                    </figure>
+                                                </a>
+                                            </figure>
 
-                                                </div>
-                                            </div>
-                                        @endforeach
+                                        </div>
                                     </div>
-
-                                    <div style="text-align:center;">
-                                        <a href="{{ route('frontend.photos-by-series', ['series_id' => $series->id, 'series' => Str::slug($series->name)]) }}"
-                                            class="button is-danger is-radiusless">View All</a>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                        </section>
-                    @endif
-                @endforeach
+
+                            <div style="text-align:center;">
+                                <a href="{{ route('exibition-photos-by-author', ['author_id' => $user->id]) }}"
+                                    class="button is-danger is-radiusless">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
-
 
 @endsection
 
@@ -216,8 +210,8 @@
 @section('styles')
     <style>
         /* .section {
-                                            padding: 1rem 1.5rem;
-                                        } */
+                                                padding: 1rem 1.5rem;
+                                            } */
         .iso-img-cls {
             /* width: 600px; */
             /* height: 400px; */
@@ -232,8 +226,8 @@
         /* clear fix */
         .grid:after {
             /* content: '';
-                                                display: block;
-                                                clear: both; */
+                                                    display: block;
+                                                    clear: both; */
         }
 
         /* ---- .grid-item ---- */
