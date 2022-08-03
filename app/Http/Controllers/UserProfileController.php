@@ -178,7 +178,8 @@ class UserProfileController extends Controller
         Session::put('img', $user->img);
         Session::put('contact', $user->contact);
 
-        return Redirect::to("admin/user_profile");
+        return back();
+        // return Redirect::to("admin/user_profile");
     }
 
     public function user_profile_info(Request $request)
@@ -252,6 +253,7 @@ class UserProfileController extends Controller
         Session::put('img', $user->img);
         Session::put('contact', $user->contact);
 
-        return Redirect::to("user/user_profile");
+        return back();
+        // return Redirect::to("user/user_profile");
     }
 }

@@ -207,7 +207,8 @@ class AuthController extends Controller
 
     public function show()
     {
-
+        $user = auth()->user();
+        return view('admin.user_profiles.index', compact('user'));
     }
 
     public function photographer_login()

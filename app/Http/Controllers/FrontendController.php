@@ -64,7 +64,7 @@ class FrontendController extends Controller
     {
         view()->share('active_menu', 'photographer');
 
-        $mobile_series = MobileSeries::query()
+        /* $mobile_series = MobileSeries::query()
             ->with([
                 'mobile_series_versions',
             ])
@@ -81,9 +81,17 @@ class FrontendController extends Controller
                         ->limit(18);
                 }
             ]);
-        }
+        } */
 
-        return view('frontend.user-profile', compact('user', 'mobile_series'));
+        $photos = DB::table('photo_galleries')
+            ->where('users_id', $user->id)
+            ->latest()
+            ->limit(18)
+            ->get();
+
+            // dd($photos);
+
+        return view('frontend.user-profile', compact('user', 'photos'));
     }
 
     public function videos()
@@ -387,7 +395,7 @@ class FrontendController extends Controller
         view()->share('active_menu', 'gallery');
 
         $image_details = DB::table('photo_galleries')
-            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
+            ->leftJoin('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
             ->join('users', 'users.id', '=', 'photo_galleries.users_id')
             ->leftJoin('gallery_photo_likes', 'photo_galleries.id', '=', 'gallery_photo_likes.photo_gallery_id')
             ->select(
@@ -398,6 +406,8 @@ class FrontendController extends Controller
             )
             ->where('photo_galleries.id', '=', $id)
             ->first();
+
+            // dd($image_details);
 
         $image_details->campaign = null;
         $image_details->liked_by_user = false;

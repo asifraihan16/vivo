@@ -90,6 +90,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::get('users_create', 'AuthController@users_create');
     Route::post('admin_user_create', 'AuthController@postRegister');
     Route::get('user_profile', 'AuthController@show');
+    // Route::get('user_profile', 'UserProfileController@user_show');
     Route::post('profile_info', 'UserProfileController@profile_info');
 
     Route::resource('faqs', 'Admin\FaqsController')->only('index', 'store', 'update', 'destroy');
@@ -137,5 +138,8 @@ Route::group(['prefix'=> 'photographers', 'middleware'=> ['auth', 'is_photograph
     Route::get('photo_upload', 'Photographer\PhotoGalleryController@create')->name('photographer.upload-photo');
     Route::post('photo_upload', 'Photographer\PhotoGalleryController@store')->name('photographer.post-upload-photo');
     Route::get('photo_history', 'Photographer\PhotoGalleryController@photo_history')->name('photographer.photo_history');
+
+    Route::get('profile', 'Photographer\ProfileController@profile')->name('photographer.profile');
+    Route::post('update-profile', 'Photographer\ProfileController@update_profile')->name('photographer.update-profile');
 });
 
