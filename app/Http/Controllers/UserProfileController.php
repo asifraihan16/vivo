@@ -114,14 +114,15 @@ class UserProfileController extends Controller
 
         $rules = [
             // 'img' => 'max:100|dimensions:width=300,height=300',
-            'img' => 'dimensions:width=150,height=150',
+            // 'img' => 'dimensions:width=150,height=150',
+            'img' => 'nullable|mimes:jpeg,jpg,bmp,png',
             'name' => 'required',
         ];
 
         $customMessages = [
             // 'name.required' => 'Please Provide Name',
             // 'name.unique' => 'Already There Is a Mobile Series With This Name',
-            'img.dimensions' => 'User Image Size = Width : 150px, Height : 150px',
+            // 'img.dimensions' => 'User Image Size = Width : 150px, Height : 150px',
         ];
 
         $this->validate($request, $rules, $customMessages);
@@ -133,7 +134,7 @@ class UserProfileController extends Controller
                 // $image_old = storage_path('') . '/' . $user_info->img;
                 // unlink($image_old);
             }
-            $image_url = $this->fileUploadService->upload('img', 'profile_image');
+            $image_url = $this->fileUploadService->resizeUpload('img', 150, 150, 'profile_image');
 
             /* $image_name = $request->name;
             $upload_path = storage_path() . '/app/public/profile_image/';
@@ -188,7 +189,8 @@ class UserProfileController extends Controller
 
         $rules = [
             // 'img' => 'max:100|dimensions:width=300,height=300',
-            'img' => 'mimes:jpeg,jpg,png',
+            // 'img' => 'mimes:jpeg,jpg,png',
+            'img' => 'nullable|mimes:jpeg,jpg,bmp,png',
             'name' => 'required',
         ];
 
@@ -207,7 +209,7 @@ class UserProfileController extends Controller
                 // $image_old = storage_path('') . '/' . $user_info->img;
                 // unlink($image_old);
             }
-            $image_url = $this->fileUploadService->upload('img', 'profile_image');
+            $image_url = $this->fileUploadService->resizeUpload('img', 150, 150, 'profile_image');
 
             /* $image_name = $request->name;
             $upload_path = storage_path() . '/app/public/profile_image/';
