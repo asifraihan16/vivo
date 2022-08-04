@@ -44,7 +44,7 @@
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="horizontalInput1"
                                                                 placeholder="Enter Title" name="title"
-                                                                value="{{ $gallery_photo->mobile_series_version->name }}"
+                                                                value="{{ $gallery_photo->mobile_series_version->name ?? '' }}"
                                                                 readonly>
                                                         </div>
                                                     </div>
