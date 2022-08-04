@@ -62,7 +62,7 @@
                                     @foreach($photo_galleries as $key=>$value)
                                         <tr>
                                             <td>{{ $key+1 }}</td>
-                                            <td>{{ $value->mobile_series_version->name }}</td>
+                                            <td>{{ $value->mobile_series_version->name ?? 'N/A' }}</td>
                                             <td>{{ $value->title }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalLarge{{$value->id}}">
