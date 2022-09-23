@@ -82,9 +82,11 @@
                                                             @foreach ($image_lists as $moment)
                                                                 <div class="column is-6 branding aos-init" style="">
                                                                     <div class="work-item">
-                                                                        <div class="photo-like-area" id="photo-like-area-{{ $moment->id }}">
+                                                                        <div class="photo-like-area"
+                                                                            id="photo-like-area-{{ $moment->id }}">
 
-                                                                            <i class="fa fa-heart"></i> {{ $moment->likes_count }}
+                                                                            <i class="fa fa-heart"></i>
+                                                                            {{ $moment->likes_count }}
                                                                         </div>
                                                                         <figure>
                                                                             <a href="{{ $moment->img ? Storage::url($moment->img) : '' }}"
@@ -115,11 +117,11 @@
                                                             @endforeach
 
                                                         </div>
-                                                        @if($image_lists->count())
-                                                        <div style="text-align:center;">
-                                                            <a href="{{ route('frontend.previous_campaign_photos', $data->id) }}"
-                                                                class="button is-danger is-radiusless">View All</a>
-                                                        </div>
+                                                        @if ($image_lists->count())
+                                                            <div style="text-align:center;">
+                                                                <a href="{{ route('frontend.campaign-photos', $data->id) }}"
+                                                                    class="button is-danger is-radiusless">View All</a>
+                                                            </div>
                                                         @endif
                                                         <!-- .columns -->
                                                     </div>
@@ -184,6 +186,5 @@
             }
 
         }
-
     </style>
 @endsection
