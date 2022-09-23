@@ -55,6 +55,8 @@
                                             </figcaption>
                                         </a>
                                     </figure>
+
+                                    {{-- <p style="color: #5c5c5c;"><b>Story:</b> {{ $image_details->story ?? '-' }}</p> --}}
                                 </div>
                             </div>
 
@@ -92,6 +94,14 @@
                                                             <i class="icon-tag"></i>
                                                         </span>
                                                         Tags : {{ $image_tags->join(', ') }}
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span class="icon">
+                                                            <i class="icon-tag"></i>
+                                                        </span>
+                                                        Story : {{ $image_details->story ?? '-' }}
                                                     </p>
                                                 </li>
                                             </ul>

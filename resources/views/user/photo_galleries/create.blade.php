@@ -61,6 +61,18 @@
                                                             {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
                                                         </div>
                                                     </div>
+                                                    
+                                                    <div class="mb-3 row">
+                                                        <label for="story"
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Photo Story</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="story"
+                                                                placeholder="Enter Photo Story" name="story"
+                                                                value="{{ old('story') }}">
+                                                                <span class="text-danger">* Maximum 200 Character</span>
+                                                            {!! $errors->first('story', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div>
 
                                                     <div class="mb-3 row">
                                                         <label for="horizontalInput1"
@@ -178,6 +190,9 @@
                     }
                     if (errors.campaign_id) {
                         msg += "* " + errors.campaign_id[0];
+                    }
+                    if (errors.story) {
+                        msg += "* " + errors.story[0];
                     }
                     msg += '</div>';
                     $('#err').html(msg)

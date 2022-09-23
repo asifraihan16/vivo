@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PhotoGallery extends Model
 {
     protected $table = 'photo_galleries';
-    protected $fillable = ['mobile_series_versions_id','title', 'img', 'img_thumbnail', 'status', 'users_id', 'campaign_id', 'is_photographer_image'];
+    protected $fillable = ['mobile_series_versions_id','title', 'story', 'img', 'img_thumbnail', 'status', 'users_id', 'campaign_id', 'is_photographer_image'];
 
     public function mobile_series_version()
     {

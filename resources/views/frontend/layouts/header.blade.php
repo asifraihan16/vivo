@@ -94,7 +94,7 @@
                                         </li>
 
                                         <li class="{{ strtolower($active_menu) == 'videos' ? 'active' : '' }}">
-                                            <a href="{{ route('frontend.videos') }}">Videos</a>
+                                            <a href="{{ route('frontend.videos') }}">Video</a>
                                         </li>
 
                                         <li class="{{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">
@@ -103,7 +103,7 @@
 
 
                                         <li class="{{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
-                                            <a href="{{ route('frontend.photographer') }}">Photographers</a>
+                                            <a href="{{ route('frontend.photographer') }}">Photographer</a>
                                         </li>
 
                                         {{-- <li>

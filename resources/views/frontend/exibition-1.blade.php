@@ -92,10 +92,10 @@
                                                         $campaign_of_photo = $ongoing_campaigns->firstWhere('id', $photo->campaign_id)
                                                     @endphp
                                                     @if($campaign_of_photo && $campaign_of_photo->campaign_status == 2 && auth()->user())
-                                                        <a href="javascript:;" class="{{ in_array($photo->id, $liked_photos_id) ? 'liked' : 'unliked' }}"
+                                                        {{-- <a href="javascript:;" class="{{ in_array($photo->id, $liked_photos_id) ? 'liked' : 'unliked' }}"
                                                             onclick="likeGalleryPhoto({{ $photo->id }})" id="photo-like-btn-{{ $photo->id }}">
                                                             <i class="fa fa-heart"></i>
-                                                        </a>
+                                                        </a> --}}
                                                     @else
                                                         {{ $photo->likes_count }}
                                                     @endif
@@ -104,7 +104,7 @@
                                                     <a href="{{ url('image_description/' . $photo->id) }}"
                                                         class="">
                                                         <img alt="Exibition Image"
-                                                            src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                        src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                         {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
                                                             data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
                                                     </a>

@@ -26,7 +26,8 @@
                                             <th>Slider Image 1</th>
                                             {{-- <th>Slider Image 2</th>
                                             <th>Slider Image 3</th> --}}
-                                            <th>Description</th>
+                                            {{-- <th>Description</th> --}}
+                                            <th>Start Date</th>
                                             <th>Status</th>
                                             <th class="text-right">Action</th>
                                         </tr>
@@ -43,15 +44,17 @@
                                                         src="{{ $value->img2 ? Storage::url($value->img2) : '' }}"></td>
                                                 <td><img width="100px"
                                                         src="{{ $value->img3 ? Storage::url($value->img3) : '' }}"></td> --}}
-                                                <td>{{ Str::limit($value->desc, 100) }}</td>
+                                                {{-- <td>{{ Str::limit($value->desc, 100) }}</td> --}}
+                                                <td>{{ $value->start_date ? date('d-M, Y', strtotime($value->start_date)) : '-' }}</td>
                                                 <td>
-                                                    @if ($value->campaign_status === 1)
+                                                    {!! $value->status !!}
+                                                    {{-- @if ($value->campaign_status === 1)
                                                         <span style="color: #999">Draft</span>
                                                     @elseif ($value->campaign_status === 2)
                                                         <span class="text-success">On-going</span>
                                                     @elseif ($value->campaign_status === 3)
                                                         <span class="text-danger">Closed</span>
-                                                    @endif
+                                                    @endif --}}
                                                 </td>
                                                 <td class="text-right">
                                                     <a href="{{ route('campaigns.edit', $value->id) }}" class="btn btn-outline-warning btn-sm">Edit</a>
