@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Campaign;
 use App\Services\FileUploadService;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,9 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        $data = Campaign::all();
-
-        // return $data;
+        $data = Campaign::query()
+            ->latest()
+            ->get();
 
         return view('admin.campaigns.index', compact('data'));
     }
@@ -56,8 +57,10 @@ class CampaignController extends Controller
             'img2' => 'dimensions:width=1920,height=850',
             'img3' => 'dimensions:width=1920,height=850',
             'desc' => 'required',
-            'campaign_status' => 'required|integer|in:1,2',
+            // 'campaign_status' => 'required|integer|in:1,2',
+            'start_date' => 'nullable|date_format:d-m-Y'
         ];
+
 
         $customMessages = [
             // 'product_image.required' => 'Please Provide Product Image',
@@ -86,6 +89,15 @@ class CampaignController extends Controller
             $image_url3 = $this->fileUploadService->upload('img3', 'campaign');
         }
 
+        $campaign_status = 1;
+        $start_date = NULL;
+
+        if ($request->start_date) {
+            $start_date = Carbon::createFromFormat('d-m-Y', $request->start_date)->format('Y-m-d');
+
+            $campaign_status = now()->gte($start_date) ? 2 : 1;
+        }
+
         Campaign::create([
             'title' => $request->title,
             'title_detail' => $request->title_detail,
@@ -93,8 +105,9 @@ class CampaignController extends Controller
             'img2' => $image_url2,
             'img3' => $image_url3,
             'desc' => $request->desc,
-            'campaign_status' => $request->campaign_status,
-            'started_at' => $request->campaign_status == 2 ? now() : NULL,
+            'campaign_status' => $campaign_status,
+            // 'started_at' => $request->campaign_status == 2 ? now() : NULL,
+            'start_date' => $start_date,
         ]);
 
         return redirect()->route('campaigns.index');
@@ -127,7 +140,8 @@ class CampaignController extends Controller
             'img2' => 'dimensions:width=1920,height=850',
             'img3' => 'dimensions:width=1920,height=850',
             'desc' => 'required',
-            'campaign_status' => 'required|integer|in:1,2,3',
+            // 'campaign_status' => 'required|integer|in:1,2,3',
+            'start_date' => 'nullable|date_format:d-m-Y'
         ];
 
         $customMessages = [
@@ -167,6 +181,15 @@ class CampaignController extends Controller
             $image_url3 = $this->fileUploadService->upload('img3', 'campaign');
         }
 
+        $campaign_status = $campaign->campaign_status;
+        $start_date = $campaign->start_date;
+
+        if ($request->start_date) {
+            $start_date = Carbon::createFromFormat('d-m-Y', $request->start_date)->format('Y-m-d');
+
+            $campaign_status = now()->gte($start_date) ? 2 : 1;
+        }
+
         Campaign::where('id', $campaign->id)->update([
             'title' => $request->title,
             'title_detail' => $request->title_detail,
@@ -174,7 +197,8 @@ class CampaignController extends Controller
             'img2' => $image_url2,
             'img3' => $image_url3,
             'desc' => $request->desc,
-            'campaign_status' => $request->campaign_status,
+            'campaign_status' => $campaign_status,
+            'start_date' => $start_date,
         ]);
 
         return redirect()->route('campaigns.index')->with('success', $request->name . ' Blog Updated Successfully');

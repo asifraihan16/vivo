@@ -50,6 +50,8 @@
                                         <div class="entry-content content">
                                             {!! $data->desc !!}
                                         </div>
+
+                                        
                                     </div>
 
                                 </div>
@@ -61,6 +63,13 @@
                                         <a href="{{ route('user.photo-upload') }}" class="button is-danger is-rounded ">Join
                                             Now</a>
                                     @endguest
+                                @endif
+
+
+                                @if ($data->start_date && now()->gte($data->start_date) && $data->campaign_status == 2)
+                                <p style="text-align: center; margin-top: 30px;">Ends In,</p>
+                                <div class='countdown' style="margin-top: 10px; text-align: center;"
+                                    data-date="{{ \Carbon\Carbon::parse($data->start_date)->addDays(20)->format('Y-m-d') }}" data-time="00:00"></div>
                                 @endif
                             </article>
 
@@ -144,6 +153,8 @@
 
 
 @section('styles')
+    <link rel="stylesheet" href="{{ asset('frontend/assets/js/countdown-timer/css/countdown.css') }}">
+
     <style>
         .post-meta ul li span {
             color: #4768FF !important;
@@ -186,5 +197,61 @@
             }
 
         }
+
+
+
+        .countdown {
+            font-family: 'Roboto';
+            text-transform: uppercase;
+        }
+
+        .countdown>div {
+            display: inline-block;
+        }
+
+        .countdown>div>span {
+            display: block;
+            text-align: center;
+        }
+
+        .countdown-container {
+            margin: 0 3px;
+        }
+
+        .countdown-container .countdown-heading {
+            font-size: 11px;
+            margin: 3px;
+            color: #666
+        }
+
+        .countdown-container .countdown-value {
+            font-size: 25px;
+            /* background: #6273c9; */
+            /* background: linear-gradient(0deg, rgba(20,165,167,1) 0%, rgba(109,253,255,1) 100%); */
+            background: rgb(51,66,228);
+            background: linear-gradient(0deg, rgba(51,66,228,1) 0%, rgba(207,211,255,1) 100%);
+            padding: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4)
+        }
     </style>
+@endsection
+
+
+@section('scripts')
+    {{-- <script src="{{ asset('frontend/assets/js/countdown-timezone/js/countdown.jquery.min.js') }}" defer></script> --}}
+    <script src="{{ asset('frontend/assets/js/countdown-timer/js/countdown.js') }}" defer></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#countdown').countdown({
+                year: 2022, // YYYY Format
+                month: 9, // 1-12
+                day: 25, // 1-31
+                hour: 0, // 24 hour format 0-23
+                minute: 0, // 0-59
+                second: 0, // 0-59
+            });
+        });
+    </script>
 @endsection

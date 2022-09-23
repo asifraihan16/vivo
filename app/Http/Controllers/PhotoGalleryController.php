@@ -46,6 +46,7 @@ class PhotoGalleryController extends Controller
         $rules = [
             'mobile_series_versions_id' => 'required',
             'title' => 'string|required',
+            'story' => 'string|nullable|max:200',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
             'img' => 'required|image',
             'tags_id' => 'required',
@@ -73,6 +74,7 @@ class PhotoGalleryController extends Controller
         $photo_galleries = new PhotoGallery;
         $photo_galleries->mobile_series_versions_id = $request->mobile_series_versions_id;
         $photo_galleries->title = $request->title;
+        $photo_galleries->story = $request->story ?? NULL;
         $photo_galleries->img = $image_url;
         $photo_galleries->img_thumbnail = $image_thumb_url;
         $photo_galleries->status = 0;

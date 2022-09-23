@@ -1,21 +1,22 @@
 @extends('admin.layouts.app')
 
 @section('content-css')
-    <!-- <link href="{{ URL::asset('public/admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="{{ URL::asset('public/admin/assets/plugins/huebee/huebee.min.css') }}" rel="stylesheet" type="text/css" /> -->
-    <!-- <link href="{{ URL::asset('public/admin/assets/plugins/timepicker/bootstrap-material-datetimepicker.css') }}" rel="stylesheet"> -->
-    <!-- <link href="{{ URL::asset('public/admin/assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" /> -->
+    {{-- <link href="{{ URL::asset('public/admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('public/admin/assets/plugins/huebee/huebee.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('public/admin/assets/plugins/timepicker/bootstrap-material-datetimepicker.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('public/admin/assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" />
 
-    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
         <script>
             tinymce.init({
                 selector: '#mytextarea'
             });
-        </script> -->
-    <link href="{{ URL::asset('public/admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ URL::asset('public/admin/assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet">
+        </script>
+    <link href="{{ URL::asset('public/admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" /> --}}
+    {{-- <link href="{{ URL::asset('public/admin/assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet"> --}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css">
 @endsection
 
 @section('content')
@@ -93,7 +94,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="mb-3 row">
+                                                    {{-- <div class="mb-3 row">
                                                         <label for="horizontalInput1"
                                                             class="col-sm-2 form-label align-self-center mb-lg-0">Campaing
                                                             Status</label>
@@ -102,9 +103,18 @@
                                                                 class="form-control" required>
                                                                 <option value="1">Draft</option>
                                                                 <option value="2">On Going</option>
-                                                                {{-- <option value="3">End</option> --}}
                                                             </select>
                                                             {!! $errors->first('campaign_status', '<p class="help-block">:message</p>') !!}
+                                                        </div>
+                                                    </div> --}}
+                                                    
+                                                    <div class="mb-3 row">
+                                                        <label for="start_date"
+                                                            class="col-sm-2 form-label align-self-center mb-lg-0">Campaing Start Date</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-10">
+                                                            <input type="text" name="start_date" id="start_date" 
+                                                                class="form-control" value="{{ old('start_date') }}" placeholder="dd-mm-yyyy" readonly>
+                                                            {!! $errors->first('start_date', '<p class="help-block">:message</p>') !!}
                                                         </div>
                                                     </div>
 
@@ -144,20 +154,41 @@
 @endsection
 
 @section('content-js')
-    <!-- <script src="{{ URL::asset('public/admin/assets/plugins/select2/select2.min.js') }}"></script> -->
-    <!-- <script src="{{ URL::asset('public/admin/assets/plugins/huebee/huebee.pkgd.min.js') }}"></script> -->
-    <!-- <script src="{{ URL::asset('public/admin/assets/plugins/timepicker/bootstrap-material-datetimepicker.js') }}">
-    </script> -->
-    <!-- <script src="{{ URL::asset('public/admin/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}">
-    </script> -->
-    <!-- <script
+    {{-- <script src="{{ URL::asset('public/admin/assets/plugins/select2/select2.min.js') }}"></script>
+    <script src="{{ URL::asset('public/admin/assets/plugins/huebee/huebee.pkgd.min.js') }}"></script> -->
+    <script src="{{ URL::asset('public/admin/assets/plugins/timepicker/bootstrap-material-datetimepicker.js') }}">
+    </script> --}}
+    {{-- <script src="{{ URL::asset('public/admin/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}">
+    </script> --}}
+    {{-- <script
         src="{{ URL::asset('public/admin/assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js') }}">
-    </script> -->
+    </script> --}}
 
-    <!-- <script src="{{ URL::asset('public/admin/assets/pages/jquery.forms-advanced.js') }}"></script> -->
+    {{-- <script src="{{ URL::asset('public/admin/assets/pages/jquery.forms-advanced.js') }}"></script> --}}
 
-    <script src="{{ URL::asset('public/admin/assets/plugins/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ URL::asset('public/admin/assets/pages/jquery.form-editor.init.js') }}"></script>
-    <script src="{{ URL::asset('public/admin/assets/plugins/dropify/js/dropify.min.js') }}"></script>
-    <script src="{{ URL::asset('public/admin/assets/pages/jquery.form-upload.init.js') }}"></script>
+    {{-- <script src="{{ URL::asset('public/admin/assets/plugins/tinymce/tinymce.min.js') }}"></script> --}}
+    {{-- <script src="{{ URL::asset('public/admin/assets/pages/jquery.form-editor.init.js') }}"></script> --}}
+    {{-- <script src="{{ URL::asset('public/admin/assets/plugins/dropify/js/dropify.min.js') }}"></script> --}}
+    {{-- <script src="{{ URL::asset('public/admin/assets/pages/jquery.form-upload.init.js') }}"></script> --}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /* $('#start_date').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 2021,
+                maxYear: parseInt(moment().format('YYYY'),10)
+            }) */
+
+            $('#start_date').datepicker({
+                format: "dd-mm-yyyy",
+                autoclose: true,
+                clearBtn: true,
+                todayBtn: "linked",
+            })
+        });
+    </script>
 @endsection
