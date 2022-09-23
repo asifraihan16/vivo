@@ -24,9 +24,9 @@
             <div id="content-area-inner" class="site-content-area-inner">
                 <section class="section is-clearfix {{-- has-background-primary-light --}} hero" style="background-color: #fafafa !important;">
                     <div class="container">
-                        <h1 class="heading-title style-1">Campaign List</h1>
-                        <br>
-                        <br>
+                        {{-- <h1 class="heading-title style-1">Campaign List</h1> --}}
+                        {{-- <br> --}}
+                        {{-- <br> --}}
 
                         <div class="blog-list style-3 columns is-variable is-4 is-multiline">
                             @foreach ($campaigns as $data)

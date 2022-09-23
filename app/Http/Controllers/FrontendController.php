@@ -39,8 +39,16 @@ class FrontendController extends Controller
         $last_campaign_name = $last_campaign->title ?? '';
         $campaign_url = $ongoing_campaign ? route('frontend.campaign_detail', ['id' => $ongoing_campaign->id]) : route('frontend.campaign');
         $last_campaign = $last_campaign ? route('frontend.campaign_detail', ['id' => $last_campaign->id]) : route('frontend.campaign');
+        $ongoing_campaign_photos_url = $ongoing_campaign ? route('frontend.campaign-photos', ['id' => $ongoing_campaign->id]) : route('frontend.campaign');
 
-        return view('frontend.home', compact('home_sliders', 'moments', 'campaign_url','last_campaign','last_campaign_name'));
+        return view('frontend.home', compact(
+            'home_sliders', 
+            'moments', 
+            'campaign_url',
+            'last_campaign',
+            'last_campaign_name',
+            'ongoing_campaign_photos_url',
+        ));
     }
 
     public function photographer()
@@ -203,7 +211,7 @@ class FrontendController extends Controller
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'moments', 'liked_photos_id', 'ongoing_campaigns'));
     }
 
-    public function previous_campaign_photoes($id)
+    public function campaign_photos($id)
     {
         // view()->share('active_menu', 'gallery');
 
@@ -370,7 +378,7 @@ class FrontendController extends Controller
                 DB::raw('count(gallery_photo_likes.photo_gallery_id) as likes_count')
             )
             ->where('photo_galleries.campaign_id', '=', $id)
-            ->where('photo_galleries.is_winner', '=', 1)
+            // ->where('photo_galleries.is_winner', '=', 1)
             ->groupBy('photo_galleries.id')
             ->orderByRaw('count(gallery_photo_likes.photo_gallery_id) desc')
             ->limit(5)

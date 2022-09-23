@@ -84,6 +84,10 @@
                                         <li class="{{ isset($active_menu) && strtolower($active_menu) == 'home' ? 'active' : '' }}">
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
+                                        
+                                        <li class="{{ strtolower($active_menu) == 'campaign' ? 'active' : '' }}">
+                                            <a href="{{ url('/campaign') }}">Campaign</a>
+                                        </li>
 
                                         <li class="{{ strtolower($active_menu) == 'gallery' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.gallery') }}">Gallery</a>
@@ -97,9 +101,6 @@
                                             <a href="{{ url('/blogs') }}">Blogs</a>
                                         </li>
 
-                                        <li class="{{ strtolower($active_menu) == 'campaign' ? 'active' : '' }}">
-                                            <a href="{{ url('/campaign') }}">Campaign</a>
-                                        </li>
 
                                         <li class="{{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.photographer') }}">Photographers</a>

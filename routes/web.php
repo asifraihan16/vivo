@@ -16,7 +16,7 @@ Route::get('/campaign', 'FrontendController@campaign')->name('frontend.campaign'
 Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail')->name('frontend.campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
 //previous
-Route::get('/previous_campaign_photos/{id}', 'FrontendController@previous_campaign_photoes')->name('frontend.previous_campaign_photos');
+Route::get('/campaign-photos/{id}', 'FrontendController@campaign_photos')->name('frontend.campaign-photos');
 Route::get('/image_description/{id}', 'FrontendController@image_description');
 Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-series');
 
