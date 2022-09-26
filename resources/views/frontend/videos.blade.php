@@ -26,17 +26,17 @@
                         <div class="columns is-centered">
                             <div class="column is-8" data-aos="fade">
                                 <div class="works-latest">
-                                    <div class="works-latest-item">
+                                    <div class="works-latest-item video-item-main">
                                         {{-- <img alt="vivo Moments - Video" src="{{ asset('frontend/assets/images/global/introduction.png') }}"> --}}
                                         <img alt="vivo Moments - Video" src="{{ Storage::disk('s3')->url($main_video->img) }}" style="width: 100%;">
-                                        <div class="works-latest-item-icon style-2">
-                                            <a href="{{ $main_video->link }}" class="mfp-lightbox mfp-iframe">
-                                                <span class="icon ripple-effect">
+                                        {{-- <div class="works-latest-item-icon style-2"> --}}
+                                            <a href="{{ $main_video->link }}" class="mfp-lightbox mfp-iframe icon ripple-effect video-item-main-icon-area">
+                                                {{-- <span class="icon ripple-effect"> --}}
                                                     {{-- <i class="ion-ios-play"></i> --}}
-                                                    <img src="{{ asset('frontend/assets/images/music-icon-02.png') }}" alt="Play Button">
-                                                </span>
+                                                    <img src="{{ asset('frontend/assets/images/play-button.png') }}" alt="Play Button" class="video-thumb-image-main" />
+                                                {{-- </span> --}}
                                             </a>
-                                        </div>
+                                        {{-- </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -48,16 +48,16 @@
                                     @foreach ($videos as $video)
                                     <div class="column is-6" data-aos="fade">
                                         <div class="works-latest">
-                                            <div class="works-latest-item">
+                                            <div class="works-latest-item video-item-other">
                                                 <img alt="vivo Moments - Video" src="{{ Storage::disk('s3')->url($video->img) }}" style="width: 100%;">
-                                                <div class="works-latest-item-icon style-2">
-                                                    <a href="{{ $video->link }}" class="mfp-lightbox mfp-iframe">
-                                                        <span class="icon ripple-effect">
+                                                {{-- <div class="works-latest-item-icon style-2"> --}}
+                                                    <a href="{{ $video->link }}" class="mfp-lightbox mfp-iframe icon ripple-effect video-item-other-icon-area">
+                                                        {{-- <span class="icon ripple-effect"> --}}
                                                             {{-- <i class="ion-ios-play"></i> --}}
-                                                            <img src="{{ asset('frontend/assets/images/music-icon-02.png') }}" alt="Play Button">
-                                                        </span>
+                                                            <img src="{{ asset('frontend/assets/images/play-button.png') }}" alt="Play Button" class="video-thumb-image-other">
+                                                        {{-- </span> --}}
                                                     </a>
-                                                </div>
+                                                {{-- </div> --}}
                                             </div>
                                         </div>
                                     </div>
