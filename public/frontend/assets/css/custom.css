@@ -11,9 +11,50 @@
     src: url('/frontend/assets/fonts/vivotypeEN-Regular.ttf');
 }
 
+/* @font-face {
+    font-family: 'vivo-type-CN-Light';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/frontend/assets/fonts/vivo-type-CN-Light.otf') format("opentype");
+} 
+@font-face {
+    font-family: 'vivo-type-CN-Bold';
+    font-style: normal;
+    font-weight: bold;
+    src: url('/frontend/assets/fonts/vivo-type-CN-Bold.otf') format("opentype");
+}*/
+
+@font-face {
+    font-family: 'vivo-type-CN-Light';
+    src: url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Light--GB1-0-pc-EUC-h.eot');
+    src: url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Light--GB1-0-pc-EUC-h.eot?#iefix') format('embedded-opentype'),
+        url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Light--GB1-0-pc-EUC-h.woff2') format('woff2'),
+        url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Light--GB1-0-pc-EUC-h.woff') format('woff'),
+        url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Light--GB1-0-pc-EUC-h.ttf') format('truetype'),
+        url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Light--GB1-0-pc-EUC-h.svg#vivo type CNS Light--GB1-0-pc-EUC-h') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'vivo-type-CN-Bold';
+    src: url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Bold--GB1-0-pc-EUC-h.eot');
+    src: url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Bold--GB1-0-pc-EUC-h.eot?#iefix') format('embedded-opentype'),
+        url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Bold--GB1-0-pc-EUC-h.woff2') format('woff2'),
+        url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Bold--GB1-0-pc-EUC-h.woff') format('woff'),
+        url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Bold--GB1-0-pc-EUC-h.ttf') format('truetype'),
+        url('/frontend/assets/fonts/vivo-fonts/vivo_type_CNS_Bold--GB1-0-pc-EUC-h.svg#vivo type CNS Light--GB1-0-pc-EUC-h') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 * {
     /* font-family: vivotypeEN-Regular !important; */
-    font-family: "languageFont", "AvenirNext", "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, sans-serif, "WebRupee";
+    /* font-family: "languageFont", "AvenirNext", "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, sans-serif, "WebRupee"; */
+    font-family: "vivo-type-CN-Light", "AvenirNext", "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, sans-serif, "WebRupee";
 }
 
 body,
@@ -31,7 +72,8 @@ footer .widget-links,
 .widget,
 .button {
     /* font-family: vivotypeEN-Regular !important; */
-    font-family: "languageFont", "AvenirNext", "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, sans-serif, "WebRupee";
+    /* font-family: "languageFont", "AvenirNext", "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, sans-serif, "WebRupee"; */
+    font-family: "vivo-type-CN-Light", "AvenirNext", "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, sans-serif, "WebRupee";
 }
 
 .works-latest .works-latest-item .works-latest-item-meta h5 a,
@@ -193,7 +235,7 @@ body .image-hover figure img {
 
 
 .main-navigation>ul>li>a:hover {
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .show-on-mobile {

@@ -1,0 +1,26 @@
+@font-face {
+    font-family: '';
+    src: url('vivo_type_CNS_Bold--GB1-0-pc-EUC-h.eot');
+    src: url('vivo_type_CNS_Bold--GB1-0-pc-EUC-h.eot?#iefix') format('embedded-opentype'),
+        url('vivo_type_CNS_Bold--GB1-0-pc-EUC-h.woff2') format('woff2'),
+        url('vivo_type_CNS_Bold--GB1-0-pc-EUC-h.woff') format('woff'),
+        url('vivo_type_CNS_Bold--GB1-0-pc-EUC-h.ttf') format('truetype'),
+        url('vivo_type_CNS_Bold--GB1-0-pc-EUC-h.svg#vivo type CNS Bold--GB1-0-pc-EUC-h') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: '';
+    src: url('vivo_type_CNS_Light--GB1-0-pc-EUC-h.eot');
+    src: url('vivo_type_CNS_Light--GB1-0-pc-EUC-h.eot?#iefix') format('embedded-opentype'),
+        url('vivo_type_CNS_Light--GB1-0-pc-EUC-h.woff2') format('woff2'),
+        url('vivo_type_CNS_Light--GB1-0-pc-EUC-h.woff') format('woff'),
+        url('vivo_type_CNS_Light--GB1-0-pc-EUC-h.ttf') format('truetype'),
+        url('vivo_type_CNS_Light--GB1-0-pc-EUC-h.svg#vivo type CNS Light--GB1-0-pc-EUC-h') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
