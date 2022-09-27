@@ -67,6 +67,14 @@
             <div id="content-area-inner" class="site-content-area-inner">
                 <section class="section works-list is-clearfix padding-3rem">
                     <div class="container width-80-percent">
+                        @if ($ongoing_campaign && $ongoing_campaign->start_date && now()->gte($ongoing_campaign->start_date) && $ongoing_campaign->campaign_status == 2)
+                        <div class="" style="margin-bottom: 30px;">
+                            <p style="text-align: center;">Ends In,</p>
+                            <div class='countdown' style="text-align: center;"
+                                data-date="{{ \Carbon\Carbon::parse($ongoing_campaign->start_date)->addDays(20)->format('Y-m-d') }}" data-time="00:00"></div>
+                        </div>
+                        @endif
+
                         <h1 class="heading-title style-1" style="text-transform: inherit;">Best Moments of vivo</h1>
                         <br>
                         <div class="works isotope image-hover effect-8">
@@ -237,12 +245,18 @@
 @endsection
 
 @section('scripts')
+<script src="{{ asset('frontend/assets/js/countdown-timer/js/countdown.js') }}" defer></script>
+
 <script type="text/javascript">
-// document.getElementById("demo").innerHTML = "Screen Width: " + window.innerWidth + ' = ' + $(window).width();
+    $(document).ready(function() {
+        
+    });
 </script>
 @endsection
 
 @section('styles')
+<link rel="stylesheet" href="{{ asset('frontend/assets/js/countdown-timer/css/countdown.css') }}">
+
     <style>
         .post-meta ul li span {
             color: #4768FF !important;
@@ -284,6 +298,42 @@
                 top: 50% !important;
             }
 
+        }
+
+
+        .countdown {
+            font-family: 'Roboto';
+            text-transform: uppercase;
+        }
+
+        .countdown>div {
+            display: inline-block;
+        }
+
+        .countdown>div>span {
+            display: block;
+            text-align: center;
+        }
+
+        .countdown-container {
+            margin: 0 3px;
+        }
+
+        .countdown-container .countdown-heading {
+            font-size: 11px;
+            margin: 3px;
+            color: #666
+        }
+
+        .countdown-container .countdown-value {
+            font-size: 25px;
+            /* background: #6273c9; */
+            /* background: linear-gradient(0deg, rgba(20,165,167,1) 0%, rgba(109,253,255,1) 100%); */
+            background: rgb(61,90,219);
+background: linear-gradient(0deg, rgba(61,90,219,1) 0%, rgba(168,167,255,1) 100%);
+            padding: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4)
         }
 
     </style>
