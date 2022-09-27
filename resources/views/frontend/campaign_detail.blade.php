@@ -243,15 +243,6 @@
     <script src="{{ asset('frontend/assets/js/countdown-timer/js/countdown.js') }}" defer></script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#countdown').countdown({
-                year: 2022, // YYYY Format
-                month: 9, // 1-12
-                day: 25, // 1-31
-                hour: 0, // 24 hour format 0-23
-                minute: 0, // 0-59
-                second: 0, // 0-59
-            });
-        });
+
     </script>
 @endsection

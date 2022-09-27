@@ -47,6 +47,7 @@ class FrontendController extends Controller
             'campaign_url',
             'last_campaign',
             'last_campaign_name',
+            'ongoing_campaign',
             'ongoing_campaign_photos_url',
         ));
     }
