@@ -382,7 +382,7 @@ class FrontendController extends Controller
             // ->where('photo_galleries.is_winner', '=', 1)
             ->groupBy('photo_galleries.id')
             ->orderByRaw('count(gallery_photo_likes.photo_gallery_id) desc')
-            ->limit(5)
+            ->limit(10)
             ->get();
 
         return view('frontend.campaign_detail', compact('data','image_lists'));
