@@ -69,7 +69,7 @@
                     <div class="container width-80-percent">
                         @if ($ongoing_campaign && $ongoing_campaign->start_date && now()->gte($ongoing_campaign->start_date) && $ongoing_campaign->campaign_status == 2)
                         <div class="" style="margin-bottom: 30px;">
-                            <p style="text-align: center;">Ends In,</p>
+                            <p class="ends-in-text">Ends In,</p>
                             <div class='countdown' style="text-align: center;"
                                 data-date="{{ \Carbon\Carbon::parse($ongoing_campaign->start_date)->addDays(20)->format('Y-m-d') }}" data-time="00:00"></div>
                         </div>
@@ -300,9 +300,18 @@
 
         }
 
-
+        .ends-in-text {
+            text-align: center;
+            color: rgba(65, 95, 255, 1.0) !important;
+            font-family: 'vivo-type-CN-Light' !important;
+            text-transform: uppercase;
+        }
+        
+        
         .countdown {
-            font-family: 'Roboto';
+            /* font-family: 'Roboto'; */
+            font-family: 'vivo-type-CN-Light' !important;
+            color: rgba(65, 95, 255, 1.0) !important;
             text-transform: uppercase;
         }
 
@@ -322,18 +331,21 @@
         .countdown-container .countdown-heading {
             font-size: 11px;
             margin: 3px;
-            color: #666
+            /* color: #666 */
+            font-family: 'vivo-type-CN-Bold' !important;
+            color: rgba(65, 95, 255, 1.0) !important;
         }
-
+        
         .countdown-container .countdown-value {
-            font-size: 25px;
-            /* background: #6273c9; */
-            /* background: linear-gradient(0deg, rgba(20,165,167,1) 0%, rgba(109,253,255,1) 100%); */
-            background: rgb(61,90,219);
-background: linear-gradient(0deg, rgba(61,90,219,1) 0%, rgba(168,167,255,1) 100%);
-            padding: 10px;
+            border-radius: 6%;
+            font-size: 30px;
+            font-family: 'vivo-type-CN-Bold';
+            background-color: rgba(65, 95, 255, 1.0);
+            /* padding: 25px auto !important; */
             color: #fff;
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4)
+            width: 80px;
+            height: 60px;
+            text-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
         }
 
     </style>
