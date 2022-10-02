@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Previous Campaign Photo')
+@section('title', 'Campaign Photos')
 
 @section('content')
     @php
@@ -102,7 +102,7 @@
                                                 <figure>
                                                     <a href="{{ url('image_description/' . $photo->id) }}"
                                                         class="">
-                                                        <img alt="Exibition Image"
+                                                        <img alt="Campaign Image"
                                                             src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
                                                         {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
                                                             data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}

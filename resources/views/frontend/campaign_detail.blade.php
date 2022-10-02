@@ -66,19 +66,19 @@
                                 @endif
 
 
-                                @if ($data->start_date && now()->gte($data->start_date) && $data->campaign_status == 2)
+                                {{-- @if ($data->start_date && now()->gte($data->start_date) && $data->campaign_status == 2)
                                     <div class="" style="margin-bottom: 30px;">
                                         <p class="ends-in-text">Ends In,</p>
                                         <div class='countdown' style="text-align: center;"
                                             data-date="{{ \Carbon\Carbon::parse($data->start_date)->addDays(20)->format('Y-m-d') }}" data-time="00:00"></div>
                                     </div>
-                                @endif
+                                @endif --}}
                             </article>
 
                             <br>
                         </div>
                         <div class="column is-12">
-                            @if ($data->campaign_status == 3)
+                            {{-- @if ($data->campaign_status == 3) --}}
                                 <div id="content-main-wrap" class="is-clearfix">
                                     <div id="content-area" class="site-content-area">
                                         <div id="content-area-inner" class="site-content-area-inner">
@@ -90,23 +90,25 @@
                                                     <div class="works isotope image-hover effect-8">
                                                         <div class="columns is-variable is-1 is-multiline" style="">
 
-                                                            @foreach ($image_lists as $moment)
+                                                            @foreach ($image_lists as $photo)
                                                                 <div class="column is-6 branding aos-init" style="">
                                                                     <div class="work-item">
                                                                         <div class="photo-like-area"
-                                                                            id="photo-like-area-{{ $moment->id }}">
+                                                                            id="photo-like-area-{{ $photo->id }}">
 
                                                                             <i class="fa fa-heart"></i>
-                                                                            {{ $moment->likes_count }}
+                                                                            {{ $photo->likes_count }}
                                                                         </div>
                                                                         <figure>
-                                                                            <a href="{{ $moment->img ? Storage::url($moment->img) : '' }}"
-                                                                                class="mfp-lightbox mfp-image"
-                                                                                title="{{ $moment->title }}">
-                                                                                <img alt="{{ $moment->title }}"
-                                                                                    src="{{ $moment->img ? Storage::url($moment->img) : '' }}"
+                                                                            {{-- <a href="{{ $moment->img ? Storage::url($moment->img) : '' }}" --}}
+                                                                            <a href="{{ url('image_description/' . $photo->id) }}"
+                                                                                {{-- class="mfp-lightbox mfp-image" --}}
+                                                                                title="{{ $photo->title }}">
+                                                                                <img alt="{{ $photo->title }}"
+                                                                                    {{-- src="{{ $moment->img ? Storage::url($moment->img) : '' }}" --}}
+                                                                                    src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"
                                                                                     style="" />
-                                                                                <figcaption>
+                                                                                {{-- <figcaption>
                                                                                     <ul class="social">
                                                                                         <li>
                                                                                             <span class="icon">
@@ -115,11 +117,8 @@
                                                                                             </span>
                                                                                         </li>
                                                                                     </ul>
-
-                                                                                    <h3 class="photo-bottom-caption">
-                                                                                        {{ $moment->title }}</>
-
-                                                                                </figcaption>
+                                                                                    <h3 class="photo-bottom-caption">{{ $photo->title }}</h3>
+                                                                                </figcaption> --}}
                                                                             </a>
                                                                         </figure>
 
@@ -142,7 +141,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+                            {{-- @endif --}}
 
                         </div>
                     </div>
