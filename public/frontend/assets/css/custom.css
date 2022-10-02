@@ -217,7 +217,7 @@ body .image-hover figure img {
 }
 .works-latest .video-item-main a.video-item-main-icon-area {
     position: absolute;
-    bottom: -50px;
+    bottom: -40px;
     left: 60px;
     background-color: transparent;
     width: 100px;
@@ -226,7 +226,7 @@ body .image-hover figure img {
 
 .works-latest .video-item-other a.video-item-other-icon-area {
     position: absolute;
-    bottom: -30px;
+    bottom: -25px;
     left: 40px;
     background-color: transparent;
     width: 65px;
