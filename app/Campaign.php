@@ -18,7 +18,7 @@ class Campaign extends Model
     {
         $class = 'secondary';
         $text = 'Draft';
-        if ($this->campaign_status == 2 && now()->gte($this->start_date)) {
+        if ($this->campaign_status == 2 /* && now()->gte($this->start_date) */) {
             $class = 'success';
             $text = 'Running';
         }
