@@ -92,37 +92,7 @@
 
                                                             @foreach ($image_lists as $photo)
                                                                 <div class="column is-6 branding aos-init" style="">
-                                                                    <div class="work-item">
-                                                                        <div class="photo-like-area"
-                                                                            id="photo-like-area-{{ $photo->id }}">
-
-                                                                            <i class="fa fa-heart"></i>
-                                                                            {{ $photo->likes_count }}
-                                                                        </div>
-                                                                        <figure>
-                                                                            {{-- <a href="{{ $moment->img ? Storage::url($moment->img) : '' }}" --}}
-                                                                            <a href="{{ url('image_description/' . $photo->id) }}"
-                                                                                {{-- class="mfp-lightbox mfp-image" --}}
-                                                                                title="{{ $photo->title }}">
-                                                                                <img alt="{{ $photo->title }}"
-                                                                                    {{-- src="{{ $moment->img ? Storage::url($moment->img) : '' }}" --}}
-                                                                                    src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"
-                                                                                    style="" />
-                                                                                {{-- <figcaption>
-                                                                                    <ul class="social">
-                                                                                        <li>
-                                                                                            <span class="icon">
-                                                                                                <i
-                                                                                                    class="icon-magnifier"></i>
-                                                                                            </span>
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                    <h3 class="photo-bottom-caption">{{ $photo->title }}</h3>
-                                                                                </figcaption> --}}
-                                                                            </a>
-                                                                        </figure>
-
-                                                                    </div>
+                                                                    <x-image-tile :photo="$photo" :campaign="$data" :userLikedPhotos="$user_liked_photos" />
                                                                 </div>
                                                             @endforeach
 

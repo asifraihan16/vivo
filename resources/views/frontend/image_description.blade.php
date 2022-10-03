@@ -35,7 +35,10 @@
                                                 <i class="fa fa-heart"></i>
                                             </a>
                                         @else
+                                        <a href="javascript:;" class="likes">
+                                            <i class="fa fa-heart"></i>
                                             {{ $image_details->likes_count }}
+                                        </a>
                                         @endif
                                     </div>
 

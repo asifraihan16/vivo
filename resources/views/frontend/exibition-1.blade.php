@@ -86,16 +86,18 @@
                                     @foreach ($series->series_gallery_photos as $photo)
                                         <div
                                             class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
-                                            <div class="work-item">
+                                            <x-image-tile :photo="$photo" />
+                                            
+                                            {{-- <div class="work-item">
                                                 <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
                                                     @php
                                                         $campaign_of_photo = $ongoing_campaigns->firstWhere('id', $photo->campaign_id)
                                                     @endphp
                                                     @if($campaign_of_photo && $campaign_of_photo->campaign_status == 2 && auth()->user())
-                                                        {{-- <a href="javascript:;" class="{{ in_array($photo->id, $liked_photos_id) ? 'liked' : 'unliked' }}"
+                                                        <a href="javascript:;" class="{{ in_array($photo->id, $liked_photos_id) ? 'liked' : 'unliked' }}"
                                                             onclick="likeGalleryPhoto({{ $photo->id }})" id="photo-like-btn-{{ $photo->id }}">
                                                             <i class="fa fa-heart"></i>
-                                                        </a> --}}
+                                                        </a>
                                                     @else
                                                         {{ $photo->likes_count }}
                                                     @endif
@@ -105,12 +107,10 @@
                                                         class="">
                                                         <img alt="Exibition Image"
                                                         src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
-                                                        {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
-                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
                                                     </a>
                                                 </figure>
+                                            </div> --}}
 
-                                            </div>
                                         </div>
                                     @endforeach
                                 </div>

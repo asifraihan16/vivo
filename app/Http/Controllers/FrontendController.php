@@ -218,13 +218,15 @@ class FrontendController extends Controller
 
         $ttl = 1800;
 
+        $campaign = Campaign::findOrFail($id);
+
         $liked_photos_id = [];
 
         if (auth()->user()) {
             $liked_photos_id = DB::table('gallery_photo_likes')
                 ->where('user_id', auth()->id())
-                ->pluck('photo_gallery_id')
-                ->toArray();
+                ->pluck('photo_gallery_id');
+                // ->toArray();
         }
 
         $ongoing_campaigns = DB::table('campaigns')
@@ -257,16 +259,15 @@ class FrontendController extends Controller
             ]);
         }
 
-        $exhibitions = DB::table('exibitions')->get();
 
-        $moments = DB::table('moments')
+        /* $moments = DB::table('moments')
             ->where('is_active', 1)
             ->where('image_type', 1) // 1 - Moment of the month
             ->where('image_for_page', 2)
             ->orderBy('image_order', 'asc')
-            ->get();
+            ->get(); */
 
-        return view('frontend.campaign_photo', compact('exhibitions', 'mobile_series', 'moments', 'liked_photos_id', 'ongoing_campaigns'));
+        return view('frontend.campaign_photo', compact('mobile_series', 'campaign', 'liked_photos_id', 'ongoing_campaigns'));
     }
 
     public function like_gallery_photo(PhotoGallery $photoGallery)
@@ -370,13 +371,15 @@ class FrontendController extends Controller
     public function campaign_detail($id)
     {
         view()->share('active_menu', 'campaign');
-        $data = Campaign::find($id);
+        $data = Campaign::findOrFail($id);
 
+        $user_id = auth()->id();
         $image_lists = DB::table('photo_galleries')
             ->leftJoin('gallery_photo_likes', 'gallery_photo_likes.photo_gallery_id', '=', 'photo_galleries.id')
             ->select(
                 'photo_galleries.*',
-                DB::raw('count(gallery_photo_likes.photo_gallery_id) as likes_count')
+                DB::raw('count(gallery_photo_likes.photo_gallery_id) as likes_count'),
+                // DB::raw("IF((photo_galleries.id = gallery_photo_likes.photo_gallery_id AND gallery_photo_likes.user_id = {$user_id}), 1, 0) as auth_user_liked"),
             )
             ->where('photo_galleries.campaign_id', '=', $id)
             // ->where('photo_galleries.is_winner', '=', 1)
@@ -385,7 +388,17 @@ class FrontendController extends Controller
             ->limit(10)
             ->get();
 
-        return view('frontend.campaign_detail', compact('data','image_lists'));
+            // dd($image_lists);
+
+        $user_liked_photos = null;
+
+        if (auth()->user()) {
+            $user_liked_photos = DB::table('gallery_photo_likes')
+                ->where('user_id', auth()->id())
+                ->pluck('photo_gallery_id');
+        }
+
+        return view('frontend.campaign_detail', compact('data','image_lists', 'user_liked_photos'));
     }
 
     /* public function photographer()
