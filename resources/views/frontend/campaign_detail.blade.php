@@ -66,13 +66,13 @@
                                 @endif
 
 
-                                {{-- @if ($data->start_date && now()->gte($data->start_date) && $data->campaign_status == 2)
+                                @if ($data->start_date && $data->campaign_status == 2)
                                     <div class="" style="margin-bottom: 30px;">
                                         <p class="ends-in-text">Ends In,</p>
                                         <div class='countdown' style="text-align: center;"
                                             data-date="{{ \Carbon\Carbon::parse($data->start_date)->addDays(20)->format('Y-m-d') }}" data-time="00:00"></div>
                                     </div>
-                                @endif --}}
+                                @endif
                             </article>
 
                             <br>
@@ -171,7 +171,6 @@
 
 
         .ends-in-text {
-            margin-top: 30px;
             text-align: center;
             color: rgba(65, 95, 255, 1.0) !important;
             font-family: 'vivo-type-CN-Light' !important;
