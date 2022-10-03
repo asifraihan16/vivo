@@ -67,7 +67,7 @@
             <div id="content-area-inner" class="site-content-area-inner">
                 <section class="section works-list is-clearfix padding-3rem">
                     <div class="container width-80-percent">
-                        @if ($ongoing_campaign && $ongoing_campaign->start_date && now()->gte($ongoing_campaign->start_date) && $ongoing_campaign->campaign_status == 2)
+                        @if ($ongoing_campaign && $ongoing_campaign->start_date && $ongoing_campaign->campaign_status == 2)
                         <div class="" style="margin-bottom: 30px;">
                             <p class="ends-in-text">Ends In,</p>
                             <div class='countdown' style="text-align: center;"
