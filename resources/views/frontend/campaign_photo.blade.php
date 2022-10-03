@@ -85,7 +85,10 @@
                                     @foreach ($series->series_gallery_photos as $photo)
                                         <div
                                             class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
-                                            <div class="work-item">
+
+                                            <x-image-tile :photo="$photo" :campaign="$campaign" :userLikedPhotos="$liked_photos_id" />
+
+                                            {{-- <div class="work-item">
                                                 <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
                                                     @php
                                                         $campaign_of_photo = $ongoing_campaigns->firstWhere('id', $photo->campaign_id)
@@ -104,12 +107,10 @@
                                                         class="">
                                                         <img alt="Campaign Image"
                                                             src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
-                                                        {{-- <img alt="Exibition Image" class="lazy iso-img-cls"
-                                                            data-src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}"> --}}
                                                     </a>
                                                 </figure>
+                                            </div> --}}
 
-                                            </div>
                                         </div>
                                     @endforeach
                                 </div>

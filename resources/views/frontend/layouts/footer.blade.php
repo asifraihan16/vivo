@@ -216,6 +216,11 @@
                         $('#photo-like-btn-' + photo_id).removeClass('liked')
                         $('#photo-like-btn-' + photo_id).addClass('unliked')
                     }
+                },
+                error: function (err) {
+                    if (err.status == 401) {
+                        alert('Please login to like photo')
+                    }
                 }
             })
         }
