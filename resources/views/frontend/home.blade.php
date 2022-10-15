@@ -34,13 +34,14 @@
                                             <span></span>
                                         </div>
 
-                                        <a class="tp-caption tp-resizeme button is-primary is-rounded show-on-desktop"
+                                        <a class="tp-caption1 tp-resizeme button is-primary is-rounded show-on-desktop"
+                                            style="position: absolute; bottom: 4%; right: 6%;"
                                             href="{{ $campaign_url }}"
                                             data-frames='[
                                                 {"delay":400,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},
                                                 {"delay":"wait","speed":800,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}
                                             ]'
-                                            data-x="center" data-y="center" data-hoffset="['720','0','0','0']" data-voffset="['320','0','0','0']" data-type="button">
+                                            data-x="center" data-y="center" data-hoffset="['720','0','0','0']" data-voffset="['350','0','0','0']" data-type="button">
                                             <span>Join the Activity</span>
                                         </a>
                                         <a class="tp-caption tp-resizeme button is-primary is-rounded show-on-mobile"
@@ -65,15 +66,19 @@
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
-                <section class="section works-list is-clearfix padding-3rem">
+                @if ($ongoing_campaign && $ongoing_campaign->start_date && $ongoing_campaign->campaign_status == 2)
+                <div class="countdown-wrapper" style="">
+                    <div class="countdown-inside">
+                        <p class="ends-in-text">Ends In,</p>
+                        <div class='countdown' style="text-align: center;"
+                            data-date="{{ \Carbon\Carbon::parse($ongoing_campaign->start_date)->addDays(20)->format('Y-m-d') }}" data-time="00:00"></div>
+                    </div>
+                </div>
+                @endif
+
+                <section class="section works-list is-clearfix padding-3rem" style="padding-top: 0px;">
                     <div class="container width-80-percent">
-                        @if ($ongoing_campaign && $ongoing_campaign->start_date && $ongoing_campaign->campaign_status == 2)
-                        <div class="" style="margin-bottom: 30px;">
-                            <p class="ends-in-text">Ends In,</p>
-                            <div class='countdown' style="text-align: center;"
-                                data-date="{{ \Carbon\Carbon::parse($ongoing_campaign->start_date)->addDays(20)->format('Y-m-d') }}" data-time="00:00"></div>
-                        </div>
-                        @endif
+                        
 
                         <h1 class="heading-title style-1" style="text-transform: inherit;">Best Moments of vivo</h1>
                         <br>
