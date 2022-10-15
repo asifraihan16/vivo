@@ -5,18 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Jozoor">
-    <meta name="description" content="VIVO Bangladesh">
-    <meta name="keywords" content="creative, niche, responsive, html5, css3, multipurpose, all in one, html, template">
-    <title>Homepage | VIVO Bangladesh</title>
+
+    <meta name="author" content="vivo">
+    <meta name="description" content="VIVO Moments">
+    <meta name="keywords" content="vivo, vivo bangladesh, vivo moments, photography">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <title>@yield('title', 'Home') | vivo Moments</title>
+
+    <meta property="og:title" content="@yield('title', 'Home') | VIVO Moments">
+    <meta property="og:description" content="VIVO Moments">
+    <meta property="og:site_name" content="VIVO Moments">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="{{ URL::asset('frontend/assets/css/vendor.min.css?v=1557279752872') }}">
     <link rel="stylesheet" href="{{ URL::asset('frontend/assets/css/styles.min.css?v=1557279752872') }}">
     <link rel="stylesheet" href="{{ URL::asset('frontend/assets/css/custom.css?v=1557279752872') }}">
-    <link href="https://fonts.googleapis.com/css?family=AvenirNext:300,400,500,600&v=1557279457010" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=AvenirNext:300,400,500,600&v=1557279457010" rel="stylesheet"> --}}
     <!-- cdn icon fonts
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css?v=1557279457010" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css?v=1557279457010">
-      <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css?v=1557279457010" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css?v=1557279457010" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css?v=1557279457010">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css?v=1557279457010" rel="stylesheet">
     -->
     <!-- <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./assets/images/favicons/apple-touch-icon-60x60.png">
@@ -34,16 +43,24 @@
         href="{{ URL::asset('frontend/assets/images/favicons/vivo_favicon.png') }}">
     <link rel="icon" type="image/png" sizes="16x16"
         href="{{ URL::asset('frontend/assets/images/favicons/vivo_favicon.png') }}">
-    <link rel="shortcut icon" href="{{ URL::asset('frontend/assets/images/favicons/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ URL::asset('frontend/assets/images/favicons/vivo_favicon.ico') }}">
 
     @yield('styles')
+
+    {{-- <style>@font-face{font-family: 'AvenirNext';src: url('//asia-exstatic.vivo.com/static/font/AvenirNext/AvenirNextRegular_17c1dc8.eot');src: local('AvenirNext'),url('//asia-exstatic.vivo.com/static/font/AvenirNext/AvenirNextRegular_6b6dbe3.woff2') format('woff2'),url('//asia-exstatic.vivo.com/static/font/AvenirNext/AvenirNextRegular_2d26b87.woff') format('woff'),url('//asia-exstatic.vivo.com/static/font/AvenirNext/AvenirNextRegular_c99fe90.ttf') format('truetype'),url('//asia-exstatic.vivo.com/static/font/AvenirNext/AvenirNextRegular_e7a17f8.svg') format('svg');font-weight: normal;font-style: normal;}@font-face{font-family: 'WebRupee';src: url('//asia-exstatic.vivo.com/static/font/currency/WebRupee.V2.0_b9b282e.eot');src: local('WebRupee'),url('//asia-exstatic.vivo.com/static/font/currency/WebRupee.V2.0_5dc4203.woff2') format('woff2'),url('//asia-exstatic.vivo.com/static/font/currency/WebRupee.V2.0_5bb128f.woff') format('woff'),url('//asia-exstatic.vivo.com/static/font/currency/WebRupee.V2.0_388288f.ttf') format('truetype'),url('//asia-exstatic.vivo.com/static/font/currency/WebRupee.V2.0_77414ca.svg') format('svg');font-weight: normal;font-style: normal; }@font-face{font-family: 'languageFont';src: url('https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1609730127906/371caa7c0ca5f3aea9ccffcfb18c8ae5.eot') ,url('https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1609730136468/a0bfdc864e1f8f90a69560f897654c18.woff2') format('woff2'),url('https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1609730142503/61b5bca8a5d6ae79c0b367df348fa0aa.woff') format('woff'),url('https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1609730149777/f34df90ff45067529279457a5496b43f.ttf') format('truetype'),url('https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1609730156554/2d8a1d3c13413c470b1dd8463dc3b79e.svg') format('svg');font-weight: normal;font-style: normal;}.public *,.vep-public *,#onetrust-consent-sdk *,#vcm-v-consent-sdk *{font-family:"languageFont","AvenirNext","Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu,sans-serif,"WebRupee";}</style> --}}
+
+
 </head>
 
-<body
-    class="active-pageloader corporate header-sticky hide-on-scroll header-menu-with-icons header-transparent footer-widgets footer-background dark-color widgets-6 submenu-show-arrow-right menu-is-capitalized submenu-is-capitalized logo-text-is-capitalized page-index">
+{{-- <body class="active-pageloader header-sticky show-on-scroll header-menu-with-icons header-transparent footer-widgets footer-background dark-color widgets-6 submenu-show-arrow-right menu-is-capitalized submenu-is-capitalized logo-text-is-capitalized page-index"> --}}
+<body class="active-pageloader header-sticky show-on-scroll footer-widgets footer-background dark-color
+    widgets-8 submenu-show-arrow-right menu-is-capitalized submenu-is-capitalized logo-text-is-capitalized header-menu-with-icons page-index">
     <div class="pageloader is-active"></div>
     <div id="site-wrap" class="site">
+
         <div id="header-wrap" class="is-clearfix">
+            {{-- Fix header nav dissappears on firefox --}}
+            {{-- Changed on styles.min.css line no 7551: .site-header-top, header { /* position: relative; */ } --}}
             <header id="header" class="site-header">
                 <div id="header-inner" class="site-header-inner container">
                     <div class="level">
@@ -51,9 +68,8 @@
                             <div id="header-logo" class="site-logo ">
                                 <div id="logo-inner" class="site-logo-inner">
                                     <a href="{{ url('/') }}">
-                                        <!-- <span class="logo-text">VIVO</span>  -->
-                                        <img alt="VIVO Logo"
-                                            src="{{ asset('frontend/assets/images/logo/vivo_logo.png') }}">
+                                        <!-- <span class="logo-text" style="text-transform: none;">vivo</span> -->
+                                        <img alt="VIVO Logo" src="{{ asset('frontend/assets/images/logo/vivo_logo.png') }}">
                                     </a>
                                 </div>
                                 <!-- #logo-inner -->
@@ -65,182 +81,53 @@
                             <div id="nav-wrap">
                                 <nav id="site-navigation" class="main-navigation right">
                                     <ul id="main-header-menu" class="menu">
-                                        <li class="mega-menu niche-templates active">
+                                        <li class="{{ isset($active_menu) && strtolower($active_menu) == 'home' ? 'active' : '' }}">
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
-                                        <li>
-                                            <a href="{{ url('/galleries') }}">Photographer</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('/exibition') }}">Exhibition</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('/blogs') }}">Blogs</a>
-                                        </li>
-                                        <li>
+                                        
+                                        <li class="{{ strtolower($active_menu) == 'campaign' ? 'active' : '' }}">
                                             <a href="{{ url('/campaign') }}">Campaign</a>
                                         </li>
-                                        <li>
-                                            <a href="{{ url('/contact') }}">Image Licensing</a>
+
+                                        <li class="{{ strtolower($active_menu) == 'gallery' ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.gallery') }}">Gallery</a>
                                         </li>
+
+                                        <li class="{{ strtolower($active_menu) == 'videos' ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.videos') }}">Video</a>
+                                        </li>
+
+                                        <li class="{{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">
+                                            <a href="{{ url('/blogs') }}">Blogs</a>
+                                        </li>
+
+
+                                        <li class="{{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.photographer') }}">Photographer</a>
+                                        </li>
+
+                                        {{-- <li>
+                                            <a href="{{ url('/contact') }}">Image Licensing</a>
+                                        </li> --}}
                                     </ul>
                                 </nav>
                                 <!-- #site-navigation -->
                             </div>
 
-                            <a href="{{ url('user/login') }}" class="button is-white">Signin/Register</a>
-                            <!-- .header-menu-icons -->
-                            <div class="modal search-form-overlay">
-                                <div class="modal-background"></div>
-                                <div class="modal-content">
-                                    <form class="widget-form">
-                                        <div class="field">
-                                            <div class="control is-expanded">
-                                                <input class="input" type="text" placeholder="Search...">
-                                                <button type="submit" class="button">
-                                                    <span class="icon">
-                                                        <i class="icon-magnifier"></i>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <button class="modal-close is-large" aria-label="close"></button>
-                            </div>
-                            <!-- .modal.search-form-overlay -->
-                            <div id="quickviewInfo" class="quickview">
-                                <div class="quickview-header">
-                                    <p class="title"></p>
-                                    <span class="delete" data-dismiss="quickview"></span>
-                                </div>
-                                <div class="quickview-body">
-                                    <div class="quickview-block">
-                                        <div class="footer">
-                                            <div class="columns is-variable is-multiline">
-                                                <div class="column is-12">
-                                                    <div class="widget widget-html">
-                                                        <div class="textwidget">
-                                                            <div id="footer-logo-menu" class="site-logo ">
-                                                                <a href="./index.html">
-                                                                    <span class="logo-text">Company</span>
-                                                                </a>
-                                                            </div>
-                                                            <!-- #footer-logo -->
-                                                            <br>
-                                                            <p>The main component of a healthy environment for self
-                                                                esteem is that it needs be nurturing. It should provide
-                                                                unconditional warmth.</p>
-                                                            <div class="footer-social-links ">
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="#" target="_blank">
-                                                                            <span class="icon">
-                                                                                <i class="fab fa-facebook-f"></i>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#" target="_blank">
-                                                                            <span class="icon">
-                                                                                <i class="fab fa-twitter"></i>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#" target="_blank">
-                                                                            <span class="icon">
-                                                                                <i class="fab fa-instagram"></i>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#" target="_blank">
-                                                                            <span class="icon">
-                                                                                <i class="fab fa-pinterest-p"></i>
-                                                                            </span>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <!-- .textwidget -->
-                                                    </div>
-                                                </div>
-                                                <!-- .column -->
-                                                <div class="column is-12">
-                                                    <div class="widget widget-list">
-                                                        <h3 class="widget-title ">recent news</h3>
-                                                        <div class="box">
-                                                            <article class="media">
-                                                                <h2 class="display-none">article</h2>
-                                                                <div class="media-left">
-                                                                    <figure class="image">
-                                                                        <a href="./blog/single.html">
-                                                                            <img alt="VIVO Bangladesh"
-                                                                                src="assets/images/blog/1-1.png"> </a>
-                                                                    </figure>
-                                                                </div>
-                                                                <div class="media-content">
-                                                                    <div class="content">
-                                                                        <a href="./blog/single.html">Control Your Own
-                                                                            Level of Motivation</a>
-                                                                        <p>April 10, 2018</p>
-                                                                    </div>
-                                                                </div>
-                                                            </article>
-                                                        </div>
-                                                        <div class="box">
-                                                            <article class="media">
-                                                                <h2 class="display-none">article</h2>
-                                                                <div class="media-left">
-                                                                    <figure class="image">
-                                                                        <a href="./blog/single.html">
-                                                                            <img alt="VIVO Bangladesh"
-                                                                                src="assets/images/blog/1-2.png"> </a>
-                                                                    </figure>
-                                                                </div>
-                                                                <div class="media-content">
-                                                                    <div class="content">
-                                                                        <a href="./blog/single.html">Control Your Own
-                                                                            Level of Motivation</a>
-                                                                        <p>April 14, 2018</p>
-                                                                    </div>
-                                                                </div>
-                                                            </article>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- .column -->
-                                                <div class="column is-12">
-                                                    <div class="widget widget-form">
-                                                        <h3 class="widget-title ">subscribe</h3>
-                                                        <p>The main component of a healthy environment for self esteem
-                                                            is that.</p>
-                                                        <br>
-                                                        <form>
-                                                            <div class="field">
-                                                                <div class="control is-expanded">
-                                                                    <input class="input" type="text"
-                                                                        placeholder="your@email.com">
-                                                                    <button type="submit" class="button is-radiusless">
-                                                                        <span class="icon">
-                                                                            <i class="icon-envelope"></i>
-                                                                        </span>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <!-- .column -->
-                                            </div>
-                                            <!-- .columns -->
-                                        </div>
-                                        <!-- footer -->
-                                    </div>
-                                </div>
-                            </div>
+                            @guest
+                                <a href="{{ url('user/login') }}" class="button is-white">Upload</a>
+                            @else
+                                @if (auth()->user()->is_admin === 1 || auth()->user()->user_type === 1)
+                                    <a href="{{ url('admin/dashboard') }}"
+                                        class="button is-white">{{ auth()->user()->name }}</a>
+                                @elseif(auth()->user()->user_type === 2)
+                                    {{-- <a href="{{ url('user/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a> --}}
+                                    <a href="{{ url('photographers/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a>
+                                @else
+                                    <a href="{{ url('user/dashboard') }}" class="button is-white">{{ auth()->user()->name }}</a>
+                                @endif
+                            @endguest
+
                         </div>
                         <!-- .level-right -->
                     </div>
@@ -250,3 +137,4 @@
             </header>
             <!-- #header -->
         </div>
+

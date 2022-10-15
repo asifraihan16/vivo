@@ -1,313 +1,125 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'Photographer')
+
 @section('content')
-    <!-- #header-wrap -->
     <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('frontend/assets/images/page-header/1.jpg') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ asset('frontend/assets/images/banner-images/Photographer.webp') }}) no-repeat top center; background-size: cover;}">
                     <div class="hero-body">
                         <div class="container">
+                            {{-- <h1>Photographer</h1> --}}
                         </div>
-                        <!-- .hero-body -->
                     </div>
-                    <!-- .container -->
                 </section>
-                <!-- .page-title -->
             </div>
-            <!-- #header-bottom-inner -->
         </div>
-        <!-- #header-bottom -->
     </div>
-    <!-- #header-bottom-wrap -->
-    <!-- import content layouts and modules -->
+
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
 
-                <section class="section works-list is-clearfix">
+                <!-- Photographer section Start -->
+                <section class="section {{-- counters --}} works-list is-clearfix {{-- has-background-primary-light --}}">
                     <div class="container">
-                        <h1 class="heading-title style-1">X Series</h1>
-                        <div class="works isotope masonry image-hover effect-8 grid-container">
-                            <div class="masonry-filters">
-                                <ul>
-                                    <li data-filter=".branding, .prototype" class="active">show all</li>
-                                    <li data-filter=".branding">X70 Pro 5G</li>
-                                    <li data-filter=".prototype">X60 Pro</li>
-                                </ul>
+                        <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">Photographer</h1>
+                        <br>
+                        <div class="team style-2">
+                            <div class="columns is-variable is-4 is-multiline">
+                                @foreach ($photographers as $photographer)
+                                    @php
+                                        $photographer_profile = route('frontend.photographer-profile', ['user'=> $photographer->id, 'photographer'=> Str::slug($photographer->name)])
+                                    @endphp
+                                    <div class="column is-4">
+                                        <div class="team-member">
+                                            <figure class="team-member-img">
+                                                <a href="{{ $photographer_profile }}">
+                                                    <img alt="Photographer Image" style="width: 100%;"
+                                                        src="{{ $photographer->img ? Storage::url($photographer->img) : asset('frontend/assets/images/no-image-profile-01.jpg') }}" />
+                                                </a>
+                                            </figure>
+                                            <div class="team-member-meta">
+                                                <h3>
+                                                    <a href="{{ $photographer_profile }}">{{ $photographer->name }}</a>
+                                                </h3>
+                                                <h5>
+                                                    <a href="{{ $photographer_profile }}">Photographer</a>
+                                                </h5>
+                                                {{-- <ul class="team-social-links">
+                                                    <li>
+                                                        <a href="#" target="_blank">
+                                                            <span class="icon">
+                                                                <i class="fab fa-facebook-f"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank">
+                                                            <span class="icon">
+                                                                <i class="fab fa-twitter"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" target="_blank">
+                                                            <span class="icon">
+                                                                <i class="fab fa-instagram"></i>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul> --}}
+                                            </div>
+                                        </div>
+                                        <!-- .team-member -->
+                                    </div>
+                                @endforeach
                             </div>
-                            <div class="_grid columns is-variable is-3 is-multiline">
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/1.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/14.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/2.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/11.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/3.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/12.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/4.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/10.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-
-
-                            </div>
+                            {{ $photographers->withQueryString()->links('vendor.pagination.default') }}
                         </div>
                     </div>
-                </section>
+                </section> <!-- Photographer section End -->
 
-                <section class="section has-background-primary-light works-list is-clearfix">
+
+                <!-- Vivographer section Start -->
+                <section class="section {{-- counters --}} works-list is-clearfix has-background-primary-light">
                     <div class="container">
-                        <h1 class="heading-title style-1">Y Series</h1>
-                        <div class="works isotope masonry image-hover effect-8 grid-container">
-                            <div class="masonry-filters">
-                                <ul>
-                                    <li data-filter=".branding-y, .prototype-y" class="active">show all</li>
-                                    <li data-filter=".branding-y">Y21 T</li>
-                                    <li data-filter=".prototype-y">Y15s</li>
-                                    <li data-filter=".prototype-y">Y53s</li>
-                                </ul>
-                            </div>
-                            <div class="_grid columns is-variable is-3 is-multiline">
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/1.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/14.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/2.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/11.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/3.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/12.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/4.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype-y">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/10.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
+                        <h1 class="heading-title style-1" style="margin-bottom: 55px !important; text-transform: lowercase !important;">vivographer</h1>
+                        <br>
+                        <div class="team style-2">
+                            <div class="columns is-variable is-4 is-multiline">
+                                @foreach ($vivographers as $vivographer)
 
-
+                                    @php
+                                        $vivographer_profile = route('frontend.vivographer-profile', ['user'=> $vivographer->id, 'vivographer'=> Str::slug($vivographer->name)]);
+                                    @endphp
+                                    <div class="column is-4">
+                                        <div class="team-member">
+                                            <figure class="team-member-img">
+                                                <a href="{{ $vivographer_profile }}">
+                                                    <img alt="vivographer image" style="width: 100%; height: 350px;"
+                                                        src="{{ $vivographer->img ? Storage::url($vivographer->img) : asset('frontend/assets/images/no-image-profile-01.jpg') }}">
+                                                </a>
+                                            </figure>
+                                            <div class="team-member-meta">
+                                                <h3>
+                                                    <a href="{{ $vivographer_profile }}">{{ $vivographer->name }}</a>
+                                                </h3>
+                                                <h5>
+                                                    <a href="{{ $vivographer_profile }}" style="text-transform: lowercase !important;">vivographer</a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <!-- .team-member -->
+                                    </div>
+                                @endforeach
                             </div>
+                            {{ $vivographers->withQueryString()->links('vendor.pagination.default') }}
                         </div>
                     </div>
-                </section>
-
-                <section class="section works-list is-clearfix">
-                    <div class="container">
-                        <h1 class="heading-title style-1">V Series</h1>
-                        <div class="works isotope masonry image-hover effect-8 grid-container">
-                            <div class="masonry-filters">
-                                <ul>
-                                    <li data-filter="*" class="active">show all</li>
-                                    <li data-filter=".branding">V23 e</li>
-                                    <li data-filter=".prototype">V20 SE</li>
-                                    <li data-filter=".prototype">V 23 5G</li>
-                                </ul>
-                            </div>
-                            <div class="_grid columns is-variable is-3 is-multiline">
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/1.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/14.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/2.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/11.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/3.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 branding">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/12.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/4.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="_grid-item column is-4 prototype">
-                                    <div class="work-item">
-                                        <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                src="{{ asset('frontend/assets/images/portfolio/10.png') }}">
-                                        </figure>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                </section> <!-- Vivographer section End -->
 
             </div>
             <!-- #content-area-inner -->
@@ -320,14 +132,13 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-
             $('.grid-container').each(function(i, gridContainer) {
                 var $gridContainer = $(gridContainer);
                 // init isotope for container
                 var $grid = $gridContainer.find('._grid').imagesLoaded(function() {
                     $grid.isotope({
                         itemSelector: '._grid-item',
-                        layoutMode: 'fitRows'
+                        // layoutMode: 'fitRows',
                     })
                 });
                 // initi filters for container
@@ -354,9 +165,12 @@
 
 @section('styles')
     <style>
-        .work-item figure img {
-            width: 600px;
-            height: 400px;
+        /* .section {
+                                padding: 1rem 1.5rem;
+                            } */
+        .iso-img-cls {
+            /* width: 600px; */
+            /* height: 400px; */
         }
 
         /* ---- grid ---- */
@@ -368,8 +182,8 @@
         /* clear fix */
         .grid:after {
             /* content: '';
-                display: block;
-                clear: both; */
+                                    display: block;
+                                    clear: both; */
         }
 
         /* ---- .grid-item ---- */
@@ -382,6 +196,7 @@
             /* border-color: rgba(0, 0, 0, 0.7); */
         }
 
+        ._grid-item {}
 
         .masonry-filters ul {
             text-align: center;
@@ -406,8 +221,7 @@
 
         .masonry-filters ul li:hover,
         .masonry-filters ul li.active {
-            color: #f30337;
+            color: #4768FF;
         }
-
     </style>
 @endsection

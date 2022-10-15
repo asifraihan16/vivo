@@ -1,0 +1,223 @@
+/*
+ * ::::::::::: Custom Styles :::::::::::
+ * Note: use this file to add or override any other styles.
+ * DON'T EDIT TEMPLATE CSS/SCSS FILES DIRECTLY, JUST USE THIS FILE.
+ */
+
+@font-face {
+    font-family: 'vivotypeEN-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/frontend/assets/fonts/vivotypeEN-Regular.ttf');
+}
+
+body, button, input, select, textarea, .heading-title.style-1, .menu, .footer .widget-links,
+footer .widget-links, .widget-title, .footer-bottom-content, .footer-bottom-content .footer-copyright, .widget, .button{
+    font-family: vivotypeEN-Regular;
+}
+
+.works-latest .works-latest-item .works-latest-item-meta h5 a, .works-latest .works-latest-item .works-latest-item-meta h3 a, .works-latest .works-latest-item .works-latest-item-meta h5, .works-latest-item .works-latest-item-meta h3 {
+ opacity: 1;
+}
+
+body .image-hover figure img {
+    min-height: auto!important;
+}
+
+/* .main-vedio{width: 100%; height: 560px;} */
+
+.works-latest .works-latest-item .works-latest-item-icon .icon{
+    width: 55px !important;
+    height: 35px !important;
+    border-radius: 20% !important;
+    border: 1px solid #fff !important;
+    color: #fff !important;
+    background-color: #FF0202 !important;
+    opacity: .8 !important;
+    -webkit-transition: all .4s ease-in-out !important;
+    transition: all .4s ease-in-out !important;
+}
+
+.play {
+  background: #0000007d;
+  border-radius: 50% / 10%;
+  color: #FFFFFF;
+  font-size: 1.5em; /* change this to change size */
+  height: 3em;
+  margin: auto;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-indent: 0.1em;
+  transition: all 150ms ease-out;
+  width: 4em;
+}
+
+.play:hover {
+  background: red;
+}
+
+.play::before {
+  background: inherit;
+  border-radius: 5% / 50%;
+  bottom: 9%;
+  content: "";
+  left: -5%;
+  position: absolute;
+  right: -5%;
+  top: 9%;
+}
+
+.play::after {
+  border-style: solid;
+  border-width: 1em 0 1em 1.732em;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+  content: ' ';
+  font-size: 0.75em;
+  height: 0;
+  margin: -1em 0 0 -0.75em;
+  top: 50%;
+  position: absolute;
+  width: 0;
+}
+
+
+
+.play2 {
+  background: #0000007d;
+  border-radius: 50% / 10%;
+  color: #FFFFFF;
+  font-size: 1em; /* change this to change size */
+  height: 3em;
+  margin: 20px auto;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-indent: 0.1em;
+  transition: all 150ms ease-out;
+  width: 4em;
+}
+
+.play2:hover {
+  background: red;
+}
+
+.play2::before {
+  background: inherit;
+  border-radius: 5% / 50%;
+  bottom: 9%;
+  content: "";
+  left: -5%;
+  position: absolute;
+  right: -5%;
+  top: 9%;
+}
+
+.play2::after {
+  border-style: solid;
+  border-width: 1em 0 1em 1.732em;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+  content: ' ';
+  font-size: 0.75em;
+  height: 0;
+  margin: -1em 0 0 -0.75em;
+  top: 50%;
+  position: absolute;
+  width: 0;
+}
+
+@media screen and (max-width: 768px){
+
+    body .works-latest .works-latest-item .works-latest-item-icon .icon
+    {
+        width: 55px !important;
+        height: 40px !important;
+    }
+
+}
+
+
+body.footer-background.dark-color footer a:hover, .blog-post .entry-header .entry-title a:hover,
+.blog-post .entry-header .post-meta ul li a:hover, .blog-post .entry-header .post-meta ul li span:hover,
+.blog-post .entry-footer .button:hover,
+.main-navigation>ul>li>a:hover,
+.mobile-series-in-blogPage a,
+.campaign-list a:hover,
+.blog-post .entry-header .entry-title:hover,
+.global-social-links.style-1 li .icon:hover, .global-social-links.style-3 li .icon:hover,
+body.header-transparent:not(.responsive-layout):not(.header-hamburger-menu) header:not(.hide-on-scroll):not(.show-on-scroll) .main-navigation>ul>li.active>a
+{
+    color: rgba(65, 95, 255, 1.0) !important;
+}
+
+.campaign-list a{
+    color: #000;
+}
+/*header, .site-header-top{position: absolute !important;}*/
+
+.body.header-transparent header{background-color: #fff !important;}
+
+.main-navigation>ul>li>a{color: #000 !important;}
+
+
+body.header-transparent header{position: relative !important;}
+
+.mobile-series-in-blogPage a{
+    color: #7389FF;
+}
+
+.padding-3rem
+{
+    padding : 3rem;
+}
+
+.container .width-80-percent
+{
+    width: 80%;
+    max-width: 80%;
+}
+
+.watch-video .works-latest .works-latest-item .works-latest-item-icon .vedio-play-button
+{
+    background-color: transparent !important;
+    color: #fff !important;
+}
+
+/*#nav-wrap #site-navigation ul li a {color:#fff !important;}*/
+
+/*body.header-transparent header{background-color: #fff0;}*/
+
+#header #header-logo .logo-text{color: #000;}
+
+.mobile-series-title{
+    background-color: #000;
+    font-size: 25px;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.pageloader{background: #fff;}
+.footer-bottom-content .footer-copyright{text-transform: none !important}
+
+@media screen and (max-width:768px) {
+    body .works-latest .works-latest-item .works-latest-item-meta h3 {
+        font-size: 18px;
+    }
+
+    body .image-hover figure img {
+        min-height: auto!important;
+    }
+
+    body .section.hero.padding-bottom-none.padding-top-none .columns .column:last-child>div {
+        padding: 33px 20px 85px 20px!important;
+    }
+
+    body .section.hero.padding-bottom-none.padding-top-none.has-background-primary .columns .column:last-child>div {
+        padding: 0 20px 85px 20px!important;
+    }
+}
+
+/*# sourceMappingURL=_maps/custom.css.map */

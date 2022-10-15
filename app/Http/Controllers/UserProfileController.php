@@ -69,7 +69,8 @@ class UserProfileController extends Controller
 
     public function user_show(UserProfile $userProfile)
     {
-        return view('user.user_profiles.index');
+        $user = auth()->user();
+        return view('user.user_profiles.index', compact('user'));
     }
 
     /**
@@ -112,15 +113,16 @@ class UserProfileController extends Controller
         $id = Session::get('id');
 
         $rules = [
-            // 'img' => 'mimes:jpeg,jpg|max:100|dimensions:width=300,height=300',
-            'img' => 'mimes:jpeg,jpg|dimensions:width=150,height=150',
+            // 'img' => 'max:100|dimensions:width=300,height=300',
+            // 'img' => 'dimensions:width=150,height=150',
+            'img' => 'nullable|mimes:jpeg,jpg,bmp,png',
             'name' => 'required',
         ];
 
         $customMessages = [
             // 'name.required' => 'Please Provide Name',
             // 'name.unique' => 'Already There Is a Mobile Series With This Name',
-            'img.dimensions' => 'User Image Size = Width : 150px, Height : 150px',
+            // 'img.dimensions' => 'User Image Size = Width : 150px, Height : 150px',
         ];
 
         $this->validate($request, $rules, $customMessages);
@@ -132,7 +134,7 @@ class UserProfileController extends Controller
                 // $image_old = storage_path('') . '/' . $user_info->img;
                 // unlink($image_old);
             }
-            $image_url = $this->fileUploadService->upload('img', 'profile_image');
+            $image_url = $this->fileUploadService->resizeUpload('img', 150, 150, 'profile_image');
 
             /* $image_name = $request->name;
             $upload_path = storage_path() . '/app/public/profile_image/';
@@ -177,7 +179,8 @@ class UserProfileController extends Controller
         Session::put('img', $user->img);
         Session::put('contact', $user->contact);
 
-        return Redirect::to("admin/user_profile");
+        return back();
+        // return Redirect::to("admin/user_profile");
     }
 
     public function user_profile_info(Request $request)
@@ -185,8 +188,9 @@ class UserProfileController extends Controller
         $id = Session::get('id');
 
         $rules = [
-            // 'img' => 'mimes:jpeg,jpg|max:100|dimensions:width=300,height=300',
-            'img' => 'mimes:jpeg,jpg',
+            // 'img' => 'max:100|dimensions:width=300,height=300',
+            // 'img' => 'mimes:jpeg,jpg,png',
+            'img' => 'nullable|mimes:jpeg,jpg,bmp,png',
             'name' => 'required',
         ];
 
@@ -205,7 +209,7 @@ class UserProfileController extends Controller
                 // $image_old = storage_path('') . '/' . $user_info->img;
                 // unlink($image_old);
             }
-            $image_url = $this->fileUploadService->upload('img', 'profile_image');
+            $image_url = $this->fileUploadService->resizeUpload('img', 150, 150, 'profile_image');
 
             /* $image_name = $request->name;
             $upload_path = storage_path() . '/app/public/profile_image/';
@@ -251,6 +255,7 @@ class UserProfileController extends Controller
         Session::put('img', $user->img);
         Session::put('contact', $user->contact);
 
-        return Redirect::to("user/user_profile");
+        return back();
+        // return Redirect::to("user/user_profile");
     }
 }

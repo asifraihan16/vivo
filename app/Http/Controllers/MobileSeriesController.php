@@ -17,11 +17,7 @@ class MobileSeriesController extends Controller
         $this->middleware('auth');
         $this->fileUploadService = $fileUploadService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $data = MobileSeries::all();
@@ -29,29 +25,17 @@ class MobileSeriesController extends Controller
         return view('admin.mobile_series.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.mobile_series.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-
         $rules = [
             'name' => 'required|unique:mobile_series',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'required|mimes:jpeg,jpg|dimensions:width=602,height=602',
+            'img' => 'required|dimensions:width=602,height=602',
         ];
 
         $customMessages = [
@@ -132,7 +116,7 @@ class MobileSeriesController extends Controller
         $rules = [
             'name' => 'required|unique:mobile_series',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'required|mimes:jpeg,jpg|max:2048',
+            'img' => 'required|max:2048',
         ];
 
         $customMessages = [
@@ -208,7 +192,7 @@ class MobileSeriesController extends Controller
 
         $rules = [
             'name' => 'required|unique:mobile_series,name,' . $mobileSeries->id,
-            'img' => 'mimes:jpeg,jpg|dimensions:width=602,height=602',
+            'img' => 'dimensions:width=602,height=602',
             // 'description' => 'required',
             // 'brand' => 'required',
         ];

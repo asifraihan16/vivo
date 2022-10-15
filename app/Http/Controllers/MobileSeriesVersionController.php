@@ -61,7 +61,7 @@ class MobileSeriesVersionController extends Controller
             'mobile_series_id' => 'required',
             'name' => 'required|unique:mobile_series',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            // 'img' => 'required|mimes:jpeg,jpg|dimensions:width=602,height=602|max:50',
+            // 'img' => 'required|dimensions:width=602,height=602|max:50',
         ];
 
         $customMessages = [
@@ -175,7 +175,7 @@ class MobileSeriesVersionController extends Controller
             // 'mobile_series_id' => 'required',
             'name' => 'required|unique:mobile_series_versions,name,' . $mobileSeriesVersion->id,
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'mimes:jpeg,jpg|dimensions:width=602,height=602|max:50',
+            'img' => 'dimensions:width=602,height=602|max:50',
         ];
 
         $customMessages = [

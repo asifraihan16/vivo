@@ -52,7 +52,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            	@foreach($data as $key=>$value) 
+                                            	@foreach($data as $key=>$value)
 		                                            <tr>
 		                                                <td>{{ $key+1 }}</td>
                                                         <td>{{ $value->title1 }}</td>
@@ -96,6 +96,6 @@
                     </div>
                 </div><!-- container -->
             </div>
-            <!-- end page content -->       
+            <!-- end page content -->
 
 @endsection

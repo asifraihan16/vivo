@@ -1,44 +1,46 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'Gallery')
+
 @section('content')
-    <!-- #header-wrap -->
+    @php
+        $running_campaing = $ongoing_campaigns->firstWhere('campaign_status', 2);
+        // $cover_pic = $running_campaing ? Storage::url($running_campaing->img1) : asset('/frontend/assets/images/banner-images/Gallery.webp');
+        $cover_pic = asset('/frontend/assets/images/banner-images/Gallery.webp');
+    @endphp
+
     <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('/public/frontend/assets/images/page-header/6.jpg') }}) no-repeat top center; background-size: cover;}">
+                    style="background: #812323 url({{ $cover_pic }}) no-repeat top center; background-size: cover;">
                     <div class="hero-body">
                         <div class="container">
+                            {{-- <h1>Gallery</h1> --}}
                         </div>
-                        <!-- .hero-body -->
                     </div>
-                    <!-- .container -->
                 </section>
-                <!-- .page-title -->
             </div>
-            <!-- #header-bottom-inner -->
         </div>
-        <!-- #header-bottom -->
     </div>
-    <!-- #header-bottom-wrap -->
-    <!-- import content layouts and modules -->
+
     <div id="content-main-wrap" class="is-clearfix">
         <div id="content-area" class="site-content-area">
             <div id="content-area-inner" class="site-content-area-inner">
 
-                <section class="section hero works-list padding-bottom-none padding-top-none is-clearfix">
-                    <div>
-                        <div class="works isotope masonry image-hover effect-10 mfp-lightbox-gallery margin-bottom-none">
-                            <div class="columns is-variable is-gapless is-multiline">
-                                @for ($i = 1; $i <= 8; $i++)
-                                    <div class="column is-3 branding " data-aos="fade">
+                <section class="section works-list is-clearfix padding-3rem">
+                    <div class="container width-80-percent">
+                        <div class="works isotope image-hover effect-8">
+                            <div class="columns is-variable is-1 is-multiline" style="">
+                                @foreach ($moments as $moment)
+                                    <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                         <div class="work-item">
                                             <figure>
-                                                <?php $var = 'img' . $i; ?>
-                                                <a href="{{ Storage::url($exhibitions[0]->$var) }}"
-                                                    class="mfp-lightbox mfp-image" title="">
-                                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                        src="{{ Storage::url($exhibitions[0]->$var) }}">
+                                                <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
+                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }}">
+                                                    <img alt="{{ $moment->title }}"
+                                                        src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
+                                                        style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />
                                                     <figcaption>
                                                         <ul class="social">
                                                             <li>
@@ -47,13 +49,15 @@
                                                                 </span>
                                                             </li>
                                                         </ul>
+
+                                                        <h3 class="photo-bottom-caption">{{ $moment->title }}</>
                                                     </figcaption>
                                                 </a>
                                             </figure>
                                         </div>
-                                        <!-- .work-item -->
                                     </div>
-                                @endfor
+                                @endforeach
+
                             </div>
                             <!-- .columns -->
                         </div>
@@ -61,49 +65,67 @@
                     </div>
                 </section>
 
-                <section class="section hero-2 works-list is-clearfix">
-                    <div class="container">
-                        @foreach ($final_data as $key => $series)
-                            <h1 class="heading-title style-1">{{ $key }}</h1>
+                @foreach ($mobile_series as $series)
+                    <section
+                        class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
+                        <div class="container">
+                            <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">{{ $series->name }}</h1>
 
-                            <div class="works isotope masonry image-hover effect-8 grid-container">
+                            <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
                                 <div class="masonry-filters">
-                                    <ul>
+                                    {{-- <ul>
                                         <li data-filter="*" class="active">show all</li>
-                                        @foreach ($series as $key => $versions)
-                                            <li data-filter="{{ '.'.Str::slug($key) }}">{{ $key }}</li>
+                                        @foreach ($series->mobile_series_versions as $version)
+                                            <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}
+                                            </li>
                                         @endforeach
-                                    </ul>
+                                    </ul> --}}
                                 </div>
 
-                                <div class="_grid columns is-variable is-3 is-multiline">
-                                    @foreach ($series as $key => $versions)
-                                        @foreach ($versions as $exhibitions)
-                                            <div class="_grid-item column is-4 {{ Str::slug($key) }}">
-                                                <div class="work-item">
-                                                    <figure>
-                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
-                                                            src="{{ Storage::url($exhibitions->img) }}">
-                                                    </figure>
+                                <div class="_grid columns is-variable is-1 is-multiline">
+                                    @foreach ($series->series_gallery_photos as $photo)
+                                        <div
+                                            class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
+                                            <x-image-tile :photo="$photo" />
+                                            
+                                            {{-- <div class="work-item">
+                                                <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
+                                                    @php
+                                                        $campaign_of_photo = $ongoing_campaigns->firstWhere('id', $photo->campaign_id)
+                                                    @endphp
+                                                    @if($campaign_of_photo && $campaign_of_photo->campaign_status == 2 && auth()->user())
+                                                        <a href="javascript:;" class="{{ in_array($photo->id, $liked_photos_id) ? 'liked' : 'unliked' }}"
+                                                            onclick="likeGalleryPhoto({{ $photo->id }})" id="photo-like-btn-{{ $photo->id }}">
+                                                            <i class="fa fa-heart"></i>
+                                                        </a>
+                                                    @else
+                                                        {{ $photo->likes_count }}
+                                                    @endif
                                                 </div>
-                                                <!-- .work-item -->
-                                            </div>
-                                        @endforeach
+                                                <figure>
+                                                    <a href="{{ url('image_description/' . $photo->id) }}"
+                                                        class="">
+                                                        <img alt="Exibition Image"
+                                                        src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
+                                                    </a>
+                                                </figure>
+                                            </div> --}}
+
+                                        </div>
                                     @endforeach
                                 </div>
-                                <!-- .columns -->
-                            </div>
-                        @endforeach
-                        <!-- .works -->
-                    </div>
-                </section>
 
+                                <div style="text-align:center;">
+                                    <a href="{{ route('frontend.photos-by-series', ['series_id' => $series->id, 'series' => Str::slug($series->name)]) }}"
+                                        class="button is-danger is-radiusless">View All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                @endforeach
             </div>
-            <!-- #content-area-inner -->
         </div>
-        <!-- #content-area -->
     </div>
-    <!-- #content-main-wrap -->
 @endsection
 
 
@@ -111,14 +133,13 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
-
             $('.grid-container').each(function(i, gridContainer) {
                 var $gridContainer = $(gridContainer);
                 // init isotope for container
                 var $grid = $gridContainer.find('._grid').imagesLoaded(function() {
                     $grid.isotope({
                         itemSelector: '._grid-item',
-                        layoutMode: 'fitRows'
+                        // layoutMode: 'fitRows',
                     })
                 });
                 // initi filters for container
@@ -145,10 +166,38 @@
 
 @section('styles')
     <style>
-        .work-item figure img {
-            width: 600px;
-            height: 400px;
+        /* .section {
+                        padding: 1rem 1.5rem;
+                    } */
+        .iso-img-cls {
+            /* width: 600px; */
+            /* height: 400px; */
         }
+
+        /* ---- grid ---- */
+        .grid {
+            /* background: #ddd; */
+            /* max-width: 1200px; */
+        }
+
+        /* clear fix */
+        .grid:after {
+            /* content: '';
+                            display: block;
+                            clear: both; */
+        }
+
+        /* ---- .grid-item ---- */
+        .grid-item {
+            /* float: left; */
+            /* width: 100px; */
+            /* height: 100px; */
+            /* background: #0d8; */
+            /* border: 2px solid #333; */
+            /* border-color: rgba(0, 0, 0, 0.7); */
+        }
+
+        ._grid-item {}
 
         .masonry-filters ul {
             text-align: center;
@@ -173,7 +222,18 @@
 
         .masonry-filters ul li:hover,
         .masonry-filters ul li.active {
-            color: #f30337;
+            color: #4768FF;
+        }
+
+        .photo-bottom-caption {
+            bottom: 0 !important;
+            left: 0;
+            width: auto !important;
+            color: #fff;
+            padding-bottom: 1.5rem !important;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: left;
         }
 
     </style>

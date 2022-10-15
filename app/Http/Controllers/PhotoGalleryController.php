@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Campaign;
 use App\PhotoGallery;
 use App\Photogallariestags;
 use App\MobileSeriesVersion;
@@ -22,46 +23,34 @@ class PhotoGalleryController extends Controller
         $this->fileUploadService = $fileUploadService;
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $mobile_series_versions = MobileSeriesVersion::all();
         $tags = Tag::all();
+        $campaigns = Campaign::query()
+            ->where('campaign_status', 2)
+            ->where('started_at', '!=', NULL)
+            ->where('ended_at', '=', NULL)
+            ->get();
 
-        return view('user.photo_galleries.create', compact('mobile_series_versions', 'tags'));
+        return view('user.photo_galleries.create', compact('mobile_series_versions', 'tags', 'campaigns'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        // return $request;
-
         $rules = [
             'mobile_series_versions_id' => 'required',
-            'title' => 'required',
+            'title' => 'string|required',
+            'story' => 'string|nullable|max:200',
             // 'product_image' => 'required|mimes:jpeg,png,jpg|max:100|dimensions:width=200,height=200',
-            'img' => 'required|mimes:jpeg,jpg',
+            'img' => 'required|image',
             'tags_id' => 'required',
+            'campaign_id' => 'nullable|integer',
         ];
 
         $customMessages = [
@@ -69,69 +58,27 @@ class PhotoGalleryController extends Controller
             // 'product_image.mimes' => 'Please Provide Product Image as JPEG, PNG or JPG Format',
             'product_image.max' => 'Product Image Max Size 1024KB',
             // 'product_image.dimensions' => 'Product Image Dimension(Width : 200px, Height : 200px)',
+            // 'campaign_id.required' => 'You must select a campaign'
         ];
 
         $this->validate($request, $rules, $customMessages);
 
         $image_url = '';
+        $image_thumb_url = '';
 
         if ($request->hasFile('img')) {
-            $image_url = $this->fileUploadService->upload('img', 'photo_galleries');
-
-            /*
-            //get filename with extension
-            $filenamewithextension = $request->file('img')->getClientOriginalName();
-
-            //get filename without extension
-            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-
-            //get file extension
-            // $extension = $request->file('img')->getClientOriginalExtension();
-            $image = $request->file('img');
-            //filename to store
-            $filenametostore = $request->name.'_'.date('YmdHis').'.'.$image->getClientOriginalExtension();
-
-            //Upload File
-            $request->file('img')->storeAs('photo_galleries', $filenametostore);
-
-            //Compress Image Code Here
-            // $filepath = public_path('storage/profile_images/'.$filenametostore);
-            $filepath = storage_path('app/public/photo_galleries/'.$filenametostore);
-            // return 'ok';
-
-            try {
-                \Tinify\setKey(env("TINIFY_API_KEY"));
-                $source = \Tinify\fromFile($filepath);
-                $source->toFile($filepath);
-            } catch(\Tinify\AccountException $e) {
-                // Verify your API key and account limit.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            } catch(\Tinify\ClientException $e) {
-                // Check your source image and request options.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            } catch(\Tinify\ServerException $e) {
-                // Temporary issue with the Tinify API.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            } catch(\Tinify\ConnectionException $e) {
-                // A network connection error occurred.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            } catch(Exception $e) {
-                // Something else went wrong, unrelated to the Tinify API.
-                return redirect('ROUTE_HERE')->with('error', $e->getMessage());
-            }
-
-            // return 'ok';
-
-            $image_url = 'app/public/photo_galleries/'.$filenametostore;
-
-            // return redirect('ROUTE_HERE')->with('success', "Image uploaded successfully.");*/
+            $image_thumb_url = $this->fileUploadService->resizeUpload('img', 650, null, 'photo_galleries', true);
+            $image_url = $this->fileUploadService->resizeUpload('img', 1920, null, 'photo_galleries');
         }
 
         $photo_galleries = new PhotoGallery;
         $photo_galleries->mobile_series_versions_id = $request->mobile_series_versions_id;
         $photo_galleries->title = $request->title;
+        $photo_galleries->story = $request->story ?? NULL;
         $photo_galleries->img = $image_url;
+        $photo_galleries->img_thumbnail = $image_thumb_url;
         $photo_galleries->status = 0;
+        $photo_galleries->campaign_id = $request->campaign_id ?? null;
         $photo_galleries->users_id = Auth::id();
         $photo_galleries->save();
 
@@ -145,103 +92,30 @@ class PhotoGalleryController extends Controller
             $photo_galleries_tags->save();
         }
 
-        // return 'submit';
+        // return response()->json(['success'=>'Successfully uploaded.']);
         return redirect()->route('user.photo_history');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\PhotoGallery  $photoGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PhotoGallery $photoGallery)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\PhotoGallery  $photoGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PhotoGallery $photoGallery)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PhotoGallery  $photoGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PhotoGallery $photoGallery)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\PhotoGallery  $photoGallery
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PhotoGallery $photoGallery)
-    {
-        //
     }
 
     public function photo_history()
     {
-        $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
-            ->select(
-                'photo_galleries.*',
-                'mobile_series_versions.name as mobile_series_versions_name',
-            )
-            ->orderBy('photo_galleries.created_at', 'desc')
-            ->get();
+        $photo_galleries = PhotoGallery::query()
+            ->with(['tags', 'mobile_series_version:id,name'])
+            ->where('users_id', auth()->id())
+            ->latest()
+            ->paginate(15);
 
-        $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
-            ->select(
-                'photo_galleries_tags.*',
-                'tags.name as tags_name'
-            )
-            ->orderBy('photo_galleries_tags.created_at', 'desc')
-            ->get();
-
-        return view('user.photo_history.index', compact('photo_galleries', 'photo_galleries_tag'));
+        return view('user.photo_history.index', compact('photo_galleries'));
     }
 
     public function pending_request()
     {
-        // return 'history';
+        $photo_galleries = PhotoGallery::query()
+            ->with(['tags', 'mobile_series_version:id,name'])
+            ->where('status', 0)
+            ->latest()
+            ->paginate(15);
 
-        $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
-            ->select(
-                'photo_galleries.*',
-                'mobile_series_versions.name as mobile_series_versions_name',
-            )
-            ->orderBy('photo_galleries.created_at', 'desc')
-            ->where('photo_galleries.status', '=', 0)
-            ->get();
-
-        $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
-            ->select(
-                'photo_galleries_tags.*',
-                'tags.name as tags_name'
-            )
-            ->orderBy('photo_galleries_tags.created_at', 'desc')
-            ->get();
-
-        // return $photo_galleries_tag;
-        return view('admin.photo_galleries.pending_request', compact('photo_galleries', 'photo_galleries_tag'));
+        return view('admin.photo_galleries.pending_request', compact('photo_galleries'));
     }
 
     public function pending_request_approved($id)
@@ -252,35 +126,110 @@ class PhotoGalleryController extends Controller
             'status' => 1,
         ]);
 
-
-        // return redirect()->url('admin/approved_request');
-        return redirect()->route('admin.approved_request');
+        return back();
+        // return redirect()->route('admin.approved_request');
     }
 
-    public function approved_request()
+    public function update_tags($photo_gallery_id)
     {
-        // return 'approved screen';
+        // $mobile_series_versions = MobileSeriesVersion::all();
+        $tags = DB::table('tags')->where('status', 1)->get();
 
-        $photo_galleries = DB::table('photo_galleries')
-            ->join('mobile_series_versions', 'mobile_series_versions.id', '=', 'photo_galleries.mobile_series_versions_id')
-            ->select(
+        $gallery_photo = PhotoGallery::findOrFail($photo_gallery_id);
+        $gallery_photo->load(['mobile_series_version', 'tags']);
+
+        return view('admin.photo_galleries.update', compact('gallery_photo', 'tags'));
+    }
+
+    public function update_tags_post(Request $request, $photo_gallery_id)
+    {
+        $request->validate([
+            'tags_id' =>'required|array|min:1'
+        ]);
+
+        $photo = PhotoGallery::find($photo_gallery_id);
+
+        try {
+            DB::transaction(function () use ($photo) {
+                $photo->tags()->detach();
+
+                $tags = request()->tags_id;
+
+                $photo->tags()->attach($tags);
+            });
+            session()->flash('success', 'Tags updated successfully');
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+        }
+
+        return back();
+    }
+
+    public function delete_gallery_photo($photo_gallery_id)
+    {
+        try {
+            $photo = PhotoGallery::find($photo_gallery_id);
+
+            Storage::disk('s3')->delete($photo->img);
+
+            DB::transaction(function () use ($photo) {
+
+                $photo->tags()->detach();
+
+                DB::table('gallery_photo_likes')->where('photo_gallery_id', $photo->id)->delete();
+
+                $photo->delete();
+            });
+
+            session()->flash('success', 'Successfully deleted');
+        } catch (\Exception $e) {
+            session()->flash('error', $e->getMessage());
+        }
+        return back();
+    }
+
+    public function approved_request(Request $request)
+    {
+        $request->validate([
+            'campaign'=> 'integer|nullable'
+        ]);
+
+        $photo_galleries = PhotoGallery::query()
+            ->with(['tags', 'mobile_series_version:id,name'])
+            ->leftJoin('gallery_photo_likes', 'photo_galleries.id', 'gallery_photo_likes.photo_gallery_id')
+            ->when($request->campaign, function ($query) {
+                $query->where('campaign_id', request()->campaign);
+            })
+            ->when($request->photo_status, function ($query) {
+                $query->where('is_winner', request()->photo_status);
+            })
+            ->where('status', 1)
+            ->select([
                 'photo_galleries.*',
-                'mobile_series_versions.name as mobile_series_versions_name',
-            )
-            ->orderBy('photo_galleries.created_at', 'desc')
-            ->where('photo_galleries.status', '=', 1)
-            ->get();
+                DB::raw('count(gallery_photo_likes.user_id) as likes_count')
+            ])
+            ->groupBy('photo_galleries.id')
+            ->latest()
+            ->paginate(15);
 
-        $photo_galleries_tag = DB::table('photo_galleries_tags')
-            ->join('tags', 'tags.id', '=', 'photo_galleries_tags.tags_id')
-            ->select(
-                'photo_galleries_tags.*',
-                'tags.name as tags_name'
-            )
-            ->orderBy('photo_galleries_tags.created_at', 'desc')
-            ->get();
+        $campaigns = DB::table('campaigns')->latest()->get();
 
-        // return $photo_galleries_tag;
-        return view('admin.photo_galleries.approved_request', compact('photo_galleries', 'photo_galleries_tag'));
+        return view('admin.photo_galleries.approved_request', compact('photo_galleries', 'campaigns'));
+    }
+
+    public function gallery_photo_update_winner_status($photo_gallery_id)
+    {
+        $photo = PhotoGallery::findOrFail($photo_gallery_id);
+
+        try {
+            $photo->is_winner = $photo->is_winner == 0 ? 1 : 0;
+            $photo->save();
+
+            session()->flash('success', 'Winner status updated successfully');
+        } catch (\Exception $e) {
+            session()->flash('error', 'Winner status update failed');
+        }
+
+        return back();
     }
 }

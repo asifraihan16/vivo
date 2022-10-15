@@ -1,7 +1,7 @@
 </div>
         <!-- end page-wrapper -->
 
-        
+
 
 
         <!-- jQuery  -->
@@ -23,7 +23,8 @@
 
         <!-- App js -->
         <script src="{{ URL::asset('admin/assets/js/app.js') }}"></script>
-        
+
+        @yield('scripts')
     </body>
 
 </html>
