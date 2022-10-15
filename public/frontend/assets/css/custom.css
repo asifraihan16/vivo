@@ -238,32 +238,7 @@ body .image-hover figure img {
     /* font-weight: bold; */
 }
 
-.show-on-mobile {
-    visibility: hidden !important;
-}
 
-@media screen and (max-width: 768px) {
-
-    body .works-latest .works-latest-item .works-latest-item-icon .icon {
-        width: 55px !important;
-        height: 40px !important;
-    }
-
-    .show-on-mobile {
-        visibility: initial !important;
-    }
-
-    .show-on-desktop {
-        visibility: initial !important;
-    }
-
-    .watch-video .works-latest .works-latest-item .works-latest-item-icon {
-        top: 64%;
-        left: 57%;
-    }
-
-
-}
 
 .hero .hero-body .container {
     min-height: 160px !important;
@@ -383,7 +358,46 @@ body.header-transparent header {
     text-transform: none !important
 }
 
-@media screen and (max-width:768px) {
+.show-on-mobile {
+    visibility: hidden !important;
+}
+
+.countdown-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 100px;
+    padding-top: 25px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .countdown-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-right: 0px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    body .works-latest .works-latest-item .works-latest-item-icon .icon {
+        width: 55px !important;
+        height: 40px !important;
+    }
+    
+    .show-on-mobile {
+        visibility: initial !important;
+    }
+    
+    .show-on-desktop {
+        /* visibility: initial !important; */
+        visibility: hidden !important;
+    }
+    
+    .watch-video .works-latest .works-latest-item .works-latest-item-icon {
+        top: 64%;
+        left: 57%;
+    }
+
     body .works-latest .works-latest-item .works-latest-item-meta h3 {
         font-size: 18px;
     }
