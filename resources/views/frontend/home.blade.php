@@ -34,7 +34,7 @@
                                             <span></span>
                                         </div>
 
-                                        <a class="tp-caption1 tp-resizeme button is-primary is-rounded show-on-desktop"
+                                        <a class="tp-caption1 tp-resizeme button is-primary is-rounded show-on-desktop join-activity-btn"
                                             style="position: absolute; bottom: 4%; right: 6%;"
                                             href="{{ $campaign_url }}"
                                             data-frames='[
