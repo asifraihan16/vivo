@@ -367,6 +367,11 @@ body.header-transparent header {
     justify-content: flex-end;
     padding-right: 100px;
     padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.join-activity-btn:hover {
+    background-color: rgba(65, 95, 255, 1.0) !important;
 }
 
 @media screen and (max-width: 768px) {
