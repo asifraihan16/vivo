@@ -40,8 +40,8 @@
                                                         <div class="col-sm-10">
                                                             <select class="select2 form-control custom-select"
                                                                 name="mobile_series_versions_id"
-                                                                style="width: 100%; height:36px;" required="">
-                                                                <option>Select</option>
+                                                                style="width: 100%; height:36px;" required="true">
+                                                                <option value="">Select</option>
                                                                 @foreach ($mobile_series_versions as $data)
                                                                     <option value="{{ $data->id }}"
                                                                         {{ old('mobile_series_versions_id') == $data->id ? 'selected' : '' }}>
@@ -176,7 +176,7 @@
                     $('#err').html(msg)
 
                     setTimeout(function() {
-                        window.location.replace('{{ route('user.photo_history') }}');
+                        window.location.replace('{{ route("user.photo_history") }}');
                     }, 1500);
                 },
                 error: function(res) {
