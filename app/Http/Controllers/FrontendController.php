@@ -382,13 +382,12 @@ class FrontendController extends Controller
                 // DB::raw("IF((photo_galleries.id = gallery_photo_likes.photo_gallery_id AND gallery_photo_likes.user_id = {$user_id}), 1, 0) as auth_user_liked"),
             )
             ->where('photo_galleries.campaign_id', '=', $id)
+            ->where('photo_galleries.status', 1)
             // ->where('photo_galleries.is_winner', '=', 1)
             ->groupBy('photo_galleries.id')
             ->orderByRaw('count(gallery_photo_likes.photo_gallery_id) desc')
             ->limit(10)
             ->get();
-
-            // dd($image_lists);
 
         $user_liked_photos = null;
 
