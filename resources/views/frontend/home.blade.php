@@ -71,7 +71,7 @@
                     <div class="countdown-inside">
                         <p class="ends-in-text">Ends In,</p>
                         <div class='countdown' style="text-align: center;"
-                            data-date="{{ \Carbon\Carbon::parse($ongoing_campaign->start_date)->addDays(20)->format('Y-m-d') }}" data-time="00:00"></div>
+                            data-date="{{ \Carbon\Carbon::parse($ongoing_campaign->start_date)->addDays($CAMPAIGN_DURATION_IN_DAYS)->format('Y-m-d') }}" data-time="00:00"></div>
                     </div>
                 </div>
                 @endif

@@ -34,6 +34,8 @@ class FrontendController extends Controller
             ->orderBy('image_order', 'asc')
             ->get();
 
+        $CAMPAIGN_DURATION_IN_DAYS = env('CAMPAIGN_DURATION_IN_DAYS', 20);
+
         $ongoing_campaign = DB::table('campaigns')->where('campaign_status', 2)->latest()->first();
         $last_campaign = DB::table('campaigns')->where('campaign_status', 3)->latest()->first();
         $last_campaign_name = $last_campaign->title ?? '';
@@ -49,6 +51,7 @@ class FrontendController extends Controller
             'last_campaign_name',
             'ongoing_campaign',
             'ongoing_campaign_photos_url',
+            'CAMPAIGN_DURATION_IN_DAYS'
         ));
     }
 
@@ -373,6 +376,8 @@ class FrontendController extends Controller
         view()->share('active_menu', 'campaign');
         $data = Campaign::findOrFail($id);
 
+        $CAMPAIGN_DURATION_IN_DAYS = env('CAMPAIGN_DURATION_IN_DAYS', 20);
+
         $user_id = auth()->id();
         $image_lists = DB::table('photo_galleries')
             ->leftJoin('gallery_photo_likes', 'gallery_photo_likes.photo_gallery_id', '=', 'photo_galleries.id')
@@ -397,7 +402,7 @@ class FrontendController extends Controller
                 ->pluck('photo_gallery_id');
         }
 
-        return view('frontend.campaign_detail', compact('data','image_lists', 'user_liked_photos'));
+        return view('frontend.campaign_detail', compact('data','image_lists', 'user_liked_photos', 'CAMPAIGN_DURATION_IN_DAYS'));
     }
 
     /* public function photographer()
