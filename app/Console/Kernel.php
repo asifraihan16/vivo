@@ -27,9 +27,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
+        $CAMPAIGN_DURATION_IN_DAYS = env('CAMPAIGN_DURATION_IN_DAYS', 20);
         $schedule->call(function () {
             DB::table('campaigns')
-                ->where('start_date', '<', now()->subDays(20))
+                ->where('start_date', '<', now()->subDays($CAMPAIGN_DURATION_IN_DAYS))
                 ->where('campaign_status', '<>', 3)
                 ->update([
                     'campaign_status' => 3,
