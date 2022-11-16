@@ -39,7 +39,7 @@
                                                 <?php $var = 'img' . $i; ?>
                                                 <a href="{{ $exhibitions[0]->$var ? Storage::url($exhibitions[0]->$var) : '' }}"
                                                     class="mfp-lightbox mfp-image" title="">
-                                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                    <img alt="Campaign Photo"
                                                         src="{{ $exhibitions[0]->$var ? Storage::url($exhibitions[0]->$var) : '' }}">
                                                     <figcaption>
                                                         <ul class="social">
@@ -82,7 +82,7 @@
                                             <div class="column is-4 branding " data-aos="fade-up">
                                                 <div class="work-item">
                                                     <figure>
-                                                        <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                                        <img alt="Campaign Photo"
                                                             src="{{ $exhibitions->img ? Storage::url($exhibitions->img) : '' }}">
                                                     </figure>
                                                 </div>

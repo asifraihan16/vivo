@@ -41,7 +41,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/1.png') }}">
                                         </figure>
                                     </div>
@@ -50,7 +50,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/14.png') }}">
                                         </figure>
                                     </div>
@@ -59,7 +59,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
                                         </figure>
                                     </div>
@@ -68,7 +68,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/2.png') }}">
                                         </figure>
                                     </div>
@@ -77,7 +77,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/11.png') }}">
                                         </figure>
                                     </div>
@@ -86,7 +86,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/3.png') }}">
                                         </figure>
                                     </div>
@@ -95,7 +95,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/12.png') }}">
                                         </figure>
                                     </div>
@@ -104,7 +104,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/4.png') }}">
                                         </figure>
                                     </div>
@@ -113,7 +113,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/10.png') }}">
                                         </figure>
                                     </div>
@@ -140,7 +140,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/1.png') }}">
                                         </figure>
                                     </div>
@@ -149,7 +149,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/14.png') }}">
                                         </figure>
                                     </div>
@@ -158,7 +158,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
                                         </figure>
                                     </div>
@@ -167,7 +167,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/2.png') }}">
                                         </figure>
                                     </div>
@@ -176,7 +176,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/11.png') }}">
                                         </figure>
                                     </div>
@@ -185,7 +185,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/3.png') }}">
                                         </figure>
                                     </div>
@@ -194,7 +194,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/12.png') }}">
                                         </figure>
                                     </div>
@@ -203,7 +203,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/4.png') }}">
                                         </figure>
                                     </div>
@@ -212,7 +212,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/10.png') }}">
                                         </figure>
                                     </div>
@@ -239,7 +239,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/1.png') }}">
                                         </figure>
                                     </div>
@@ -248,7 +248,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/14.png') }}">
                                         </figure>
                                     </div>
@@ -257,7 +257,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/5.png') }}">
                                         </figure>
                                     </div>
@@ -266,7 +266,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/2.png') }}">
                                         </figure>
                                     </div>
@@ -275,7 +275,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/11.png') }}">
                                         </figure>
                                     </div>
@@ -284,7 +284,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/3.png') }}">
                                         </figure>
                                     </div>
@@ -293,7 +293,7 @@
                                 <div class="column is-4 branding " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/12.png') }}">
                                         </figure>
                                     </div>
@@ -302,7 +302,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/4.png') }}">
                                         </figure>
                                     </div>
@@ -311,7 +311,7 @@
                                 <div class="column is-4 prototype " data-aos="fade-up">
                                     <div class="work-item">
                                         <figure>
-                                            <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                            <img alt="Gallery Photo"
                                                 src="{{ asset('frontend/assets/images/portfolio/10.png') }}">
                                         </figure>
                                     </div>

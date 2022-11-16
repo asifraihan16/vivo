@@ -33,7 +33,7 @@
                             <br>
                             <article class="blog-post ">
                                 <figure class="post-image">
-                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                    <img alt="Blog Image"
                                         src="{{ $blog_details->img ? Storage::url($blog_details->img) : '' }}">
                                 </figure>
                                 <div class="entry-header">
