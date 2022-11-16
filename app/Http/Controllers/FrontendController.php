@@ -219,8 +219,6 @@ class FrontendController extends Controller
     {
         // view()->share('active_menu', 'gallery');
 
-        $ttl = 1800;
-
         $campaign = Campaign::findOrFail($id);
 
         $liked_photos_id = [];
@@ -273,19 +271,35 @@ class FrontendController extends Controller
         return view('frontend.campaign_photo', compact('mobile_series', 'campaign', 'liked_photos_id', 'ongoing_campaigns'));
     }
 
+    // A user can like any photo maximum 10 times a day
     public function like_gallery_photo(PhotoGallery $photoGallery)
     {
         $user_id = auth()->id();
 
         try {
-            $like_exists = DB::table('gallery_photo_likes')
+
+            $user_photo_likes = DB::table('gallery_photo_likes as a')
+                // ->select('a.photo_gallery_id', DB::raw('count(a.photo_gallery_id) as photo_like_count'))
+                ->where('a.user_id', $user_id)
+                ->whereDate('a.created_at', now()->format('Y-m-d'))
+                // ->groupBy('a.photo_gallery_id')
+                ->count();
+
+            throw_if($user_photo_likes >= 10, new Exception('Oops! You can not like more than 10 time a day', 508));
+
+            $type = 'like';
+            DB::table('gallery_photo_likes')
+                ->insert([
+                    'photo_gallery_id' => $photoGallery->id,
+                    'user_id' => $user_id,
+                    'created_at' => now()
+                ]);
+            /*$like_exists = DB::table('gallery_photo_likes')
                 ->where('user_id', $user_id)
                 ->where('photo_gallery_id', $photoGallery->id)
                 ->exists();
 
-            // throw_if($like_exists, new Exception('You already liked the photo'));
-
-            $type = 'like';
+            // throw_if($like_exists, new Exception('You already liked the photo'));            
 
             if ($like_exists) {
                 DB::table('gallery_photo_likes')
@@ -300,16 +314,18 @@ class FrontendController extends Controller
                         'user_id' => $user_id,
                         'created_at' => now()
                     ]);
-            }
+            }*/
 
             return response()->json([
                 'status' => 'success',
                 'type' => $type,
+                'code' => 200,
                 'message' => "Successfully liked"
             ]);
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
+                'code' => $e->getCode(),
                 'message' => $e->getMessage()
             ]);
         }

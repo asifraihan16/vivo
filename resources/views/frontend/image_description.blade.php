@@ -35,7 +35,7 @@
                                                 <i class="fa fa-heart"></i>
                                             </a>
                                         @else
-                                        <a href="javascript:;" class="likes">
+                                        <a href="javascript:;" class="likes unliked">
                                             <i class="fa fa-heart"></i>
                                             {{ $image_details->likes_count }}
                                         </a>
