@@ -27,7 +27,7 @@
                             <br>
                             <article class="blog-post ">
                                 <figure class="post-image">
-                                    <img alt="Joo - Niche Multi-Purpose HTML Template"
+                                    <img alt="Campaign Photo"
                                         src="{{ $data->img1 ? Storage::url($data->img1) : '' }}">
                                 </figure>
                                 <div class="columns">
