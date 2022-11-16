@@ -5,7 +5,7 @@
 @section('content')
     @php
         $running_campaing = $ongoing_campaigns->firstWhere('campaign_status', 2);
-        $cover_pic = $running_campaing ? Storage::url($running_campaing->img1) : asset('/frontend/assets/images/page-header/6.jpg');
+        $cover_pic = $running_campaing && $running_campaing->img1 ? Storage::url($running_campaing->img1) : asset('/frontend/assets/images/page-header/6.jpg');
     @endphp
 
     <div id="header-bottom-wrap" class="is-clearfix">
