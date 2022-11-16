@@ -6,11 +6,18 @@
 
 <div class="work-item">
     <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
+        
+
 
         @if ($campaign && $campaign->campaign_status == 2)
             @php
                 $user_liked_photos = $userLikedPhotos ? $userLikedPhotos->toArray() : [];
             @endphp
+
+            <span class="liked-bubble" id="liked-bubble-{{ $photo->id }}">
+                <i class="fa fa-heart"></i>
+                {{-- Liked --}}
+            </span>
 
             <a href="javascript:;" 
                 class="{{ in_array($photo->id, $user_liked_photos) ? 'liked' : 'unliked' }}"
@@ -18,7 +25,7 @@
                 <i class="fa fa-heart"></i>
             </a>
         @else
-            <a href="javascript:;" class="likes">
+            <a href="javascript:;" class="likes unliked">
                 <i class="fa fa-heart"></i>
                 {{ $photo->likes_count }}
             </a>

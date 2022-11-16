@@ -189,6 +189,10 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js">
     </script>
 
+    {{-- <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.8/dist/sweetalert2.all.min.js"></script>
+
     <script type="text/javascript">
         $(function() {
             $.ajaxSetup({
@@ -200,26 +204,55 @@
             $('.lazy').Lazy();
         });
 
-        function likeGalleryPhoto(photo_id)
+        function likeGalleryPhoto(photo_id) 
         {
             var actionUrl = '{{ route("user.like-gallery-photo", ["photo_gallery"=> ":photo_id"]) }}'
             actionUrl = actionUrl.replace(':photo_id', photo_id);
             $.ajax({
                 url: actionUrl,
                 method: 'POST',
-                success: function (res) {
+                success: function(res) {
                     // $('#photo-like-btn-' + photo_id).css('color', '#4768FF')
                     if (res.status == 'success' && res.type == 'like') {
                         $('#photo-like-btn-' + photo_id).removeClass('unliked')
                         $('#photo-like-btn-' + photo_id).addClass('liked')
+                        $('#liked-bubble-' + photo_id).addClass('bubble-motion')
+                        
+                        setTimeout(() => {
+                            $('#liked-bubble-' + photo_id).removeClass('bubble-motion')
+                        }, 600);
+
                     } else {
-                        $('#photo-like-btn-' + photo_id).removeClass('liked')
-                        $('#photo-like-btn-' + photo_id).addClass('unliked')
+                        // $('#photo-like-btn-' + photo_id).removeClass('liked')
+                        // $('#photo-like-btn-' + photo_id).addClass('unliked')
+                        // alert(res.message)
+                        // new swal(res.message);
+
+                        if (res.code == 508) {
+                            new swal({
+                                // position: 'top-end',
+                                icon: 'warning',
+                                // title: 'Oops...',
+                                text: res.message,
+                                showConfirmButton: false,
+                                timer: 1500,
+                                // toast: true
+                            })
+                        }
                     }
                 },
-                error: function (err) {
+                error: function(err) {
                     if (err.status == 401) {
-                        alert('Please login to like photo')
+                        // alert('Please login to like photo')
+                        new swal({
+                            // position: 'top-end',
+                            icon: 'warning',
+                            // title: 'Oops...',
+                            text: "You have to login to like photo",
+                            showConfirmButton: false,
+                            timer: 1500,
+                            // toast: true
+                        })
                     }
                 }
             })
@@ -240,6 +273,6 @@
 
         gtag('config', 'G-2369R89R46');
     </script>
-</body>
+    </body>
 
-</html>
+    </html>
