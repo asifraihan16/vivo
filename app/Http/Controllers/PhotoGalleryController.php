@@ -34,8 +34,8 @@ class PhotoGalleryController extends Controller
         $tags = Tag::all();
         $campaigns = Campaign::query()
             ->where('campaign_status', 2)
-            ->where('started_at', '!=', NULL)
-            ->where('ended_at', '=', NULL)
+            // ->where('started_at', '!=', NULL)
+            // ->where('ended_at', '=', NULL)
             ->get();
 
         return view('user.photo_galleries.create', compact('mobile_series_versions', 'tags', 'campaigns'));
