@@ -6,8 +6,10 @@ use App\Campaign;
 use App\PhotoGallery;
 use App\Photogallariestags;
 use App\MobileSeriesVersion;
+use App\PhotoDelete;
 use App\Services\FileUploadService;
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -170,9 +172,23 @@ class PhotoGalleryController extends Controller
         try {
             $photo = PhotoGallery::find($photo_gallery_id);
 
-            Storage::disk('s3')->delete($photo->img);
+            // Storage::disk('s3')->delete($photo->img);
 
             DB::transaction(function () use ($photo) {
+                $likes_count = DB::table('gallery_photo_likes')->where('photo_gallery_id', $photo->id)->count();
+
+                $author = User::find($photo->users_id);
+                $author_data = $author ? "{$author->name}::{$author->email}::{$author->contact}" : null;
+
+                PhotoDelete::create([
+                    'title' => $photo->title,
+                    'photo_link' => $photo->img,
+                    'author_user_id' => $photo->users_id,
+                    'author_user' => $author_data,
+                    'upload_date' => $photo->created_at,
+                    'deleted_by_user_id' => auth()->id(),
+                    'like_count' => $likes_count,
+                ]);
 
                 $photo->tags()->detach();
 
