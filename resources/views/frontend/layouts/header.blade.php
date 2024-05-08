@@ -94,19 +94,34 @@
                                         <li class="{{ strtolower($active_menu) == 'gallery' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.gallery') }}">Gallery</a>
                                         </li>
-
-                                        <li class="{{ strtolower($active_menu) == 'videos' ? 'active' : '' }}">
-                                            <a href="{{ route('frontend.videos') }}">Video</a>
+                                        <li class="{{ strtolower($active_menu) == 'capture_the_Future' ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.capture_the_future') }}">Capture the Future</a>
+                                        </li>
+                                        <li class="{{ strtolower($active_menu) == 'chronicle-magazine' ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.chronicle_magazine') }}">Photography Chronicle</a>
                                         </li>
 
-                                        <li class="{{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">
-                                            <a href="{{ url('/blogs') }}">Blogs</a>
+                                        <li class="dropdown show {{ strtolower($active_menu) == 'videos' || strtolower($active_menu) == 'blogs' || strtolower($active_menu) == 'photographer'  ? 'active' : '' }}">
+                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                More
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <li class="dropdown-item {{ strtolower($active_menu) == 'videos' ? 'active' : '' }}">
+                                                    <a href="{{ route('frontend.videos') }}">Video</a>
+                                                </li>
+        
+                                                <li class="dropdown-item {{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">
+                                                    <a href="{{ url('/blogs') }}">Blogs</a>
+                                                </li>
+        
+                                                <li class="dropdown-item {{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
+                                                    <a href="{{ route('frontend.photographer') }}">Photographer</a>
+                                                </li>
+                                            
+                                            </ul>
                                         </li>
-
-
-                                        <li class="{{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
-                                            <a href="{{ route('frontend.photographer') }}">Photographer</a>
-                                        </li>
+                                        
+                                     
 
                                         {{-- <li>
                                             <a href="{{ url('/contact') }}">Image Licensing</a>

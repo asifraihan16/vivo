@@ -1,10 +1,47 @@
 @extends('frontend.layouts.app')
 
 @section('title', 'Gallery')
+<style>
+    .pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination .pagination-list {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination .pagination-list li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.pagination .pagination-list li a,
+.pagination .pagination-list .active span {
+    padding: 5px 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    color: #333;
+    text-decoration: none;
+}
+
+.pagination .pagination-list li a:hover {
+    background-color: #e0e0e0;
+}
+
+.pagination .pagination-list .active span {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+</style>
 
 @section('content')
     @php
-        $running_campaing = $ongoing_campaigns->firstWhere('campaign_status', 2);
+
         // $cover_pic = $running_campaing ? Storage::url($running_campaing->img1) : asset('/frontend/assets/images/banner-images/Gallery.webp');
         $cover_pic = asset('/frontend/assets/images/banner-images/Gallery.webp');
     @endphp
@@ -29,15 +66,22 @@
             <div id="content-area-inner" class="site-content-area-inner">
 
                 <section class="section works-list is-clearfix padding-3rem">
+                   
                     <div class="container width-80-percent">
+                        <h1 style="text-align: center">CAPTURE THE FUTURE</h1>
+                      
+                            
+                        <h2 style="text-align: center">{{$year}}</h2>
                         <div class="works isotope image-hover effect-8">
+                         
                             <div class="columns is-variable is-1 is-multiline" style="">
-                                @foreach ($moments as $moment)
+                               
+                                @foreach ($capture_the_futures as $moment)
                                     <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                         <div class="work-item">
                                             <figure>
                                                 <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
-                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} <br> {{ $moment->author_name }} <br>  {{ $moment->phone_model }} <br>  {{ $moment->tag }}  <br>  {{ $moment->story }} ">
+                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} ">
                                                     <img alt="{{ $moment->title }}"
                                                         src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
                                                         style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />
@@ -61,70 +105,14 @@
                                 @endforeach
 
                             </div>
+                            {{ $capture_the_futures->appends(['year' => $year])->links() }}
                             <!-- .columns -->
                         </div>
+                      
                         <!-- .works -->
                     </div>
                 </section>
 
-                @foreach ($mobile_series as $series)
-                    <section
-                        class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
-                        <div class="container">
-                            <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">{{ $series->name }}</h1>
-
-                            <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
-                                <div class="masonry-filters">
-                                    {{-- <ul>
-                                        <li data-filter="*" class="active">show all</li>
-                                        @foreach ($series->mobile_series_versions as $version)
-                                            <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}
-                                            </li>
-                                        @endforeach
-                                    </ul> --}}
-                                </div>
-
-                                <div class="_grid columns is-variable is-1 is-multiline">
-                                    @foreach ($series->series_gallery_photos as $photo)
-                                        <div
-                                            class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
-                                            <x-image-tile :photo="$photo" />
-                                            
-                                            {{-- <div class="work-item">
-                                                <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
-                                                    @php
-                                                        $campaign_of_photo = $ongoing_campaigns->firstWhere('id', $photo->campaign_id)
-                                                    @endphp
-                                                    @if($campaign_of_photo && $campaign_of_photo->campaign_status == 2 && auth()->user())
-                                                        <a href="javascript:;" class="{{ in_array($photo->id, $liked_photos_id) ? 'liked' : 'unliked' }}"
-                                                            onclick="likeGalleryPhoto({{ $photo->id }})" id="photo-like-btn-{{ $photo->id }}">
-                                                            <i class="fa fa-heart"></i>
-                                                        </a>
-                                                    @else
-                                                        {{ $photo->likes_count }}
-                                                    @endif
-                                                </div>
-                                                <figure>
-                                                    <a href="{{ url('image_description/' . $photo->id) }}"
-                                                        class="">
-                                                        <img alt="Exibition Image"
-                                                        src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
-                                                    </a>
-                                                </figure>
-                                            </div> --}}
-
-                                        </div>
-                                    @endforeach
-                                </div>
-
-                                <div style="text-align:center;">
-                                    <a href="{{ route('frontend.photos-by-series', ['series_id' => $series->id, 'series' => Str::slug($series->name)]) }}"
-                                        class="button is-danger is-radiusless">View All</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                @endforeach
             </div>
         </div>
     </div>

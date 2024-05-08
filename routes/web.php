@@ -15,9 +15,15 @@ Route::get('/blog_details/{id}', 'FrontendController@blog_details');
 Route::get('/campaign', 'FrontendController@campaign')->name('frontend.campaign');
 Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail')->name('frontend.campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
+Route::get('/chronicle-magazine', 'FrontendController@chronicle_magazine')->name('frontend.chronicle_magazine');
+Route::get('/capture-future', 'FrontendController@capture_the_future')->name('frontend.capture_the_future');
+Route::get('/all-capture-future', 'FrontendController@all_capture_the_future')->name('frontend.all_capture_the_future');
+
 //previous
 Route::get('/campaign-photos/{id}', 'FrontendController@campaign_photos')->name('frontend.campaign-photos');
 Route::get('/image_description/{id}', 'FrontendController@image_description');
+Route::get('/capture_the_future_deatils/{id}', 'FrontendController@capture_the_future_deatils');
+
 Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-series');
 
 Route::get('faqs', 'MiscController@faqs')->name('frontend.faqs');
@@ -60,7 +66,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::resource('exibition_upload', 'ExibitionController');
     Route::resource('playlists', 'PlaylistController');
     Route::resource('moments', 'Admin\MomentsController');
+    Route::resource('capture_the_future', 'Admin\CaptureFutureController');
+    Route::get('capture_the_future/{capture_the_future}/{status}/update-status', 'Admin\CaptureFutureController@updateStatus')->name('capture_the_future.update-status');
+
+    Route::resource('chronicle_magazine', 'Admin\ChronicleMagazineController');
+    Route::get('chronicle_magazine/{chronicle_magazine}/{status}/update-status', 'Admin\ChronicleMagazineController@updateStatus')->name('chronicle_magazine.update-status');
+
     Route::get('moments/{moment}/{status}/update-status', 'Admin\MomentsController@updateStatus')->name('moments.update-status');
+
+    
+
+    
 
     Route::resource('playlist1_main_vedios', 'Playlist1MainVediosController')->only('index', 'create', 'store');
     Route::delete('playlist1_main_vedios/{id}', 'Playlist1MainVediosController@destroy')->name('playlist1_main_vedios.destroy');

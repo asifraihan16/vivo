@@ -1,30 +1,37 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Campaign')
+@section('title', 'Chronicle Magazine')
 
 @section('content')
     <!-- #header-wrap -->
-    <div id="header-bottom-wrap" class="is-clearfix">
+    {{-- <div id="header-bottom-wrap" class="is-clearfix">
         <div id="header-bottom" class="site-header-bottom">
             <div id="header-bottom-inner" class="site-header-bottom-inner ">
                 <section class="hero page-title is-medium has-text-centered blog-single"
-                    style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Campaign.webp') }}) no-repeat top center; background-size: cover;}">
+                    style="">
                     <div class="hero-body">
                         <div class="container">
-                            {{-- <h1>Campaign</h1> --}}
+                            <h1>Chronicle Magazine</h1>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div id="content-main-wrap" class="is-clearfix">
+        
         <div id="content-area" class="site-content-area">
+            
             <div id="content-area-inner" class="site-content-area-inner">
+                
                 <section class="section is-clearfix {{-- has-background-primary-light --}} hero"
                     style="background-color: #fafafa !important;">
+                    
                     <div class="container">
+                        <h1 style="    text-align: center;
+                        font-size: 40px;
+                    ">Chronicle Magazine</h1>
                         {{-- <h1 class="heading-title style-1">Campaign List</h1> --}}
                         {{-- <br> --}}
                         {{-- <br> --}}
@@ -33,34 +40,23 @@
 
 
                         <div class="blog-list style-3 columns is-variable is-4 is-multiline">
-                            @foreach ($campaigns as $data)
+                            @foreach ($chronicle_magazines as $data)
                                 <div class="column is-4" data-aos="fade">
-                                    <article class="blog-post" style="padding: 20px 25px;">
+                                    <article class="blog-post" >
                                         <div class="entry-header">
                                             <div class="post-meta">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#" style="font-size: 15px;">
-                                                            @if ($data->campaign_status === 2)
-                                                                <span style="color: rgba(65, 95, 255, 1.0)">On Going</span>
-                                                            @elseif ($data->campaign_status === 3)
-                                                                <span style="color: #999;">Closed</span>
-                                                            @endif
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                <a href="{{ route('frontend.campaign_detail', ['id' => $data->id]) }}"
-                                                    style="font-size: 20px;">  <img src="{{ $data->img1 ? Storage::url($data->img1) : '' }}"
-                                                    alt="Campaign Cover Photo" style="width: 320px; height: 140px;"> </a>
+                                                
+                                                <a href="{{ $data->file_path ? Storage::url($data->file_path) : '#' }}"
+                                                    style="font-size: 20px;">  <img src="{{ $data->image_path ? Storage::url($data->image_path) : '' }}"
+                                                    alt="Campaign Cover Photo" style="    width: 250px;
+                                                    height: 400px;"> </a>
                                             </div>
                                             <h2 class="entry-title" style="text-transform: inherit !important;">
                                                 <a href="{{ route('frontend.campaign_detail', ['id' => $data->id]) }}"
                                                     style="font-size: 20px;">{{ $data->title }}</a>
                                             </h2>
                                         </div>
-                                        <div class="entry-content">
-                                            <p style="color: #5c5c5c;">{{ $data->title_detail }}</p>
-                                        </div>
+                                       
                                         {{-- <div class="entry-footer">
                                             <a class="button" href="{{ route('frontend.campaign_detail', ['id' => $data->id]) }}">See More</a>
                                         </div> --}}

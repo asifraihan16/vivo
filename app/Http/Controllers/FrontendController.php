@@ -9,6 +9,8 @@ use App\MobileSeriesVersion;
 use App\Blog;
 use App\Campaign;
 use App\PhotoGallery;
+use App\ChronicleMagazine;
+use App\CaptureFuture;
 use App\User;
 use Exception;
 // use Illuminate\Support\Facades\Cache;
@@ -32,7 +34,20 @@ class FrontendController extends Controller
             ->where('image_type', 1) // 1 - Moment of the month
             ->where('image_for_page', 1)
             ->orderBy('image_order', 'asc')
+            ->take(7)
             ->get();
+
+        $capture_the_future_index = DB::table('capture_futures')
+            ->where('is_active', 1)
+            ->orderBy('image_order', 'asc')
+            ->take(7)
+            ->get();
+
+        $ChronicleMagazines = DB::table('chronicle_magazines')
+            ->where('is_active', 1)
+            ->take(5)
+            ->get();
+
 
         $CAMPAIGN_DURATION_IN_DAYS = env('CAMPAIGN_DURATION_IN_DAYS', 20);
 
@@ -46,14 +61,85 @@ class FrontendController extends Controller
         return view('frontend.home', compact(
             'home_sliders', 
             'moments', 
+            'capture_the_future_index',
             'campaign_url',
             'last_campaign',
+            'ChronicleMagazines',
             'last_campaign_name',
             'ongoing_campaign',
             'ongoing_campaign_photos_url',
             'CAMPAIGN_DURATION_IN_DAYS'
         ));
     }
+
+    public function capture_the_future()
+    {
+        $year = request()->year ? request()->year : date('Y');
+
+        if(request()->all_year == 1)
+        {
+            $years = DB::table('capture_futures')
+            ->select('year')
+            ->distinct()
+            ->pluck('year');
+           
+        }
+        else
+        {
+            $years[]=$year;
+        }
+
+        $capture_the_futures = [];
+        // Loop through each year
+        foreach ($years as $year) {
+            // Fetch data for the current year
+            $dataForYear = DB::table('capture_futures')
+                ->where('is_active', 1)
+                ->where('year', $year)
+                ->orderBy('image_order', 'asc')
+                ->get();
+
+            // Add the data for the current year to the $yearlyData array
+            $capture_the_futures[$year] = $dataForYear;
+        }
+        $all_year = request()->all_year ? request()->all_year : 0 ;
+
+       
+
+        return view('frontend.capture_the_future', compact('capture_the_futures','year','all_year'));
+        
+       
+    }
+
+    public function all_capture_the_future()
+    {
+        $year = request()->year ? request()->year : date('Y');
+
+        $capture_the_futures = DB::table('capture_futures')
+        ->where('is_active', 1)
+        ->where('year', $year)
+        ->orderBy('image_order', 'asc')
+        ->paginate(1);
+
+        return view('frontend.all_capture_the_future', compact('capture_the_futures','year'));
+    }
+
+
+    public function capture_the_future_deatils($id)
+    {
+        $contentdetails = CaptureFuture::with([
+        'comments.nestedcomment'=> function ($query) {
+            $query->orderBy('created_at', 'DESC');
+        },
+        'comments'=> function ($query) {
+            $query->whereNull('parent_id')->orderBy('created_at', 'DESC');
+        }])
+        ->find($id);
+
+        return view('frontend.capture_image_description', compact('contentdetails'));
+    }
+
+   
 
     public function photographer()
     {
@@ -203,6 +289,8 @@ class FrontendController extends Controller
             ]);
         }
 
+        // dd( $mobile_series->toArray());
+
         $exhibitions = DB::table('exibitions')->get();
 
         $moments = DB::table('moments')
@@ -211,6 +299,8 @@ class FrontendController extends Controller
             ->where('image_for_page', 2)
             ->orderBy('image_order', 'asc')
             ->get();
+
+            // dd($moments->toArray());
 
         return view('frontend.exibition-1', compact('exhibitions', 'mobile_series', 'moments', 'liked_photos_id', 'ongoing_campaigns'));
     }
@@ -385,6 +475,16 @@ class FrontendController extends Controller
             ->get();
 
         return view('frontend.campaign', compact('campaigns'));
+    }
+
+    public function chronicle_magazine()
+    {
+        view()->share('active_menu', 'chronicle_magazine');
+
+        $chronicle_magazines = ChronicleMagazine::orderBy('id', 'desc')
+            ->get();
+
+        return view('frontend.chronicle_magazine', compact('chronicle_magazines'));
     }
 
     public function campaign_detail($id)

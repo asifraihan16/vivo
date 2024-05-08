@@ -80,21 +80,18 @@
                     <div class="container width-80-percent">
                         
 
-                        <h1 class="heading-title style-1" style="text-transform: inherit;">Best Moments of vivo</h1>
+                        <h1 class="heading-title style-1" style="text-transform: inherit;">Capture the Future </h1>
                         <br>
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
 
-                                @php
-                                    $last_campaign_link = "<br><a style='color: white; font-weight:900;' href='{$last_campaign}'> {$last_campaign_name}</a>";
-                                @endphp
 
-                                @foreach ($moments as $moment)
+                                @foreach ($capture_the_future_index as $moment)
                                     <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                         <div class="work-item">
                                             <figure>
                                                 <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
-                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} {!! $last_campaign_link !!}">
+                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} ">
                                                     <img alt="{{ $moment->title }}"
                                                         src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
                                                         style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />
@@ -117,6 +114,111 @@
                                     </div>
                                 @endforeach
 
+                            </div>
+                            <div style="text-align:center;">
+                                <a href="{{ route('frontend.capture_the_future') }}"
+                                    class="button is-danger is-radiusless">View All</a>
+                            </div>
+                            <!-- .columns -->
+                        </div>
+                        <!-- .works -->
+                    </div>
+                </section>
+
+                <section class="section works-list is-clearfix padding-3rem" style="padding-top: 0px;">
+                    <div class="container width-80-percent">
+                        
+
+                        <h1 class="heading-title style-1" style="text-transform: inherit;">Chronicle Magazine</h1>
+                        <br>
+                        <div class="works isotope image-hover effect-8">
+                            <div class="columns is-variable is-1 is-multiline" style="">
+
+
+                                @foreach ($ChronicleMagazines as $moment)
+                                <div class="column is-4" data-aos="fade" >
+                                    <article class="blog-post" style="padding: 20px 25px;">
+                                        <div class="entry-header" style="">
+                                            <div class="post-meta">
+                                               
+                                                <a href="#"
+                                                    style="font-size: 20px;">
+                                                  <img src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
+                                                    alt="Campaign Cover Photo" style="    width: 250px;
+                                                    height: 400px;"> </a>
+                                            </div>
+                                            <h2 class="entry-title" style="text-transform: inherit !important;">
+                                                <a href="#"
+                                                    style="font-size: 20px;">{{ $moment->title }}</a>
+                                            </h2>
+                                        </div>
+                                        {{-- <div class="entry-content">
+                                            <p style="color: #5c5c5c;">{{ $moment->title }}</p>
+                                        </div> --}}
+                                        {{-- <div class="entry-footer">
+                                            <a class="button" href="{{ route('frontend.campaign_detail', ['id' => $data->id]) }}">See More</a>
+                                        </div> --}}
+                                        <!-- .entry-footer -->
+                                    </article>
+                                </div>
+                                @endforeach
+
+                            </div>
+                            <div style="text-align:center;">
+                                <a href="{{ route('frontend.chronicle_magazine') }}"
+                                    class="button is-danger is-radiusless">View All</a>
+                            </div>
+                            <!-- .columns -->
+                        </div>
+                        <!-- .works -->
+                    </div>
+                </section>
+
+                <section class="section works-list is-clearfix padding-3rem" style="padding-top: 0px;">
+                    <div class="container width-80-percent">
+                        
+
+                        <h1 class="heading-title style-1" style="text-transform: inherit;">Best Moments of vivo</h1>
+                        <br>
+                        <div class="works isotope image-hover effect-8">
+                            <div class="columns is-variable is-1 is-multiline" style="">
+
+                                @php
+                                    $last_campaign_link = "<br><a style='color: white; font-weight:900;' href='{$last_campaign}'> {$last_campaign_name}</a>";
+                                @endphp
+
+                                @foreach ($moments as $moment)
+                                    <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
+                                        <div class="work-item">
+                                            <figure>
+                                                <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
+                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} {!! $last_campaign_link !!} <br> {{ $moment->author_name }} <br>  {{ $moment->phone_model }} <br>  {{ $moment->tag }}  <br>  {{ $moment->story }}">
+                                                    <img alt="{{ $moment->title }}"
+                                                        src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
+                                                        style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />
+                                                    <figcaption>
+                                                        <ul class="social">
+                                                            <li>
+                                                                <span class="icon">
+                                                                    <i class="icon-magnifier"></i>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+
+                                                        <h3 class="photo-bottom-caption">{{ $moment->title }}</>
+
+                                                    </figcaption>
+                                                </a>
+                                            </figure>
+
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                            <div style="text-align:center;">
+                                <a href="{{ route('frontend.photos-by-series', ['series_id' => 1, 'series' => Str::slug('')]) }}"
+                                    class="button is-danger is-radiusless">View All</a>
                             </div>
                             <!-- .columns -->
                         </div>
