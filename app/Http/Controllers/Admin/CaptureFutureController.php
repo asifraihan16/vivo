@@ -40,13 +40,13 @@ class CaptureFutureController extends Controller
             'image_order' => 'integer|required|min:1',
             'image_span_col' => 'integer|required|min:1',
             'is_active' => 'integer|required|in:1,2',
-            'year'=>'nullable'
         ]);
 
         try {
             $image_url = $this->fileUploadService->resizeUpload('upload_img', 900, 450, 'CaptureFuture');
 
             $validated['image_path'] = $image_url;
+            $validated['year'] = date('Y');
 
             CaptureFuture::create($validated);
 

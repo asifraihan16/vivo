@@ -85,8 +85,24 @@
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
 
-
                                 @foreach ($capture_the_future_index as $moment)
+                                <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ url('capture_the_future_deatils/' . $moment->id) }}" {{-- class="mfp-lightbox mfp-image" --}} title="{{ $moment->title }}">
+                                                <img alt="{{ $moment->title }}"
+                                                    src="{{ $moment->image_path ? Storage::url($moment->image_path) : Storage::url($moment->image_path) }}"
+                                                    style="" />
+                                    
+                                              
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                            
+                            @endforeach
+
+                                {{-- @foreach ($capture_the_future_index as $moment)
                                     <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                         <div class="work-item">
                                             <figure>
@@ -109,10 +125,9 @@
                                                     </figcaption>
                                                 </a>
                                             </figure>
-
                                         </div>
                                     </div>
-                                @endforeach
+                                @endforeach --}}
 
                             </div>
                             <div style="text-align:center;">
@@ -152,13 +167,7 @@
                                                     style="font-size: 20px;">{{ $moment->title }}</a>
                                             </h2>
                                         </div>
-                                        {{-- <div class="entry-content">
-                                            <p style="color: #5c5c5c;">{{ $moment->title }}</p>
-                                        </div> --}}
-                                        {{-- <div class="entry-footer">
-                                            <a class="button" href="{{ route('frontend.campaign_detail', ['id' => $data->id]) }}">See More</a>
-                                        </div> --}}
-                                        <!-- .entry-footer -->
+                                     
                                     </article>
                                 </div>
                                 @endforeach

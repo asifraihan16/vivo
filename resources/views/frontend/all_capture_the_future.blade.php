@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Gallery')
+@section('title', 'CAPTURE THE FUTURE')
 <style>
     .pagination {
     margin-top: 20px;
@@ -77,6 +77,23 @@
                             <div class="columns is-variable is-1 is-multiline" style="">
                                
                                 @foreach ($capture_the_futures as $moment)
+                                <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
+                                    <div class="work-item">
+                                        <figure>
+                                            <a href="{{ url('capture_the_future_deatils/' . $moment->id) }}" {{-- class="mfp-lightbox mfp-image" --}} title="{{ $moment->title }}">
+                                                <img alt="{{ $moment->title }}"
+                                                    src="{{ $moment->image_path ? Storage::url($moment->image_path) : Storage::url($moment->image_path) }}"
+                                                    style="" />
+                                    
+                                              
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                            
+                            @endforeach
+
+                                {{-- @foreach ($capture_the_futures as $moment)
                                     <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                         <div class="work-item">
                                             <figure>
@@ -102,7 +119,7 @@
                                             </figure>
                                         </div>
                                     </div>
-                                @endforeach
+                                @endforeach --}}
 
                             </div>
                             {{ $capture_the_futures->appends(['year' => $year])->links() }}

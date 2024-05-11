@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Gallery')
+@section('title', 'CAPTURE THE FUTURE')
 
 @section('content')
     @php

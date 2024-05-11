@@ -11,6 +11,7 @@ use App\Campaign;
 use App\PhotoGallery;
 use App\ChronicleMagazine;
 use App\CaptureFuture;
+use App\CaptureComment;
 use App\User;
 use Exception;
 // use Illuminate\Support\Facades\Cache;
@@ -119,7 +120,7 @@ class FrontendController extends Controller
         ->where('is_active', 1)
         ->where('year', $year)
         ->orderBy('image_order', 'asc')
-        ->paginate(1);
+        ->paginate(12);
 
         return view('frontend.all_capture_the_future', compact('capture_the_futures','year'));
     }
@@ -127,16 +128,39 @@ class FrontendController extends Controller
 
     public function capture_the_future_deatils($id)
     {
-        $contentdetails = CaptureFuture::with([
-        'comments.nestedcomment'=> function ($query) {
-            $query->orderBy('created_at', 'DESC');
-        },
-        'comments'=> function ($query) {
-            $query->whereNull('parent_id')->orderBy('created_at', 'DESC');
-        }])
-        ->find($id);
+        
+         $image_details = DB::table('capture_futures')
+            ->leftJoin('capture_photo_likes', 'capture_futures.id', '=', 'capture_photo_likes.capture_future_id')
+            ->select(
+                'capture_futures.*',
+                DB::raw('count(capture_photo_likes.user_id) as likes_count')
+            )
+            ->where('capture_futures.id', '=', $id)
+            ->first();
 
-        return view('frontend.capture_image_description', compact('contentdetails'));
+            // dd($image_details);
+
+        $image_details->liked_by_user = false;
+
+        
+
+        if (auth()->user()) {
+            $image_details->liked_by_user = DB::table('gallery_photo_likes')
+                ->where('user_id', auth()->id())
+                ->where('photo_gallery_id', $id)
+                ->exists();
+        }
+
+        // $comments = DB::table('capture_comments as a')
+        // ->select('a.*', 'b.id', 'b.name', 'b.email', 'b.img')
+        // ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+        // ->where('a.capture_future_id', $image_details->id)
+        // // ->latest()
+        // ->get();
+
+        $comments = CaptureComment::with('comment_by','replies.comment_by')->where('capture_future_id',$image_details->id)->where('parent_comment_id',null)->get();
+
+        return view('frontend.capture_image_description', compact('image_details','comments'));
     }
 
    
@@ -384,27 +408,7 @@ class FrontendController extends Controller
                     'user_id' => $user_id,
                     'created_at' => now()
                 ]);
-            /*$like_exists = DB::table('gallery_photo_likes')
-                ->where('user_id', $user_id)
-                ->where('photo_gallery_id', $photoGallery->id)
-                ->exists();
-
-            // throw_if($like_exists, new Exception('You already liked the photo'));            
-
-            if ($like_exists) {
-                DB::table('gallery_photo_likes')
-                ->where('user_id', $user_id)
-                ->where('photo_gallery_id', $photoGallery->id)
-                ->delete();
-                $type = 'unlike';
-            } else {
-                DB::table('gallery_photo_likes')
-                    ->insert([
-                        'photo_gallery_id' => $photoGallery->id,
-                        'user_id' => $user_id,
-                        'created_at' => now()
-                    ]);
-            }*/
+          
 
             return response()->json([
                 'status' => 'success',
@@ -419,6 +423,80 @@ class FrontendController extends Controller
                 'message' => $e->getMessage()
             ]);
         }
+    }
+
+    public function like_capture_photo(Request $request)
+    {
+        $user_id = auth()->id();
+      
+        $photoGallery = CaptureFuture::find($request->capture_future_id);
+
+    
+        try {
+
+            // $user_photo_likes = DB::table('capture_photo_likes as a')
+            //     // ->select('a.photo_gallery_id', DB::raw('count(a.photo_gallery_id) as photo_like_count'))
+            //     ->where('a.user_id', $user_id)
+            //     ->whereDate('a.created_at', now()->format('Y-m-d'))
+            //     // ->groupBy('a.photo_gallery_id')
+            //     ->count();
+
+            // throw_if($user_photo_likes >= 10, new Exception('Oops! You can not like more than 10 time a day', 508));
+
+            $type = 'like';
+            DB::table('capture_photo_likes')
+                ->insert([
+                    'capture_future_id' => $photoGallery->id,
+                    'user_id' => $user_id,
+                    'created_at' => now()
+                ]);
+          
+
+            return response()->json([
+                'status' => 'success',
+                'type' => $type,
+                'code' => 200,
+                'message' => "Successfully liked"
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'code' => $e->getCode(),
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function capturephoto_comment(Request $request)
+    {
+        $user_id = auth()->id();
+
+        $validated['comment_body']= $request->comment_body;
+        $validated['parent_comment_id']= $request->parent_comment_id;
+        $validated['user_id']=
+        $validated['capture_future_id']= $request->capture_future_id;
+        CaptureComment::create($validated);
+
+        return response()->json([
+            'status' => 'success',
+            'code' => 200,
+            'message' => "Successfully liked"
+        ]);
+    }
+
+    public function capturephoto_comment_main(Request $request)
+    {
+        $user_id = auth()->id();
+        $validated['comment_body']= $request->comment_body;
+        $validated['user_id']=
+        $validated['capture_future_id']= $request->capture_future_id;
+        CaptureComment::create($validated);
+
+        return response()->json([
+            'status' => 'success',
+            'code' => 200,
+            'message' => "Successfully liked"
+        ]); 
     }
 
     public function exhibition_photos_by_author($author_id)

@@ -94,7 +94,7 @@
                                         <li class="{{ strtolower($active_menu) == 'gallery' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.gallery') }}">Gallery</a>
                                         </li>
-                                        <li class="{{ strtolower($active_menu) == 'capture_the_Future' ? 'active' : '' }}">
+                                        <li class="{{ strtolower($active_menu) == 'capture-future' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.capture_the_future') }}">Capture the Future</a>
                                         </li>
                                         <li class="{{ strtolower($active_menu) == 'chronicle-magazine' ? 'active' : '' }}">

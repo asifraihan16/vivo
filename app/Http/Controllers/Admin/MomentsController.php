@@ -41,6 +41,10 @@ class MomentsController extends Controller
             'image_span_col' => 'integer|required|min:1',
             'is_active' => 'integer|required|in:1,2',
             'image_for_page' => 'integer|required|in:1,2',
+            'author_name' => 'string|required',
+            'phone_model' => 'string|required',
+            'tag' => 'string|required',
+            'story' => 'string|required',
         ]);
 
         try {

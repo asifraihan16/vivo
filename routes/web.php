@@ -146,6 +146,10 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
 
     // Like gallery photo
     Route::post('like-gallery-photo/{photo_gallery}', 'FrontendController@like_gallery_photo')->name('user.like-gallery-photo');
+    //
+    Route::post('like-capturephoto-photo/{capture_future_id}', 'FrontendController@like_capture_photo')->name('user.like-capture-photo');
+    Route::post('comment-capturephoto/{capture_future_id}/{parent_comment_id}/{comment_body}', 'FrontendController@capturephoto_comment')->name('user.comment-capturephoto');
+    Route::post('main_comment-capturephoto/{capture_future_id}/{comment_body}', 'FrontendController@capturephoto_comment_main')->name('user.main_comment-capturephoto');
 });
 
 Route::group(['prefix'=> 'photographers', 'middleware'=> ['auth', 'is_photographer']], function () {

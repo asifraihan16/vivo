@@ -60,11 +60,7 @@
                                                         {!! $errors->first('is_active', '<p class="help-block">:message</p>') !!}
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="image_for_page">Year *</label>
-                                                        <input type="text" name="year" id="year" class="form-control" value="{{ old('year') }}" placeholder="Image year" required>
-                                                        {!! $errors->first('image_for_page', '<p class="help-block">:message</p>') !!}
-                                                    </div>
+                                    
 
                                                     <div class="row">
                                                         <div class="col-sm-10">
