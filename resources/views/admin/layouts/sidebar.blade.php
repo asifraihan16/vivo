@@ -45,6 +45,12 @@
                                 class="ti-control-record"></i>Home Slider</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('moments.index') }}"><i
                                 class="ti-control-record"></i>Moments</a></li>
+
+                   <li class="nav-item"><a class="nav-link" href="{{ route('capture_the_future.index') }}"><i
+                                    class="ti-control-record"></i>Capture The Future</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('chronicle_magazine.index') }}"><i
+                                        class="ti-control-record"></i>Chronicle Magazine</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="{{ route('exibition_upload.index') }}"><i
                                 class="ti-control-record"></i>Exibition</a></li>
                     <li class="nav-item">
