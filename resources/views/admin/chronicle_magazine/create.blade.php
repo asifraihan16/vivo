@@ -30,6 +30,12 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label for="link">File Link *</label>
+                                                        <input type="text" name="link" id="link" class="form-control" value="{{ old('link') }}" placeholder="Image title" required>
+                                                        {!! $errors->first('link', '<p class="help-block">:message</p>') !!}
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label for="    ">Cover Image *</label>
                                                         <input type="file" name="upload_img" id="upload_img" class="form-control" required>
                                                         {!! $errors->first('upload_img', '<p class="help-block">:message</p>') !!}

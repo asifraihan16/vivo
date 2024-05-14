@@ -200,9 +200,9 @@ a {
                                                     <div class="parent-allcomments">
                                                         <div class="image-box">
                                                             @if ($comment->comment_by)
-                                                            <img alt="Author Image" src="{{ $comment->comment_by->img ? Storage::url($comment->comment_by->img) : asset('frontend/assets/images/allcomments/1.png') }}">
+                                                            <img alt="Author Image" src="{{ $comment->comment_by->img ? Storage::url($comment->comment_by->img) : asset('frontend/assets/images/profile.png') }}">
                                                             @else
-                                                            <img alt="Author Image" src="{{ asset('frontend/assets/images/allcomments/1.png') }}">
+                                                            <img alt="Author Image" src="{{ asset('frontend/assets/images/profile.png') }}">
                                                             @endif
                                                         </div>
                                                         <div class="content-box">
@@ -218,7 +218,7 @@ a {
                                                                 <input type="hidden" value="{{$comment->id}}" name="parrent_comment_id" id="nasted_comment_parrent_comment_id">
                                                                 <input type="hidden" value="{{$image_details->id}}" name="capture_future_id" id="nasted_comment_capture_future_id">
                                                                 <textarea name="comment_body" id="nasted_comment_comment_body"></textarea>
-                                                                <button class="btn" id="nasted_comment_submit" onclick="nastedComment()">Post</button>
+                                                                <button class="btn" id="nasted_comment_submit" onclick="nastedComment()">Reply</button>
                                                             </div>
                                                             @endif
                                                         </div>
@@ -227,9 +227,9 @@ a {
                                                     <div class="parent-allcomments reply-comment">
                                                         <div class="image-box">
                                                             @if ($reply->comment_by)
-                                                            <img alt="Author Image" src="{{ $reply->comment_by->img ? Storage::url($reply->comment_by->img) : asset('frontend/assets/images/allcomments/1.png') }}">
+                                                            <img alt="Author Image" src="{{ $reply->comment_by->img ? Storage::url($reply->comment_by->img) : asset('frontend/assets/images/profile.png') }}">
                                                             @else
-                                                            <img alt="Author Image" src="{{ asset('frontend/assets/images/allcomments/1.png') }}">
+                                                            <img alt="Author Image" src="{{ asset('frontend/assets/images/profile.png') }}">
                                                             @endif
                                                         </div>
                                                         <div class="content-box">
@@ -246,10 +246,10 @@ a {
                                                         <div class="form-group">
                                                                 <input type="hidden" value="{{$image_details->id}}" name="capture_future_id" id="capture_future_id">
                                                                 <textarea name="comment_body" id="comment_body"></textarea>
-                                                            <button class="btn"  id="nasted_comment_submit" onclick="mainComment()" >Post</button>
+                                                            <button class="btn"  id="nasted_comment_submit" onclick="mainComment()" >Comment</button>
                                                         </div>
                                                         @else 
-                                                        Log in to Like or Commnet
+                                                         Log in to Like or Commnet 
                                                         @endif
                                                     </div>
                                                 </div>

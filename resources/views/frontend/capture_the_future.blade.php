@@ -31,9 +31,12 @@
                 <section class="section works-list is-clearfix padding-3rem">
                    
                     <div class="container width-80-percent">
-                        <h1 style="text-align: center">CAPTURE THE FUTURE</h1>
+                        <h1 class="heading-title style-1" style="text-transform: inherit; margin-top: 20px;">Capture the Future </h1>
+                        {{-- <h1 style="text-align: center">CAPTURE THE FUTURE</h1> --}}
                         @foreach ($capture_the_futures as $key=> $item)
                             
+                       
+                        
                         <h2 style="text-align: center">{{$key}}</h2>
                         <div class="works isotope image-hover effect-8">
                          

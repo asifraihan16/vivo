@@ -80,7 +80,7 @@
                     <div class="container width-80-percent">
                         
 
-                        <h1 class="heading-title style-1" style="text-transform: inherit;">Capture the Future </h1>
+                        <h1 class="heading-title style-1" style="text-transform: inherit; margin-top: 20px;">Capture the Future </h1>
                         <br>
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
@@ -156,7 +156,7 @@
                                         <div class="entry-header" style="">
                                             <div class="post-meta">
                                                
-                                                <a href="#"
+                                                <a href="{{ url('chronicle_magazine_deatils/' . $moment->id) }}"
                                                     style="font-size: 20px;">
                                                   <img src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
                                                     alt="Campaign Cover Photo" style="    width: 250px;
@@ -201,7 +201,7 @@
                                         <div class="work-item">
                                             <figure>
                                                 <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
-                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} {!! $last_campaign_link !!} <br> {{ $moment->author_name }} <br>  {{ $moment->phone_model }} <br>  {{ $moment->tag }}  <br>  {{ $moment->story }}">
+                                                    class="mfp-lightbox mfp-image" title=" Image Title: {{ $moment->title }} {!! $last_campaign_link !!} <br> Author Name :  {{ $moment->author_name }} <br> Phone Model :  {{ $moment->phone_model }} <br> Tag :  {{ $moment->tag }}  <br> Story :   {{ $moment->story }}">
                                                     <img alt="{{ $moment->title }}"
                                                         src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
                                                         style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />
@@ -225,10 +225,10 @@
                                 @endforeach
 
                             </div>
-                            <div style="text-align:center;">
-                                <a href="{{ route('frontend.photos-by-series', ['series_id' => 1, 'series' => Str::slug('')]) }}"
+                            {{-- <div style="text-align:center;">
+                                <a href="#"
                                     class="button is-danger is-radiusless">View All</a>
-                            </div>
+                            </div> --}}
                             <!-- .columns -->
                         </div>
                         <!-- .works -->

@@ -18,6 +18,26 @@
             </div>
         </div>
     </div> --}}
+    @php
+
+        // $cover_pic = $running_campaing ? Storage::url($running_campaing->img1) : asset('/frontend/assets/images/banner-images/Gallery.webp');
+        $cover_pic = asset('/frontend/assets/images/banner-images/Gallery.webp');
+    @endphp
+
+    <div id="header-bottom-wrap" class="is-clearfix">
+        <div id="header-bottom" class="site-header-bottom">
+            <div id="header-bottom-inner" class="site-header-bottom-inner ">
+                <section class="hero page-title is-medium has-text-centered blog-single"
+                    style="background: #812323 url({{ $cover_pic }}) no-repeat top center; background-size: cover;">
+                    <div class="hero-body">
+                        <div class="container">
+                            {{-- <h1>Gallery</h1> --}}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 
     <div id="content-main-wrap" class="is-clearfix">
         
@@ -46,13 +66,13 @@
                                         <div class="entry-header">
                                             <div class="post-meta">
                                                 
-                                                <a href="{{ $data->file_path ? Storage::url($data->file_path) : '#' }}"
+                                                <a href="{{ url('chronicle_magazine_deatils/' . $data->id) }}"
                                                     style="font-size: 20px;">  <img src="{{ $data->image_path ? Storage::url($data->image_path) : '' }}"
                                                     alt="Campaign Cover Photo" style="    width: 250px;
                                                     height: 400px;"> </a>
                                             </div>
                                             <h2 class="entry-title" style="text-transform: inherit !important;">
-                                                <a href="{{ route('frontend.campaign_detail', ['id' => $data->id]) }}"
+                                                <a href="{{ url('chronicle_magazine_deatils/' . $data->id) }}"
                                                     style="font-size: 20px;">{{ $data->title }}</a>
                                             </h2>
                                         </div>

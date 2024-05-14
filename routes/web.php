@@ -16,6 +16,7 @@ Route::get('/campaign', 'FrontendController@campaign')->name('frontend.campaign'
 Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail')->name('frontend.campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
 Route::get('/chronicle-magazine', 'FrontendController@chronicle_magazine')->name('frontend.chronicle_magazine');
+Route::get('/chronicle_magazine_deatils/{id}', 'FrontendController@chronicle_magazine_deatils')->name('frontend.chronicle_magazine_deatils');
 Route::get('/capture-future', 'FrontendController@capture_the_future')->name('frontend.capture_the_future');
 Route::get('/all-capture-future', 'FrontendController@all_capture_the_future')->name('frontend.all_capture_the_future');
 

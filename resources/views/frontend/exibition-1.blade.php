@@ -37,7 +37,7 @@
                                         <div class="work-item">
                                             <figure>
                                                 <a href="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
-                                                    class="mfp-lightbox mfp-image" title="{{ $moment->title }} <br> {{ $moment->author_name }} <br>  {{ $moment->phone_model }} <br>  {{ $moment->tag }}  <br>  {{ $moment->story }} ">
+                                                    class="mfp-lightbox mfp-image" title="Image Title : {{ $moment->title }} <br> Author Name:  {{ $moment->author_name }} <br> Phone Model :   {{ $moment->phone_model }} <br> Tag :  {{ $moment->tag }}  <br> Story :   {{ $moment->story }} ">
                                                     <img alt="{{ $moment->title }}"
                                                         src="{{ $moment->image_path ? Storage::url($moment->image_path) : '' }}"
                                                         style="width: {{ $moment->image_span_col == 6 ? '900px' : '450px' }};" />

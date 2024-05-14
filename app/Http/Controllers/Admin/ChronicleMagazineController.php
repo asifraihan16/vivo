@@ -35,7 +35,8 @@ class ChronicleMagazineController extends Controller
             'title' => 'string|required',
             'upload_img' => 'image|required',
             'is_active' => 'integer|required|in:1,2',
-            'doc'=> 'file|required',
+            'link'=>'required',
+            'doc'=> 'file|nullable',
         ]);
 
         try {

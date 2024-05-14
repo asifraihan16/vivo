@@ -35,7 +35,6 @@ class FrontendController extends Controller
             ->where('image_type', 1) // 1 - Moment of the month
             ->where('image_for_page', 1)
             ->orderBy('image_order', 'asc')
-            ->take(7)
             ->get();
 
         $capture_the_future_index = DB::table('capture_futures')
@@ -81,7 +80,8 @@ class FrontendController extends Controller
         {
             $years = DB::table('capture_futures')
             ->select('year')
-            ->distinct()
+            ->distinct('year')
+            ->orderby('year','desc')
             ->pluck('year');
            
         }
@@ -97,7 +97,7 @@ class FrontendController extends Controller
             $dataForYear = DB::table('capture_futures')
                 ->where('is_active', 1)
                 ->where('year', $year)
-                ->orderBy('image_order', 'asc')
+                ->orderBy('year', 'desc')
                 ->get();
 
             // Add the data for the current year to the $yearlyData array
@@ -563,6 +563,13 @@ class FrontendController extends Controller
             ->get();
 
         return view('frontend.chronicle_magazine', compact('chronicle_magazines'));
+    }
+
+    public function chronicle_magazine_deatils($id)
+    {
+        $chronicle_magazines = ChronicleMagazine::find($id);
+       
+        return view('frontend.chronicle_magazine_deatils', compact('chronicle_magazines'));
     }
 
     public function campaign_detail($id)
