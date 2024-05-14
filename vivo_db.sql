@@ -13,9 +13,7 @@ MySQL - 5.5.5-10.4.21-MariaDB : Database - vivo_live
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
--- CREATE DATABASE /*!32312 IF NOT EXISTS*/`vivo_live` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
--- USE `vivo_live`;
 
 /*Table structure for table `blog_comments` */
 
@@ -117,11 +115,11 @@ CREATE TABLE `capture_futures` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `capture_futures` */
 
-insert  into `capture_futures`(`id`,`title`,`image_path`,`image_link`,`description`,`image_order`,`image_span_col`,`is_active`,`year`,`created_at`,`updated_at`) values (1,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2023','2024-04-28 17:17:31','2024-04-28 17:17:31'),(2,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,4,1,'2023',NULL,NULL),(3,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2022',NULL,NULL),(4,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2022',NULL,NULL),(5,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2024',NULL,NULL);
+insert  into `capture_futures`(`id`,`title`,`image_path`,`image_link`,`description`,`image_order`,`image_span_col`,`is_active`,`year`,`created_at`,`updated_at`) values (1,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2023','2024-04-28 17:17:31','2024-04-28 17:17:31'),(3,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2022',NULL,NULL),(4,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2022',NULL,NULL),(5,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2024',NULL,NULL);
 
 /*Table structure for table `capture_photo_likes` */
 
@@ -161,7 +159,7 @@ CREATE TABLE `chronicle_magazines` (
 
 /*Data for the table `chronicle_magazines` */
 
-insert  into `chronicle_magazines`(`id`,`title`,`image_path`,`image_link`,`file_path`,`file_link`,`description`,`link`,`is_active`,`created_at`,`updated_at`) values (1,'sdsd','CaptureFuture/vDCmSSVoA5OTdMIav7tN3SpWmPbq4KyS3jfFB2jw.jpg',NULL,'chronicle_magazine/4BRaRKiPCFEwT2wGtVhR21mwfzwiQ51eL5wMpjcW.pdf',NULL,NULL,'https://online.fliphtml5.com/fvlcs/kika/#p=12',1,'2024-05-02 16:48:55','2024-05-02 16:48:55');
+insert  into `chronicle_magazines`(`id`,`title`,`image_path`,`image_link`,`file_path`,`file_link`,`description`,`link`,`is_active`,`created_at`,`updated_at`) values (1,'sdsd','CaptureFuture/vDCmSSVoA5OTdMIav7tN3SpWmPbq4KyS3jfFB2jw.jpg',NULL,'chronicle_magazine/4BRaRKiPCFEwT2wGtVhR21mwfzwiQ51eL5wMpjcW.pdf',NULL,NULL,'https://online.fliphtml5.com/fvlcs/ekxq/',1,'2024-05-02 16:48:55','2024-05-02 16:48:55');
 
 /*Table structure for table `exibitions` */
 

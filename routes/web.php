@@ -69,6 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::resource('moments', 'Admin\MomentsController');
     Route::resource('capture_the_future', 'Admin\CaptureFutureController');
     Route::get('capture_the_future/{capture_the_future}/{status}/update-status', 'Admin\CaptureFutureController@updateStatus')->name('capture_the_future.update-status');
+    Route::delete('capture_the_future_delete\{capture_the_future}', 'Admin\CaptureFutureController@destroy')->name('capture_the_future.destroy');
 
     Route::get('comment_list', 'Admin\CaptureFutureController@comment_list');
     Route::get('capture_the_future_comment_reply\{comment_id}', 'Admin\CaptureFutureController@comment_reply_list')->name('capture_the_future_comment_reply');
@@ -79,6 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
 
     Route::get('moments/{moment}/{status}/update-status', 'Admin\MomentsController@updateStatus')->name('moments.update-status');
 
+    
     
 
     

@@ -59,8 +59,10 @@ class CaptureFutureController extends Controller
         return back();
     }
 
-    public function destroy(CaptureFuture $moment)
+    public function destroy($id)
     {
+      
+        $moment = CaptureFuture::find($id);
         try {
             Storage::disk('s3')->delete($moment->image_path);
             $moment->delete();
