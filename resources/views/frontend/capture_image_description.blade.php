@@ -124,7 +124,7 @@ a {
     border: none;
     outline: none;
     padding: 5px 0px;
-    width: 96px;
+    width: 130px;
     text-align: center;
     color: white;
 }

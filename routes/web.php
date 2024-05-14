@@ -70,6 +70,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::resource('capture_the_future', 'Admin\CaptureFutureController');
     Route::get('capture_the_future/{capture_the_future}/{status}/update-status', 'Admin\CaptureFutureController@updateStatus')->name('capture_the_future.update-status');
 
+    Route::get('comment_list', 'Admin\CaptureFutureController@comment_list');
+    Route::get('capture_the_future_comment_reply\{comment_id}', 'Admin\CaptureFutureController@comment_reply_list')->name('capture_the_future_comment_reply');
+    Route::delete('capture_the_future_comment_delete\{comment_id}', 'Admin\CaptureFutureController@comment_delete')->name('capture_the_future_comment_delete.destroy');
+    
     Route::resource('chronicle_magazine', 'Admin\ChronicleMagazineController');
     Route::get('chronicle_magazine/{chronicle_magazine}/{status}/update-status', 'Admin\ChronicleMagazineController@updateStatus')->name('chronicle_magazine.update-status');
 

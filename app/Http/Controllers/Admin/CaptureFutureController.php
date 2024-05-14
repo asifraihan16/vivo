@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\CaptureFuture;
+use App\CaptureComment;
 use App\Services\FileUploadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -84,5 +85,29 @@ class CaptureFutureController extends Controller
         }
 
         return back();
+    }
+
+    public function comment_list()
+    {
+        $moments = CaptureComment::with('comment_by','capture_future')->where('parent_comment_id',null)
+        ->get();
+        return view('admin.capture_the_future.comment_list', compact('moments'));
+    }
+
+    public function comment_reply_list($id)
+    {
+        $moments = CaptureComment::with('comment_by','capture_future')->where('parent_comment_id',$id)
+        ->get();
+        return view('admin.capture_the_future.comment_list_reply', compact('moments'));
+    }
+
+    public function comment_delete($id)
+    {
+        CaptureComment::where('parent_comment_id',$id)->delete();
+        CaptureComment::where('id',$id)->delete();
+
+        session()->flash('success', 'Successfully Delete Comment');
+        return back();
+
     }
 }

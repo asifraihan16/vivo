@@ -37,7 +37,9 @@
                             
                        
                         
-                        <h2 style="text-align: center">{{$key}}</h2>
+                        <h2 style="text-align: center;
+                        padding-bottom: 20px;
+                        font-weight: 600;">{{$key}}</h2>
                         <div class="works isotope image-hover effect-8">
                          
                             <div class="columns is-variable is-1 is-multiline" style="">

@@ -2,8 +2,7 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.5.5-10.4.21-MariaDB : Database - vivo_live
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -13,6 +12,9 @@ MySQL - 5.5.5-10.4.21-MariaDB : Database - vivo_live
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`vivo_live` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `vivo_live`;
 
 /*Table structure for table `blog_comments` */
 
@@ -95,7 +97,7 @@ CREATE TABLE `capture_comments` (
 
 /*Data for the table `capture_comments` */
 
-insert  into `capture_comments`(`id`,`comment_body`,`parent_comment_id`,`user_id`,`capture_future_id`,`created_at`,`updated_at`) values (1,'fdfdfgdfgfdg',NULL,1,2,NULL,NULL),(2,'sagor\r\n',1,1,2,NULL,NULL),(3,'dsdsd',0,2,2,'2024-05-10 18:45:11','2024-05-10 18:45:11'),(4,'dsdsd',0,2,2,'2024-05-10 18:46:00','2024-05-10 18:46:00'),(5,'dsdsd',0,2,2,'2024-05-10 18:46:39','2024-05-10 18:46:39'),(6,'dsdsd',1,2,2,'2024-05-10 18:47:19','2024-05-10 18:47:19'),(7,'dsdsd',1,2,2,'2024-05-10 18:47:26','2024-05-10 18:47:26'),(8,'test comment',1,2,2,'2024-05-10 18:49:01','2024-05-10 18:49:01'),(9,'test comment',1,2,2,'2024-05-10 18:49:07','2024-05-10 18:49:07'),(10,'dfsfdsfdsf',1,2,2,'2024-05-10 18:49:52','2024-05-10 18:49:52'),(11,'rewrewr',NULL,2,2,'2024-05-10 18:57:17','2024-05-10 18:57:17');
+insert  into `capture_comments`(`id`,`comment_body`,`parent_comment_id`,`user_id`,`capture_future_id`,`created_at`,`updated_at`) values (1,'fdfdfgdfgfdg',NULL,1,2,NULL,NULL),(3,'dsdsd',0,2,2,'2024-05-10 18:45:11','2024-05-10 18:45:11'),(4,'dsdsd',0,2,2,'2024-05-10 18:46:00','2024-05-10 18:46:00'),(5,'dsdsd',0,2,2,'2024-05-10 18:46:39','2024-05-10 18:46:39'),(6,'dsdsd',1,2,2,'2024-05-10 18:47:19','2024-05-10 18:47:19'),(7,'dsdsd',1,2,2,'2024-05-10 18:47:26','2024-05-10 18:47:26'),(8,'test comment',1,2,2,'2024-05-10 18:49:01','2024-05-10 18:49:01'),(9,'test comment',1,2,2,'2024-05-10 18:49:07','2024-05-10 18:49:07'),(10,'dfsfdsfdsf',1,2,2,'2024-05-10 18:49:52','2024-05-10 18:49:52'),(11,'rewrewr',NULL,2,2,'2024-05-10 18:57:17','2024-05-10 18:57:17');
 
 /*Table structure for table `capture_futures` */
 
@@ -118,7 +120,7 @@ CREATE TABLE `capture_futures` (
 
 /*Data for the table `capture_futures` */
 
-insert  into `capture_futures`(`id`,`title`,`image_path`,`image_link`,`description`,`image_order`,`image_span_col`,`is_active`,`year`,`created_at`,`updated_at`) values (1,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2023','2024-04-28 17:17:31','2024-04-28 17:17:31'),(2,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,6,1,'2023',NULL,NULL),(3,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,6,1,'2023',NULL,NULL),(4,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2023',NULL,NULL),(5,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,6,1,'2023',NULL,NULL);
+insert  into `capture_futures`(`id`,`title`,`image_path`,`image_link`,`description`,`image_order`,`image_span_col`,`is_active`,`year`,`created_at`,`updated_at`) values (1,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2023','2024-04-28 17:17:31','2024-04-28 17:17:31'),(2,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,4,1,'2023',NULL,NULL),(3,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2022',NULL,NULL),(4,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2022',NULL,NULL),(5,'Test Image','CaptureFuture/nXpSZuzpzuh77nKFhZv6t4Er0evO914S7LtskHv4.jpg',NULL,NULL,1,3,1,'2024',NULL,NULL);
 
 /*Table structure for table `capture_photo_likes` */
 
@@ -149,6 +151,7 @@ CREATE TABLE `chronicle_magazines` (
   `file_path` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `file_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -157,7 +160,7 @@ CREATE TABLE `chronicle_magazines` (
 
 /*Data for the table `chronicle_magazines` */
 
-insert  into `chronicle_magazines`(`id`,`title`,`image_path`,`image_link`,`file_path`,`file_link`,`description`,`is_active`,`created_at`,`updated_at`) values (1,'sdsd','CaptureFuture/vDCmSSVoA5OTdMIav7tN3SpWmPbq4KyS3jfFB2jw.jpg',NULL,'chronicle_magazine/4BRaRKiPCFEwT2wGtVhR21mwfzwiQ51eL5wMpjcW.pdf',NULL,NULL,1,'2024-05-02 16:48:55','2024-05-02 16:48:55');
+insert  into `chronicle_magazines`(`id`,`title`,`image_path`,`image_link`,`file_path`,`file_link`,`description`,`link`,`is_active`,`created_at`,`updated_at`) values (1,'sdsd','CaptureFuture/vDCmSSVoA5OTdMIav7tN3SpWmPbq4KyS3jfFB2jw.jpg',NULL,'chronicle_magazine/4BRaRKiPCFEwT2wGtVhR21mwfzwiQ51eL5wMpjcW.pdf',NULL,NULL,'https://online.fliphtml5.com/fvlcs/kika/#p=12',1,'2024-05-02 16:48:55','2024-05-02 16:48:55');
 
 /*Table structure for table `exibitions` */
 
