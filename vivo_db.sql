@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.5.5-10.4.21-MariaDB : Database - vivo_live
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -12,9 +13,9 @@ MySQL - 5.5.5-10.4.21-MariaDB : Database - vivo_live
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`vivo_live` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+-- CREATE DATABASE /*!32312 IF NOT EXISTS*/`vivo_live` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
-USE `vivo_live`;
+-- USE `vivo_live`;
 
 /*Table structure for table `blog_comments` */
 
