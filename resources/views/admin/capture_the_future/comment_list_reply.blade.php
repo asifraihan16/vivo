@@ -36,8 +36,8 @@
                                         @foreach ($moments as $key => $moment)
                                             <tr>
                                                 <td>{{ $moment->comment_body }}</td>
-                                                <td>{{ $moment->comment_by->name }}</td>
-                                                <td>{{ $moment->capture_future->title }}</td>
+                                                <td>{{ $moment->comment_by ?  $moment->comment_by->name : 'N/A' }}</td>
+                                                <td>{{ $moment->capture_future ? $moment->capture_future->title : 'N/A' }}</td>
 
                                                 <td>
                                                 
