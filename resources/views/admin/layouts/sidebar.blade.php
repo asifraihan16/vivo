@@ -33,6 +33,8 @@
                                 class="ti-control-record"></i>Pending Request</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('admin/approved_request') }}"><i
                                 class="ti-control-record"></i>Approved Request</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ url('admin/commentlist') }}"><i
+                                    class="ti-control-record"></i>Comment List</a></li>
                 </ul>
             </li>
 
