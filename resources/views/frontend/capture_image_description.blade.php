@@ -228,7 +228,7 @@ a {
                                                             <div class="form-group">
                                                                 <input type="hidden" value="{{$comment->id}}" name="parrent_comment_id" id="nasted_comment_parrent_comment_id">
                                                                 <input type="hidden" value="{{$image_details->id}}" name="capture_future_id" id="nasted_comment_capture_future_id">
-                                                                <textarea name="comment_body" id="nasted_comment_comment_body"></textarea>
+                                                                <textarea name="comment_body"  id="nasted_comment_body{{$comment->id}}"></textarea>
                                                                 <button class="btn" id="nasted_comment_submit" onclick="nastedComment()">Reply</button>
                                                             </div>
                                                             @endif

@@ -318,9 +318,8 @@
 
             var parrent_comment_id = $('#nasted_comment_parrent_comment_id').val();
             var capture_future_id = $('#nasted_comment_capture_future_id').val();
-            var comment_body = $('#nasted_comment_comment_body').val();
-            
-           
+            var comment_body = $('#nasted_comment_body' + parrent_comment_id).val();
+        
 
             var actionUrl = '{{ route("user.comment-capturephoto", ["capture_future_id"=> ":capture_future_id","parent_comment_id"=> ":parent_comment_id","comment_body"=> ":comment_body"]) }}'
             actionUrl = actionUrl.replace(':capture_future_id', capture_future_id);
