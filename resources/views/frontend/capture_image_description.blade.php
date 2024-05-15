@@ -206,13 +206,24 @@ a {
                                                             @endif
                                                         </div>
                                                         <div class="content-box">
-                                                            <div class="user-name">{{ $comment->comment_by ? $comment->comment_by->name : $comment->comment_author_name }}</div>
+                                                            <div class="user-name">{{ $comment->comment_by ? $comment->comment_by->name : $comment->comment_by->name }}</div>
                                                             <div class="allcomments">{{ $comment->comment_body }}</div>
-                                                            {{-- <ul>
-                                                                <li>
-                                                                    <a href="#">replay</a>
-                                                                </li>
-                                                            </ul> --}}
+                                                            @foreach ($comment->replies as $reply)
+                                                            <div class="parent-allcomments reply-comment">
+                                                                <div class="image-box">
+                                                                    @if ($reply->comment_by)
+                                                                    <img alt="Author Image" src="{{ $reply->comment_by->img ? Storage::url($reply->comment_by->img) : asset('frontend/assets/images/profile.png') }}">
+                                                                    @else
+                                                                    <img alt="Author Image" src="{{ asset('frontend/assets/images/profile.png') }}">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="content-box">
+                                                                    <div class="user-name">{{ $reply->comment_by ? $reply->comment_by->name : $reply->comment_author_name }}</div>
+                                                                    <div class="allcomments">{{ $reply->comment_body }}</div>
+                                                
+                                                                </div>
+                                                            </div>
+                                                            @endforeach
                                                             @if(auth()->user())
                                                             <div class="form-group">
                                                                 <input type="hidden" value="{{$comment->id}}" name="parrent_comment_id" id="nasted_comment_parrent_comment_id">
@@ -223,22 +234,7 @@ a {
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    @foreach ($comment->replies as $reply)
-                                                    <div class="parent-allcomments reply-comment">
-                                                        <div class="image-box">
-                                                            @if ($reply->comment_by)
-                                                            <img alt="Author Image" src="{{ $reply->comment_by->img ? Storage::url($reply->comment_by->img) : asset('frontend/assets/images/profile.png') }}">
-                                                            @else
-                                                            <img alt="Author Image" src="{{ asset('frontend/assets/images/profile.png') }}">
-                                                            @endif
-                                                        </div>
-                                                        <div class="content-box">
-                                                            <div class="user-name">{{ $reply->comment_by ? $reply->comment_by->name : $reply->comment_author_name }}</div>
-                                                            <div class="allcomments">{{ $reply->comment_body }}</div>
-                                        
-                                                        </div>
-                                                    </div>
-                                                    @endforeach
+                                                  
 
                                                     @endforeach
                                                     <div class="global-comment">

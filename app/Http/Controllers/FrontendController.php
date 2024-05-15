@@ -39,7 +39,7 @@ class FrontendController extends Controller
 
         $capture_the_future_index = DB::table('capture_futures')
             ->where('is_active', 1)
-            ->orderBy('image_order', 'asc')
+            ->orderBy('id', 'desc')
             ->take(7)
             ->get();
 
@@ -473,7 +473,7 @@ class FrontendController extends Controller
 
         $validated['comment_body']= $request->comment_body;
         $validated['parent_comment_id']= $request->parent_comment_id;
-        $validated['user_id']=
+        $validated['user_id']= $user_id;
         $validated['capture_future_id']= $request->capture_future_id;
         CaptureComment::create($validated);
 
@@ -488,7 +488,7 @@ class FrontendController extends Controller
     {
         $user_id = auth()->id();
         $validated['comment_body']= $request->comment_body;
-        $validated['user_id']=
+        $validated['user_id']= $user_id;
         $validated['capture_future_id']= $request->capture_future_id;
         CaptureComment::create($validated);
 
