@@ -80,7 +80,9 @@
                     <div class="container width-80-percent">
                         
 
-                        <h1 class="heading-title style-1" style="text-transform: inherit; margin-top: 20px;">Capture the Future </h1>
+                        <h1 class="heading-title style-1" style="text-transform: inherit;
+                        margin-top: 40px;
+                        text-align: center;">Capture the Future </h1>
                         <br>
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
@@ -88,6 +90,14 @@
                                 @foreach ($capture_the_future_index as $moment)
                                 <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                     <div class="work-item">
+                                        <div class="photo-like-area" id="photo-like-area-{{ $moment->id }}">
+                                            
+                                            <a href="javascript:;" class="likes unliked">
+                                                <i class="fa fa-heart"></i>
+                                                {{ $moment->likes_count }}
+                                            </a>
+                                        
+                                    </div>
                                         <figure>
                                             <a href="{{ url('capture_the_future_deatils/' . $moment->id) }}" {{-- class="mfp-lightbox mfp-image" --}} title="{{ $moment->title }}">
                                                 <img alt="{{ $moment->title }}"
@@ -187,7 +197,7 @@
                     <div class="container width-80-percent">
                         
 
-                        <h1 class="heading-title style-1" style="text-transform: inherit;">Best Moments of vivo</h1>
+                        <h1 class="heading-title style-1" style="text-transform: inherit;">vivo Moments</h1>
                         <br>
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">

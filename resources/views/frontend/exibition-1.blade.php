@@ -59,15 +59,16 @@
                                         </div>
                                     </div>
                                 @endforeach
-
+                            
                             </div>
+                            {{ $moments->links() }}
                             <!-- .columns -->
                         </div>
                         <!-- .works -->
                     </div>
                 </section>
 
-                @foreach ($mobile_series as $series)
+                {{-- @foreach ($mobile_series as $series)
                     <section
                         class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
                         <div class="container">
@@ -75,13 +76,7 @@
 
                             <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
                                 <div class="masonry-filters">
-                                    {{-- <ul>
-                                        <li data-filter="*" class="active">show all</li>
-                                        @foreach ($series->mobile_series_versions as $version)
-                                            <li data-filter="{{ '.version-' . $version->id }}">{{ $version->name }}
-                                            </li>
-                                        @endforeach
-                                    </ul> --}}
+                                   
                                 </div>
 
                                 <div class="_grid columns is-variable is-1 is-multiline">
@@ -90,28 +85,7 @@
                                             class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
                                             <x-image-tile :photo="$photo" />
                                             
-                                            {{-- <div class="work-item">
-                                                <div class="photo-like-area" id="photo-like-area-{{ $photo->id }}">
-                                                    @php
-                                                        $campaign_of_photo = $ongoing_campaigns->firstWhere('id', $photo->campaign_id)
-                                                    @endphp
-                                                    @if($campaign_of_photo && $campaign_of_photo->campaign_status == 2 && auth()->user())
-                                                        <a href="javascript:;" class="{{ in_array($photo->id, $liked_photos_id) ? 'liked' : 'unliked' }}"
-                                                            onclick="likeGalleryPhoto({{ $photo->id }})" id="photo-like-btn-{{ $photo->id }}">
-                                                            <i class="fa fa-heart"></i>
-                                                        </a>
-                                                    @else
-                                                        {{ $photo->likes_count }}
-                                                    @endif
-                                                </div>
-                                                <figure>
-                                                    <a href="{{ url('image_description/' . $photo->id) }}"
-                                                        class="">
-                                                        <img alt="Exibition Image"
-                                                        src="{{ $photo->img_thumbnail ? Storage::url($photo->img_thumbnail) : Storage::url($photo->img) }}">
-                                                    </a>
-                                                </figure>
-                                            </div> --}}
+                                          
 
                                         </div>
                                     @endforeach
@@ -124,7 +98,7 @@
                             </div>
                         </div>
                     </section>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
     </div>

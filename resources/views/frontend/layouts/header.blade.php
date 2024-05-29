@@ -91,14 +91,16 @@
                                             <a href="{{ url('/campaign') }}">Campaign</a>
                                         </li>
 
-                                        <li class="{{ strtolower($active_menu) == 'gallery' ? 'active' : '' }}">
-                                            <a href="{{ route('frontend.gallery') }}">Gallery</a>
-                                        </li>
                                         <li class="{{ strtolower($active_menu) == 'capture-future' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.capture_the_future') }}">Capture the Future</a>
                                         </li>
+                                       
                                         <li class="{{ strtolower($active_menu) == 'chronicle-magazine' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.chronicle_magazine') }}">Photography Chronicle</a>
+                                        </li>
+                                        
+                                        <li class="{{ strtolower($active_menu) == 'gallery' ? 'active' : '' }}">
+                                            <a href="{{ route('frontend.gallery') }}">Gallery</a>
                                         </li>
 
                                         <li class="dropdown show {{ strtolower($active_menu) == 'videos' || strtolower($active_menu) == 'blogs' || strtolower($active_menu) == 'photographer'  ? 'active' : '' }}">
@@ -110,9 +112,9 @@
                                                     <a href="{{ route('frontend.videos') }}">Video</a>
                                                 </li>
         
-                                                <li class="dropdown-item {{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">
+                                                {{-- <li class="dropdown-item {{ strtolower($active_menu) == 'blogs' ? 'active' : '' }}">
                                                     <a href="{{ url('/blogs') }}">Blogs</a>
-                                                </li>
+                                                </li> --}}
         
                                                 <li class="dropdown-item {{ strtolower($active_menu) == 'photographer' ? 'active' : '' }}">
                                                     <a href="{{ route('frontend.photographer') }}">Photographer</a>

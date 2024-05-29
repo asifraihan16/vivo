@@ -38,9 +38,13 @@ class FrontendController extends Controller
             ->get();
 
         $capture_the_future_index = DB::table('capture_futures')
+            ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
+            ->select(
+                'capture_futures.*',
+                DB::raw('count(capture_photo_likes.capture_future_id) as likes_count') )
             ->where('is_active', 1)
             ->orderBy('id', 'desc')
-            ->take(7)
+            ->take(20)
             ->get();
 
         $ChronicleMagazines = DB::table('chronicle_magazines')
@@ -95,9 +99,14 @@ class FrontendController extends Controller
         foreach ($years as $year) {
             // Fetch data for the current year
             $dataForYear = DB::table('capture_futures')
+                ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
+                ->select(
+                    'capture_futures.*',
+                    DB::raw('count(capture_photo_likes.capture_future_id) as likes_count') )
                 ->where('is_active', 1)
                 ->where('year', $year)
                 ->orderBy('year', 'desc')
+                ->take(20)
                 ->get();
 
             // Add the data for the current year to the $yearlyData array
@@ -117,10 +126,14 @@ class FrontendController extends Controller
         $year = request()->year ? request()->year : date('Y');
 
         $capture_the_futures = DB::table('capture_futures')
+        ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
+        ->select(
+            'capture_futures.*',
+            DB::raw('count(capture_photo_likes.capture_future_id) as likes_count') )
         ->where('is_active', 1)
         ->where('year', $year)
         ->orderBy('image_order', 'asc')
-        ->paginate(12);
+        ->paginate(30);
 
         return view('frontend.all_capture_the_future', compact('capture_the_futures','year'));
     }
@@ -322,7 +335,7 @@ class FrontendController extends Controller
             ->where('image_type', 1) // 1 - Moment of the month
             ->where('image_for_page', 2)
             ->orderBy('image_order', 'asc')
-            ->get();
+            ->paginate(30);
 
             // dd($moments->toArray());
 

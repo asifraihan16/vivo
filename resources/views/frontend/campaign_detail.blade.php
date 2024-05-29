@@ -31,7 +31,7 @@
                                         src="{{ $data->img1 ? Storage::url($data->img1) : '' }}">
                                 </figure>
                                 <div class="columns">
-                                    <div class="column is-6">
+                                    <div class="column is-12">
                                         <div class="entry-header">
                                             <div class="post-meta">
                                                 <ul>

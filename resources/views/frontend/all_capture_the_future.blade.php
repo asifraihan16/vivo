@@ -1,3 +1,4 @@
+
 @extends('frontend.layouts.app')
 
 @section('title', 'CAPTURE THE FUTURE')
@@ -79,8 +80,16 @@
                                 @foreach ($capture_the_futures as $moment)
                                 <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                     <div class="work-item">
+                                        <div class="photo-like-area" id="photo-like-area-{{ $moment->id }}">
+                                            
+                                                <a href="javascript:;" class="likes unliked">
+                                                    <i class="fa fa-heart"></i>
+                                                    {{ $moment->likes_count }}
+                                                </a>
+                                            
+                                        </div>
                                         <figure>
-                                            <a href="{{ url('capture_the_future_deatils/' . $moment->id) }}" {{-- class="mfp-lightbox mfp-image" --}} title="{{ $moment->title }}">
+                                            <a href="{{ url('capture_the_future_deatils/' . $moment->id) }}" title="{{ $moment->title }}">
                                                 <img alt="{{ $moment->title }}"
                                                     src="{{ $moment->image_path ? Storage::url($moment->image_path) : Storage::url($moment->image_path) }}"
                                                     style="" />
