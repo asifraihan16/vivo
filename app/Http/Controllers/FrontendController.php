@@ -38,10 +38,10 @@ class FrontendController extends Controller
             ->get();
 
         $capture_the_future_index = DB::table('capture_futures')
-            // ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
-            // ->select(
-            //     'capture_futures.*',
-            //     DB::raw('count(capture_photo_likes.capture_future_id) as likes_count') )
+            ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
+            ->select(
+                'capture_futures.*',
+                DB::raw('count(capture_photo_likes.capture_future_id) as likes_count') )
             ->where('is_active', 1)
             ->orderBy('id', 'desc')
             ->take(20)
