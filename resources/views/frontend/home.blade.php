@@ -94,7 +94,7 @@
                                             
                                             <a href="javascript:;" class="likes unliked">
                                                 <i class="fa fa-heart"></i>
-                                                {{-- {{ $moment->likes_count ? $moment->likes_count : 0 }} --}}
+                                              
                                             </a>
                                         
                                     </div>
