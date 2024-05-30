@@ -43,7 +43,7 @@ class FrontendController extends Controller
             ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
             ->select(
                 'capture_futures.*',
-                'capture_photo_likes.user_id',
+                
                 DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
             )
             ->where('is_active', 1)
@@ -109,7 +109,7 @@ class FrontendController extends Controller
                 ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
                 ->select(
                     'capture_futures.*',
-                    'capture_photo_likes.user_id',
+                    
                     DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
                 )
                 ->where('is_active', 1)
@@ -139,7 +139,7 @@ class FrontendController extends Controller
         ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
                 ->select(
                     'capture_futures.*',
-                    'capture_photo_likes.user_id',
+                    
                     DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
                 )
         ->where('is_active', 1)
@@ -159,7 +159,7 @@ class FrontendController extends Controller
             ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
             ->select(
                 'capture_futures.*',
-                'capture_photo_likes.user_id',
+                
                 DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
             )
             ->where('is_active', 1)
