@@ -47,7 +47,7 @@ class FrontendController extends Controller
                 DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
             )
             ->where('is_active', 1)
-            ->groupBy('capture_futures.id', 'capture_photo_likes.user_id')  // Group by the necessary columns
+            ->groupBy('capture_futures.id')  // Group by the necessary columns
             ->orderBy('capture_futures.id', 'desc')
             ->take(20)
             ->get();
@@ -113,7 +113,7 @@ class FrontendController extends Controller
                     DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
                 )
                 ->where('is_active', 1)
-                ->groupBy('capture_futures.id', 'capture_photo_likes.user_id')  // Group by the necessary columns
+                ->groupBy('capture_futures.id')  // Group by the necessary columns
                 ->where('year', $year)
                 ->orderBy('year', 'desc')
                 ->take(20)
@@ -143,7 +143,7 @@ class FrontendController extends Controller
                     DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
                 )
         ->where('is_active', 1)
-        ->groupBy('capture_futures.id', 'capture_photo_likes.user_id')
+        ->groupBy('capture_futures.id')
         ->where('year', $year)
         ->orderBy('image_order', 'asc')
         ->paginate(30);
@@ -163,7 +163,7 @@ class FrontendController extends Controller
                 DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
             )
             ->where('is_active', 1)
-            ->groupBy('capture_futures.id', 'capture_photo_likes.user_id')
+            ->groupBy('capture_futures.id')
             ->where('capture_futures.id', '=', $id)
             ->first();
 
