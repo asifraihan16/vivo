@@ -228,7 +228,7 @@ a {
                                                             <div class="form-group">
                                                                 <input type="hidden" value="{{$comment->id}}" name="parrent_comment_id" id="nasted_comment_parrent_comment_id">
                                                                 <input type="hidden" value="{{$image_details->id}}" name="capture_future_id" id="nasted_comment_capture_future_id">
-                                                                <textarea name="comment_body"  id="nasted_comment_body{{$comment->id}}"></textarea>
+                                                                <textarea name="comment_body"  id="nasted_comment_body{{$comment->id}}" class="nasted_comment_body"></textarea>
                                                                 <button class="btn" id="nasted_comment_submit" onclick="nastedComment()">Reply</button>
                                                             </div>
                                                             @endif
@@ -241,7 +241,7 @@ a {
                                                         @if(auth()->user())
                                                         <div class="form-group">
                                                                 <input type="hidden" value="{{$image_details->id}}" name="capture_future_id" id="capture_future_id">
-                                                                <textarea name="comment_body" id="comment_body"></textarea>
+                                                                <textarea name="comment_body" class="nasted_comment_body" id="comment_body"></textarea>
                                                             <button class="btn"  id="nasted_comment_submit" onclick="mainComment()" >Comment</button>
                                                         </div>
                                                         @else 
@@ -281,5 +281,25 @@ a {
         .portfolio-single .widget-links ul li a:hover {
             color: #4768FF;
         }
+        .photo-like-area a.liked {
+            background-color: rgb(233, 17, 17) !important;
+            color: #fff;
+            border-radius: 12px;
+        }
     </style>
+@endsection
+
+
+@section('scripts')
+    <script>
+        const textarea = document.getElementsByClassName('nasted_comment_body');
+ 
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto'; // Reset the height
+            this.style.height = this.scrollHeight + 'px'; // Set the height to match the scroll height
+        });
+ 
+        // Trigger the input event to set the initial height
+        textarea.dispatchEvent(new Event('input'));
+</script>
 @endsection
