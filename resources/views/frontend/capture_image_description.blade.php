@@ -291,15 +291,18 @@ a {
 
 
 @section('scripts')
-    <script>
-        const textarea = document.getElementsByClassName('nasted_comment_body');
- 
-        textarea.addEventListener('input', function() {
-            this.style.height = 'auto'; // Reset the height
-            this.style.height = this.scrollHeight + 'px'; // Set the height to match the scroll height
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const textareas = document.querySelectorAll('textarea.nasted_comment_body');
+
+        textareas.forEach(textarea => {
+            textarea.addEventListener('input', autoResize, false);
         });
- 
-        // Trigger the input event to set the initial height
-        textarea.dispatchEvent(new Event('input'));
+
+        function autoResize() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        }
+    });
 </script>
 @endsection
