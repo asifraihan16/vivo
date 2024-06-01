@@ -133,9 +133,16 @@ class FrontendController extends Controller
         }
         $all_year = request()->all_year ? request()->all_year : 0 ;
 
+        $user_liked_photos = null;
+
+        if (auth()->user()) {
+            $user_liked_photos = DB::table('capture_photo_likes')
+                ->where('user_id', auth()->id())
+                ->pluck('capture_future_id')->toArray();
+        }
        
 
-        return view('frontend.capture_the_future', compact('capture_the_futures','year','all_year'));
+        return view('frontend.capture_the_future', compact('capture_the_futures','year','all_year','user_liked_photos'));
         
        
     }
@@ -157,7 +164,15 @@ class FrontendController extends Controller
         ->orderBy('image_order', 'asc')
         ->paginate(30);
 
-        return view('frontend.all_capture_the_future', compact('capture_the_futures','year'));
+        $user_liked_photos = null;
+
+        if (auth()->user()) {
+            $user_liked_photos = DB::table('capture_photo_likes')
+                ->where('user_id', auth()->id())
+                ->pluck('capture_future_id');
+        }
+
+        return view('frontend.all_capture_the_future', compact('capture_the_futures','year','user_liked_photos'));
     }
 
 
