@@ -59,7 +59,7 @@ class FrontendController extends Controller
             ->get();
 
 
-        $CAMPAIGN_DURATION_IN_DAYS = env('CAMPAIGN_DURATION_IN_DAYS', 12220);
+        $CAMPAIGN_DURATION_IN_DAYS = env('CAMPAIGN_DURATION_IN_DAYS', 20);
        
 
         $ongoing_campaign = DB::table('campaigns')->where('campaign_status', 2)->latest()->first();
