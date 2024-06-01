@@ -67,4 +67,10 @@ class ChronicleMagazineController extends Controller
         return back();
     }
 
+    public function destroy(ChronicleMagazine $chronicle_magazine)
+    {
+        $chronicle_magazine->delete();
+        return back()->withSuccess('Deleted successfully');
+    }
+
 }
