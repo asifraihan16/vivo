@@ -263,6 +263,12 @@ body .image-hover figure img {
     color: #fff;
 }
 
+.photo-like-area a.liked {
+    background-color: #f1093c !important;
+    color: #fff;
+    border-radius: 12px;
+}
+
 .bubble-motion {
     animation: bubbleMotion 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
@@ -296,12 +302,6 @@ body .image-hover figure img {
 .photo-like-area a.unliked {
     color: #5a5a5a;
     background-color: #f6f6f8;
-    border-radius: 12px;
-}
-
-.photo-like-area a.liked {
-    background-color: #f1093c !important;
-    color: #fff;
     border-radius: 12px;
 }
 
