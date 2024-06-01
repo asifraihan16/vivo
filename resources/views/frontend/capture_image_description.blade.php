@@ -128,6 +128,18 @@ a {
     text-align: center;
     color: white;
 }
+img.mfp-img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    line-height: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 0 40px;
+    margin: 0 auto;
+    min-height: 650px;
+}
 </style>
 @section('content')
     <div id="header-bottom-wrap" class="is-clearfix">

@@ -99,7 +99,7 @@
                                                         </div>
                                                         @if ($image_lists->count())
                                                             <div style="text-align:center;">
-                                                                <a href="{{ route('frontend.campaign-photos', $data->id) }}"
+                                                                <a href="{{ route('frontend.photos-by-campaign', $data->id) }}"
                                                                     class="button is-danger is-radiusless">View All</a>
                                                             </div>
                                                         @endif

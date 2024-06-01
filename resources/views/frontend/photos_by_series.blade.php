@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', "{$series->name} Photos")
+@section('title', 'Campaign')
 
 @section('content')
     <div id="header-bottom-wrap" class="is-clearfix">
@@ -24,7 +24,7 @@
 
                 <section class="section works-list is-clearfix">
                     <div class="container">
-                        <h3 class="heading-title style-1">{{ $series->name }}</h3>
+                        {{-- <h3 class="heading-title style-1">{{ $series->name }}</h3> --}}
                         <div class="works isotope masonry image-hover effect-8 grid-container">
                             {{-- <div class="masonry-filters">
                                 <ul>
@@ -37,7 +37,7 @@
                             <div class="_grid columns is-variable is-1 is-multiline">
                                 @foreach ($photos as $photo)
                                     <div
-                                        class="_grid-item aos-init column is-4 {{ 'version-' . $photo->mobile_series_versions_id }}">
+                                        class="_grid-item aos-init column is-4">
                                         <x-image-tile :photo="$photo" />
                                         
                                         {{-- <div class="work-item">

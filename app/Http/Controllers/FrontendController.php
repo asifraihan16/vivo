@@ -43,7 +43,6 @@ class FrontendController extends Controller
             ->leftJoin('capture_photo_likes', 'capture_photo_likes.capture_future_id', '=', 'capture_futures.id')
             ->select(
                 'capture_futures.*',
-                
                 DB::raw('count(capture_photo_likes.capture_future_id) as likes_count')
             )
             ->where('is_active', 1)
@@ -60,7 +59,8 @@ class FrontendController extends Controller
             ->get();
 
 
-        $CAMPAIGN_DURATION_IN_DAYS = env('CAMPAIGN_DURATION_IN_DAYS', 20);
+        $CAMPAIGN_DURATION_IN_DAYS = env('CAMPAIGN_DURATION_IN_DAYS', 12220);
+       
 
         $ongoing_campaign = DB::table('campaigns')->where('campaign_status', 2)->latest()->first();
         $last_campaign = DB::table('campaigns')->where('campaign_status', 3)->latest()->first();
@@ -68,6 +68,14 @@ class FrontendController extends Controller
         $campaign_url = $ongoing_campaign ? route('frontend.campaign_detail', ['id' => $ongoing_campaign->id]) : route('frontend.campaign');
         $last_campaign = $last_campaign ? route('frontend.campaign_detail', ['id' => $last_campaign->id]) : route('frontend.campaign');
         $ongoing_campaign_photos_url = $ongoing_campaign ? route('frontend.campaign-photos', ['id' => $ongoing_campaign->id]) : route('frontend.campaign');
+
+        $user_liked_photos = null;
+
+        if (auth()->user()) {
+            $user_liked_photos = DB::table('capture_photo_likes')
+                ->where('user_id', auth()->id())
+                ->pluck('capture_future_id');
+        }
 
         return view('frontend.home', compact(
             'home_sliders', 
@@ -77,6 +85,7 @@ class FrontendController extends Controller
             'last_campaign',
             'ChronicleMagazines',
             'last_campaign_name',
+            'user_liked_photos',
             'ongoing_campaign',
             'ongoing_campaign_photos_url',
             'CAMPAIGN_DURATION_IN_DAYS'
@@ -473,12 +482,21 @@ class FrontendController extends Controller
             // throw_if($user_photo_likes >= 10, new Exception('Oops! You can not like more than 10 time a day', 508));
 
             $type = 'like';
-            DB::table('capture_photo_likes')
+            $count = DB::table('capture_photo_likes')->where('capture_future_id',$photoGallery->id)->where('user_id',$user_id)->count();
+            if($count)
+            {
+
+            }
+            else 
+            {
+                DB::table('capture_photo_likes')
                 ->insert([
                     'capture_future_id' => $photoGallery->id,
                     'user_id' => $user_id,
                     'created_at' => now()
                 ]);
+            }
+           
           
 
             return response()->json([
@@ -692,7 +710,7 @@ class FrontendController extends Controller
         return view('frontend.image_description', compact('image_details', 'image_tags'));
     }
 
-    public function photos_by_series($series_id)
+    public function photos_by_series($id)
     {
         view()->share('active_menu', 'gallery');
 
@@ -709,23 +727,24 @@ class FrontendController extends Controller
             ->where('campaign_status', '!=', 1)
             ->get();
 
-        $series = MobileSeries::findOrFail($series_id);
-        $versions = DB::table('mobile_series_versions')
-            ->where('mobile_series_id', $series_id)
-            ->get();
+        // $series = MobileSeries::findOrFail($series_id);
+        // $versions = DB::table('mobile_series_versions')
+        //     ->where('mobile_series_id', $series_id)
+        //     ->get();
         $is_photographer_image = request()->page_ref == 'photographer' ? 1 : 0;
         $photos = DB::table('photo_galleries')
             ->leftJoin('gallery_photo_likes', 'photo_galleries.id', '=', 'gallery_photo_likes.photo_gallery_id')
-            ->when(
-                request()->series_version,
-                function ($query) {
-                    $query->where('mobile_series_versions_id', request()->series_version);
-                },
-                function ($query) use ($versions) {
-                    $query->whereIn('mobile_series_versions_id', $versions->pluck('id'));
-                }
-            )
+            // ->when(
+            //     request()->series_version,
+            //     function ($query) {
+            //         $query->where('mobile_series_versions_id', request()->series_version);
+            //     },
+            //     function ($query) use ($versions) {
+            //         $query->whereIn('mobile_series_versions_id', $versions->pluck('id'));
+            //     }
+            // )
             ->where('status', 1)
+            ->where('campaign_id', $id)
             ->where('is_photographer_image', $is_photographer_image)
             ->groupBy('photo_galleries.id')
             ->orderBy('id', 'desc')
@@ -733,8 +752,8 @@ class FrontendController extends Controller
                 'photo_galleries.*',
                 DB::raw('count(gallery_photo_likes.user_id) as likes_count')
             ])
-            ->paginate(18);
+            ->paginate(30);
 
-        return view('frontend.photos_by_series', compact('series', 'versions', 'photos', 'liked_photos_id', 'ongoing_campaigns'));
+        return view('frontend.photos_by_series', compact('photos', 'liked_photos_id', 'ongoing_campaigns'));
     }
 }

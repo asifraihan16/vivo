@@ -87,12 +87,16 @@
                         <div class="works isotope image-hover effect-8">
                             <div class="columns is-variable is-1 is-multiline" style="">
 
+                                @php
+                                    $user_liked_photos = $user_liked_photos ? $user_liked_photos->toArray() : [];
+                                @endphp
+
                                 @foreach ($capture_the_future_index as $moment)
                                 <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                     <div class="work-item">
                                         <div class="photo-like-area" id="photo-like-area-{{ $moment->id }}">
                                             
-                                            <a href="javascript:;" class="likes unliked">
+                                            <a href="javascript:;"  class="{{ in_array($moment->id, $user_liked_photos) ? 'liked' : 'unliked' }}"  onclick="likeCapturePhoto({{ $moment->id }})" id="photo-like-btn-{{ $moment->id }}">
                                                 <i class="fa fa-heart"></i>
                                                 {{ $moment->likes_count }}
                                             </a>

@@ -25,7 +25,8 @@ Route::get('/campaign-photos/{id}', 'FrontendController@campaign_photos')->name(
 Route::get('/image_description/{id}', 'FrontendController@image_description');
 Route::get('/capture_the_future_deatils/{id}', 'FrontendController@capture_the_future_deatils');
 
-Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-series');
+// Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-series');
+Route::get('photos-by-campaign/{id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-campaign');
 
 Route::get('faqs', 'MiscController@faqs')->name('frontend.faqs');
 Route::get('privacy-policy', 'MiscController@privacy_policy')->name('frontend.privacy-policy');

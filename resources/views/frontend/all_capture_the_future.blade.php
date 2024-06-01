@@ -131,7 +131,8 @@
                                 @endforeach --}}
 
                             </div>
-                            {{ $capture_the_futures->appends(['year' => $year])->links() }}
+                            {{ $capture_the_futures->withQueryString()->appends(['year' => $year])->links('vendor.pagination.default') }}
+                            {{-- {{ $capture_the_futures->appends(['year' => $year])->links() }} --}}
                             <!-- .columns -->
                         </div>
                       
