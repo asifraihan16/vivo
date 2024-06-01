@@ -195,12 +195,12 @@ class FrontendController extends Controller
 
         $image_details->liked_by_user = false;
 
-        
+       
 
         if (auth()->user()) {
-            $image_details->liked_by_user = DB::table('gallery_photo_likes')
+            $image_details->liked_by_user = DB::table('capture_photo_likes')
                 ->where('user_id', auth()->id())
-                ->where('photo_gallery_id', $id)
+                ->where('capture_future_id', $id)
                 ->exists();
         }
 
