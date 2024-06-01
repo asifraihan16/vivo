@@ -50,12 +50,20 @@
                                 @foreach ($item as $moment)
                                     <div class="column is-{{ $moment->image_span_col }} branding aos-init" style="">
                                         <div class="work-item">
-                                            <div class="photo-like-area" id="photo-like-area-{{ $moment->id }}">
+                                            {{-- <div class="photo-like-area" id="photo-like-area-{{ $moment->id }}">
                                                 <a href="javascript:;" class="{{ in_array($moment->id, $user_liked_photos) ? 'liked' : 'unliked' }}"  onclick="likeCapturePhoto({{ $moment->id }})">
                                                     <i class="fa fa-heart"></i>
                                                     {{ $moment->likes_count }}
                                                 </a>
                                             
+                                        </div> --}}
+                                        <div class="photo-like-area" id="photo-like-area-{{ $moment->id }}">
+                                            
+                                            <a href="javascript:;"  class="{{ in_array($moment->id, $user_liked_photos) ? 'liked' : 'unliked' }}"  onclick="likeCapturePhoto({{ $moment->id }})" id="photo-like-btn-{{ $moment->id }}">
+                                                <i class="fa fa-heart"></i>
+                                                {{ $moment->likes_count }}
+                                            </a>
+                                        
                                         </div>
                                             <figure>
                                                 <a href="{{ url('capture_the_future_deatils/' . $moment->id) }}" {{-- class="mfp-lightbox mfp-image" --}} title="{{ $moment->title }}">
