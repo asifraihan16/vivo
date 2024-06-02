@@ -276,6 +276,9 @@
                             $('#liked-bubble-' + photo_id).removeClass('bubble-motion')
                         }, 600);
 
+                        $('#photo-like-btn-' + photo_id).html(`<i class="fa fa-heart"></i> ${res.count_total}`);
+                    
+
                     } else {
                         // $('#photo-like-btn-' + photo_id).removeClass('liked')
                         // $('#photo-like-btn-' + photo_id).addClass('unliked')

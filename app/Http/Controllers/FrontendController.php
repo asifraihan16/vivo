@@ -512,11 +512,12 @@ class FrontendController extends Controller
                 ]);
             }
            
-          
+            $count_total = DB::table('capture_photo_likes')->where('capture_future_id',$photoGallery->id)->count();
 
             return response()->json([
                 'status' => 'success',
                 'type' => $type,
+                'count_total'=>$count_total,
                 'code' => 200,
                 'message' => "Successfully liked"
             ]);
