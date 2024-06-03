@@ -51,6 +51,7 @@
                                 <div class="entry-content content">
                                     <iframe src="{{$chronicle_magazines->link}}" title="description" style="width: 100%; height:900px"></iframe>
                                 </div>
+                                <div id="container"></div>
                                 <!-- .entry-content -->
 
                                 <!-- .entry-footer -->
@@ -78,4 +79,13 @@
         }
 
     </style>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#container').flipBook({
+            pdfUrl: <?php $chronicle_magazines->file_path ?>,
+        });
+    });
+</script>
 @endsection
