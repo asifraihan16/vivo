@@ -51,7 +51,7 @@
                                 <div class="entry-content content">
                                     <iframe src="{{$chronicle_magazines->link}}" title="description" style="width: 100%; height:900px"></iframe>
                                 </div>
-                                <div id="container">{{<$chronicle_magazines->file_path}}</div>
+                                <div id="container">{{$chronicle_magazines->file_path}}</div>
                                 <!-- .entry-content -->
 
                                 <!-- .entry-footer -->
