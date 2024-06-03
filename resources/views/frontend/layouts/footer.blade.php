@@ -186,7 +186,7 @@
     <script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
     <script src="{{ URL::asset('build/js/flipbook.min.js') }}"></script>
     
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js">

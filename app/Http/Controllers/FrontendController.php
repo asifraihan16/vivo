@@ -29,6 +29,7 @@ class FrontendController extends Controller
         view()->share('active_menu', 'home');
         $ttl = 1800; // 30 minutes
         $home_sliders = DB::table('home_sliders')->get();
+        
 
         $moments = DB::table('moments')
             ->where('is_active', 1)
