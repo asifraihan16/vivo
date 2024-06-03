@@ -51,7 +51,9 @@
                                 <div class="entry-content content">
                                     <iframe src="{{$chronicle_magazines->link}}" title="description" style="width: 100%; height:900px"></iframe>
                                 </div>
-                                <div id="container">{{$chronicle_magazines->file_path}}</div>
+                                <div id="container"> </div>
+
+                                {{ $chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '' }}
                                 <!-- .entry-content -->
 
                                 <!-- .entry-footer -->
@@ -83,8 +85,9 @@
 @section('scripts')
 <script type="text/javascript">
     jQuery(document).ready(function () {
+        var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
         jQuery('#container').flipBook({
-            pdfUrl: ,
+            pdfUrl: pdfUrl,
         });
     });
 </script>
