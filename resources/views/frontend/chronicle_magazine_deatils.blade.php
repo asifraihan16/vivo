@@ -53,7 +53,7 @@
                                 </div>
                                 <div id="container"> </div>
 
-                                {{ $chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '' }}
+                               
                                 <!-- .entry-content -->
 
                                 <!-- .entry-footer -->
