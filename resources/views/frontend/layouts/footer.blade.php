@@ -184,7 +184,7 @@
     <script src="{{ URL::asset('frontend/assets/js/vendor.min.js?v=1557279752872') }}"></script>
     <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script>
     <script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
-    <script src="{{ URL::asset('build/js/flipbook.min.js') }}"></script>
+   
     
 
 
