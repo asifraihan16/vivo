@@ -49,7 +49,7 @@
                                 </div>
                                 <!-- .entry-header -->
                                 <div class="entry-content content">
-                                    <iframe src="{{$chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : ''}}" title="description" style="width: 100%; height:900px"></iframe>
+                                    <iframe src="{{$chronicle_magazines->file_link}}" title="description" style="width: 100%; height:900px"></iframe>
                                 </div>
                                 <div id="container"> </div>
 
