@@ -69,6 +69,30 @@
                                                         {!! $errors->first('image_for_page', '<p class="help-block">:message</p>') !!}
                                                     </div>
 
+                                                    <div class="form-group">
+                                                        <label for="author_name">Author Name *</label>
+                                                        <input type="text"  name="author_name" id="author_name" class="form-control" value="{{ old('author_name') }}" placeholder="author name" required>
+                                                        {!! $errors->first('author_name', '<p class="help-block">:message</p>') !!}
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="phone_model">Phone Model *</label>
+                                                        <input type="text"  name="phone_model" id="phone_model" class="form-control" value="{{ old('phone_model') }}" placeholder="model" required>
+                                                        {!! $errors->first('phone_model', '<p class="help-block">:message</p>') !!}
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="tag">Tag *</label>
+                                                        <input type="text"  name="tag" id="tag" class="form-control" value="{{ old('tag') }}" placeholder="tag" required>
+                                                        {!! $errors->first('tag', '<p class="help-block">:message</p>') !!}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="story">Story *</label>
+                                                        <input type="text"  name="tag" id="tag" class="form-control" value="{{ old('story') }}" placeholder="story" required>
+                                                        {!! $errors->first('story', '<p class="help-block">:message</p>') !!}
+                                                    </div>
+
+
                                                     <div class="row">
                                                         <div class="col-sm-10">
                                                             <button type="submit" class="btn btn-primary">Save</button>

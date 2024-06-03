@@ -68,7 +68,7 @@
                     <section
                         class="section works-list {{ $loop->even ? 'has-background-primary-light' : '' }} is-clearfix">
                         <div class="container">
-                            <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">{{ $series->name }}</h1>
+                            {{-- <h1 class="heading-title style-1" style="margin-bottom: 55px !important;">{{ $series->name }}</h1> --}}
 
                             <div class="works isotope masonry image-hover effect-8 grid-container mfp-lightbox-gallery">
                                 <div class="masonry-filters">

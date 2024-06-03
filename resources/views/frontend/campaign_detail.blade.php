@@ -31,7 +31,7 @@
                                         src="{{ $data->img1 ? Storage::url($data->img1) : '' }}">
                                 </figure>
                                 <div class="columns">
-                                    <div class="column is-6">
+                                    <div class="column is-12">
                                         <div class="entry-header">
                                             <div class="post-meta">
                                                 <ul>
@@ -99,7 +99,7 @@
                                                         </div>
                                                         @if ($image_lists->count())
                                                             <div style="text-align:center;">
-                                                                <a href="{{ route('frontend.campaign-photos', $data->id) }}"
+                                                                <a href="{{ route('frontend.photos-by-campaign', $data->id) }}"
                                                                     class="button is-danger is-radiusless">View All</a>
                                                             </div>
                                                         @endif

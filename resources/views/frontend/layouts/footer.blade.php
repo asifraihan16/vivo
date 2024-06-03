@@ -184,6 +184,9 @@
     <script src="{{ URL::asset('frontend/assets/js/vendor.min.js?v=1557279752872') }}"></script>
     <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script>
     <script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
+    <script src="{{ URL::asset('build/js/flipbook.min.js') }}"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js">
@@ -257,6 +260,141 @@
                 }
             })
         }
+
+        function likeCapturePhoto(photo_id) 
+        {
+            var actionUrl = '{{ route("user.like-capture-photo", ["capture_future_id"=> ":capture_future_id"]) }}'
+            actionUrl = actionUrl.replace(':capture_future_id', photo_id);
+            $.ajax({
+                url: actionUrl,
+                method: 'POST',
+                success: function(res) {
+                    // $('#photo-like-btn-' + photo_id).css('color', '#4768FF')
+                    if (res.status == 'success' && res.type == 'like') {
+                        $('#photo-like-btn-' + photo_id).removeClass('unliked')
+                        $('#photo-like-btn-' + photo_id).addClass('liked')
+                        $('#liked-bubble-' + photo_id).addClass('bubble-motion')
+                        
+                        setTimeout(() => {
+                            $('#liked-bubble-' + photo_id).removeClass('bubble-motion')
+                        }, 600);
+
+                        $('#photo-like-btn-' + photo_id).html(`<i class="fa fa-heart"></i> ${res.count_total}`);
+                    
+
+                    } else {
+                        // $('#photo-like-btn-' + photo_id).removeClass('liked')
+                        // $('#photo-like-btn-' + photo_id).addClass('unliked')
+                        // alert(res.message)
+                        // new swal(res.message);
+
+                        if (res.code == 508) {
+                            new swal({
+                                // position: 'top-end',
+                                icon: 'warning',
+                                // title: 'Oops...',
+                                text: res.message,
+                                showConfirmButton: false,
+                                timer: 1500,
+                                // toast: true
+                            })
+                        }
+                    }
+                },
+                error: function(err) {
+                    if (err.status == 401) {
+                        // alert('Please login to like photo')
+                        new swal({
+                            // position: 'top-end',
+                            icon: 'warning',
+                            // title: 'Oops...',
+                            text: "You have to login to like photo",
+                            showConfirmButton: false,
+                            timer: 1500,
+                            // toast: true
+                        })
+                    }
+                }
+            })
+        }
+
+        function nastedComment() 
+        {
+            
+
+            var parrent_comment_id = $('#nasted_comment_parrent_comment_id').val();
+            var capture_future_id = $('#nasted_comment_capture_future_id').val();
+            var comment_body = $('#nasted_comment_body' + parrent_comment_id).val();
+        
+
+            var actionUrl = '{{ route("user.comment-capturephoto", ["capture_future_id"=> ":capture_future_id","parent_comment_id"=> ":parent_comment_id","comment_body"=> ":comment_body"]) }}'
+            actionUrl = actionUrl.replace(':capture_future_id', capture_future_id);
+            actionUrl = actionUrl.replace(':parent_comment_id', parrent_comment_id);
+            actionUrl = actionUrl.replace(':comment_body', comment_body);
+            $.ajax({
+                url: actionUrl,
+                method: 'POST',
+                success: function(res) {
+                    // $('#photo-like-btn-' + photo_id).css('color', '#4768FF')
+                        setTimeout(() => {
+                            location.reload();
+                        }, 10);
+
+                },
+                error: function(err) {
+                    if (err.status == 401) {
+                        // alert('Please login to like photo')
+                        new swal({
+                            // position: 'top-end',
+                            icon: 'warning',
+                            // title: 'Oops...',
+                            text: "You have to login to like photo",
+                            showConfirmButton: false,
+                            timer: 1500,
+                            // toast: true
+                        })
+                    }
+                }
+            })
+        }
+
+        function mainComment() 
+        {
+            
+
+            var capture_future_id = $('#capture_future_id').val();
+            var comment_body = $('#comment_body').val();
+            
+            var actionUrl = '{{ route("user.main_comment-capturephoto", ["capture_future_id"=> ":capture_future_id","comment_body"=> ":comment_body"]) }}'
+            actionUrl = actionUrl.replace(':capture_future_id', capture_future_id);
+            actionUrl = actionUrl.replace(':comment_body', comment_body);
+            $.ajax({
+                url: actionUrl,
+                method: 'POST',
+                success: function(res) {
+                    // $('#photo-like-btn-' + photo_id).css('color', '#4768FF')
+                        setTimeout(() => {
+                            location.reload();
+                        }, 10);
+
+                },
+                error: function(err) {
+                    if (err.status == 401) {
+                        // alert('Please login to like photo')
+                        new swal({
+                            // position: 'top-end',
+                            icon: 'warning',
+                            // title: 'Oops...',
+                            text: "You have to login to like photo",
+                            showConfirmButton: false,
+                            timer: 1500,
+                            // toast: true
+                        })
+                    }
+                }
+            })
+        }
+
     </script>
 
     @yield('scripts')

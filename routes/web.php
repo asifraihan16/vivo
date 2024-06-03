@@ -15,10 +15,18 @@ Route::get('/blog_details/{id}', 'FrontendController@blog_details');
 Route::get('/campaign', 'FrontendController@campaign')->name('frontend.campaign');
 Route::get('/campaign_detail/{id}', 'FrontendController@campaign_detail')->name('frontend.campaign_detail');
 Route::get('/contact', 'FrontendController@contact');
+Route::get('/chronicle-magazine', 'FrontendController@chronicle_magazine')->name('frontend.chronicle_magazine');
+Route::get('/chronicle_magazine_deatils/{id}', 'FrontendController@chronicle_magazine_deatils')->name('frontend.chronicle_magazine_deatils');
+Route::get('/capture-future', 'FrontendController@capture_the_future')->name('frontend.capture_the_future');
+Route::get('/all-capture-future', 'FrontendController@all_capture_the_future')->name('frontend.all_capture_the_future');
+
 //previous
 Route::get('/campaign-photos/{id}', 'FrontendController@campaign_photos')->name('frontend.campaign-photos');
 Route::get('/image_description/{id}', 'FrontendController@image_description');
-Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-series');
+Route::get('/capture_the_future_deatils/{id}', 'FrontendController@capture_the_future_deatils');
+
+// Route::get('photos-by-series/{series_id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-series');
+Route::get('photos-by-campaign/{id}', 'FrontendController@photos_by_series')->name('frontend.photos-by-campaign');
 
 Route::get('faqs', 'MiscController@faqs')->name('frontend.faqs');
 Route::get('privacy-policy', 'MiscController@privacy_policy')->name('frontend.privacy-policy');
@@ -60,7 +68,23 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
     Route::resource('exibition_upload', 'ExibitionController');
     Route::resource('playlists', 'PlaylistController');
     Route::resource('moments', 'Admin\MomentsController');
+    Route::resource('capture_the_future', 'Admin\CaptureFutureController');
+    Route::get('capture_the_future/{capture_the_future}/{status}/update-status', 'Admin\CaptureFutureController@updateStatus')->name('capture_the_future.update-status');
+    Route::delete('capture_the_future_delete\{capture_the_future}', 'Admin\CaptureFutureController@destroy')->name('capture_the_future.destroy');
+
+    Route::get('comment_list', 'Admin\CaptureFutureController@comment_list');
+    Route::get('capture_the_future_comment_reply\{comment_id}', 'Admin\CaptureFutureController@comment_reply_list')->name('capture_the_future_comment_reply');
+    Route::delete('capture_the_future_comment_delete\{comment_id}', 'Admin\CaptureFutureController@comment_delete')->name('capture_the_future_comment_delete.destroy');
+    
+    Route::resource('chronicle_magazine', 'Admin\ChronicleMagazineController');
+    Route::get('chronicle_magazine/{chronicle_magazine}/{status}/update-status', 'Admin\ChronicleMagazineController@updateStatus')->name('chronicle_magazine.update-status');
+
     Route::get('moments/{moment}/{status}/update-status', 'Admin\MomentsController@updateStatus')->name('moments.update-status');
+
+    
+    
+
+    
 
     Route::resource('playlist1_main_vedios', 'Playlist1MainVediosController')->only('index', 'create', 'store');
     Route::delete('playlist1_main_vedios/{id}', 'Playlist1MainVediosController@destroy')->name('playlist1_main_vedios.destroy');
@@ -130,6 +154,10 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function () {
 
     // Like gallery photo
     Route::post('like-gallery-photo/{photo_gallery}', 'FrontendController@like_gallery_photo')->name('user.like-gallery-photo');
+    //
+    Route::post('like-capturephoto-photo/{capture_future_id}', 'FrontendController@like_capture_photo')->name('user.like-capture-photo');
+    Route::post('comment-capturephoto/{capture_future_id}/{parent_comment_id}/{comment_body}', 'FrontendController@capturephoto_comment')->name('user.comment-capturephoto');
+    Route::post('main_comment-capturephoto/{capture_future_id}/{comment_body}', 'FrontendController@capturephoto_comment_main')->name('user.main_comment-capturephoto');
 });
 
 Route::group(['prefix'=> 'photographers', 'middleware'=> ['auth', 'is_photographer']], function () {

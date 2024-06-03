@@ -49,8 +49,9 @@
                                                         </a>
                                                     </li>
                                                 </ul>
-                                                <img src="{{ $data->img1 ? Storage::url($data->img1) : '' }}"
-                                                    alt="Campaign Cover Photo" style="width: 320px; height: 140px;">
+                                                <a href="{{ route('frontend.campaign_detail', ['id' => $data->id]) }}"
+                                                    style="font-size: 20px;">  <img src="{{ $data->img1 ? Storage::url($data->img1) : '' }}"
+                                                    alt="Campaign Cover Photo" style="width: 320px; height: 140px;"> </a>
                                             </div>
                                             <h2 class="entry-title" style="text-transform: inherit !important;">
                                                 <a href="{{ route('frontend.campaign_detail', ['id' => $data->id]) }}"
