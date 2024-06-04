@@ -92,13 +92,13 @@ $(document).ready(function () {
                 $('#container').flipBook({
                     pages: [
                         {
-                            src: pdfUrl,
-                            thumb: pdfUrl,
+                            src: url({{ asset('/frontend/assets/images/banner-images/Blog.webp') }}),
+                            thumb: url({{ asset('/frontend/assets/images/banner-images/Blog.webp') }}),
                             title: 'Cover',
                         },
                         {
-                            src: pdfUrl,
-                            thumb: 'images/catalog/thumb2.jpg',
+                            src: url({{ asset('/frontend/assets/images/banner-images/Blog.webp') }}),
+                            thumb: url({{ asset('/frontend/assets/images/banner-images/Blog.webp') }}),
                             title: 'Content',
                         },
                     ],
