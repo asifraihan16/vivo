@@ -86,39 +86,55 @@
 
 <script type="text/javascript">
 
+$(document).ready(function () {
+    var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
+    
+                $('#container').flipBook({
+                    pages: [
+                        {
+                            src: 'images/catalog/1.jpg',
+                            thumb: 'images/catalog/1.jpg',
+                            title: 'Cover',
+                        },
+                        {
+                            src: 'images/catalog/2.jpg',
+                            thumb: 'images/catalog/thumb2.jpg',
+                            title: 'Content',
+                        },
+                        {
+                            src: 'images/catalog/3.jpg',
+                            thumb: 'images/catalog/thumb3.jpg',
+                            title: 'Welcome',
+                        },
+                        {
+                            src: 'images/catalog/4.jpg',
+                            thumb: 'images/catalog/thumb4.jpg',
+                            title: 'Design with attitude',
+                        },
+                        {
+                            src: 'images/catalog/5.jpg',
+                            thumb: 'images/catalog/thumb5.jpg',
+                        },
+                        {
+                            src: 'images/catalog/6.jpg',
+                            thumb: 'images/catalog/thumb6.jpg',
+                            title: 'New Arrivals',
+                        },
+                        {
+                            src: 'images/catalog/7.jpg',
+                            thumb: 'images/catalog/thumb7.jpg',
+                        },
+                        {
+                            src: 'images/catalog/8.jpg',
+                            thumb: 'images/catalog/thumb8.jpg',
+                            title: 'Get our newsletter',
+                        },
+                    ],
+                    viewMode: '2d',
+                    layout: 4,
+                });
+            });
 
-    $(document).ready(function () {
-        var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
-        $('#container').flipBook({
-            pages: [
-                {
-                    src: pdfUrl,
-                    thumb: pdfUrl,
-                    title: 'Cover',
-                }
-            ],
-            viewMode: '2d',
-            layout: 2,
-
-            menu2Transparent: false,
-            menu2OverBook: false,
-            currentPage: { vAlign: 'top', hAlign: 'center' },
-            btnAutoplay: { vAlign: 'top' },
-            btnSound: { vAlign: 'top' },
-            btnExpand: { vAlign: 'top' },
-            btnZoomIn: { vAlign: 'top' },
-            btnZoomOut: { vAlign: 'top' },
-            btnSearch: { vAlign: 'top' },
-            btnBookmark: { vAlign: 'top' },
-            btnToc: { vAlign: 'top' },
-            btnThumbs: { vAlign: 'top' },
-            btnShare: { vAlign: 'top' },
-            btnPrint: { vAlign: 'top' },
-            btnDownloadPages: { vAlign: 'top' },
-            btnDownloadPdf: { vAlign: 'top' },
-            btnSelect: { vAlign: 'top' },
-        });
-    });
 </script>
 
 
