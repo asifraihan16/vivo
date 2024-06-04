@@ -88,46 +88,18 @@
 
 $(document).ready(function () {
     var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
-    
+
                 $('#container').flipBook({
                     pages: [
                         {
-                            src: 'images/catalog/1.jpg',
-                            thumb: 'images/catalog/1.jpg',
+                            src: pdfUrl,
+                            thumb: pdfUrl,
                             title: 'Cover',
                         },
                         {
-                            src: 'images/catalog/2.jpg',
+                            src: pdfUrl,
                             thumb: 'images/catalog/thumb2.jpg',
                             title: 'Content',
-                        },
-                        {
-                            src: 'images/catalog/3.jpg',
-                            thumb: 'images/catalog/thumb3.jpg',
-                            title: 'Welcome',
-                        },
-                        {
-                            src: 'images/catalog/4.jpg',
-                            thumb: 'images/catalog/thumb4.jpg',
-                            title: 'Design with attitude',
-                        },
-                        {
-                            src: 'images/catalog/5.jpg',
-                            thumb: 'images/catalog/thumb5.jpg',
-                        },
-                        {
-                            src: 'images/catalog/6.jpg',
-                            thumb: 'images/catalog/thumb6.jpg',
-                            title: 'New Arrivals',
-                        },
-                        {
-                            src: 'images/catalog/7.jpg',
-                            thumb: 'images/catalog/thumb7.jpg',
-                        },
-                        {
-                            src: 'images/catalog/8.jpg',
-                            thumb: 'images/catalog/thumb8.jpg',
-                            title: 'Get our newsletter',
                         },
                     ],
                     viewMode: '2d',
