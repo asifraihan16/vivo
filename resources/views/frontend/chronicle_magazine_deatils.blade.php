@@ -92,13 +92,13 @@ $(document).ready(function () {
                 $('#container').flipBook({
                     pages: [
                         {
-                            src: pdfUrl,
-                            thumb: pdfUrl,
+                            src: http://demo.vivomoments.com/frontend/assets/images/banner-images/Blog.webp,
+                            thumb: http://demo.vivomoments.com/frontend/assets/images/banner-images/Blog.webp,
                             title: 'Cover',
                         },
                         {
-                            src: pdfUrl,
-                            thumb: pdfUrl,
+                            src: http://demo.vivomoments.com/frontend/assets/images/banner-images/Blog.webp,
+                            thumb: http://demo.vivomoments.com/frontend/assets/images/banner-images/Blog.webp,
                             title: 'Content',
                         },
                     ],
