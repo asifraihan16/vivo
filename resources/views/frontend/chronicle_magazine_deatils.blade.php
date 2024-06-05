@@ -90,18 +90,7 @@ $(document).ready(function () {
     var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
           
                 $('#container').flipBook({
-                    pages: [
-                        {
-                            src: http://demo.vivomoments.com/frontend/assets/images/banner-images/Blog.webp,
-                            thumb: http://demo.vivomoments.com/frontend/assets/images/banner-images/Blog.webp,
-                            title: 'Cover',
-                        },
-                        {
-                            src: http://demo.vivomoments.com/frontend/assets/images/banner-images/Blog.webp,
-                            thumb: http://demo.vivomoments.com/frontend/assets/images/banner-images/Blog.webp,
-                            title: 'Content',
-                        },
-                    ],
+                    pages: pdfUrl,
                     viewMode: '2d',
                     layout: 4,
                 });
