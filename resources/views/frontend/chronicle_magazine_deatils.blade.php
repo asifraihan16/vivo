@@ -86,16 +86,52 @@
 
 <script type="text/javascript">
 
-$(document).ready(function () {
-    var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
-          
+var pdfUrl = @json($chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : '');
+    $(document).ready(function () {
                 $('#container').flipBook({
-                    pages: pdfUrl,
+                    pages: [
+                        {
+                            src: pdfUrl,
+                            thumb:pdfUrl,
+                            title: 'Cover',
+                        },
+                        {
+                            src: pdfUrl,
+                            thumb:pdfUrl,
+                            title: 'Content',
+                        },
+                        {
+                            src: pdfUrl,
+                            thumb:pdfUrl,
+                            title: 'Welcome',
+                        },
+                        {
+                            src: pdfUrl,
+                            thumb:pdfUrl,
+                            title: 'Design with attitude',
+                        },
+                        {
+                            src: pdfUrl,
+                            thumb:pdfUrl,
+                        },
+                        {
+                            src: pdfUrl,
+                            thumb:pdfUrl,
+                            title: 'New Arrivals',
+                        },
+                        {
+                            src: pdfUrl,
+                            thumb:pdfUrl,
+                        },
+                        {
+                            src: pdfUrl,
+                            thumb:pdfUrl,
+                            title: 'Get our newsletter',
+                        },
+                    ],
                     viewMode: '2d',
-                    layout: 4,
                 });
             });
-
 </script>
 
 
