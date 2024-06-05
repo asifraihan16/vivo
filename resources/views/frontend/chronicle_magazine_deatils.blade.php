@@ -91,40 +91,40 @@ var pdfUrl = @json($chronicle_magazines->image_path ? Storage::url($chronicle_ma
                 $('#container').flipBook({
                     pages: [
                         {
-                            src: pdfUrl,
+                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             thumb:pdfUrl,
                             title: 'Cover',
                         },
                         {
-                            src: pdfUrl,
+                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             thumb:pdfUrl,
                             title: 'Content',
                         },
                         {
-                            src: pdfUrl,
+                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             thumb:pdfUrl,
                             title: 'Welcome',
                         },
                         {
-                            src: pdfUrl,
+                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             thumb:pdfUrl,
                             title: 'Design with attitude',
                         },
                         {
-                            src: pdfUrl,
+                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             thumb:pdfUrl,
                         },
                         {
-                            src: pdfUrl,
+                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             thumb:pdfUrl,
                             title: 'New Arrivals',
                         },
                         {
-                            src: pdfUrl,
+                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             thumb:pdfUrl,
                         },
                         {
-                            src: pdfUrl,
+                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             thumb:pdfUrl,
                             title: 'Get our newsletter',
                         },
