@@ -48,9 +48,9 @@
                                     <h2 class="entry-title"> {{ $chronicle_magazines->title }} </h2>
                                 </div>
                                 <!-- .entry-header -->
-                                {{-- <div class="entry-content content">
+                                <div class="entry-content content">
                                     <iframe src="{{$chronicle_magazines->link}}" title="description" style="width: 100%; height:900px"></iframe>
-                                </div> --}}
+                                </div>
                                 <div id="container"> </div>
 
                                
@@ -83,56 +83,12 @@
     </style>
 @endsection
 @section('scripts')
-
 <script type="text/javascript">
-
-var pdfUrl = @json($chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : '');
-    $(document).ready(function () {
-                $('#container').flipBook({
-                    pages: [
-                        {
-                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            title: 'Cover',
-                        },
-                        {
-                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            title: 'Content',
-                        },
-                        {
-                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            title: 'Welcome',
-                        },
-                        {
-                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            title: 'Design with attitude',
-                        },
-                        {
-                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                        },
-                        {
-                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            title: 'New Arrivals',
-                        },
-                        {
-                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                        },
-                        {
-                            src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            title: 'Get our newsletter',
-                        },
-                    ],
-                    viewMode: '2d',
-                });
-            });
+    jQuery(document).ready(function () {
+        var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
+        jQuery('#container').flipBook({
+            pdfUrl: pdfUrl,
+        });
+    });
 </script>
-
-
 @endsection
