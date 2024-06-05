@@ -48,10 +48,10 @@
                                     <h2 class="entry-title"> {{ $chronicle_magazines->title }} </h2>
                                 </div>
                                 <!-- .entry-header -->
-                                <div class="entry-content content">
+                                {{-- <div class="entry-content content">
                                     <iframe src="{{$chronicle_magazines->link}}" title="description" style="width: 100%; height:900px"></iframe>
-                                </div>
-                                {{-- <div id="container"> </div> --}}
+                                </div> --}}
+                                <div id="container"> </div>
 
                                
                                 <!-- .entry-content -->
@@ -88,7 +88,7 @@
 
 $(document).ready(function () {
     var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
-
+          
                 $('#container').flipBook({
                     pages: [
                         {
