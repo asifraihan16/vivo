@@ -182,13 +182,11 @@
     </div>
     <!-- #site-wrap -->
     <script src="{{ URL::asset('frontend/assets/js/vendor.min.js?v=1557279752872') }}"></script>
-    <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script>
+    {{-- <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script> --}}
     <script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
    
     
 
-
-  
     </script>
 
     {{-- <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
