@@ -92,12 +92,12 @@ var pdfUrl = @json($chronicle_magazines->image_path ? Storage::url($chronicle_ma
                     pages: [
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
+                            thumb: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             title: 'Cover',
                         },
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
+                            thumb: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             title: 'Content',
                         },
                         {
