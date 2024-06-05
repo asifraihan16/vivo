@@ -83,12 +83,5 @@
     </style>
 @endsection
 @section('scripts')
-<script type="text/javascript">
-    // jQuery(document).ready(function () {
-    //     var pdfUrl = @json($chronicle_magazines->file_path ? Storage::url($chronicle_magazines->file_path) : '');
-    //     jQuery('#container').flipBook({
-    //         pdfUrl: pdfUrl,
-    //     });
-    // });
-</script>
+
 @endsection

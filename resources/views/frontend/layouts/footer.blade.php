@@ -182,7 +182,7 @@
     </div>
     <!-- #site-wrap -->
     <script src="{{ URL::asset('frontend/assets/js/vendor.min.js?v=1557279752872') }}"></script>
-    {{-- <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script> --}}
+    <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script>
     <script src="{{ URL::asset('frontend/assets/js/custom.js?v=1557279752872') }}"></script>
    
     
@@ -191,7 +191,7 @@
 
     {{-- <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 
-    @if (Route::currentRouteName() == 'frontend.chronicle_magazine_deatils')
+    {{-- @if (Route::currentRouteName() == 'frontend.chronicle_magazine_deatils')
             <script
             src="https://code.jquery.com/jquery-3.6.3.js"
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
@@ -203,7 +203,7 @@
     @else
    
         <script src="{{ URL::asset('frontend/assets/js/scripts.min.js?v=1557279752872') }}"></script>
-    @endif
+    @endif --}}
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.8/dist/sweetalert2.all.min.js"></script>
