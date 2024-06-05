@@ -92,40 +92,40 @@ var pdfUrl = @json($chronicle_magazines->image_path ? Storage::url($chronicle_ma
                     pages: [
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:pdfUrl,
+                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             title: 'Cover',
                         },
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:pdfUrl,
+                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             title: 'Content',
                         },
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:pdfUrl,
+                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             title: 'Welcome',
                         },
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:pdfUrl,
+                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             title: 'Design with attitude',
                         },
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:pdfUrl,
+                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                         },
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:pdfUrl,
+                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             title: 'New Arrivals',
                         },
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:pdfUrl,
+                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                         },
                         {
                             src: <?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
-                            thumb:pdfUrl,
+                            thumb:<?php echo $chronicle_magazines->image_path ? Storage::url($chronicle_magazines->image_path) : ''; ?>,
                             title: 'Get our newsletter',
                         },
                     ],
