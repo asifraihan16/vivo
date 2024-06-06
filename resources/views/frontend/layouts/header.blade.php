@@ -107,7 +107,7 @@
                                             <a href="{{ route('frontend.capture_the_future') }}">Capture the Future</a>
                                         </li>
                                        
-                                        <li class="{{ strtolower($active_menu) == 'chronicle-magazine' ? 'active' : '' }}">
+                                        <li class="{{ strtolower($active_menu) == 'chronicle_magazine' ? 'active' : '' }}">
                                             <a href="{{ route('frontend.chronicle_magazine') }}">Photography Chronicle</a>
                                         </li>
                                         

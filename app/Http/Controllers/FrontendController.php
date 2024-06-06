@@ -95,6 +95,9 @@ class FrontendController extends Controller
 
     public function capture_the_future()
     {
+
+        view()->share('active_menu', 'capture-future');
+
         $year = request()->year ? request()->year : date('Y');
 
         if(request()->all_year == 1)
@@ -150,6 +153,9 @@ class FrontendController extends Controller
 
     public function all_capture_the_future()
     {
+
+        view()->share('active_menu', 'capture-future');
+
         $year = request()->year ? request()->year : date('Y');
 
         $capture_the_futures = DB::table('capture_futures')
@@ -623,8 +629,7 @@ class FrontendController extends Controller
     {
         view()->share('active_menu', 'chronicle_magazine');
 
-        $chronicle_magazines = ChronicleMagazine::orderBy('id', 'desc')
-            ->get();
+        $chronicle_magazines = ChronicleMagazine::get();
 
         return view('frontend.chronicle_magazine', compact('chronicle_magazines'));
     }
