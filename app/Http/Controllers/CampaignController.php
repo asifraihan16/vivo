@@ -232,6 +232,10 @@ class CampaignController extends Controller
                 $campaign->campaign_status = 3;
                 $campaign->ended_at = now();
             }
+            elseif ($status == 4) {
+                $campaign->campaign_status = 4;
+            }
+            
 
             $campaign->save();
             return back()->withSuccess('Status updated successfully');

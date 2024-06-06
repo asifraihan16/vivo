@@ -615,7 +615,7 @@ class FrontendController extends Controller
     {
         view()->share('active_menu', 'campaign');
 
-        $campaigns = Campaign::where('campaign_status', '!=', 1)
+        $campaigns = Campaign::whereNotIn('campaign_status', [1,4])
             ->orderBy('campaign_status', 'asc')
             // ->orderBy('started_at', 'desc')
             // ->orderBy('ended_at', 'desc')

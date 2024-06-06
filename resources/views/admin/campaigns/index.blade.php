@@ -71,6 +71,11 @@
                                                             onclick="return confirm_update_status(1)"
                                                             class="btn btn-outline-info btn-sm">Draft</a>
                                                     @endif
+                                                    @if($value->campaign_status != 4)
+                                                    <a href="{{ route('campaigns.update-status', ['campaign'=> $value->id, 'status'=>4]) }}"
+                                                        onclick="return confirm_update_status(4)"
+                                                        class="btn btn-outline-danger btn-sm">Not Show</a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
