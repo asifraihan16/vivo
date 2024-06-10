@@ -61,7 +61,7 @@
                                 @endforeach
                             
                             </div>
-                            {{ $moments->links() }}
+                            {{ $moments->withQueryString()->links('vendor.pagination.default') }}
                             <!-- .columns -->
                         </div>
                         <!-- .works -->
