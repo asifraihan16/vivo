@@ -142,10 +142,10 @@
                                 @endforeach
                             </div>
 
-                            <div style="text-align:center;">
+                            {{-- <div style="text-align:center;">
                                 <a href="{{ route('exibition-photos-by-author', ['author_id' => $user->id]) }}"
                                     class="button is-danger is-radiusless">View All</a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </section>

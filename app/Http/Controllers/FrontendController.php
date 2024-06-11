@@ -268,7 +268,7 @@ class FrontendController extends Controller
         $photos = DB::table('photo_galleries')
             ->where('users_id', $user->id)
             ->latest()
-            ->limit(18)
+            // ->limit(18)
             ->get();
 
             // dd($photos);
