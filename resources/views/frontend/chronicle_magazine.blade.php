@@ -21,7 +21,7 @@
     @php
 
         // $cover_pic = $running_campaing ? Storage::url($running_campaing->img1) : asset('/frontend/assets/images/banner-images/Gallery.webp');
-        $cover_pic = asset('/frontend/assets/images/banner-images/Gallery.webp');
+        $cover_pic = asset('/frontend/assets/images/banner-images/Photography_Chronicle.jpg');
     @endphp
 
     <div id="header-bottom-wrap" class="is-clearfix">
