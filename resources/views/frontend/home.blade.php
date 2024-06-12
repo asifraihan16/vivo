@@ -140,12 +140,12 @@
                                                 </a>
                                             </figure>
                                         </div>
-                                    </div>
+                                    </div> all-capture-future?year=2024
                                 @endforeach --}}
 
-                            </div>
+                            </div> 
                             <div style="text-align:center;">
-                                <a href="{{ url('capture-future?year=2024&all_year=1') }}"
+                                <a href="{{ url('all-capture-future?year=2024') }}"
                                     class="button is-danger is-radiusless">View All</a>
                             </div>
                             <!-- .columns -->
