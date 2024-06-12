@@ -87,7 +87,7 @@
                             </div>
                             @else
                             <div style="text-align:center;">
-                                <a href="{{ url('capture-future?year=2024&all_year=1') }}"
+                                <a href="{{ route('frontend.all_capture_the_future', ['year' => $key]) }}"
                                     class="button is-danger is-radiusless">View All</a>
                             </div>
                             @endif

@@ -145,7 +145,7 @@
 
                             </div>
                             <div style="text-align:center;">
-                                <a href="{{ route('frontend.capture_the_future') }}"
+                                <a href="{{ url('capture-future?year=2024&all_year=1') }}"
                                     class="button is-danger is-radiusless">View All</a>
                             </div>
                             <!-- .columns -->
