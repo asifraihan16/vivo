@@ -162,7 +162,7 @@
                     <div class="container">
                         {{-- <h2 class="display-none">footer</h2> --}}
                         <span class="footer-copyright">
-                            © 2022 Haicheng Mobile Company (BD) Ltd. All rights reserved.
+                            © {{date('Y')}} Haicheng Mobile Company (BD) Ltd. All rights reserved.
                             <a href="{{ route('frontend.privacy-policy') }}" style="color: #fff;">|
                                 Privacy Policy</a>
                             <a href="{{ route('frontend.warranty-terms') }}" style="color: #fff;"> |
