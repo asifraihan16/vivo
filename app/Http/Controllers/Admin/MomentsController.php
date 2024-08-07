@@ -44,7 +44,7 @@ class MomentsController extends Controller
             'author_name' => 'string|required',
             'phone_model' => 'string|required',
             'tag' => 'string|required',
-            'story' => 'string|required',
+            'story' => 'nullable|string',
         ]);
 
         try {
