@@ -87,7 +87,7 @@
                                                         {!! $errors->first('tag', '<p class="help-block">:message</p>') !!}
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="story">Story *</label>
+                                                        <label for="story">Story </label>
                                                         <input type="text" name="tag" id="tag" class="form-control" value="{{ old('story') }}" placeholder="story" >
                                                         {!! $errors->first('story', '<p class="help-block">:message</p>') !!}
                                                     </div>
