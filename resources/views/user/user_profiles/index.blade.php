@@ -46,8 +46,8 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-body p-0">
+                    <div class="card" >
+                        <div class="card-body p-0" style="background: #812323 url({{ asset('/frontend/assets/images/banner-images/Gallery.webp') }}) no-repeat top center; background-size: cover;}">
                             <div id="user_map" class="pro-map" style="height: 220px"></div>
                         </div>
                         <!--end card-body-->
@@ -88,14 +88,14 @@
                                     <!--end col-->
                                     <div class="col-lg-4 align-self-center">
                                         <div class="row">
-                                            <div class="col-auto text-end border-end">
+                                            {{-- <div class="col-auto text-end border-end">
                                                 <button type="button"
                                                     class="btn btn-soft-primary btn-icon-circle btn-icon-circle-sm mb-2">
                                                     <i class="fab fa-facebook-f"></i>
                                                 </button>
                                                 <p class="mb-0 fw-semibold">Facebook</p>
                                                 <!-- <h4 class="m-0 fw-bold">25k <span class="text-muted font-12 fw-normal">Followers</span></h4> -->
-                                            </div>
+                                            </div> --}}
                                             <!--end col-->
                                         </div>
                                         <!--end row-->

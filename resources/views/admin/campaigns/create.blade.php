@@ -15,7 +15,7 @@
         </script>
     <link href="{{ URL::asset('public/admin/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" /> --}}
     {{-- <link href="{{ URL::asset('public/admin/assets/plugins/dropify/css/dropify.min.css') }}" rel="stylesheet"> --}}
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css">
 @endsection
 
@@ -172,10 +172,26 @@
     {{-- <script src="{{ URL::asset('public/admin/assets/pages/jquery.form-upload.init.js') }}"></script> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.js"></script>
 
 
     <script type="text/javascript">
         $(document).ready(function () {
+          
+            $('#basic-conf').summernote({
+            height: 300, // Set editor height
+            toolbar: [
+                // Custom toolbar configuration
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['misc', ['codeview', 'undo', 'redo']]  // Exclude image/video options
+            ]
+        });
             /* $('#start_date').daterangepicker({
                 singleDatePicker: true,
                 showDropdowns: true,
