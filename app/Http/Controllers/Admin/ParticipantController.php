@@ -21,6 +21,12 @@ class ParticipantController extends Controller
                     $query->where('is_vivographer', 1);
                 }
             })
+            ->when(request()->search_info, function ($query) {
+                $searchTerm = '%' . request()->search_info . '%';
+                $query->where('name', 'like', $searchTerm)
+                      ->orWhere('email', 'like', $searchTerm)
+                      ->orWhere('contact', 'like', $searchTerm);
+            })
             ->latest()
             ->paginate(25);
         return view('admin.participants.index', compact('participants'));

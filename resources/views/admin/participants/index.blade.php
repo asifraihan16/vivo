@@ -31,7 +31,12 @@
                                                 </option>
                                             </select>
                                         </div>
-
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-group">
+                                            <label for="participant_type">Search:</label>
+                                            <input type="text"  class="form-control" name="search_info" id="search_info">
+                                        </div>
                                     </div>
                                 </div>
 
