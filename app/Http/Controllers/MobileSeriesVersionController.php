@@ -155,7 +155,7 @@ class MobileSeriesVersionController extends Controller
      */
     public function edit(MobileSeriesVersion $mobileSeriesVersion)
     {
-        $data = MobileSeriesVersion::find($mobileSeriesVersion);
+        $data = MobileSeriesVersion::find($mobileSeriesVersion->id);
         $mobile_series = MobileSeries::all();
         // return $mobile_series_versions[0];
 
