@@ -32,7 +32,7 @@ class PhotoGalleryController extends Controller
 
     public function create()
     {
-        $mobile_series_versions = MobileSeriesVersion::all();
+        $mobile_series_versions = MobileSeriesVersion::where('status',1)->get();
         $tags = Tag::all();
         $campaigns = Campaign::query()
             ->where('campaign_status', 2)
