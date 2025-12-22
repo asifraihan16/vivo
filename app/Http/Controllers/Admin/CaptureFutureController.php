@@ -47,7 +47,7 @@ class CaptureFutureController extends Controller
             $image_url = $this->fileUploadService->resizeUpload('upload_img', 900, 450, 'CaptureFuture');
 
             $validated['image_path'] = $image_url;
-            $validated['year'] = '2024';
+            $validated['year'] = date('Y');
 
             CaptureFuture::create($validated);
 

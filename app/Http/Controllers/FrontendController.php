@@ -132,8 +132,10 @@ class FrontendController extends Controller
                 ->take(20)
                 ->get();
 
-            // Add the data for the current year to the $yearlyData array
-            $capture_the_futures[$year] = $dataForYear;
+            // Only add if there are items
+            if ($dataForYear->count() > 0) {
+                $capture_the_futures[$year] = $dataForYear;
+            }
         }
         $all_year = request()->all_year ? request()->all_year : 0 ;
 
